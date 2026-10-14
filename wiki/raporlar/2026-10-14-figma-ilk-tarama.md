@@ -15,7 +15,7 @@ Dosyanın tamamı okundu: sayfalar, değişkenler, yazı stilleri, komponent set
 - **2 değişken koleksiyonu:** `Primitives` (150 değişken, tek mod) ve `Themes` (53 değişken, Light Mode / Dark Mode).
 - **72 yazı stili:** `text-xs` … `text-4xl` boyutları × 9 ağırlık. Hepsi font ailesi, boyut, ağırlık ve satır yüksekliği değişkenlerine bağlı.
 - **Gölge stili, effect style ve renk stili yok.** Renkler sadece değişkenlerden geliyor.
-- **Component Sets frame'inde 47 komponent seti var.** Bunların 45'inde bütün renk, boşluk, köşe yuvarlaklığı, border ve yazı değerleri değişkene ya da stile bağlı. İstisnalar: Avatar ve List Item.
+- **Component Sets frame'inde 46 komponent seti var.** 47. set (DoDont) Doc Kit'te duruyor. 44 sette bütün renk, boşluk, köşe yuvarlaklığı, border ve yazı değerleri değişkene ya da stile bağlı. Kalan ikisi Avatar ve List Item'daki avatar. Bunlardaki renkler bilinçli olarak hex (bkz. Kararlar).
 - **Screens frame'indeki 3 ekranda (Light + Dark) 3.118 instance var.** Hepsi Component Sets ve Icons sayfasından geliyor. Sistem dışı komponent yok.
 - **İkonlar:** 1.512 Phosphor ikonu, her biri Regular ve Fill olarak (toplam 3.024 komponent). Hepsi 32 × 32 px.
 
@@ -25,7 +25,7 @@ Dosyanın tamamı okundu: sayfalar, değişkenler, yazı stilleri, komponent set
 |---|---|
 | Tabii CMS Cover | Kapak |
 | Playground → Atoms, Molecules, Organisms, Templates | **Deneysel.** İçlerinde "(Item)" ile biten 99 bağımsız komponent var. Silinecek |
-| Playground → **Component Sets** | **Gerçek.** 47 komponent seti |
+| Playground → **Component Sets** | **Gerçek.** 46 komponent seti. **Asıl setler şimdilik burada** (bkz. Kararlar) |
 | Playground → **Screens** | **Gerçek.** Doğrulama ekranları: Dashboard, Edit – Create Show, Shows – Content Library (Light + Dark) |
 | Playground → Doc Kit (parked) | Doküman kuralları: DoDont, Versioning, Status, Doc Tiers |
 | Colors → Primitive Colors | **Referans** ("Slate" frame'leri, 7 elle girilmiş renk). Silinecek |
@@ -49,8 +49,6 @@ Dosyanın tamamı okundu: sayfalar, değişkenler, yazı stilleri, komponent set
 **A2. İkon ana komponentlerinin rengi değişkene bağlı değil.** 3.024 ikonun vektörü elle girilmiş `#343330` renginde (Phosphor'un varsayılan rengi).
 - Komponentlerin içindeki 216 ikon doğru şekilde `text/*` ve `feedback/*` token'larına bağlanmış.
 - Ama yeni yerleştirilen veya değiştirilen (swap) bir ikon siyah gelir ve Dark modda kaybolur. Icons dokümanı da bu riski yazıyor.
-
-**A3. Avatar renkleri elle girilmiş.** Blue, Purple, Green ve Orange seçenekleri değişkene bağlı değil (örneğin Blue: zemin `#e0eaff`, yazı `#1447e1`). Purple (`#ede7ff` / `#6d3fd8`) ve Orange (`#ffeedd` / `#92400e`) renkleri paletinde hiç yok. List Item içindeki avatar da aynı durumda.
 
 ### B. Tailwind ile karşılaştırma
 
@@ -105,13 +103,26 @@ Dosyanın tamamı okundu: sayfalar, değişkenler, yazı stilleri, komponent set
 - Sahneler doğrudan bu listeden üretilebilir.
 - Dokümanlarda 16:9 video çerçevesi hazır.
 
-## Karar bekleyen sorular
+## Kararlar (2026-10-14)
 
-1. Kopya setlerde asıl hangisi? (A1)
-2. Tailwind v4 kesin mi? Köşe yuvarlaklığı isimleri v4'e göre değişsin mi? (B)
-3. İkon ana komponentleri `text/primary`'ye bağlansın mı? (A2)
-4. Avatar renkleri için token eklensin mi? (A3)
-5. Gray paleti silinsin mi, kullanılsın mı? (B)
-6. Gölgeler gerekli mi? (B)
-7. Harf aralığı ve oranlı satır yüksekliği gerekli mi? (B)
-8. Dokümanlara Tokens bölümü eklensin mi? (D)
+| Konu | Karar | Yapılan |
+|---|---|---|
+| Kopya setler (A1) | **Geçici durum, sorun değil.** Asıl setler şimdilik Playground → Component Sets'te. Doküman sayfalarındaki setler, dokümanın nasıl görüneceğini denemek için yapılmış kopyalar ve silinecek. Hedef: her komponentin asıl seti kendi sayfasında | NOW.md'ye not edildi |
+| Köşe yuvarlaklığı isimleri | Tailwind v4'e göre | ✅ `rounded-sm`→`rounded-xs`, `rounded`→`rounded-sm`, `rounded-0`→`rounded-none`, `rounded-4xl` (32 px) eklendi. Mevcut bağlar korundu |
+| İkon rengi (A2) | Ana komponentler bağlansın | ✅ 3.024 ikonun vektörü `text/primary`'ye bağlandı. Komponentlerin içindeki ikon renkleri değişmedi |
+| Avatar renkleri | Bilinçli olarak hex (özel renkler). Denetimde sorun sayılmaz | `rules/core/tailwind-temel.md` istisnalarına eklendi |
+| Gray paleti | Test için duruyor, silinmez | İstisnalara eklendi |
+| Gölgeler | Tailwind'in gerektirdiği her şey eklenebilir | ✅ 10 effect style: `Shadow/shadow-2xs` … `shadow-2xl`, `Shadow/inset-shadow-2xs/xs/sm` (Tailwind v4.3.3 değerleri) |
+| Harf aralığı, oranlı satır yüksekliği | Gerek yok | İstisnalara eklendi |
+| Tokens bölümü (dokümanlarda) | Şimdilik istenmiyor, belki ileride | — |
+| `font-regular` | Adı korunur | İstisnalara eklendi |
+| `leading-none` | Dokunulmaz | İstisnalara eklendi |
+| Primitives'te isim düzeltmeleri | Yapılabilir | ✅ `Colors/neutral/050` → `Colors/neutral/50` |
+| Değişken kapsamları (scope) | Hepsi olması gerektiği gibi | ✅ Spacing → Gap + Width/Height. Köşe yuvarlaklığı → Corner radius. Border kalınlığı → Stroke. Diğer kapsamlar zaten doğruydu. Primitive renkler bilinçli olarak gizli: seçicilerde Themes token'ları görünür |
+| Gizli video frame'i (Overview) | Bilinçli olarak gizli, video sonra gelecek bir özellik | NOW.md'ye not edildi |
+| Video yer tutucusundaki kopyala-yapıştır hatası | Düzelt | ✅ Badge: "…Badge and Status Dot", Input: "…Input, Select and Textarea". Badge'deki "Button Variants" frame'i "Badge Variants" yapıldı |
+| Dokümanı kopyalayarak üretmek | Referans frame kopyalanır ama mutlaka incelenir | `rules/core/dokumantasyon/referans-inceleme.md` |
+
+## Açık
+
+- Komponent açıklamalarının (description) dili: 46 setin 15'inde Türkçe parçalar var. Karar bekliyor.

@@ -3,7 +3,7 @@ id: core.tailwind-temel
 title: Tailwind temel alınır
 owner: "@mucahitpuren"
 status: active
-version: 1
+version: 2
 applies_to: all
 updated: 2026-10-14
 ---
@@ -28,6 +28,16 @@ Tasarım sistemi **Tailwind CSS (v4)** üzerine kurulu. Figma'daki değişkenler
 ✅ Figma `spacing/4` = 16px · Tailwind `p-4` = `calc(var(--spacing) * 4)` = 16px → uyumlu.
 
 ❌ Figma `radius/md` = 8px · Tailwind `rounded-md` = 6px → **uyarı:** "Hangisi doğru?"
+
+## İstisnalar
+
+Proje sahibinin bilinçli kararları. Bunlar Tailwind'den farklıdır ama hata olarak bildirilmez:
+
+- **`font-regular`** adı korunur (Tailwind'de `font-normal`). Kodda `font-normal`'a eşlenir.
+- **`leading-none`** değişkenine dokunulmaz.
+- **Harf aralığı (`tracking-*`)** ve **oranlı satır yükseklikleri** (`leading-tight`, `leading-normal`…) kullanılmaz. Eksik olarak bildirilmez.
+- **Gray paleti** test için durur. Kullanılmıyor diye silinmesi önerilmez.
+- **Avatar renkleri** bilinçli olarak hex değerdir (özel renkler). Bağlantı denetiminde hata sayılmaz.
 
 ## Kontrol
 

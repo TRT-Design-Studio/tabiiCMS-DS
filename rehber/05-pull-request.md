@@ -10,7 +10,7 @@
 
 | Değişen yer | Kim onaylar? |
 |---|---|
-| `rules/core/`, `AGENTS.md`, `CLAUDE.md`, `tokens/`, `scripts/`, `.github/` | Sadece proje sahibi (Mücahit) |
+| `rules/core/`, `workflows/`, `tokens/`, `scripts/`, `AGENTS.md`, `CLAUDE.md`, `ROADMAP.md`, `.github/`, `.claude/` | Sadece proje sahibi (Mücahit) |
 | Diğer her şey (rehberler, `rules/team/`, komponentler, öneriler…) | Ekipten herhangi biri |
 
 Kendi PR'ını kendin onaylayamazsın. GitHub buna izin vermez.

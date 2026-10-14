@@ -10,9 +10,10 @@ updated: 2026-10-14
 
 ## Sıradaki işler
 
-1. Repoyu GitHub'a ilk kez yüklemek ve main korumasını açmak: [rehber/yonetici/github-kurulumu.md](rehber/yonetici/github-kurulumu.md) (Mücahit)
-2. Figma dosyasının linkini paylaşmak → Faz 1 (Figma denetimi) başlar
-3. İlk kuralların yazılması (Mücahit'ten gelecek)
+1. Figma dosyasının linkini paylaşmak → Faz 1 (Figma denetimi) başlar
+2. İlk kuralların yazılması (Mücahit'ten gelecek)
+3. Ekip arkadaşlarının (`@aysemioki`, `@merveeceylaan`) [README](README.md)'deki "ilk kez" adımlarıyla kurulum yapması
+4. (İsteğe bağlı) Organizasyonda üyelerin repo oluşturmasını kapatmak: [github-kurulumu.md](rehber/yonetici/github-kurulumu.md), Adım 1
 
 ## Açık kararlar
 

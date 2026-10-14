@@ -121,8 +121,5 @@ Dosyanın tamamı okundu: sayfalar, değişkenler, yazı stilleri, komponent set
 | Değişken kapsamları (scope) | Hepsi olması gerektiği gibi | ✅ Spacing → Gap + Width/Height. Köşe yuvarlaklığı → Corner radius. Border kalınlığı → Stroke. Diğer kapsamlar zaten doğruydu. Primitive renkler bilinçli olarak gizli: seçicilerde Themes token'ları görünür |
 | Gizli video frame'i (Overview) | Bilinçli olarak gizli, video sonra gelecek bir özellik | NOW.md'ye not edildi |
 | Video yer tutucusundaki kopyala-yapıştır hatası | Düzelt | ✅ Badge: "…Badge and Status Dot", Input: "…Input, Select and Textarea". Badge'deki "Button Variants" frame'i "Badge Variants" yapıldı |
+| Komponent açıklamaları (description) | Tamamen İngilizce | ✅ Türkçe parça içeren 15 açıklama İngilizceye çevrildi, kalıp korundu |
 | Dokümanı kopyalayarak üretmek | Referans frame kopyalanır ama mutlaka incelenir | `rules/core/dokumantasyon/referans-inceleme.md` |
-
-## Açık
-
-- Komponent açıklamalarının (description) dili: 46 setin 15'inde Türkçe parçalar var. Karar bekliyor.

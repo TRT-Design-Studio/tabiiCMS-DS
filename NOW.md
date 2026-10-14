@@ -16,11 +16,10 @@ updated: 2026-10-14
 
 ## Sıradaki işler
 
-1. Komponent açıklamalarının dili için karar
-2. `rules/core/token-isimlendirme.md` ve `tokens/` (Faz 1)
-3. İlk kuralların yazılması (Mücahit'ten gelecek)
-4. Ekip arkadaşlarının (`@aysemioki`, `@merveeceylaan`) [README](README.md)'deki "ilk kez" adımlarıyla kurulum yapması
-5. (İsteğe bağlı) Organizasyonda üyelerin repo oluşturmasını kapatmak: [github-kurulumu.md](rehber/yonetici/github-kurulumu.md), Adım 1
+1. `rules/core/token-isimlendirme.md` ve `tokens/` (Faz 1)
+2. İlk kuralların yazılması (Mücahit'ten gelecek)
+3. Ekip arkadaşlarının (`@aysemioki`, `@merveeceylaan`) [README](README.md)'deki "ilk kez" adımlarıyla kurulum yapması
+4. (İsteğe bağlı) Organizasyonda üyelerin repo oluşturmasını kapatmak: [github-kurulumu.md](rehber/yonetici/github-kurulumu.md), Adım 1
 
 ## Açık kararlar
 

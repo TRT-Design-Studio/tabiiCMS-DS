@@ -1,0 +1,16 @@
+# Bu dosya hangi klasörü kimin onaylaması gerektiğini söyler.
+# Buradaki yerlere dokunan bir PR, listedeki kişi onaylamadan merge edilemez.
+# Proje sahibi: @mucahitpuren
+
+# Her PR'ın proje sahibinin onayından geçmesi istenirse aşağıdaki satırın başındaki "# " kaldırılır:
+# * @mucahitpuren
+
+/AGENTS.md      @mucahitpuren
+/CLAUDE.md      @mucahitpuren
+/ROADMAP.md     @mucahitpuren
+/rules/core/    @mucahitpuren
+/tokens/        @mucahitpuren
+/scripts/       @mucahitpuren
+/workflows/     @mucahitpuren
+/.github/       @mucahitpuren
+/.claude/       @mucahitpuren

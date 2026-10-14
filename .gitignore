@@ -7,3 +7,7 @@ storybook-static/
 .env
 .env.*
 *.log
+# Videolar git'e girmez: rules/core/video/dagitim.md
+*.mp4
+*.mov
+*.webm

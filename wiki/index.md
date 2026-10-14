@@ -6,6 +6,7 @@
 
 | Kural | id | Durum | Sürüm |
 |---|---|---|---|
+| [Referans frame'ler kopyalanır ama incelenir](../rules/core/dokumantasyon/referans-inceleme.md) | `core.dokuman-referans-inceleme` | active | 1 |
 | [Kural dosyası yazım formatı](../rules/core/kural-yazim-formati.md) | `core.kural-yazim-formati` | active | 1 |
 | [README ve rehber yazım kuralı](../rules/core/readme-yazim-kurali.md) | `core.readme-yazim-kurali` | active | 1 |
 | [Tailwind temel alınır](../rules/core/tailwind-temel.md) | `core.tailwind-temel` | active | 2 |

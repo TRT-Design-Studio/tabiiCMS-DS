@@ -11,5 +11,5 @@ Güncel liste her zaman burada: [wiki/index.md](../../wiki/index.md)
 ## Gelecek kurallar (yol haritasına göre)
 
 - `token-isimlendirme.md`: Figma değişkeni → CSS değişkeni → Tailwind class eşlemesi (Faz 1)
-- `dokumantasyon/`: komponent dokümantasyon şablonu ve kuralları (Faz 2)
+- `dokumantasyon/sablon.md`: komponent dokümantasyon şablonu (Faz 2)
 - `video/sahne-kurgusu.md`: videodaki sahnelerin sırası ve süreleri (Faz 4)

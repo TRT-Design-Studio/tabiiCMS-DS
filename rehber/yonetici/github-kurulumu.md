@@ -9,6 +9,8 @@ Bu rehber bir kez yapılır. Sonunda şunlar hazır olur:
 
 ⏱ Yaklaşık 20 dakika
 
+> ✅ **Durum (2026-10-14):** `TRT-Design-Studio/tabiiCMS-DS` için Adım 2–8 yapıldı: `tasarim` takımı kuruldu ve `@aysemioki` ile `@merveeceylaan` takıma eklendi, takıma Write yetkisi verildi, PR ayarları yapıldı, `main-koruma` kural seti aktif. Adım 1'deki **Repository creation** ayarı henüz değiştirilmedi. Bu rehber, kurulumun nasıl yapıldığının kaydı olarak ve ileride yeni bir repo açılırsa diye duruyor.
+
 ---
 
 ## Adım 1: Organizasyon ayarları

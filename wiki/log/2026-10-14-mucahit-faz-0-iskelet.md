@@ -22,6 +22,12 @@ branch: main (ilk kurulum)
 ## Açık sorular
 - Yok. Organizasyon: `TRT-Design-Studio`, proje sahibi: `@mucahitpuren`.
 
+## GitHub kurulumu (yapıldı)
+- Repo: `TRT-Design-Studio/tabiiCMS-DS` (public). İlk kayıt main'e yüklendi, `kontrol` Actions'ı ✓ geçti.
+- `tasarim` takımı kuruldu (`@aysemioki`, `@merveeceylaan`), repoda **Write** yetkisi var.
+- PR ayarları: sadece squash merge, merge edilen branch'ler otomatik siliniyor.
+- `main-koruma` kural seti: PR zorunlu, 1 onay, Code Owner onayı, `kontrol` geçmeli, force push ve silme engelli. Organization admin bypass modu "sadece PR ile".
+- Bu güncellemeler ilk PR olarak gönderildi.
+
 ## Sıradaki adım
-- [rehber/yonetici/github-kurulumu.md](../../rehber/yonetici/github-kurulumu.md) adımlarıyla repoyu GitHub'a yüklemek.
 - Figma linki gelince Faz 1.

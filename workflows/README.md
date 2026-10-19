@@ -11,12 +11,12 @@
 | `basla: <iş>` | [basla.md](basla.md) | Güncel hali çeker, yeni branch açar |
 | `oturumu bitir` | [oturum-bitir.md](oturum-bitir.md) | Bugünün kaydını yazar |
 | `gonder` | [gonder.md](gonder.md) | Kontrol eder, yükler, PR açar |
+| `figma senkron` | [figma-senkron.md](figma-senkron.md) | Figma'daki değişkenleri okur, `tokens/` klasörünü günceller |
 
 ## Gelecekte eklenecekler
 
 - `dokuman: <komponent>`: komponent dokümantasyonu üretir (Faz 2)
 - `video: <komponent>`: komponent videosu üretir (Faz 4)
-- `figma-senkron`: Figma'daki değişiklikleri repoya taşır (Faz 5)
 
 ## Yeni iş akışı eklemek
 

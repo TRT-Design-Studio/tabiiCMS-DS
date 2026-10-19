@@ -2,8 +2,9 @@
 // Kullanım: node scripts/kontrol.mjs
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
-import { walk, frontmatter, rel } from './lib.mjs';
+import { ROOT, walk, frontmatter, rel } from './lib.mjs';
 import { buildIndex, INDEX_PATH } from './index-olustur.mjs';
+import { buildTokens, readRaw } from './tokenlari-uret.mjs';
 
 const errors = [];
 const fail = (where, message) => errors.push(`✗ ${where}: ${message}`);
@@ -70,6 +71,21 @@ for (const file of mdFiles) {
 const current = existsSync(INDEX_PATH) ? readFileSync(INDEX_PATH, 'utf8') : '';
 if (current !== buildIndex()) {
   fail('wiki/index.md', 'güncel değil. Düzeltmek için şunu çalıştır: node scripts/index-olustur.mjs');
+}
+
+// 6. tokens/ içindeki üretilmiş dosyalar figma-ham.json ile güncel olmalı.
+const raw = readRaw();
+if (raw) {
+  try {
+    for (const [path, content] of Object.entries(buildTokens(raw).files)) {
+      const full = join(ROOT, path);
+      if (!existsSync(full) || readFileSync(full, 'utf8') !== content) {
+        fail(path, 'güncel değil veya elle değiştirilmiş. Düzeltmek için şunu çalıştır: node scripts/tokenlari-uret.mjs');
+      }
+    }
+  } catch (e) {
+    fail('tokens/figma-ham.json', `token üretimi başarısız: ${e.message}`);
+  }
 }
 
 if (errors.length) {

@@ -23,6 +23,7 @@ Kullanıcı aşağıdakilerden birini (veya benzerini) yazarsa ilgili dosyayı o
 | `basla`, `basla: <iş>`, "yeni işe başlıyorum" | [workflows/basla.md](workflows/basla.md) |
 | `gonder`, "pull request aç", "yükle" | [workflows/gonder.md](workflows/gonder.md) |
 | `oturumu bitir`, "bugünlük bu kadar" | [workflows/oturum-bitir.md](workflows/oturum-bitir.md) |
+| "figma senkron", "token'ları güncelle" | [workflows/figma-senkron.md](workflows/figma-senkron.md) |
 | "çakışma var", "conflict" | [rehber/06-cakisma-olursa.md](rehber/06-cakisma-olursa.md) içindeki ajan bölümü |
 | "kurulumumu kontrol et" | [rehber/02-araclari-kur.md](rehber/02-araclari-kur.md) içindeki kontrol komutlarını çalıştır, sonucu sade dille anlat |
 
@@ -59,11 +60,11 @@ Bir çelişki fark edersen kendi başına çözme. Kullanıcıya iki kuralı da 
 | `proposals/` | Ana kural değişiklik önerileri |
 | `workflows/` | Tekrar eden işlerin adım adım tarifleri |
 | `components/<isim>/spec.md` | Komponent kimlik kartı: varyantlar, state'ler, token'lar |
-| `tokens/` | Figma değişkenleri (JSON). Figma'dan üretilir |
+| `tokens/` | Figma'dan üretilen token'lar (DTCG JSON), `tailwind.css` ve `esleme.md`. Elle düzenlenmez |
 | `wiki/index.md` | Otomatik içindekiler |
 | `wiki/log/` | Oturum kayıtları, her biri ayrı dosya: `YYYY-MM-DD-<kullanici>-<konu>.md` |
 | `rehber/` | İnsanlar için rehberler |
-| `scripts/` | `kontrol.mjs` (doğrulama), `index-olustur.mjs` (index üretimi) |
+| `scripts/` | `kontrol.mjs` (doğrulama), `index-olustur.mjs` (index üretimi), `tokenlari-uret.mjs` (token üretimi), `figma/` (Figma okuma) |
 
 ## Yazım düzeni
 

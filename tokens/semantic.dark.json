@@ -1,0 +1,769 @@
+{
+  "$description": "Bu dosya `node scripts/tokenlari-uret.mjs` ile Figma verisinden otomatik üretilir. Elle düzenleme.",
+  "bg": {
+    "base": {
+      "$type": "color",
+      "$value": "{color.neutral.950}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:5",
+          "name": "bg/base",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        }
+      }
+    },
+    "surface": {
+      "$type": "color",
+      "$value": "{color.neutral.900}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:6",
+          "name": "bg/surface",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        }
+      }
+    },
+    "subtle": {
+      "$type": "color",
+      "$value": "{color.neutral.800}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:7",
+          "name": "bg/subtle",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        }
+      }
+    },
+    "raised": {
+      "$type": "color",
+      "$value": "{color.neutral.800}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:8",
+          "name": "bg/raised",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        }
+      }
+    },
+    "inverse": {
+      "$type": "color",
+      "$value": "{color.neutral.50}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:9",
+          "name": "bg/inverse",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        }
+      }
+    },
+    "overlay": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0,
+          0
+        ],
+        "alpha": 0.7,
+        "hex": "#000000"
+      },
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:10",
+          "name": "bg/overlay",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        }
+      }
+    },
+    "disabled": {
+      "$type": "color",
+      "$value": "{color.neutral.800}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:11",
+          "name": "bg/disabled",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        }
+      }
+    },
+    "interactive": {
+      "hover": {
+        "$type": "color",
+        "$value": "{color.neutral.800}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:12",
+            "name": "bg/interactive/hover",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "pressed": {
+        "$type": "color",
+        "$value": "{color.neutral.700}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:13",
+            "name": "bg/interactive/pressed",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{color.neutral.800}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:14",
+            "name": "bg/interactive/selected",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "text": {
+    "primary": {
+      "$type": "color",
+      "$value": "{color.neutral.50}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:15",
+          "name": "text/primary",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ]
+        }
+      }
+    },
+    "secondary": {
+      "$type": "color",
+      "$value": "{color.neutral.300}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:16",
+          "name": "text/secondary",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ]
+        }
+      }
+    },
+    "tertiary": {
+      "$type": "color",
+      "$value": "{color.neutral.400}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:17",
+          "name": "text/tertiary",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ]
+        }
+      }
+    },
+    "inverse": {
+      "$type": "color",
+      "$value": "{color.neutral.900}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:18",
+          "name": "text/inverse",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ]
+        }
+      }
+    },
+    "on-color": {
+      "$type": "color",
+      "$value": "{color.white}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:19",
+          "name": "text/on-color",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ]
+        }
+      }
+    },
+    "disabled": {
+      "$type": "color",
+      "$value": "{color.neutral.500}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:20",
+          "name": "text/disabled",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ]
+        }
+      }
+    }
+  },
+  "border": {
+    "subtle": {
+      "$type": "color",
+      "$value": "{color.neutral.800}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:21",
+          "name": "border/subtle",
+          "scopes": [
+            "STROKE_COLOR"
+          ]
+        }
+      }
+    },
+    "default": {
+      "$type": "color",
+      "$value": "{color.neutral.700}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:22",
+          "name": "border/default",
+          "scopes": [
+            "STROKE_COLOR"
+          ]
+        }
+      }
+    },
+    "strong": {
+      "$type": "color",
+      "$value": "{color.neutral.600}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:23",
+          "name": "border/strong",
+          "scopes": [
+            "STROKE_COLOR"
+          ]
+        }
+      }
+    },
+    "selected": {
+      "$type": "color",
+      "$value": "{color.neutral.50}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:24",
+          "name": "border/selected",
+          "scopes": [
+            "STROKE_COLOR"
+          ]
+        }
+      }
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "{color.blue.400}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:25",
+          "name": "border/focus",
+          "scopes": [
+            "STROKE_COLOR"
+          ]
+        }
+      }
+    },
+    "disabled": {
+      "$type": "color",
+      "$value": "{color.neutral.800}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:250:26",
+          "name": "border/disabled",
+          "scopes": [
+            "STROKE_COLOR"
+          ]
+        }
+      }
+    },
+    "danger": {
+      "$type": "color",
+      "$value": "{color.red.500}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:281:680",
+          "name": "border/danger",
+          "scopes": [
+            "STROKE_COLOR"
+          ]
+        }
+      }
+    },
+    "control": {
+      "$type": "color",
+      "$value": "{color.neutral.500}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:306:5788",
+          "name": "border/control",
+          "scopes": [
+            "STROKE_COLOR"
+          ]
+        }
+      }
+    }
+  },
+  "action": {
+    "primary": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.50}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:27",
+            "name": "action/primary/default",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.neutral.200}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:28",
+            "name": "action/primary/hover",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "pressed": {
+        "$type": "color",
+        "$value": "{color.neutral.300}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:29",
+            "name": "action/primary/pressed",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    },
+    "secondary": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.900}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:30",
+            "name": "action/secondary/default",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.neutral.800}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:31",
+            "name": "action/secondary/hover",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "pressed": {
+        "$type": "color",
+        "$value": "{color.neutral.700}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:32",
+            "name": "action/secondary/pressed",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    },
+    "danger": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.red.700}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:33",
+            "name": "action/danger/default",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.red.800}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:34",
+            "name": "action/danger/hover",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "pressed": {
+        "$type": "color",
+        "$value": "{color.red.900}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:35",
+            "name": "action/danger/pressed",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "feedback": {
+    "success": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.green.950}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:36",
+            "name": "feedback/success/bg",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.green.300}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:37",
+            "name": "feedback/success/text",
+            "scopes": [
+              "SHAPE_FILL",
+              "TEXT_FILL"
+            ]
+          }
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.green.800}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:38",
+            "name": "feedback/success/border",
+            "scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        }
+      },
+      "dot": {
+        "$type": "color",
+        "$value": "{color.green.400}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:39",
+            "name": "feedback/success/dot",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    },
+    "warning": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.yellow.950}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:40",
+            "name": "feedback/warning/bg",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.yellow.300}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:41",
+            "name": "feedback/warning/text",
+            "scopes": [
+              "SHAPE_FILL",
+              "TEXT_FILL"
+            ]
+          }
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.yellow.800}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:42",
+            "name": "feedback/warning/border",
+            "scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        }
+      },
+      "dot": {
+        "$type": "color",
+        "$value": "{color.yellow.400}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:43",
+            "name": "feedback/warning/dot",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    },
+    "danger": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.red.950}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:44",
+            "name": "feedback/danger/bg",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.red.300}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:45",
+            "name": "feedback/danger/text",
+            "scopes": [
+              "SHAPE_FILL",
+              "TEXT_FILL"
+            ]
+          }
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.red.800}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:46",
+            "name": "feedback/danger/border",
+            "scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        }
+      },
+      "dot": {
+        "$type": "color",
+        "$value": "{color.red.400}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:47",
+            "name": "feedback/danger/dot",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    },
+    "info": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.blue.950}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:48",
+            "name": "feedback/info/bg",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.blue.300}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:49",
+            "name": "feedback/info/text",
+            "scopes": [
+              "SHAPE_FILL",
+              "TEXT_FILL"
+            ]
+          }
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.blue.800}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:50",
+            "name": "feedback/info/border",
+            "scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        }
+      },
+      "dot": {
+        "$type": "color",
+        "$value": "{color.blue.400}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:51",
+            "name": "feedback/info/dot",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    },
+    "neutral": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.neutral.800}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:52",
+            "name": "feedback/neutral/bg",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.neutral.300}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:53",
+            "name": "feedback/neutral/text",
+            "scopes": [
+              "SHAPE_FILL",
+              "TEXT_FILL"
+            ]
+          }
+        }
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.neutral.700}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:54",
+            "name": "feedback/neutral/border",
+            "scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        }
+      },
+      "dot": {
+        "$type": "color",
+        "$value": "{color.neutral.500}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:250:55",
+            "name": "feedback/neutral/dot",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

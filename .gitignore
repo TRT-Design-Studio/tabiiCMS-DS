@@ -11,3 +11,5 @@ storybook-static/
 *.mp4
 *.mov
 *.webm
+# Figma senkronunda geçici parçalar: workflows/figma-senkron.md
+tokens/.parcalar/

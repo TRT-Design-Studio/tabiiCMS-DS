@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-19
+updated: 2026-10-20
 ---
 
 # Şu an neredeyiz?
@@ -20,7 +20,7 @@ updated: 2026-10-19
 1. Faz 2: doküman şablonu (`rules/core/dokumantasyon/sablon.md`) ve "dokuman: <komponent>" akışı
 2. İlk kuralların yazılması (Mücahit'ten gelecek)
 3. Ekip arkadaşlarının (`@aysemioki`, `@merveeceylaan`) [README](README.md)'deki "ilk kez" adımlarıyla kurulum yapması
-4. (İsteğe bağlı) Organizasyonda üyelerin repo oluşturmasını kapatmak: [github-kurulumu.md](rehber/yonetici/github-kurulumu.md), Adım 1
+4. Ayşe ve Merve kendi 2FA'larını açınca organizasyonda 2FA zorunluluğunu açmak: [github-kurulumu.md](rehber/yonetici/github-kurulumu.md), Adım 1
 
 ## Açık kararlar
 

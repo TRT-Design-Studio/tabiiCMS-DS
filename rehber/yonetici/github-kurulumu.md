@@ -9,7 +9,7 @@ Bu rehber bir kez yapılır. Sonunda şunlar hazır olur:
 
 ⏱ Yaklaşık 20 dakika
 
-> ✅ **Durum (2026-10-14):** `TRT-Design-Studio/tabiiCMS-DS` için Adım 2–8 yapıldı: `tasarim` takımı kuruldu ve `@aysemioki` ile `@merveeceylaan` takıma eklendi, takıma Write yetkisi verildi, PR ayarları yapıldı, `main-koruma` kural seti aktif. Adım 1'deki **Repository creation** ayarı henüz değiştirilmedi. Bu rehber, kurulumun nasıl yapıldığının kaydı olarak ve ileride yeni bir repo açılırsa diye duruyor.
+> ✅ **Durum (2026-10-20):** `TRT-Design-Studio/tabiiCMS-DS` için bütün adımlar yapıldı. Tek eksik: organizasyonda **2FA zorunluluğu** (Adım 1, madde 4). Bütün üyeler kendi 2FA'sını açtıktan sonra açılacak. Bu rehber, kurulumun nasıl yapıldığının kaydı olarak ve ileride yeni bir repo açılırsa diye duruyor.
 
 ---
 
@@ -19,6 +19,8 @@ Bu rehber bir kez yapılır. Sonunda şunlar hazır olur:
 2. **Base permissions** → **Read** seç. Organizasyon üyeleri bütün repoları görebilir ama yazamaz. Yazma yetkisini takım üzerinden vereceğiz.
 3. **Repository creation** → **Public** ve **Private** kutularının işaretini kaldır. Yeni repoyu sadece yönetici açabilir.
 4. **Save** butonuna tıkla.
+5. **https://github.com/organizations/TRT-Design-Studio/settings/security** → **Require two-factor authentication for everyone** kutusunu işaretle → **Save**.
+   - ⚠️ **Önce bütün üyelerin kendi 2FA'sını açmış olması gerekir.** Açmamış olanları GitHub organizasyondan çıkarır. Kimin açmadığını görmek için: **People** sayfası → **2FA** filtresi.
 
 ## Adım 2: Takım oluştur
 
@@ -95,6 +97,7 @@ Repo → **Settings** → **General** → aşağı kaydır, **Pull Requests** b�
      - ✅ **Require review from Code Owners**
    - ✅ **Require status checks to pass**
      - **Add checks** → `kontrol` yaz ve listeden seç. Listede yoksa Adım 4'teki ilk yükleme bitmemiştir. Biraz bekleyip tekrar dene.
+     - ✅ **Require branches to be up to date before merging**. İki PR ayrı ayrı doğru olup birlikte main'i bozmasın diye. PR'larda bazen **Update branch** butonuna basmak gerekir.
    - ✅ **Block force pushes**
 7. **Create**
 
@@ -106,7 +109,12 @@ Repo → **Settings** → **General** → aşağı kaydır, **Pull Requests** b�
 
 > ⚠️ CODEOWNERS'a yazılan kişinin repoda **Write** veya daha yüksek bir yetkisi olmalı. Yoksa GitHub o satırı yok sayar.
 
-## Adım 9: Korumayı test et
+## Adım 9: Güvenlik ve gereksiz sekmeler
+
+1. Repo → **Settings** → **Advanced Security** (bazı hesaplarda **Code security**) → **Secret Protection** ve **Push protection** → **Enable**. Biri yanlışlıkla şifre veya API anahtarı yüklemeye çalışırsa GitHub yüklemeyi engeller.
+2. Repo → **Settings** → **General** → **Features** bölümünde **Wikis** ve **Projects** kutularının işaretini kaldır. Kullanmıyoruz, Wikis sekmesi bizim `wiki/` klasörümüzle karışabilir.
+
+## Adım 10: Korumayı test et
 
 Bir ekip arkadaşından Terminal'de main'e doğrudan bir şey göndermeyi denemesini iste (veya kendin, bypass'ı geçici kapatarak dene). GitHub'ın şöyle bir hatayla reddetmesi gerekir:
 

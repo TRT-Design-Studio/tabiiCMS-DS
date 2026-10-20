@@ -43,4 +43,7 @@ branch: mucahitpuren/token-isimlendirme
 - `basla` akışı, merge edilmiş eski branch'leri temizliyor.
 - Sözlüğe 9 terim eklendi. 2FA rehberindeki yanlış iddia düzeltildi. Faz 0 log dosyasının adı kurala uyduruldu.
 - GitHub ayarlarında bulunan açıklar (2FA, secret scanning, branch güncelliği, repo oluşturma, wiki) proje sahibinin onayına sunuldu.
+- Mücahit'in onayıyla açılanlar: secret scanning + push protection, merge öncesi branch güncelliği (strict), üyelerin repo açması kapatıldı, GitHub Wiki ve Projects sekmeleri kapatıldı. Bu bilgisayarda commit e-postası GitHub'ın gizli adresine çevrildi.
+- 2FA: Mücahit açtı. Ayşe ve Merve henüz açmadı. Organizasyon zorunluluğu onlar açınca açılacak (NOW.md).
+- Yeni komut: `branch'imi güncelle` (strict ayarı nedeniyle).
 

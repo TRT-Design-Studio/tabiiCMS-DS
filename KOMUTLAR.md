@@ -38,6 +38,7 @@ Ayrıntı: [rehber/04-gunluk-calisma.md](rehber/04-gunluk-calisma.md)
 | `kurulumumu kontrol et` | Gerekli programların kurulu olup olmadığına bakar, eksik varsa söyler | [rehber/02-araclari-kur.md](rehber/02-araclari-kur.md) |
 | `çakışma var, çöz` | Aynı satırı iki kişi değiştirdiyse iki hali yan yana gösterir ve hangisinin kalacağını sorar | [rehber/06-cakisma-olursa.md](rehber/06-cakisma-olursa.md) |
 | `PR'daki kontrol neden kırmızı, düzelt` | Otomatik kontrolün neden geçmediğini bulur ve düzeltir | [rehber/github-actions-nedir.md](rehber/github-actions-nedir.md) |
+| `branch'imi güncelle` | PR'ında "out-of-date" uyarısı varsa branch'ini main'in son haliyle günceller ve kontrolü tekrar çalıştırır | [rehber/05-pull-request.md](rehber/05-pull-request.md) |
 | `<numara> numaralı PR'ı incele` | Bir pull request'te neyin değiştiğini sade dille özetler | [rehber/05-pull-request.md](rehber/05-pull-request.md) |
 | `son değişikliklerimi geri al` | Henüz göndermediğin değişiklikleri gösterir ve onaylarsan geri alır | [rehber/sorun-giderme.md](rehber/sorun-giderme.md) |
 | `AGENTS.md ve NOW.md'yi yeniden oku` | Yapay zeka bir şeyi yanlış hatırlıyorsa projenin güncel durumunu baştan okur | [AGENTS.md](AGENTS.md) |

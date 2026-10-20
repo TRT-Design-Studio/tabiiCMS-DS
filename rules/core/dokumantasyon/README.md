@@ -7,3 +7,4 @@ Komponent dokümantasyonlarının kuralları. Şablon, Figma'daki dokümante edi
 | Kural | Ne söyler? |
 |---|---|
 | [referans-inceleme.md](referans-inceleme.md) | Referans frame'ler kopyalanır ama her biri incelenir |
+| [frame-duzeni.md](frame-duzeni.md) | Frame sırası (Overview → Changelog → …), Overview girişi, gizli video alanı, sayfa zemini |

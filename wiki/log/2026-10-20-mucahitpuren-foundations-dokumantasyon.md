@@ -1,5 +1,5 @@
 ---
-date: 2026-10-21
+date: 2026-10-20
 author: "@mucahitpuren"
 branch: mucahitpuren/foundations-dokumantasyon
 ---
@@ -30,7 +30,25 @@ branch: mucahitpuren/foundations-dokumantasyon
 
 ## Açık sorular
 - Layout Grid sayfası: kırılımlar ve grid kararı (muhtemel 1440 / 768 / 375).
-- Shadows → Layers tablosu (hangi katman hangi gölge) onay bekliyor.
 
 ## Sıradaki adım
 - Faz 2: komponent doküman şablonunu kurala dökmek (`rules/core/dokumantasyon/sablon.md`) ve `dokuman: <komponent>` akışı. Bu oturumda foundations için kullanılan doküman yapı taşları bu akışın temeli olabilir.
+
+## Güncelleme: Mücahit'in revizeleri
+- **Genel kurallar** artık `rules/core/dokumantasyon/frame-duzeni.md` dosyasında:
+  - frame sırası Overview → Changelog → diğerleri
+  - Overview girişi: ortada 256 px kare, ortalanmış başlık ve meta
+  - altında gizli 16:9 video alanı
+  - ana komponentler doküman sayfasında durmaz
+  - sayfa zemini #171717
+- **Colors:** Overview sadece giriş ve gizli video. Semantic renkler ayrı **Semantic Colors** frame'ine taşındı. Usage silindi.
+- **Typography:** Overview yeniden kuruldu. Text Styles ve Usage silindi. Sayfada Overview, Changelog ve Typography frame'i kaldı.
+- **Spacing:** Ölçek tablosu ayrı **Scale** frame'ine taşındı. Usage silindi.
+- **Borders:** **Corner Radius** ve **Border Width** ayrı frame'lere taşındı. Border colors ve Focus silindi.
+- **Shadows:** Layers bölümü silindi. Drop ve inset tabloları Overview'da, gizli videonun altında. Usage duruyor.
+- **Ratios:**
+  - Ana komponent seti Playground → Component Sets frame'ine taşındı.
+  - Dokümanda **Component Sets** frame'i var, varyantlar değil instance'lar.
+  - Overview'da sadece All ratios tablosu kaldı. Usage silindi.
+- Bütün foundations sayfalarının (Icons ve Layout Grid dahil) zemini #171717 yapıldı.
+

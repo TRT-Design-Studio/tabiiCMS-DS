@@ -31,3 +31,16 @@ branch: mucahitpuren/token-isimlendirme
 - Semantic bir class bir primitive rengin adıyla çakışırsa üretici durur.
 - Yazı boyutları (xs–4xl) ve `.dark` sınıfı kararları onaylandı.
 - Yeni: `KOMUTLAR.md`, kullanıcıların yazabileceği bütün komutlar. AGENTS.md'deki komut tablosu buraya taşındı (tek liste). `kontrol.mjs` her iş akışının orada olup olmadığını denetliyor.
+
+## Güncelleme: sistem denetimi (2026-10-20)
+- Düzeltilen script hataları:
+  - Olmayan bir renge bağlı semantic token artık anlaşılır hata veriyor.
+  - Bozuk `figma-ham.json` kontrolü çökertmiyor, açıklama veriyor.
+  - Scriptler başka bir scriptten çağrılınca çökmüyor.
+- Actions token izni açıkça salt okunur (`permissions: contents: read`).
+- AGENTS.md: dokümantasyon dili İngilizce olarak yazıldı.
+- ROADMAP Faz 3 metni güncellendi.
+- `basla` akışı, merge edilmiş eski branch'leri temizliyor.
+- Sözlüğe 9 terim eklendi. 2FA rehberindeki yanlış iddia düzeltildi. Faz 0 log dosyasının adı kurala uyduruldu.
+- GitHub ayarlarında bulunan açıklar (2FA, secret scanning, branch güncelliği, repo oluşturma, wiki) proje sahibinin onayına sunuldu.
+

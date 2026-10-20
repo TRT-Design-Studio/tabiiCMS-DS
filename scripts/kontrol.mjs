@@ -74,7 +74,12 @@ if (current !== buildIndex()) {
 }
 
 // 6. tokens/ içindeki üretilmiş dosyalar figma-ham.json ile güncel olmalı.
-const raw = readRaw();
+let raw = null;
+try {
+  raw = readRaw();
+} catch (e) {
+  fail('tokens/figma-ham.json', `okunamadı (bozuk JSON olabilir): ${e.message}. Figma senkronunu tekrar çalıştır.`);
+}
 if (raw) {
   try {
     for (const [path, content] of Object.entries(buildTokens(raw).files)) {

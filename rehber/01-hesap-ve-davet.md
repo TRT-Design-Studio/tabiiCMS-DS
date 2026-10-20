@@ -19,7 +19,7 @@
 
 ## Adım 2: İki adımlı doğrulamayı aç
 
-GitHub, organizasyonlarda çalışanlardan bunu ister. Hesabını daha güvenli yapar.
+Repomuz herkese açık. Hesabın ele geçirilirse biri senin adına projeyi değiştirebilir. İki adımlı doğrulama bunu engeller, **bu adımı atlama.**
 
 1. Sağ üstteki profil resmine tıkla → **Settings**.
 2. Soldaki menüden **Password and authentication** sayfasına gir.

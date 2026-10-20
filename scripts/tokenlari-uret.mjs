@@ -117,13 +117,13 @@ export function buildTokens(raw) {
     for (const m of modes) {
       const x = v.values[m.name];
       let token, css, shown;
+      if (x.alias && !P[x.alias]) throw new Error(`"${v.name}" (${m.name}) Primitives'te olmayan bir değişkene bağlı: ${x.alias}`);
       if (x.alias && x.opacity !== undefined) {
         const base = val(x.alias).color;
         token = { $type: 'color', $value: colorValue([...base.slice(0, 3), x.opacity / 100]) };
         css = `color-mix(in srgb, var(${primitiveVar(x.alias)}) ${x.opacity}%, transparent)`;
         shown = `${clean(x.alias).replace('Colors/', '')} %${x.opacity}`;
       } else if (x.alias) {
-        if (!P[x.alias]) throw new Error(`"${v.name}" Primitives'te olmayan bir değişkene bağlı: ${x.alias}`);
         token = { $type: 'color', $value: ref(x.alias) };
         css = `var(${primitiveVar(x.alias)})`;
         shown = clean(x.alias).replace('Colors/', '');
@@ -320,7 +320,7 @@ export function readRaw() {
   return existsSync(RAW_PATH) ? JSON.parse(readFileSync(RAW_PATH, 'utf8')) : null;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const raw = readRaw();
   if (!raw) {
     console.log('✗ tokens/figma-ham.json yok. Önce Figma senkronu yapılmalı (workflows/figma-senkron.md).');

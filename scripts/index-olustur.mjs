@@ -65,7 +65,7 @@ export function buildIndex() {
   ].join('\n');
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   writeFileSync(INDEX_PATH, buildIndex());
   console.log('✓ wiki/index.md güncellendi.');
 }

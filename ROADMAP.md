@@ -19,7 +19,7 @@ components/<isim>/spec.md    → komponentin kimlik kartı
 | **0. İskelet** | Klasör yapısı, AGENTS.md, rehberler, `basla` / `gonder` akışları, GitHub ayarları | Ekibin çalışabildiği repo | ✅ |
 | **1. Figma denetimi** | Değişkenleri okumak, isimlendirme kurallarını çıkarmak, silinecek referans sayfaları listelemek, token JSON | `tokens/`, `rules/core/token-isimlendirme.md`, `workflows/figma-senkron.md` | ✅ |
 | **2. Doküman kuralları** | Documentation Draft, Icons, Badge ve Input sayfalarından şablonu ve kuralları çıkarmak. "Butonun dokümanını yap" tek cümlesiyle çalışan akış | `rules/core/dokumantasyon/`, `workflows/dokuman-uret.md` | ⚪ |
-| **3. Kod + Storybook** | Token'lardan Tailwind teması, Button / Badge / Input, Storybook, backend'siz demo sayfaları | Çalışan Storybook | ⚪ |
+| **3. Kod + Storybook** | Button / Badge / Input (Tailwind teması Faz 1'de hazırlandı: `tokens/tailwind.css`), Storybook, backend'siz demo sayfaları | Çalışan Storybook | ⚪ |
 | **4. Video** | Remotion şablonu: `spec.md`'deki state'leri sırayla gösteren 45–60 sn kurgu | `workflows/video-uret.md` | ⚪ |
 | **5. Senkron** | Token senkronu hazır (Faz 1). Kalan: Phosphor ikon güncelleme scripti, Storybook'un otomatik yayını | Değişiklikler kendiliğinden her yere yayılır | ⚪ |
 

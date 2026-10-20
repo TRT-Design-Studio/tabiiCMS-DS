@@ -67,4 +67,4 @@ Bir çelişki fark edersen kendi başına çözme. Kullanıcıya iki kuralı da 
 - Dosya ve klasör adları: küçük harf, ASCII (ş/ı/ğ yok), kelimeler tire ile ayrılır (`kebab-case`). Örnek: `buton-dokumantasyonu.md`
 - Commit mesajları Türkçe ve kısa: `Buton dokümantasyonu eklendi`
 - **Figma node ID'leri (`123:456` gibi) insanlara yönelik metinde kullanılmaz.** Bunların yerine Figma'daki sayfa ve frame adı yazılır: "Component Sets frame'indeki Button seti" gibi. Node ID'ler sadece makine için olan yerlerde durur: frontmatter'daki `figma_node:` alanı, token dosyaları.
-- **Video içindeki bütün metinler İngilizcedir** ([rules/core/video/veri-kaynagi.md](rules/core/video/veri-kaynagi.md)). Dokümantasyon dili ayrıca belirlenecek.
+- **Video içindeki bütün metinler İngilizcedir** ([rules/core/video/veri-kaynagi.md](rules/core/video/veri-kaynagi.md)). **Dokümantasyon da İngilizcedir** (Figma'daki dokümanlar ve komponent açıklamaları gibi). İnsanlarla konuşma, rehberler ve kurallar Türkçe kalır.

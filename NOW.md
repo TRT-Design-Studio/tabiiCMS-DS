@@ -10,6 +10,7 @@ updated: 2026-10-20
 
 ## Bilinmesi gerekenler (geçici durum, kural değil)
 
+- **Plan:** Projeye daha fazla komponent eklenecek. Hepsi önce Component Sets'te toplanıyor, bölümlendirme ve düzenleme orada bitince her komponent kendi sayfasına taşınacak. Component Sets'teki başlık ve property özet metinleri (bazıları Türkçe) o düzenlemeye kadar olduğu gibi kalır.
 - **Asıl komponent setleri şimdilik Playground sayfasındaki Component Sets frame'inde.** Documentation Draft, Badge ve Input sayfalarındaki setler, dokümanın nasıl görüneceğini denemek için yapılmış kopyalar ve silinecek. Komponent revizyonları Component Sets'te yapılır. Hedef: her komponentin asıl seti kendi sayfasında olacak.
 - **Foundations sayfaları:** Colors, Typography, Spacing, Layout Grid (boş, karar bekliyor: muhtemel kırılımlar 1440 / 768 / 375), Icons, Borders, Shadows, Ratios. Eski "Shadows & Borders" ikiye ayrıldı. Sistemden bağımsız referans frame'ler sayfaların solunda "Parked · Reference" bölümlerinde duruyor, silinmedi. Ratio Placeholder'ın ana komponenti de diğerleri gibi Component Sets frame'inde.
 - **Dokümanların Overview frame'indeki Introduction (video) frame'i bilinçli olarak gizli.** Video sonra açılacak bir özellik. Açma, silme.

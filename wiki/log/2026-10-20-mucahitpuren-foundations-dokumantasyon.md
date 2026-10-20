@@ -51,4 +51,5 @@ branch: mucahitpuren/foundations-dokumantasyon
   - Dokümanda **Component Sets** frame'i var, varyantlar değil instance'lar.
   - Overview'da sadece All ratios tablosu kaldı. Usage silindi.
 - Bütün foundations sayfalarının (Icons ve Layout Grid dahil) zemini #171717 yapıldı.
-
+- Shadows → Usage kalıyor (Mücahit'in kararı).
+- Component Sets'teki özet metinlerine dokunulmayacak; komponentler kendi sayfalarına taşınınca ele alınacak. frame-duzeni.md'deki 5. madde geçici olarak işaretlendi.

@@ -25,7 +25,7 @@ Bütün dokümantasyon sayfaları (komponentler ve foundations) aynı sırayla v
    - Ayırıcı çizgi
 3. **Videosu gösterilebilecek her sayfada Hero'nun altında `Introduction` bölümü bulunur.** Bu bölümde 16:9 video alanı (`Video — 16:9`) yer alır. Video özelliği açılana kadar bu bölüm **gizlidir**. Silinmez, açılmaz.
 4. Overview'da Hero ve video alanından sonra sadece gerçekten gerekli içerik olur. Tablolar ve uzun listeler kendi frame'lerinde durur (örneğin Colors → Primitives, Semantic Colors; Spacing → Scale).
-5. **Ana komponentler dokümantasyon sayfasında durmaz.** Dokümanda instance'lar gösterilir. Ana komponent setleri şimdilik Playground → Component Sets frame'inde durur (bkz. NOW.md).
+5. **Şimdilik ana komponentler dokümantasyon sayfasında durmaz.** Dokümanda instance'lar gösterilir. Bütün komponentler önce Playground → Component Sets frame'inde toplanıyor, orada bölümlendirilip düzenleniyor. **Bu geçici bir kural:** komponentlerin hepsi hazır olunca her ana komponent kendi sayfasına taşınacak ve bu madde değişecek. O zamana kadar ana komponentleri taşıma.
 6. **Dokümantasyon sayfalarının zemini #171717'dir.**
 7. Usage (Do / Don't) frame'i sadece gerçekten gerekli olduğunda eklenir.
 

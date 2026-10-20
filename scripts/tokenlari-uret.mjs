@@ -66,7 +66,7 @@ function semanticUtility(v) {
   if (segs.length > 1 && (segs.at(-1) === 'default' || segs.at(-1) === prefix)) segs = segs.slice(0, -1);
   const suffix = segs.join('-');
   if (RESERVED[prefix].includes(suffix)) throw new Error(`"${v.name}" → "${prefix}-${suffix}" Tailwind'in kendi class'ıyla çakışıyor.`);
-  return { prefix, utility: `${prefix}-${suffix}` };
+  return { prefix, suffix, utility: `${prefix}-${suffix}` };
 }
 
 export function buildTokens(raw) {
@@ -96,6 +96,7 @@ export function buildTokens(raw) {
   }
 
   // ---------- semantic.<mod>.json ve CSS değişkenleri ----------
+  const primitiveColorNames = new Set(prim.variables.filter((v) => v.type === 'COLOR').map((v) => primitiveVar(v.name).replace('--color-', '')));
   const modes = theme.modes.map((m) => ({ name: m, slug: m.toLowerCase().replace(/\s*mode$/, '').trim() }));
   const semanticFiles = {};
   const semanticRows = [];
@@ -107,7 +108,8 @@ export function buildTokens(raw) {
     if (v.type !== 'COLOR') throw new Error(`Themes'te renk olmayan değişken var: ${v.name}`);
     const cssVar = v.codeSyntax?.WEB?.match(/var\((--[\w-]+)\)/)?.[1] ?? `--color-${v.name.replaceAll('/', '-')}`;
     if (!v.codeSyntax?.WEB) warnings.push(`"${v.name}" için Figma'da code syntax yok, "${cssVar}" kullanıldı.`);
-    const { prefix, utility } = semanticUtility(v);
+    const { prefix, suffix, utility } = semanticUtility(v);
+    if (primitiveColorNames.has(suffix)) throw new Error(`"${v.name}" → "${utility}" bir primitive rengin adıyla (${suffix}) çakışıyor.`);
     if (seenUtility.has(utility)) throw new Error(`"${v.name}" ve "${seenUtility.get(utility)}" aynı class'a (${utility}) düşüyor.`);
     seenUtility.set(utility, v.name);
     utilities.push(`@utility ${utility} {\n  ${PROPERTY[prefix]}: var(${cssVar});\n}`);
@@ -208,7 +210,7 @@ export function buildTokens(raw) {
     '',
     '@custom-variant dark (&:where(.dark, .dark *));',
     '',
-    '@theme {',
+    '@theme static {',
     '  /* Tailwind\'in varsayılanları kapatılır, sadece sistemdeki değerler kalır. */',
     '  --color-*: initial;',
     '  --font-*: initial;',
@@ -216,6 +218,9 @@ export function buildTokens(raw) {
     '  --radius-*: initial;',
     '  --shadow-*: initial;',
     '  --inset-shadow-*: initial;',
+    '',
+    '  /* Primitive renkler: renk adı her önekle kullanılır (bg-neutral-100, text-red-600, border-blue-500…). */',
+    ...colors.map((v) => `  ${primitiveVar(v.name)}: ${hex(val(v.name).color)};`),
     '',
     `  --spacing: ${rem(unit)};`,
     `  --font-sans: "${val('Font/family/font-family')}", sans-serif;`,
@@ -225,11 +230,7 @@ export function buildTokens(raw) {
     ...shadowCss,
     '}',
     '',
-    '/* Primitive renkler: utility üretmez, sadece semantic renkler kullanır (Figma\'da da seçicilerde gizli). */',
-    ':root {',
-    ...colors.map((v) => `  ${primitiveVar(v.name)}: ${hex(val(v.name).color)};`),
-    '}',
-    '',
+    '/* Semantic renkler: Light/Dark\'a göre kendiliğinden değişir. */',
     ...modes.flatMap((m) => [`${m.slug === lightSlug ? ':root' : `.${m.slug}`} {`, ...cssByMode[m.slug], '}', '']),
     '/* Semantic renk class\'ları: Figma\'daki grup adı class\'ın önekidir (bg-, text-, border-). */',
     ...utilities.flatMap((u) => [u, '']),
@@ -294,11 +295,13 @@ export function buildTokens(raw) {
     '',
     '## Primitive renkler',
     '',
-    'Primitive renkler kodda class olarak **kullanılamaz** (Figma\'da da seçicilerde gizli). Sadece semantic renklerin değeri olarak kullanılırlar. CSS değişkeni olarak vardırlar: `--color-<renk>-<ton>`.',
+    'Primitive bir rengin adı tek başına renktir (`neutral-100`). Tailwind\'de bir class her zaman neyin boyanacağını söyleyen bir önek ister, bu yüzden renk adı her önekle kullanılır: `bg-neutral-100`, `text-neutral-100`, `border-neutral-100`…',
     '',
-    '| Figma | CSS değişkeni | Değer |',
+    '> ⚠️ Primitive renkler Light/Dark moda göre **değişmez**. Komponentlerde önce semantic renkleri kullan, primitive\'i sadece gerektiğinde kullan.',
+    '',
+    '| Figma | Renk adı | Değer |',
     '|---|---|---|',
-    ...colors.map((v) => `| \`${v.name}\` | \`${primitiveVar(v.name)}\` | \`${hex(val(v.name).color)}\` |`),
+    ...colors.map((v) => `| \`${v.name}\` | \`${primitiveVar(v.name).replace('--color-', '')}\` | \`${hex(val(v.name).color)}\` |`),
     '',
   ].join('\n');
 

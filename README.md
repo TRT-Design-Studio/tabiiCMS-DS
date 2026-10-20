@@ -30,6 +30,12 @@ Takılırsan: [Sorun giderme](rehber/sorun-giderme.md)
 
 ---
 
+## 🧭 Yapay zekaya ne yazabilirim?
+
+Bütün komutların listesi: **[KOMUTLAR.md](KOMUTLAR.md)**. Bir komutu unuttuğunda buraya bak.
+
+---
+
 ## 🔁 Her gün nasıl çalışırım? (kısa hali)
 
 1. Yapay zeka aracını (Claude veya Cursor) bu proje klasöründe aç.
@@ -49,6 +55,7 @@ Git komutlarını sen yazmıyorsun, hepsini yapay zeka çalıştırıyor. Uzun h
 |---|---|---|
 | `AGENTS.md` | Yapay zekanın "beyni". Her oturumda ilk bunu okur | ❌ Sadece proje sahibi |
 | `CLAUDE.md` | Claude'u `AGENTS.md`'ye yönlendiren tek satırlık dosya | ❌ |
+| `KOMUTLAR.md` | Yapay zekaya yazabileceğin bütün komutlar | ❌ Sadece proje sahibi (yeni akış eklenince güncellenir) |
 | `NOW.md` | Projede şu an neredeyiz, sıradaki işler ne | ⚠️ Yapay zeka günceller |
 | `ROADMAP.md` | Büyük plan: hangi aşamadayız | ❌ Sadece proje sahibi |
 | `rehber/` | İnsanlar için adım adım rehberler (bu dosyalar) | ✅ Eksik görürsen ekle |

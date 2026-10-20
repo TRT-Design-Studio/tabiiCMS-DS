@@ -15,7 +15,6 @@ branch: mucahitpuren/token-isimlendirme
 
 ## Alınan kararlar
 - Semantic renklerde grup adı class öneki (seçenek b): `bg/surface` → `bg-surface`. Önek Figma kapsamından gelir.
-- Primitive renkler kodda class üretmez (Figma'da da seçicilerde gizli).
 - Tailwind varsayılanları (renk, font, yazı boyutu, radius, gölge) kapatıldı.
 - Yazı boyutlarından sadece yazı stili olanlar (xs–4xl) kodda tanımlı.
 - Dark mode: kök elemana `.dark` sınıfı.
@@ -26,3 +25,9 @@ branch: mucahitpuren/token-isimlendirme
 
 ## Sıradaki adım
 - Faz 2: doküman şablonu ve "dokuman: <komponent>" akışı.
+
+## Güncelleme (2026-10-20)
+- Mücahit'in kararı: primitive renkler de kullanılabilir. Renk adı `neutral-100` ve her önekle kullanılır (`bg-neutral-100`, `text-red-600`…). Tailwind'de önek şart olduğu için tek başına `neutral-100` class'ı yok. Primitive renkler Light/Dark'a göre değişmez, komponentlerde önce semantic kullanılır.
+- Semantic bir class bir primitive rengin adıyla çakışırsa üretici durur.
+- Yazı boyutları (xs–4xl) ve `.dark` sınıfı kararları onaylandı.
+- Yeni: `KOMUTLAR.md`, kullanıcıların yazabileceği bütün komutlar. AGENTS.md'deki komut tablosu buraya taşındı (tek liste). `kontrol.mjs` her iş akışının orada olup olmadığını denetliyor.

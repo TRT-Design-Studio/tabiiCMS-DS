@@ -88,6 +88,17 @@ if (raw) {
   }
 }
 
+// 7. Her iş akışı KOMUTLAR.md'de listelenmeli.
+const commandsPath = join(ROOT, 'KOMUTLAR.md');
+const commands = existsSync(commandsPath) ? readFileSync(commandsPath, 'utf8') : '';
+if (!commands) fail('KOMUTLAR.md', 'dosya yok. Kullanıcıların yazabileceği komutların listesi olmalı.');
+for (const file of mdFiles) {
+  const path = rel(file);
+  if (path.startsWith('workflows/') && !path.endsWith('/README.md') && commands && !commands.includes(`(${path})`)) {
+    fail(path, 'bu iş akışı KOMUTLAR.md\'de yok. Kullanıcıların görmesi için komut tablosuna bir satır ekle.');
+  }
+}
+
 if (errors.length) {
   console.log(`\n${errors.length} sorun bulundu:\n`);
   for (const e of errors) console.log(e);

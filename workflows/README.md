@@ -6,6 +6,9 @@
 
 ## Mevcut iş akışları
 
+Kullanıcıların göreceği tam komut listesi [KOMUTLAR.md](../KOMUTLAR.md) dosyasındadır. Buraya yeni bir akış eklenince oraya da eklenir.
+
+
 | Komut | Dosya | Ne yapar? |
 |---|---|---|
 | `basla: <iş>` | [basla.md](basla.md) | Güncel hali çeker, yeni branch açar |

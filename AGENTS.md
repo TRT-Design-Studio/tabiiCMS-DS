@@ -8,7 +8,7 @@ tabiiCMS tasarım sistemi. Kaynak Figma dosyasıdır. Figma değişkenleri ve ko
 
 ## Her oturumun başında (zorunlu)
 
-1. Bu dosyayı oku.
+1. Bu dosyayı ve [KOMUTLAR.md](KOMUTLAR.md)'yi oku.
 2. [NOW.md](NOW.md) dosyasını oku: projenin şu anki odağı.
 3. `wiki/log/` klasöründeki **en yeni 3 kaydı** oku: son oturumlarda ne yapıldı.
 4. [wiki/index.md](wiki/index.md) üzerinden işe ilgili kuralları bul ve oku.
@@ -16,16 +16,11 @@ tabiiCMS tasarım sistemi. Kaynak Figma dosyasıdır. Figma değişkenleri ve ko
 
 ## Komutlar
 
-Kullanıcı aşağıdakilerden birini (veya benzerini) yazarsa ilgili dosyayı oku ve adımlarını uygula:
+Kullanıcının yazabileceği bütün komutlar ve her birinde uygulanacak dosya tek bir yerde durur: [KOMUTLAR.md](KOMUTLAR.md).
 
-| Kullanıcı der ki | Uygula |
-|---|---|
-| `basla`, `basla: <iş>`, "yeni işe başlıyorum" | [workflows/basla.md](workflows/basla.md) |
-| `gonder`, "pull request aç", "yükle" | [workflows/gonder.md](workflows/gonder.md) |
-| `oturumu bitir`, "bugünlük bu kadar" | [workflows/oturum-bitir.md](workflows/oturum-bitir.md) |
-| "figma senkron", "token'ları güncelle" | [workflows/figma-senkron.md](workflows/figma-senkron.md) |
-| "çakışma var", "conflict" | [rehber/06-cakisma-olursa.md](rehber/06-cakisma-olursa.md) içindeki ajan bölümü |
-| "kurulumumu kontrol et" | [rehber/02-araclari-kur.md](rehber/02-araclari-kur.md) içindeki kontrol komutlarını çalıştır, sonucu sade dille anlat |
+- Kullanıcı bunlardan birini (veya benzerini) yazarsa "Akış" sütunundaki dosyayı oku ve adımlarını uygula. Rehber dosyasında "Yapay zeka için" bölümü varsa onu uygula.
+- **Yeni bir iş akışı (`workflows/*.md`) eklediğinde KOMUTLAR.md'ye de satır ekle.** `node scripts/kontrol.mjs` eksik olanı yakalar.
+- Kullanıcı hangi komutların olduğunu sorarsa KOMUTLAR.md'yi göster.
 
 ## Kural öncelik sırası
 

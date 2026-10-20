@@ -6,6 +6,7 @@
 
 | Kural | id | Durum | Sürüm |
 |---|---|---|---|
+| [Doküman frame düzeni](../rules/core/dokumantasyon/frame-duzeni.md) | `core.dokuman-frame-duzeni` | active | 1 |
 | [Referans frame'ler kopyalanır ama incelenir](../rules/core/dokumantasyon/referans-inceleme.md) | `core.dokuman-referans-inceleme` | active | 1 |
 | [Kural dosyası yazım formatı](../rules/core/kural-yazim-formati.md) | `core.kural-yazim-formati` | active | 1 |
 | [README ve rehber yazım kuralı](../rules/core/readme-yazim-kurali.md) | `core.readme-yazim-kurali` | active | 1 |

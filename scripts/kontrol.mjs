@@ -2,8 +2,9 @@
 // Kullanım: node scripts/kontrol.mjs
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
-import { walk, frontmatter, rel } from './lib.mjs';
+import { ROOT, walk, frontmatter, rel } from './lib.mjs';
 import { buildIndex, INDEX_PATH } from './index-olustur.mjs';
+import { buildTokens, readRaw } from './tokenlari-uret.mjs';
 
 const errors = [];
 const fail = (where, message) => errors.push(`✗ ${where}: ${message}`);
@@ -70,6 +71,37 @@ for (const file of mdFiles) {
 const current = existsSync(INDEX_PATH) ? readFileSync(INDEX_PATH, 'utf8') : '';
 if (current !== buildIndex()) {
   fail('wiki/index.md', 'güncel değil. Düzeltmek için şunu çalıştır: node scripts/index-olustur.mjs');
+}
+
+// 6. tokens/ içindeki üretilmiş dosyalar figma-ham.json ile güncel olmalı.
+let raw = null;
+try {
+  raw = readRaw();
+} catch (e) {
+  fail('tokens/figma-ham.json', `okunamadı (bozuk JSON olabilir): ${e.message}. Figma senkronunu tekrar çalıştır.`);
+}
+if (raw) {
+  try {
+    for (const [path, content] of Object.entries(buildTokens(raw).files)) {
+      const full = join(ROOT, path);
+      if (!existsSync(full) || readFileSync(full, 'utf8') !== content) {
+        fail(path, 'güncel değil veya elle değiştirilmiş. Düzeltmek için şunu çalıştır: node scripts/tokenlari-uret.mjs');
+      }
+    }
+  } catch (e) {
+    fail('tokens/figma-ham.json', `token üretimi başarısız: ${e.message}`);
+  }
+}
+
+// 7. Her iş akışı KOMUTLAR.md'de listelenmeli.
+const commandsPath = join(ROOT, 'KOMUTLAR.md');
+const commands = existsSync(commandsPath) ? readFileSync(commandsPath, 'utf8') : '';
+if (!commands) fail('KOMUTLAR.md', 'dosya yok. Kullanıcıların yazabileceği komutların listesi olmalı.');
+for (const file of mdFiles) {
+  const path = rel(file);
+  if (path.startsWith('workflows/') && !path.endsWith('/README.md') && commands && !commands.includes(`(${path})`)) {
+    fail(path, 'bu iş akışı KOMUTLAR.md\'de yok. Kullanıcıların görmesi için komut tablosuna bir satır ekle.');
+  }
 }
 
 if (errors.length) {

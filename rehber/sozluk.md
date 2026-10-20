@@ -22,12 +22,21 @@ Projede geçen teknik kelimelerin sade açıklamaları. Alfabetik değil, öğre
 | **Conflict (çakışma)** | İki kişinin aynı satırı farklı değiştirmesi. Bkz. [Çakışma olursa](06-cakisma-olursa.md) |
 | **CODEOWNERS** | Hangi klasörü kimin onaylaması gerektiğini yazan dosya (`.github/CODEOWNERS`) |
 | **Ruleset** | main'i koruyan GitHub kuralları. "Doğrudan yazılamaz, onay gerekir" gibi |
+| **Bypass** | Bir kuralı atlama izni. Bizde sadece organizasyon yöneticisi kendi PR'ını onay beklemeden merge edebilir |
+| **Squash and merge** | PR'daki bütün kayıtları (commit) tek bir kayda indirip main'e ekleyen merge yöntemi. Bizde tek seçenek bu |
+| **Releases** | GitHub'da repoya bağlı indirme rafı. Videolar burada paylaşılır, git geçmişine girmez |
 | **GitHub Actions** | GitHub'ın otomatik çalışan yardımcısı. Bkz. [GitHub Actions nedir?](github-actions-nedir.md) |
 | **Frontmatter** | Bir .md dosyasının en üstünde, `---` çizgileri arasında duran bilgi bloğu (kim yazdı, hangi sürüm…) |
 | **Terminal** | Bilgisayara yazıyla komut verilen pencere |
 | **CLI** | Terminal'den kullanılan program. Örnek: `gh` (GitHub CLI) |
 | **Ajan (agent)** | Dosyaları okuyup komut çalıştırabilen yapay zeka (Claude, Cursor…) |
 | **Token / değişken** | Figma'daki tasarım değişkenleri: renk, boşluk, yazı boyutu… Kodda aynı isimle kullanılır |
+| **Primitive** | Ham değer: bir paletteki renk (`neutral-100`) ya da bir boşluk değeri. Nerede kullanılacağı belli değildir |
+| **Semantic** | Anlamı olan değer: `bg/surface` (zemin), `text/primary` (ana yazı). Bir primitive'e bağlıdır ve Light/Dark'a göre değişir |
+| **Kapsam (scope)** | Figma'da bir değişkenin hangi seçicide görüneceği: sadece zemin rengi, sadece yazı rengi, sadece köşe yuvarlaklığı… |
+| **Code syntax** | Figma'da bir değişkenin kodda nasıl yazıldığı, örneğin `var(--color-bg-surface)`. Dev Mode'da görünür |
+| **Dev Mode** | Figma'nın geliştiriciler için olan görünümü: ölçüler, değişkenler, kod karşılıkları |
+| **W3C Design Tokens (DTCG)** | Tasarım değişkenlerini JSON dosyası olarak yazmanın ortak standardı. `tokens/` klasöründeki dosyalar bu formatta |
 | **Komponent seti** | Bir komponentin bütün varyant ve state'lerinin bir arada durduğu Figma yapısı |
 | **Storybook** | Komponentlerin tarayıcıda tıklanıp denenebildiği canlı katalog |
 | **Remotion** | Kodla video üretmeye yarayan araç. Komponent videolarını bununla yapıyoruz |

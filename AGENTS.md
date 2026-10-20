@@ -8,7 +8,7 @@ tabiiCMS tasarım sistemi. Kaynak Figma dosyasıdır. Figma değişkenleri ve ko
 
 ## Her oturumun başında (zorunlu)
 
-1. Bu dosyayı oku.
+1. Bu dosyayı ve [KOMUTLAR.md](KOMUTLAR.md)'yi oku.
 2. [NOW.md](NOW.md) dosyasını oku: projenin şu anki odağı.
 3. `wiki/log/` klasöründeki **en yeni 3 kaydı** oku: son oturumlarda ne yapıldı.
 4. [wiki/index.md](wiki/index.md) üzerinden işe ilgili kuralları bul ve oku.
@@ -16,15 +16,11 @@ tabiiCMS tasarım sistemi. Kaynak Figma dosyasıdır. Figma değişkenleri ve ko
 
 ## Komutlar
 
-Kullanıcı aşağıdakilerden birini (veya benzerini) yazarsa ilgili dosyayı oku ve adımlarını uygula:
+Kullanıcının yazabileceği bütün komutlar ve her birinde uygulanacak dosya tek bir yerde durur: [KOMUTLAR.md](KOMUTLAR.md).
 
-| Kullanıcı der ki | Uygula |
-|---|---|
-| `basla`, `basla: <iş>`, "yeni işe başlıyorum" | [workflows/basla.md](workflows/basla.md) |
-| `gonder`, "pull request aç", "yükle" | [workflows/gonder.md](workflows/gonder.md) |
-| `oturumu bitir`, "bugünlük bu kadar" | [workflows/oturum-bitir.md](workflows/oturum-bitir.md) |
-| "çakışma var", "conflict" | [rehber/06-cakisma-olursa.md](rehber/06-cakisma-olursa.md) içindeki ajan bölümü |
-| "kurulumumu kontrol et" | [rehber/02-araclari-kur.md](rehber/02-araclari-kur.md) içindeki kontrol komutlarını çalıştır, sonucu sade dille anlat |
+- Kullanıcı bunlardan birini (veya benzerini) yazarsa "Akış" sütunundaki dosyayı oku ve adımlarını uygula. Rehber dosyasında "Yapay zeka için" bölümü varsa onu uygula.
+- **Yeni bir iş akışı (`workflows/*.md`) eklediğinde KOMUTLAR.md'ye de satır ekle.** `node scripts/kontrol.mjs` eksik olanı yakalar.
+- Kullanıcı hangi komutların olduğunu sorarsa KOMUTLAR.md'yi göster.
 
 ## Kural öncelik sırası
 
@@ -59,11 +55,11 @@ Bir çelişki fark edersen kendi başına çözme. Kullanıcıya iki kuralı da 
 | `proposals/` | Ana kural değişiklik önerileri |
 | `workflows/` | Tekrar eden işlerin adım adım tarifleri |
 | `components/<isim>/spec.md` | Komponent kimlik kartı: varyantlar, state'ler, token'lar |
-| `tokens/` | Figma değişkenleri (JSON). Figma'dan üretilir |
+| `tokens/` | Figma'dan üretilen token'lar (DTCG JSON), `tailwind.css` ve `esleme.md`. Elle düzenlenmez |
 | `wiki/index.md` | Otomatik içindekiler |
 | `wiki/log/` | Oturum kayıtları, her biri ayrı dosya: `YYYY-MM-DD-<kullanici>-<konu>.md` |
 | `rehber/` | İnsanlar için rehberler |
-| `scripts/` | `kontrol.mjs` (doğrulama), `index-olustur.mjs` (index üretimi) |
+| `scripts/` | `kontrol.mjs` (doğrulama), `index-olustur.mjs` (index üretimi), `tokenlari-uret.mjs` (token üretimi), `figma/` (Figma okuma) |
 
 ## Yazım düzeni
 
@@ -71,4 +67,4 @@ Bir çelişki fark edersen kendi başına çözme. Kullanıcıya iki kuralı da 
 - Dosya ve klasör adları: küçük harf, ASCII (ş/ı/ğ yok), kelimeler tire ile ayrılır (`kebab-case`). Örnek: `buton-dokumantasyonu.md`
 - Commit mesajları Türkçe ve kısa: `Buton dokümantasyonu eklendi`
 - **Figma node ID'leri (`123:456` gibi) insanlara yönelik metinde kullanılmaz.** Bunların yerine Figma'daki sayfa ve frame adı yazılır: "Component Sets frame'indeki Button seti" gibi. Node ID'ler sadece makine için olan yerlerde durur: frontmatter'daki `figma_node:` alanı, token dosyaları.
-- **Video içindeki bütün metinler İngilizcedir** ([rules/core/video/veri-kaynagi.md](rules/core/video/veri-kaynagi.md)). Dokümantasyon dili ayrıca belirlenecek.
+- **Video içindeki bütün metinler İngilizcedir** ([rules/core/video/veri-kaynagi.md](rules/core/video/veri-kaynagi.md)). **Dokümantasyon da İngilizcedir** (Figma'daki dokümanlar ve komponent açıklamaları gibi). İnsanlarla konuşma, rehberler ve kurallar Türkçe kalır.

@@ -19,6 +19,15 @@
    ```
    Hata alırsan kullanıcıya sade dille anlat ve [rehber/sorun-giderme.md](../rehber/sorun-giderme.md) dosyasına bak.
 
+   **Eski branch'leri temizle.** PR'ı merge edilen branch'ler GitHub'da kendiliğinden silinir ama bilgisayarda kalır.
+   ```
+   git fetch --prune
+   ```
+   ```
+   git branch -vv
+   ```
+   Çıktıda `: gone]` yazan branch'leri `git branch -D <ad>` ile sil ve kullanıcıya tek cümleyle söyle: "İşi biten 2 eski çalışma alanını temizledim."
+
 4. **Kullanıcı adını bul.**
    ```
    gh api user --jq .login

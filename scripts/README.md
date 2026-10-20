@@ -6,8 +6,10 @@
 
 | Script | Ne yapar? | Nasıl çalıştırılır? |
 |---|---|---|
-| `kontrol.mjs` | Kural dosyalarının bilgi bloklarını, her klasörde README olup olmadığını, kırık linkleri ve index'in güncel olup olmadığını denetler | `node scripts/kontrol.mjs` |
+| `kontrol.mjs` | Kural dosyalarının bilgi bloklarını, her klasörde README olup olmadığını, kırık linkleri, index'in ve token dosyalarının güncel olup olmadığını, her iş akışının KOMUTLAR.md'de olup olmadığını denetler | `node scripts/kontrol.mjs` |
 | `index-olustur.mjs` | `wiki/index.md` dosyasını yeniden üretir | `node scripts/index-olustur.mjs` |
-| `lib.mjs` | Diğer iki scriptin ortak yardımcıları | Tek başına çalıştırılmaz |
+| `tokenlari-uret.mjs` | `tokens/figma-ham.json` dosyasından token dosyalarını, Tailwind temasını ve eşleme tablosunu üretir | `node scripts/tokenlari-uret.mjs` |
+| `figma/` | Figma'dan veri okuyan scriptler ([README](figma/README.md)) | Yapay zeka, figma senkron akışında |
+| `lib.mjs` | Diğer scriptlerin ortak yardımcıları | Tek başına çalıştırılmaz |
 
 **Ben buna dokunur muyum?** Hayır. Bu scriptleri genelde sen değil yapay zeka çalıştırır. Aynı kontrol her PR'da GitHub'da da otomatik çalışır ([GitHub Actions nedir?](../rehber/github-actions-nedir.md)).

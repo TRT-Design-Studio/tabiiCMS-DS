@@ -22,6 +22,12 @@ Sorununu aşağıda bulamazsan yapay zekaya **gördüğün hata mesajını oldu�
 
 **Çözüm:** O programı kur ([2. Programları kur](02-araclari-kur.md)). Sonra Terminal'i ve yapay zeka uygulamasını **tamamen kapatıp** yeniden aç.
 
+### "This branch is out-of-date with the base branch"
+
+**Ne demek?** Sen çalışırken main'e başka bir iş eklenmiş. GitHub, senin işinin güncel main ile birlikte de kontrol edilmesini istiyor.
+
+**Çözüm:** PR sayfasındaki **Update branch** butonuna tıkla ya da yapay zekaya `branch'imi güncelle` yaz. Ayrıntı: [5. Pull request](05-pull-request.md)
+
 ### PR'da kırmızı çarpı ✗ var
 
 **Çözüm:** Yapay zekaya `PR'daki kontrol neden kırmızı, düzelt` yaz. Ayrıntısı: [GitHub Actions nedir?](github-actions-nedir.md)

@@ -3,9 +3,9 @@ id: core.tailwind-temel
 title: Tailwind temel alınır
 owner: "@mucahitpuren"
 status: active
-version: 2
+version: 3
 applies_to: all
-updated: 2026-10-14
+updated: 2026-10-20
 ---
 
 # Tailwind temel alınır
@@ -21,7 +21,7 @@ Tasarım sistemi **Tailwind CSS (v4)** üzerine kurulu. Figma'daki değişkenler
 3. **Farklılık bir hata adayıdır.** Figma'daki bir değer Tailwind'in karşılığından farklıysa, ya da Tailwind'de olup Figma'da yoksa (veya tersi), yapay zeka bunu **kendi başına düzeltmez.** Proje sahibine bir uyarı listesi olarak sunar: "Figma'da X, Tailwind'de Y. Hangisi doğru?"
 4. **Kendi değerlerimiz sadece Tailwind'de karşılığı olmayan yerlerde tanımlanır.** Örnek: marka renkleri ve semantik renkler (`surface/primary` gibi). Bu değerler de Tailwind'in isimlendirme mantığıyla eklenir (`--color-surface-primary` → `bg-surface-primary`).
 5. **Projede kullanılan aralık, Tailwind'de tanımlı olan aralıktan dar olabilir.** Örneğin Tailwind yazı boyutları `text-9xl`'e kadar gider, biz `text-4xl`'e kadar kullanıyoruz. Bu bir hata değildir. Kullanılan aralık ilgili token kuralında yazılır.
-6. **Tailwind'in varsayılan renk paleti kodda kapatılır.** Böylece tasarım sisteminde olmayan bir renk (`bg-blue-500` gibi) kullanılamaz.
+6. **Tailwind'in varsayılan renk paleti kodda kapatılır.** Yerine Figma'daki palet gelir. Böylece tasarım sisteminde olmayan bir renk (`bg-purple-500` gibi) kullanılamaz.
 
 ## Örnek
 

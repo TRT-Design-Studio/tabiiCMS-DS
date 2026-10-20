@@ -10,7 +10,7 @@
 
 | Değişen yer | Kim onaylar? |
 |---|---|
-| `rules/core/`, `workflows/`, `tokens/`, `scripts/`, `AGENTS.md`, `CLAUDE.md`, `ROADMAP.md`, `.github/`, `.claude/` | Sadece proje sahibi (Mücahit) |
+| `rules/core/`, `workflows/`, `tokens/`, `scripts/`, `AGENTS.md`, `CLAUDE.md`, `KOMUTLAR.md`, `ROADMAP.md`, `.github/`, `.claude/` | Sadece proje sahibi (Mücahit) |
 | Diğer her şey (rehberler, `rules/team/`, komponentler, öneriler…) | Ekipten herhangi biri |
 
 Kendi PR'ını kendin onaylayamazsın. GitHub buna izin vermez.
@@ -31,9 +31,24 @@ Kendi PR'ını kendin onaylayamazsın. GitHub buna izin vermez.
 
 ## Merge (birleştirme)
 
+### "This branch is out-of-date with the base branch" yazıyorsa
+
+Sen çalışırken bir arkadaşının PR'ı main'e eklenmiş demektir. GitHub, senin PR'ının main'in **son haliyle** birlikte de kontrol edilmesini ister. Böylece iki PR ayrı ayrı doğru olup birlikte bir şeyi bozamaz.
+
+1. PR sayfasının altındaki **Update branch** butonuna tıkla.
+2. Kontrolün tekrar yeşil olmasını bekle (birkaç saniye).
+
+Ya da yapay zekaya `branch'imi güncelle` yaz.
+
+> Butona basınca bir çakışma çıkarsa: [6. Çakışma olursa](06-cakisma-olursa.md)
+
+### Merge
+
 Onay geldikten ve kontroller yeşil olduktan sonra PR sayfasının altında **Squash and merge** butonu aktif olur. Tıkla → **Confirm squash and merge**.
 
 ✅ **Ne görmelisin?** Mor renkli **Merged** etiketi. İş main'e eklendi. 🎉
+
+> **Yapay zeka için:** Kullanıcı "branch'imi güncelle" derse `gh pr update-branch` çalıştır. Çakışma çıkarsa [06-cakisma-olursa.md](06-cakisma-olursa.md) içindeki adımları uygula. Sonra `gh pr checks` ile kontrolün geçtiğini doğrula.
 
 ## Yeşil tik ✓ ve kırmızı çarpı ✗
 

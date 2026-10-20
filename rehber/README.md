@@ -13,6 +13,7 @@ Bu klasörde **insanlar için** yazılmış, adım adım rehberler var. Hiç Git
 
 ## Lazım olunca bak
 
+- [Komutlar](../KOMUTLAR.md): yapay zekaya yazabileceğin her şey
 - [Sözlük](sozluk.md): bilmediğin kelimeler
 - [GitHub Actions nedir?](github-actions-nedir.md)
 - [Sorun giderme](sorun-giderme.md)

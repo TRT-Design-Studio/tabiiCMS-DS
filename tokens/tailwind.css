@@ -59,13 +59,13 @@
   --color-red-900: #940808;
   --color-red-950: #520000;
   --color-neutral-100: #f5f5f5;
-  --color-neutral-200: #e5e5e5;
+  --color-neutral-200: #e8e8e8;
   --color-neutral-300: #d4d4d4;
   --color-neutral-400: #a1a1a1;
   --color-neutral-500: #737373;
   --color-neutral-600: #525252;
   --color-neutral-700: #404040;
-  --color-neutral-800: #262626;
+  --color-neutral-800: #212121;
   --color-neutral-900: #171717;
   --color-neutral-950: #0a0a0a;
   --color-green-50: #ebfef5;
@@ -138,12 +138,12 @@
   --color-bg-inverse: var(--color-neutral-900);
   --color-bg-overlay: color-mix(in srgb, var(--color-black) 50%, transparent);
   --color-bg-disabled: var(--color-neutral-100);
-  --color-bg-interactive-hover: var(--color-neutral-100);
-  --color-bg-interactive-pressed: var(--color-neutral-200);
-  --color-bg-interactive-selected: var(--color-neutral-100);
+  --color-bg-interactive-hover: rgb(0 0 0 / 0.05);
+  --color-bg-interactive-pressed: rgb(0 0 0 / 0.1);
+  --color-bg-interactive-selected: rgb(0 0 0 / 0.04);
   --color-text-primary: var(--color-neutral-900);
-  --color-text-secondary: var(--color-neutral-700);
-  --color-text-tertiary: var(--color-neutral-600);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-tertiary: var(--color-neutral-400);
   --color-text-inverse: var(--color-neutral-50);
   --color-text-on-color: var(--color-white);
   --color-text-disabled: var(--color-neutral-400);
@@ -178,12 +178,17 @@
   --color-feedback-info-text: var(--color-blue-700);
   --color-feedback-info-border: var(--color-blue-200);
   --color-feedback-info-dot: var(--color-blue-500);
-  --color-feedback-neutral-bg: var(--color-neutral-100);
+  --color-feedback-neutral-bg: var(--color-neutral-200);
   --color-feedback-neutral-text: var(--color-neutral-700);
-  --color-feedback-neutral-border: var(--color-neutral-200);
-  --color-feedback-neutral-dot: var(--color-neutral-400);
+  --color-feedback-neutral-border: var(--color-neutral-300);
+  --color-feedback-neutral-dot: var(--color-neutral-500);
   --color-border-danger: var(--color-red-600);
   --color-border-control: var(--color-neutral-500);
+  --color-border-success: var(--color-green-600);
+  --color-border-warning: var(--color-yellow-600);
+  --color-action-soft-default: var(--color-neutral-100);
+  --color-action-soft-hover: var(--color-neutral-200);
+  --color-action-soft-pressed: var(--color-neutral-300);
 }
 
 .dark {
@@ -194,12 +199,12 @@
   --color-bg-inverse: var(--color-neutral-50);
   --color-bg-overlay: color-mix(in srgb, var(--color-black) 70%, transparent);
   --color-bg-disabled: var(--color-neutral-800);
-  --color-bg-interactive-hover: var(--color-neutral-800);
-  --color-bg-interactive-pressed: var(--color-neutral-700);
-  --color-bg-interactive-selected: var(--color-neutral-800);
+  --color-bg-interactive-hover: rgb(255 255 255 / 0.06);
+  --color-bg-interactive-pressed: rgb(255 255 255 / 0.12);
+  --color-bg-interactive-selected: rgb(255 255 255 / 0.06);
   --color-text-primary: var(--color-neutral-50);
-  --color-text-secondary: var(--color-neutral-300);
-  --color-text-tertiary: var(--color-neutral-400);
+  --color-text-secondary: var(--color-neutral-400);
+  --color-text-tertiary: var(--color-neutral-500);
   --color-text-inverse: var(--color-neutral-900);
   --color-text-on-color: var(--color-white);
   --color-text-disabled: var(--color-neutral-500);
@@ -234,12 +239,17 @@
   --color-feedback-info-text: var(--color-blue-300);
   --color-feedback-info-border: var(--color-blue-800);
   --color-feedback-info-dot: var(--color-blue-400);
-  --color-feedback-neutral-bg: var(--color-neutral-800);
+  --color-feedback-neutral-bg: var(--color-neutral-700);
   --color-feedback-neutral-text: var(--color-neutral-300);
-  --color-feedback-neutral-border: var(--color-neutral-700);
-  --color-feedback-neutral-dot: var(--color-neutral-500);
+  --color-feedback-neutral-border: var(--color-neutral-600);
+  --color-feedback-neutral-dot: var(--color-neutral-400);
   --color-border-danger: var(--color-red-500);
   --color-border-control: var(--color-neutral-500);
+  --color-border-success: var(--color-green-500);
+  --color-border-warning: var(--color-yellow-500);
+  --color-action-soft-default: var(--color-neutral-800);
+  --color-action-soft-hover: var(--color-neutral-700);
+  --color-action-soft-pressed: var(--color-neutral-600);
 }
 
 /* Semantic renk class'ları: Figma'daki grup adı class'ın önekidir (bg-, text-, border-). */
@@ -453,4 +463,24 @@
 
 @utility border-control {
   border-color: var(--color-border-control);
+}
+
+@utility border-success {
+  border-color: var(--color-border-success);
+}
+
+@utility border-warning {
+  border-color: var(--color-border-warning);
+}
+
+@utility bg-action-soft {
+  background-color: var(--color-action-soft-default);
+}
+
+@utility bg-action-soft-hover {
+  background-color: var(--color-action-soft-hover);
+}
+
+@utility bg-action-soft-pressed {
+  background-color: var(--color-action-soft-pressed);
 }

@@ -614,6 +614,88 @@
       }
     }
   },
+  "border-width": {
+    "0": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:23:48",
+          "name": "Border/border-width/border-0",
+          "scopes": [
+            "STROKE_FLOAT"
+          ]
+        }
+      }
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:23:49",
+          "name": "Border/border-width/border-2",
+          "scopes": [
+            "STROKE_FLOAT"
+          ]
+        }
+      }
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:23:50",
+          "name": "Border/border-width/border-4",
+          "scopes": [
+            "STROKE_FLOAT"
+          ]
+        }
+      }
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:23:51",
+          "name": "Border/border-width/border-8",
+          "scopes": [
+            "STROKE_FLOAT"
+          ]
+        }
+      }
+    },
+    "default": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:23:47",
+          "name": "Border/border-width/border",
+          "scopes": [
+            "STROKE_FLOAT"
+          ]
+        }
+      }
+    }
+  },
   "radius": {
     "none": {
       "$type": "dimension",
@@ -776,88 +858,6 @@
       }
     }
   },
-  "border-width": {
-    "0": {
-      "$type": "dimension",
-      "$value": {
-        "value": 0,
-        "unit": "px"
-      },
-      "$extensions": {
-        "com.figma": {
-          "variableId": "VariableID:23:48",
-          "name": "Border/border-width/border-0",
-          "scopes": [
-            "STROKE_FLOAT"
-          ]
-        }
-      }
-    },
-    "2": {
-      "$type": "dimension",
-      "$value": {
-        "value": 2,
-        "unit": "px"
-      },
-      "$extensions": {
-        "com.figma": {
-          "variableId": "VariableID:23:49",
-          "name": "Border/border-width/border-2",
-          "scopes": [
-            "STROKE_FLOAT"
-          ]
-        }
-      }
-    },
-    "4": {
-      "$type": "dimension",
-      "$value": {
-        "value": 4,
-        "unit": "px"
-      },
-      "$extensions": {
-        "com.figma": {
-          "variableId": "VariableID:23:50",
-          "name": "Border/border-width/border-4",
-          "scopes": [
-            "STROKE_FLOAT"
-          ]
-        }
-      }
-    },
-    "8": {
-      "$type": "dimension",
-      "$value": {
-        "value": 8,
-        "unit": "px"
-      },
-      "$extensions": {
-        "com.figma": {
-          "variableId": "VariableID:23:51",
-          "name": "Border/border-width/border-8",
-          "scopes": [
-            "STROKE_FLOAT"
-          ]
-        }
-      }
-    },
-    "default": {
-      "$type": "dimension",
-      "$value": {
-        "value": 1,
-        "unit": "px"
-      },
-      "$extensions": {
-        "com.figma": {
-          "variableId": "VariableID:23:47",
-          "name": "Border/border-width/border",
-          "scopes": [
-            "STROKE_FLOAT"
-          ]
-        }
-      }
-    }
-  },
   "color": {
     "neutral": {
       "50": {
@@ -903,11 +903,11 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.898,
-            0.898,
-            0.898
+            0.9098,
+            0.9098,
+            0.9098
           ],
-          "hex": "#e5e5e5"
+          "hex": "#e8e8e8"
         },
         "$extensions": {
           "com.figma": {
@@ -1017,11 +1017,11 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.149,
-            0.149,
-            0.149
+            0.1294,
+            0.1294,
+            0.1294
           ],
-          "hex": "#262626"
+          "hex": "#212121"
         },
         "$extensions": {
           "com.figma": {
@@ -2652,6 +2652,21 @@
               "LINE_HEIGHT"
             ]
           }
+        }
+      }
+    }
+  },
+  "opacity": {
+    "50": {
+      "$type": "number",
+      "$value": 0.5,
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:864:2",
+          "name": "Opacity/opacity-50",
+          "scopes": [
+            "OPACITY"
+          ]
         }
       }
     }

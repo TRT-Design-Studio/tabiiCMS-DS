@@ -111,7 +111,16 @@
     "interactive": {
       "hover": {
         "$type": "color",
-        "$value": "{color.neutral.800}",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.06,
+          "hex": "#ffffff"
+        },
         "$extensions": {
           "com.figma": {
             "variableId": "VariableID:250:12",
@@ -125,7 +134,16 @@
       },
       "pressed": {
         "$type": "color",
-        "$value": "{color.neutral.700}",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.12,
+          "hex": "#ffffff"
+        },
         "$extensions": {
           "com.figma": {
             "variableId": "VariableID:250:13",
@@ -139,7 +157,16 @@
       },
       "selected": {
         "$type": "color",
-        "$value": "{color.neutral.800}",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.06,
+          "hex": "#ffffff"
+        },
         "$extensions": {
           "com.figma": {
             "variableId": "VariableID:250:14",
@@ -170,7 +197,7 @@
     },
     "secondary": {
       "$type": "color",
-      "$value": "{color.neutral.300}",
+      "$value": "{color.neutral.400}",
       "$extensions": {
         "com.figma": {
           "variableId": "VariableID:250:16",
@@ -184,7 +211,7 @@
     },
     "tertiary": {
       "$type": "color",
-      "$value": "{color.neutral.400}",
+      "$value": "{color.neutral.500}",
       "$extensions": {
         "com.figma": {
           "variableId": "VariableID:250:17",
@@ -343,6 +370,32 @@
           ]
         }
       }
+    },
+    "success": {
+      "$type": "color",
+      "$value": "{color.green.500}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:716:2",
+          "name": "border/success",
+          "scopes": [
+            "STROKE_COLOR"
+          ]
+        }
+      }
+    },
+    "warning": {
+      "$type": "color",
+      "$value": "{color.yellow.500}",
+      "$extensions": {
+        "com.figma": {
+          "variableId": "VariableID:896:19642",
+          "name": "border/warning",
+          "scopes": [
+            "STROKE_COLOR"
+          ]
+        }
+      }
     }
   },
   "action": {
@@ -470,6 +523,50 @@
           "com.figma": {
             "variableId": "VariableID:250:35",
             "name": "action/danger/pressed",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    },
+    "soft": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.800}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:896:21266",
+            "name": "action/soft/default",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.neutral.700}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:896:21267",
+            "name": "action/soft/hover",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "pressed": {
+        "$type": "color",
+        "$value": "{color.neutral.600}",
+        "$extensions": {
+          "com.figma": {
+            "variableId": "VariableID:896:21268",
+            "name": "action/soft/pressed",
             "scopes": [
               "FRAME_FILL",
               "SHAPE_FILL"
@@ -711,7 +808,7 @@
     "neutral": {
       "bg": {
         "$type": "color",
-        "$value": "{color.neutral.800}",
+        "$value": "{color.neutral.700}",
         "$extensions": {
           "com.figma": {
             "variableId": "VariableID:250:52",
@@ -739,7 +836,7 @@
       },
       "border": {
         "$type": "color",
-        "$value": "{color.neutral.700}",
+        "$value": "{color.neutral.600}",
         "$extensions": {
           "com.figma": {
             "variableId": "VariableID:250:54",
@@ -752,7 +849,7 @@
       },
       "dot": {
         "$type": "color",
-        "$value": "{color.neutral.500}",
+        "$value": "{color.neutral.400}",
         "$extensions": {
           "com.figma": {
             "variableId": "VariableID:250:55",

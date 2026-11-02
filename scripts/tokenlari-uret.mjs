@@ -48,6 +48,7 @@ function primitivePath(name) {
   if (s[0] === 'Font' && s[1] === 'size') return ['font', 'size', s[2]];
   if (s[0] === 'Font' && s[1] === 'weight') return ['font', 'weight', s[2].replace(/^font-/, '')];
   if (s[0] === 'Font' && s[1] === 'line-height') return ['font', 'line-height', s[2].replace(/^leading-/, '')];
+  if (s[0] === 'Opacity' && s.length === 2) return ['opacity', s[1].replace(/^opacity-/, '')];
   throw new Error(`"${name}" için eşleme kuralı yok. rules/core/token-isimlendirme.md güncellenmeli (proje sahibine sor).`);
 }
 const ref = (name) => `{${primitivePath(name).join('.')}}`;
@@ -90,6 +91,7 @@ export function buildTokens(raw) {
       if (!WEIGHT[raw]) throw new Error(`"${v.name}" için bilinmeyen ağırlık: ${raw}`);
       token = { $type: 'fontWeight', $value: WEIGHT[raw] };
     } else if (path[0] === 'font' && path[1] === 'family') token = { $type: 'fontFamily', $value: raw };
+    else if (path[0] === 'opacity') token = { $type: 'number', $value: raw / 100 };
     else token = { $type: 'dimension', $value: dim(raw) };
     token.$extensions = figmaExt(v);
     setPath(primitives, path, token);
@@ -128,10 +130,12 @@ export function buildTokens(raw) {
         css = `var(${primitiveVar(x.alias)})`;
         shown = clean(x.alias).replace('Colors/', '');
       } else {
-        warnings.push(`"${v.name}" (${m.name}) bir primitive'e bağlı değil, değer doğrudan yazılmış.`);
+        // Yarı saydam katman (hover/pressed/selected) bilinçli olarak primitive'e bağlı değil: her zeminde görünsün diye siyah/beyaz + saydamlık.
+        const a = x.color[3] ?? 1;
+        if (a >= 1) warnings.push(`"${v.name}" (${m.name}) bir primitive'e bağlı değil, değer doğrudan yazılmış.`);
         token = { $type: 'color', $value: colorValue(x.color) };
-        css = hex(x.color);
-        shown = hex(x.color);
+        css = a < 1 ? `rgb(${x.color.slice(0, 3).map((c) => Math.round(c * 255)).join(' ')} / ${num(a)})` : hex(x.color);
+        shown = a < 1 ? `${hex(x.color)} %${Math.round(a * 100)}` : hex(x.color);
       }
       token.$extensions = figmaExt(v);
       setPath(semanticFiles[m.slug], v.name.split('/'), token);

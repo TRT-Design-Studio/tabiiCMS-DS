@@ -27,4 +27,5 @@ components/<isim>/spec.md    → komponentin kimlik kartı
 
 - Figma'nın değişkenleri dışarıdan okuma API'si sadece Enterprise planda var. Bu yüzden senkronu yapay zeka Figma MCP üzerinden yapar (`figma senkron`).
 - Tailwind v4'te `p-2` = 8px. Bu, bizim `spacing/2` = 8px tanımımızla aynı. Renk ve metin stili isimleri Figma'dan **üretilerek** eşlenir: [tokens/esleme.md](tokens/esleme.md)
-- İkonlar: Phosphor, sadece `regular` ve `fill` ağırlıkları.
+- İkonlar: [Phosphor Icons](https://phosphoricons.com), sadece `regular` ve `fill` ağırlıkları.
+- Bayraklar: [circle-flags](https://github.com/HatScripts/circle-flags), 265 ülke bayrağı. Figma'da Icons sayfasında, her biri `Flag/<ülke kodu>` komponenti. Renklendirilmez.

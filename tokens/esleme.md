@@ -15,12 +15,12 @@
 | `bg/inverse` | `bg-inverse` | `--color-bg-inverse` | neutral/900 | neutral/50 |
 | `bg/overlay` | `bg-overlay` | `--color-bg-overlay` | black %50 | black %70 |
 | `bg/disabled` | `bg-disabled` | `--color-bg-disabled` | neutral/100 | neutral/800 |
-| `bg/interactive/hover` | `bg-interactive-hover` | `--color-bg-interactive-hover` | neutral/100 | neutral/800 |
-| `bg/interactive/pressed` | `bg-interactive-pressed` | `--color-bg-interactive-pressed` | neutral/200 | neutral/700 |
-| `bg/interactive/selected` | `bg-interactive-selected` | `--color-bg-interactive-selected` | neutral/100 | neutral/800 |
+| `bg/interactive/hover` | `bg-interactive-hover` | `--color-bg-interactive-hover` | #000000 %5 | #ffffff %6 |
+| `bg/interactive/pressed` | `bg-interactive-pressed` | `--color-bg-interactive-pressed` | #000000 %10 | #ffffff %12 |
+| `bg/interactive/selected` | `bg-interactive-selected` | `--color-bg-interactive-selected` | #000000 %4 | #ffffff %6 |
 | `text/primary` | `text-primary` | `--color-text-primary` | neutral/900 | neutral/50 |
-| `text/secondary` | `text-secondary` | `--color-text-secondary` | neutral/700 | neutral/300 |
-| `text/tertiary` | `text-tertiary` | `--color-text-tertiary` | neutral/600 | neutral/400 |
+| `text/secondary` | `text-secondary` | `--color-text-secondary` | neutral/600 | neutral/400 |
+| `text/tertiary` | `text-tertiary` | `--color-text-tertiary` | neutral/400 | neutral/500 |
 | `text/inverse` | `text-inverse` | `--color-text-inverse` | neutral/50 | neutral/900 |
 | `text/on-color` | `text-on-color` | `--color-text-on-color` | white | white |
 | `text/disabled` | `text-disabled` | `--color-text-disabled` | neutral/400 | neutral/500 |
@@ -55,12 +55,17 @@
 | `feedback/info/text` | `text-feedback-info` | `--color-feedback-info-text` | blue/700 | blue/300 |
 | `feedback/info/border` | `border-feedback-info` | `--color-feedback-info-border` | blue/200 | blue/800 |
 | `feedback/info/dot` | `bg-feedback-info-dot` | `--color-feedback-info-dot` | blue/500 | blue/400 |
-| `feedback/neutral/bg` | `bg-feedback-neutral` | `--color-feedback-neutral-bg` | neutral/100 | neutral/800 |
+| `feedback/neutral/bg` | `bg-feedback-neutral` | `--color-feedback-neutral-bg` | neutral/200 | neutral/700 |
 | `feedback/neutral/text` | `text-feedback-neutral` | `--color-feedback-neutral-text` | neutral/700 | neutral/300 |
-| `feedback/neutral/border` | `border-feedback-neutral` | `--color-feedback-neutral-border` | neutral/200 | neutral/700 |
-| `feedback/neutral/dot` | `bg-feedback-neutral-dot` | `--color-feedback-neutral-dot` | neutral/400 | neutral/500 |
+| `feedback/neutral/border` | `border-feedback-neutral` | `--color-feedback-neutral-border` | neutral/300 | neutral/600 |
+| `feedback/neutral/dot` | `bg-feedback-neutral-dot` | `--color-feedback-neutral-dot` | neutral/500 | neutral/400 |
 | `border/danger` | `border-danger` | `--color-border-danger` | red/600 | red/500 |
 | `border/control` | `border-control` | `--color-border-control` | neutral/500 | neutral/500 |
+| `border/success` | `border-success` | `--color-border-success` | green/600 | green/500 |
+| `border/warning` | `border-warning` | `--color-border-warning` | yellow/600 | yellow/500 |
+| `action/soft/default` | `bg-action-soft` | `--color-action-soft-default` | neutral/100 | neutral/800 |
+| `action/soft/hover` | `bg-action-soft-hover` | `--color-action-soft-hover` | neutral/200 | neutral/700 |
+| `action/soft/pressed` | `bg-action-soft-pressed` | `--color-action-soft-pressed` | neutral/300 | neutral/600 |
 
 Hover, focus gibi durumlar Tailwind önekleriyle yazılır: `hover:bg-action-primary-hover`, `dark:` gerekmez (renkler moda göre kendiliğinden değişir).
 
@@ -230,13 +235,13 @@ Primitive bir rengin adı tek başına renktir (`neutral-100`). Tailwind'de bir 
 | `Colors/red/900` | `red-900` | `#940808` |
 | `Colors/red/950` | `red-950` | `#520000` |
 | `Colors/neutral/100` | `neutral-100` | `#f5f5f5` |
-| `Colors/neutral/200` | `neutral-200` | `#e5e5e5` |
+| `Colors/neutral/200` | `neutral-200` | `#e8e8e8` |
 | `Colors/neutral/300` | `neutral-300` | `#d4d4d4` |
 | `Colors/neutral/400` | `neutral-400` | `#a1a1a1` |
 | `Colors/neutral/500` | `neutral-500` | `#737373` |
 | `Colors/neutral/600` | `neutral-600` | `#525252` |
 | `Colors/neutral/700` | `neutral-700` | `#404040` |
-| `Colors/neutral/800` | `neutral-800` | `#262626` |
+| `Colors/neutral/800` | `neutral-800` | `#212121` |
 | `Colors/neutral/900` | `neutral-900` | `#171717` |
 | `Colors/neutral/950` | `neutral-950` | `#0a0a0a` |
 | `Colors/green/50` | `green-50` | `#ebfef5` |

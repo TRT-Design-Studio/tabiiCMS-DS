@@ -439,17 +439,6 @@
           }
         },
         {
-          "id": "VariableID:16:9",
-          "name": "Border/border-radius/rounded-none",
-          "type": "FLOAT",
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "values": {
-            "Mode 1": 0
-          }
-        },
-        {
           "id": "VariableID:23:47",
           "name": "Border/border-width/border",
           "type": "FLOAT",
@@ -458,6 +447,17 @@
           ],
           "values": {
             "Mode 1": 1
+          }
+        },
+        {
+          "id": "VariableID:16:9",
+          "name": "Border/border-radius/rounded-none",
+          "type": "FLOAT",
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "values": {
+            "Mode 1": 0
           }
         },
         {
@@ -1347,9 +1347,9 @@
           "values": {
             "Mode 1": {
               "color": [
-                0.898,
-                0.898,
-                0.898,
+                0.9098,
+                0.9098,
+                0.9098,
                 1
               ]
             }
@@ -1443,9 +1443,9 @@
           "values": {
             "Mode 1": {
               "color": [
-                0.149,
-                0.149,
-                0.149,
+                0.1294,
+                0.1294,
+                0.1294,
                 1
               ]
             }
@@ -2042,6 +2042,20 @@
               ]
             }
           }
+        },
+        {
+          "id": "VariableID:864:2",
+          "name": "Opacity/opacity-50",
+          "type": "FLOAT",
+          "scopes": [
+            "OPACITY"
+          ],
+          "values": {
+            "Mode 1": 50
+          },
+          "codeSyntax": {
+            "WEB": "opacity-50"
+          }
         }
       ]
     },
@@ -2204,10 +2218,20 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/neutral/100"
+              "color": [
+                0,
+                0,
+                0,
+                0.05
+              ]
             },
             "Dark Mode": {
-              "alias": "Colors/neutral/800"
+              "color": [
+                1,
+                1,
+                1,
+                0.06
+              ]
             }
           },
           "codeSyntax": {
@@ -2224,10 +2248,20 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/neutral/200"
+              "color": [
+                0,
+                0,
+                0,
+                0.1
+              ]
             },
             "Dark Mode": {
-              "alias": "Colors/neutral/700"
+              "color": [
+                1,
+                1,
+                1,
+                0.12
+              ]
             }
           },
           "codeSyntax": {
@@ -2244,10 +2278,20 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/neutral/100"
+              "color": [
+                0,
+                0,
+                0,
+                0.04
+              ]
             },
             "Dark Mode": {
-              "alias": "Colors/neutral/800"
+              "color": [
+                1,
+                1,
+                1,
+                0.06
+              ]
             }
           },
           "codeSyntax": {
@@ -2284,10 +2328,10 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/neutral/700"
+              "alias": "Colors/neutral/600"
             },
             "Dark Mode": {
-              "alias": "Colors/neutral/300"
+              "alias": "Colors/neutral/400"
             }
           },
           "codeSyntax": {
@@ -2304,10 +2348,10 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/neutral/600"
+              "alias": "Colors/neutral/400"
             },
             "Dark Mode": {
-              "alias": "Colors/neutral/400"
+              "alias": "Colors/neutral/500"
             }
           },
           "codeSyntax": {
@@ -2994,10 +3038,10 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/neutral/100"
+              "alias": "Colors/neutral/200"
             },
             "Dark Mode": {
-              "alias": "Colors/neutral/800"
+              "alias": "Colors/neutral/700"
             }
           },
           "codeSyntax": {
@@ -3033,10 +3077,10 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/neutral/200"
+              "alias": "Colors/neutral/300"
             },
             "Dark Mode": {
-              "alias": "Colors/neutral/700"
+              "alias": "Colors/neutral/600"
             }
           },
           "codeSyntax": {
@@ -3053,10 +3097,10 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/neutral/400"
+              "alias": "Colors/neutral/500"
             },
             "Dark Mode": {
-              "alias": "Colors/neutral/500"
+              "alias": "Colors/neutral/400"
             }
           },
           "codeSyntax": {
@@ -3099,6 +3143,104 @@
           },
           "codeSyntax": {
             "WEB": "var(--color-border-control)"
+          }
+        },
+        {
+          "id": "VariableID:716:2",
+          "name": "border/success",
+          "type": "COLOR",
+          "scopes": [
+            "STROKE_COLOR"
+          ],
+          "values": {
+            "Light Mode": {
+              "alias": "Colors/green/600"
+            },
+            "Dark Mode": {
+              "alias": "Colors/green/500"
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-border-success)"
+          }
+        },
+        {
+          "id": "VariableID:896:19642",
+          "name": "border/warning",
+          "type": "COLOR",
+          "scopes": [
+            "STROKE_COLOR"
+          ],
+          "values": {
+            "Light Mode": {
+              "alias": "Colors/yellow/600"
+            },
+            "Dark Mode": {
+              "alias": "Colors/yellow/500"
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-border-warning)"
+          }
+        },
+        {
+          "id": "VariableID:896:21266",
+          "name": "action/soft/default",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "alias": "Colors/neutral/100"
+            },
+            "Dark Mode": {
+              "alias": "Colors/neutral/800"
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-action-soft-default)"
+          }
+        },
+        {
+          "id": "VariableID:896:21267",
+          "name": "action/soft/hover",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "alias": "Colors/neutral/200"
+            },
+            "Dark Mode": {
+              "alias": "Colors/neutral/700"
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-action-soft-hover)"
+          }
+        },
+        {
+          "id": "VariableID:896:21268",
+          "name": "action/soft/pressed",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "alias": "Colors/neutral/300"
+            },
+            "Dark Mode": {
+              "alias": "Colors/neutral/600"
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-action-soft-pressed)"
           }
         }
       ]

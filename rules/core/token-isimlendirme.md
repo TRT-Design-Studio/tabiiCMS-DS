@@ -3,9 +3,9 @@ id: core.token-isimlendirme
 title: Token isimlendirme ve Figma → kod eşlemesi
 owner: "@mucahitpuren"
 status: active
-version: 2
+version: 3
 applies_to: tokens
-updated: 2026-10-20
+updated: 2026-10-26
 ---
 
 # Token isimlendirme ve Figma → kod eşlemesi
@@ -65,7 +65,9 @@ Figma'daki her değişkenin kodda neye karşılık geldiği tek bir kurala bağl
 7. **Tailwind'in varsayılanları kapatılır.** Renkler, fontlar, yazı boyutları, köşe yuvarlaklıkları ve gölgeler sadece Figma'dan gelir. Paletimizde olmayan bir renk (`bg-purple-500` gibi) çalışmaz. `bg-blue-500` ise Figma'daki bizim mavimizi verir, Tailwind'inkini değil.
 8. **Yazı boyutları:** Sadece Figma'da yazı stili olan boyutlar (`text-xs` … `text-4xl`) kodda tanımlanır. Satır yüksekliği yazı stilinden gelir.
 9. **Dark mode:** Sayfanın kök elemanına `.dark` sınıfı eklenince semantic renkler Dark Mode değerlerine geçer. Class adları değişmez.
-10. **Yeni bir değişken grubu veya kuralın kapsamadığı bir ad gelirse üretici durur.** Eşleme bu dosyaya eklenmeden (proje sahibi onayıyla) devam edilmez.
+10. **Opaklık:** `Opacity/opacity-50` gibi primitive'ler Tailwind'in `opacity-50` class'ına karşılık gelir. Figma'da değer 0–100 (50), token'da 0–1 (0.5). Disabled kontroller kendi renkleriyle `opacity-50` olur, ayrı disabled rengi kullanılmaz (2026-10-26).
+11. **Yarı saydam etkileşim renkleri:** `bg/interactive/hover`, `pressed` ve `selected` bilinçli olarak primitive'e bağlı değildir. Değerleri siyah (Light) veya beyaz (Dark) + saydamlıktır (ör. %5), böylece her zeminde görünür. CSS'te `rgb(0 0 0 / 0.05)` olarak yazılır.
+12. **Yeni bir değişken grubu veya kuralın kapsamadığı bir ad gelirse üretici durur.** Eşleme bu dosyaya eklenmeden (proje sahibi onayıyla) devam edilmez.
 
 ## Örnek
 

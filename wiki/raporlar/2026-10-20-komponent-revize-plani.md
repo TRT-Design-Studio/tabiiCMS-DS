@@ -1,6 +1,6 @@
 ---
 date: 2026-10-20
-updated: 2026-10-21
+updated: 2026-11-10
 author: "@mucahitpuren"
 figma_file: xdSquxB9G5GHgAe4s3QTho
 reference_file: lWf9tBHKcRBBuWm7TSWnQj
@@ -343,3 +343,11 @@ Revizeler sistemdeki gerçek komponentlere uygulanır. Bitince "Reference vs DS"
 - `bg/interactive/selected` açıldı (Light %4, Dark %6). Radio Group'ta Current badge Strong.
 - Dark mode taraması: Status/Select hover kontrastı düzeltildi.
 - Date Picker'a dokunulmadı (Mücahit elle revize ediyor).
+
+## Eklenebilecek komponentler (2026-11-10 taraması)
+
+Sistemde yok, ileride eklenebilir. Henüz karar verilmedi.
+
+- **Ekranlarda geçenler:** Popover (Playground'da takvim açılır pencereleri frame olarak kurulu), Skeleton (yüklenme satırı), Section switcher (Breadcrumb içinde bölüm değiştirme).
+- **Yaygın ama ekranlarda henüz geçmeyenler:** Switch/Toggle, Dialog/Modal, Toast/Alert.
+- Top Bar, File Upload ve Rich Text Editor sayfalarındaki eksikler ayrıca ele alınacak.

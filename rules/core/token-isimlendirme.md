@@ -3,9 +3,9 @@ id: core.token-isimlendirme
 title: Token isimlendirme ve Figma → kod eşlemesi
 owner: "@mucahitpuren"
 status: active
-version: 3
+version: 5
 applies_to: tokens
-updated: 2026-10-26
+updated: 2026-11-04
 ---
 
 # Token isimlendirme ve Figma → kod eşlemesi
@@ -56,6 +56,7 @@ Figma'daki her değişkenin kodda neye karşılık geldiği tek bir kurala bağl
    | `border/default` | `border-default` |
    | `action/primary/default` / `hover` | `bg-action-primary` / `hover:bg-action-primary-hover` |
    | `feedback/success/bg` / `text` / `border` / `dot` | `bg-feedback-success` / `text-feedback-success` / `border-feedback-success` / `bg-feedback-success-dot` |
+   | `avatar/blue/bg` / `text` | `bg-avatar-blue` / `text-avatar-blue` |
 
    - **CSS değişkeninin adı** Figma'daki code syntax'tır. Örnek: `var(--color-bg-surface)`. Böylece Dev Mode'da görünen ad ile koddaki ad aynı olur.
    - **Bir class Tailwind'in kendi class'larıyla ya da bir primitive rengin adıyla çakışırsa üretici durur.** Örnek: `text-xs`, `bg-white`.
@@ -65,8 +66,9 @@ Figma'daki her değişkenin kodda neye karşılık geldiği tek bir kurala bağl
 7. **Tailwind'in varsayılanları kapatılır.** Renkler, fontlar, yazı boyutları, köşe yuvarlaklıkları ve gölgeler sadece Figma'dan gelir. Paletimizde olmayan bir renk (`bg-purple-500` gibi) çalışmaz. `bg-blue-500` ise Figma'daki bizim mavimizi verir, Tailwind'inkini değil.
 8. **Yazı boyutları:** Sadece Figma'da yazı stili olan boyutlar (`text-xs` … `text-4xl`) kodda tanımlanır. Satır yüksekliği yazı stilinden gelir.
 9. **Dark mode:** Sayfanın kök elemanına `.dark` sınıfı eklenince semantic renkler Dark Mode değerlerine geçer. Class adları değişmez.
-10. **Opaklık:** `Opacity/opacity-50` gibi primitive'ler Tailwind'in `opacity-50` class'ına karşılık gelir. Figma'da değer 0–100 (50), token'da 0–1 (0.5). Disabled kontroller kendi renkleriyle `opacity-50` olur, ayrı disabled rengi kullanılmaz (2026-10-26).
+10. **Opaklık:** `Opacity/opacity-50` gibi primitive'ler Tailwind'in `opacity-50` class'ına karşılık gelir. Figma'da değer 0–100 (50), token'da 0–1 (0.5). Disabled kontroller kendi renkleriyle `opacity-50` olur, ayrı disabled rengi kullanılmaz (2026-10-26). İstisna: **Tag Disabled** opaklık kullanmaz; beyaz zemin (`bg/surface`) ve `text/disabled` yazı/ikon ile gösterilir, çünkü gri disabled alanın içinde soluklaştırılınca kayboluyordu (2026-11-05, Mücahit).
 11. **Yarı saydam etkileşim renkleri:** `bg/interactive/hover`, `pressed` ve `selected` bilinçli olarak primitive'e bağlı değildir. Değerleri siyah (Light) veya beyaz (Dark) + saydamlıktır (ör. %5), böylece her zeminde görünür. CSS'te `rgb(0 0 0 / 0.05)` olarak yazılır.
+    - **`bg/inverse-overlay`** (2026-11-04) de aynı türdendir: `bg/inverse` ile aynı renk, %85 opak (Light `#171717`, Dark `#FAFAFA`). Tooltip gibi yarı saydam katmanlar içindir. Not: Figma'da token'a bağlı bir dolgunun opaklığı eklentiyle kalıcı olarak değiştirilemiyor; saydamlık gereken yerde saydamlık token'ın kendi değerinde durur.
 12. **Yeni bir değişken grubu veya kuralın kapsamadığı bir ad gelirse üretici durur.** Eşleme bu dosyaya eklenmeden (proje sahibi onayıyla) devam edilmez.
 
 ## Örnek

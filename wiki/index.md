@@ -37,6 +37,9 @@ _Henüz yok._
 - [Button](../components/button/spec.md) · stable
 - [Icon Button](../components/icon-button/spec.md) · stable
 - [Input](../components/input/spec.md) · stable
+- [Nav Item](../components/nav-item/spec.md) · stable
+- [Nav Sub Group](../components/nav-sub-group/spec.md) · stable
+- [Sidebar](../components/sidebar/spec.md) · stable
 - [Split Button](../components/split-button/spec.md) · stable
 - [Status](../components/status/spec.md) · stable
 - [Tag](../components/tag/spec.md) · stable

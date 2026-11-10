@@ -1,6 +1,6 @@
 ---
 component: Badge Dot
-figma_page: "🏷️ Badges & Status"
+figma_page: "🏷️ Badges, Status & Tag"
 figma_node: "724:10539"
 version: 1.0.0
 status: stable

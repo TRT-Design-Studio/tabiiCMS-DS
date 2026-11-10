@@ -214,3 +214,4 @@ Takımın 💡 Status / Badge / Tag sayfasındaki hiyerarşi ve göç tablosu es
 - Mücahit Examples frame'ini Interaction'ın yanına aldı. Yeni sıra: Overview → Changelog → Interaction → Examples → Component Sets → Anatomy & Specs → Properties (sablon.md v4, frame-duzeni, KOMUTLAR güncellendi).
 - Buttons ve Badges & Status sayfaları şablona göre dokümante edildi (7 frame, sayfa zemini #171717, ana setler Component Sets tablolarına taşındı, eski grup frame'leri silindi). spec.md: button, icon-button, split-button, status, badge-count, badge-dot, badge-label, tag.
 - Bu sırada düzeltilen komponent hataları: Interactive Status'ta Label yazısı property'ye bağlı değildi (20 varyant, bağlandı); Tag Read-only çizgisi yüksekliği 20/28 yerine 22/30 yapıyordu (layout dışına alındı); Badge Label seti auto layout'luydu (kaldırıldı).
+- Figma sayfası "Badges, Status & Tag" olarak yeniden adlandırıldı (Mücahit); doküman başlıkları, NOW, ROADMAP ve spec kayıtları güncellendi.

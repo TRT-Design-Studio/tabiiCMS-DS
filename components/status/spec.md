@@ -1,6 +1,6 @@
 ---
 component: Status
-figma_page: "🏷️ Badges & Status"
+figma_page: "🏷️ Badges, Status & Tag"
 figma_node: "725:10549"
 version: 1.0.0
 status: stable

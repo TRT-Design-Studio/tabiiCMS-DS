@@ -1,6 +1,6 @@
 ---
 component: Badge Label
-figma_page: "🏷️ Badges & Status"
+figma_page: "🏷️ Badges, Status & Tag"
 figma_node: "1203:8502"
 version: 1.0.0
 status: stable

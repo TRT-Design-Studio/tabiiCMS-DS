@@ -6,11 +6,11 @@ updated: 2026-11-10
 
 > Bu dosya projenin **genel odağını** gösterir. Sadece odak değiştiğinde güncellenir. Günlük ilerleme `wiki/log/` klasörüne yazılır.
 
-**Aşama:** Faz 2, komponent dokümantasyonu. Şablon hazır; Input, Buttons, Badges & Status dokümante edildi ([ROADMAP.md](ROADMAP.md))
+**Aşama:** Faz 2, komponent dokümantasyonu. Şablon hazır; Input, Buttons, Badges, Status & Tag dokümante edildi ([ROADMAP.md](ROADMAP.md))
 
 ## Bilinmesi gerekenler (geçici durum, kural değil)
 
-- **Komponentler kendi sayfalarında.** Düzen Flowbite Pro'daki gibi: Components bölümünde amaca göre gruplar var. Büyük gruplar (Form, Navigation, Data Display) boş bir başlık sayfası ve altındaki `--- <Aile>` alt sayfalarından oluşur (Form → Input, Select, Datepicker…; Navigation → Sidebar, Top Bar, Divider…). Diğer gruplar (Buttons, Badges & Status, Menu, Tooltip, Page Header, Avatar, Media, Cards) tek sayfadır. Action Bar ve Toolbar komponent değil, elle kurulur. Boy ölçeği: Button 28/32/36/40 (hug), Input 32/36/40 (sabit, varsayılan 36), Avatar 28/32/40.
+- **Komponentler kendi sayfalarında.** Düzen Flowbite Pro'daki gibi: Components bölümünde amaca göre gruplar var. Büyük gruplar (Form, Navigation, Data Display) boş bir başlık sayfası ve altındaki `--- <Aile>` alt sayfalarından oluşur (Form → Input, Select, Datepicker…; Navigation → Sidebar, Top Bar, Divider…). Diğer gruplar (Buttons, Badges, Status & Tag, Menu, Tooltip, Page Header, Avatar, Media, Cards) tek sayfadır. Action Bar ve Toolbar komponent değil, elle kurulur. Boy ölçeği: Button 28/32/36/40 (hug), Input 32/36/40 (sabit, varsayılan 36), Avatar 28/32/40.
 - **Status / Badge / Tag ayrımı anlama göre (2026-11-04).** İçeriğin durumu → Status (tek set; Interactive açıkken chevron + hover). Arayüzde dikkat çekme → Badge Count, Badge Dot, Badge Label. Kullanıcının eklediği içerik verisi → Tag (Static, Removable, Link; Default, Hover, Disabled; Static için Read-only). Eski Badge, Status/Select ve Status Dot silindi.
 - **Documentation Draft, Badge ve Input sayfalarındaki setler** dokümanın nasıl görüneceğini denemek için yapılmış kopyalar. Asıl setler değil, revizeler bunlara yapılmaz.
 - **Playground'daki ekranlar** (Overview, Shows, Create Show bölümleri) referans tasarımların DS komponentleriyle kurulmuş halleri. Web 1440, tablet 768, mobil 375.
@@ -25,7 +25,7 @@ updated: 2026-11-10
 ## Sıradaki işler
 
 1. **Komponent revizesi:** Playground → "Reference vs DS" frame'i üzerinden referanslarla karşılaştırma ve küçük revizeler. Açık konular: [revize planı](wiki/raporlar/2026-10-20-komponent-revize-plani.md) → "Karşılaştırmada çıkan revize konuları".
-2. Faz 2: kalan komponent sayfalarını `dokuman: <sayfa>` ile tek tek dokümante etmek. Bitenler: Input, Buttons, Badges & Status. Top Bar, File Upload ve Rich Text Editor eksikleri tamamlanınca dokümante edilecek.
+2. Faz 2: kalan komponent sayfalarını `dokuman: <sayfa>` ile tek tek dokümante etmek. Bitenler: Input, Buttons, Badges, Status & Tag. Top Bar, File Upload ve Rich Text Editor eksikleri tamamlanınca dokümante edilecek.
 3. Dokümanlardaki Interaction frame'lerine Figma Make ile çalışan komponentleri gömmek (sonraki aşama)
 4. İlk kuralların yazılması (Mücahit'ten gelecek)
 5. Ekip arkadaşlarının (`@aysemioki`, `@merveeceylaan`) [README](README.md)'deki "ilk kez" adımlarıyla kurulum yapması

@@ -4,9 +4,9 @@ Bu repo, tabiiCMS tasarım sisteminin **kural kitabı ve üretim hattıdır**.
 
 Figma'da tasarladığımız sistem (renkler, yazı stilleri, boşluklar, komponentler) buradaki kurallara dönüşür. Bu kurallardan da şunlar üretilir:
 
-- komponent dokümantasyonları,
-- Storybook (komponentlerin tıklanabilir, canlı hali),
-- komponentleri anlatan kısa videolar (45–60 saniye).
+- komponent dokümantasyonları (Figma'da, her komponentin kendi sayfasında),
+- komponentlerin kimlik kartları (`components/<isim>/spec.md`),
+- ileride: Figma Make ile çalışan örnekler. Storybook ve videolar şimdilik rafta.
 
 Burada çoğunlukla kod yazmıyoruz. Dosyaların büyük kısmı **Markdown (.md)** dosyası. Yapay zeka bu dosyaları okur ve içindeki kurallara göre çalışır.
 

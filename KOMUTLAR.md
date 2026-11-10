@@ -22,6 +22,7 @@ Ayrıntı: [rehber/04-gunluk-calisma.md](rehber/04-gunluk-calisma.md)
 
 | Yaz | Ne olur? | Akış |
 |---|---|---|
+| `dokuman: <sayfa>` | Komponent sayfasını şablona göre dokümante eder: Overview, Changelog, Interaction, Examples, Component Sets, Anatomy & Specs, Properties. Repoya `spec.md` kaydını yazar | [workflows/dokuman.md](workflows/dokuman.md) |
 | `figma senkron` | Figma'daki değişkenleri, yazı stillerini ve gölgeleri okur. `tokens/` klasörünü günceller ve neyin değiştiğini anlatır. Figma'da hiçbir şeyi değiştirmez | [workflows/figma-senkron.md](workflows/figma-senkron.md) |
 
 ## Kurallar
@@ -49,8 +50,7 @@ Bu komutlar henüz çalışmıyor. Hazır olunca yukarıya taşınacak.
 
 | Yaz | Ne olacak? | Ne zaman? |
 |---|---|---|
-| `dokuman: <komponent>` | Komponentin dokümantasyonunu şablona göre Figma'da hazırlar | Faz 2 |
-| `video: <komponent>` | Komponentin bütün hallerini gösteren 45–60 saniyelik videoyu üretir | Faz 4 |
+| `video: <komponent>` | Komponentin bütün hallerini gösteren 45–60 saniyelik videoyu üretir | Rafa kalktı (2026-11-10) |
 
 ---
 

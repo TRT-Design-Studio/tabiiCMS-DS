@@ -4,7 +4,7 @@ Bu dosya bu repoda çalışan **her** yapay zeka ajanı (Claude, Cursor, Codex, 
 
 ## Proje
 
-tabiiCMS tasarım sistemi. Kaynak Figma dosyasıdır. Figma değişkenleri ve komponent setleri bu repoda kurallara (`rules/`), token'lara (`tokens/`) ve komponent kimlik kartlarına (`components/<isim>/spec.md`) dönüşür. Bunlardan dokümantasyon, Storybook ve Remotion videoları üretilir. Repoda çalışanlar çoğunlukla **tasarımcıdır ve git bilmez.**
+tabiiCMS tasarım sistemi. Kaynak Figma dosyasıdır. Figma değişkenleri ve komponent setleri bu repoda kurallara (`rules/`), token'lara (`tokens/`) ve komponent kimlik kartlarına (`components/<isim>/spec.md`) dönüşür. Bunlardan Figma'da dokümantasyon üretilir (`dokuman: <sayfa>`). Storybook ve Remotion videoları şimdilik rafta; çalışan örnekler Figma Make ile dokümana gömülecek. Repoda çalışanlar çoğunlukla **tasarımcıdır ve git bilmez.**
 
 ## Her oturumun başında (zorunlu)
 

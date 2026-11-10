@@ -3,9 +3,9 @@ id: core.tailwind-temel
 title: Tailwind temel alınır
 owner: "@mucahitpuren"
 status: active
-version: 3
+version: 4
 applies_to: all
-updated: 2026-10-20
+updated: 2026-11-04
 ---
 
 # Tailwind temel alınır
@@ -37,7 +37,7 @@ Proje sahibinin bilinçli kararları. Bunlar Tailwind'den farklıdır ama hata o
 - **`leading-none`** değişkenine dokunulmaz.
 - **Harf aralığı (`tracking-*`)** ve **oranlı satır yükseklikleri** (`leading-tight`, `leading-normal`…) kullanılmaz. Eksik olarak bildirilmez.
 - **Gray paleti** test için durur. Kullanılmıyor diye silinmesi önerilmez.
-- **Avatar renkleri** bilinçli olarak hex değerdir (özel renkler). Bağlantı denetiminde hata sayılmaz.
+- **Avatar renkleri** `avatar/<renk>/bg` ve `avatar/<renk>/text` semantic token'larıdır (2026-11-04). Primitive'i olan renkler (blue) primitive'e bağlıdır; paletimizde olmayanlar (purple, teal, pink) token içinde doğrudan hex değer taşır. Bu, bilinçli bir istisnadır; bağlantı denetiminde hata sayılmaz. Komponentin içinde hex kullanılmaz.
 
 ## Kontrol
 

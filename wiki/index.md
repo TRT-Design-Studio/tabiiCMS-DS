@@ -35,8 +35,10 @@ _Henüz yok._
 - [Badge Dot](../components/badge-dot/spec.md) · stable
 - [Badge Label](../components/badge-label/spec.md) · stable
 - [Button](../components/button/spec.md) · stable
+- [Field Message](../components/field-message/spec.md) · stable
 - [Icon Button](../components/icon-button/spec.md) · stable
 - [Input](../components/input/spec.md) · stable
+- [Label](../components/label/spec.md) · stable
 - [Menu Group Label](../components/menu-group-label/spec.md) · stable
 - [Menu Item](../components/menu-item/spec.md) · stable
 - [Menu Separator](../components/menu-separator/spec.md) · stable

@@ -4,7 +4,7 @@ figma_page: "🏷️ Badges, Status & Tag"
 figma_node: "725:10775"
 version: 1.0.0
 status: stable
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 # Tag
@@ -22,6 +22,15 @@ Content data the user added. Neutral only.
 ## Properties
 
 Label (Text) · Leading Icon (Boolean) · Leading Icon Swap (Instance swap).
+
+## Sizes
+
+| Size | Height | Padding H | Padding V | Gap | Text | Icon |
+|---|---|---|---|---|---|---|
+| Small | 20 | `Spacing/2` | `Spacing/0․5` | `Spacing/1` | `text-xs/medium` | 12 |
+| Medium | 28 | `Spacing/2․5` | `Spacing/1` | `Spacing/1․5` | `text-sm/medium` | 14 |
+
+Link has no horizontal padding. The remove icon (X) is `text/secondary`, `text/disabled` when disabled.
 
 ## Colors
 

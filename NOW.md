@@ -6,7 +6,7 @@ updated: 2026-11-10
 
 > Bu dosya projenin **genel odağını** gösterir. Sadece odak değiştiğinde güncellenir. Günlük ilerleme `wiki/log/` klasörüne yazılır.
 
-**Aşama:** Faz 2, komponent dokümantasyonu. Şablon hazır; Input, Buttons, Badges, Status & Tag, Menu, Sidebar, Tooltip, Labels & Helper, Datepicker, Tag Input, Checkbox & Radio dokümante edildi ([ROADMAP.md](ROADMAP.md))
+**Aşama:** Faz 2, komponent dokümantasyonu. Şablon hazır; Input, Select, Textarea, Form Field, Number Stepper, Phone Field, Buttons, Badges, Status & Tag, Menu, Sidebar, Tooltip, Labels & Helper, Datepicker, Tag Input, Checkbox & Radio dokümante edildi ([ROADMAP.md](ROADMAP.md))
 
 ## Bilinmesi gerekenler (geçici durum, kural değil)
 
@@ -25,7 +25,7 @@ updated: 2026-11-10
 ## Sıradaki işler
 
 1. **Komponent revizesi:** Playground → "Reference vs DS" frame'i üzerinden referanslarla karşılaştırma ve küçük revizeler. Açık konular: [revize planı](wiki/raporlar/2026-10-20-komponent-revize-plani.md) → "Karşılaştırmada çıkan revize konuları".
-2. Faz 2: kalan komponent sayfalarını `dokuman: <sayfa>` ile tek tek dokümante etmek. Bitenler: Input, Buttons, Badges, Status & Tag, Menu, Sidebar, Tooltip, Labels & Helper, Datepicker, Tag Input, Checkbox & Radio. Top Bar, File Upload ve Rich Text Editor eksikleri tamamlanınca dokümante edilecek.
+2. Faz 2: kalan komponent sayfalarını `dokuman: <sayfa>` ile tek tek dokümante etmek. Bitenler: Input, Select, Textarea, Form Field, Number Stepper, Phone Field, Buttons, Badges, Status & Tag, Menu, Sidebar, Tooltip, Labels & Helper, Datepicker, Tag Input, Checkbox & Radio. Top Bar, File Upload ve Rich Text Editor eksikleri tamamlanınca dokümante edilecek.
 3. Dokümanlardaki Interaction frame'lerine Figma Make ile çalışan komponentleri gömmek (sonraki aşama)
 4. İlk kuralların yazılması (Mücahit'ten gelecek)
 5. Ekip arkadaşlarının (`@aysemioki`, `@merveeceylaan`) [README](README.md)'deki "ilk kez" adımlarıyla kurulum yapması

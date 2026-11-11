@@ -23,6 +23,7 @@ Ayrıntı: [rehber/04-gunluk-calisma.md](rehber/04-gunluk-calisma.md)
 | Yaz | Ne olur? | Akış |
 |---|---|---|
 | `dokuman: <sayfa>` | Komponent sayfasını şablona göre dokümante eder: Overview, Changelog, Interaction, Examples, Component Sets, Anatomy & Specs, Properties. Repoya `spec.md` kaydını yazar | [workflows/dokuman.md](workflows/dokuman.md) |
+| `interaction: <sayfa>` | Sayfanın Interaction frame'i için çalışan bir playground (code layer) üretir: bütün varyantlar ve state'ler denenebilir. Değerler `spec.md`'den gelir; spec değişince yeniden üretilir | [workflows/interaction.md](workflows/interaction.md) |
 | `figma senkron` | Figma'daki değişkenleri, yazı stillerini ve gölgeleri okur. `tokens/` klasörünü günceller ve neyin değiştiğini anlatır. Figma'da hiçbir şeyi değiştirmez | [workflows/figma-senkron.md](workflows/figma-senkron.md) |
 
 ## Kurallar

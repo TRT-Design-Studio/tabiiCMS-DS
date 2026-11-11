@@ -29,5 +29,6 @@
 6. **Repo:**
    - `components/<isim>/spec.md` dosyasını [components/README.md](../components/README.md) formatıyla yaz.
    - `wiki/log/` kaydına ekle.
+   - Sayfanın code layer'ı varsa (`interaction/pages/`) `node interaction/build.mjs` çalıştır; spec değişikliği code layer'a geçer ([interaction.md](interaction.md)).
    - `node scripts/index-olustur.mjs` ve `node scripts/kontrol.mjs` komutlarını çalıştır.
 7. **Kullanıcıya anlat:** Hangi frame'ler kuruldu, hangi örnekler eklendi, nerede karar gerekiyor.

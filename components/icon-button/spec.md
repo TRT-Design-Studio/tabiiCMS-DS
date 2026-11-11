@@ -26,14 +26,27 @@ Icon (Instance swap).
 
 ## Sizes
 
-| Size | Padding | Icon |
-|---|---|---|
-| XSmall | `Spacing/1․5` | 16 |
-| Small | `Spacing/2` | 16 |
-| Medium | `Spacing/2` | 20 |
-| Large | `Spacing/2․5` | 20 |
+| Size | Height | Padding | Icon |
+|---|---|---|---|
+| XSmall | 28 | `Spacing/1․5` | 16 |
+| Small | 32 | `Spacing/2` | 16 |
+| Medium | 36 | `Spacing/2` | 20 |
+| Large | 40 | `Spacing/2․5` | 20 |
 
-Colors per variant are the same as Button.
+## Shapes
+
+| Shape | Radius |
+|---|---|
+| Square | `rounded-lg` |
+| Circle | `rounded-full` |
+
+## States
+
+Colors per variant (Default, Hover, Pressed, Focused, Disabled) are the same as Button; the icon takes the Button label color.
+
+| State | Variant | Fill |
+|---|---|---|
+| Active | Ghost | `bg/interactive/selected` |
 
 ## Used in
 

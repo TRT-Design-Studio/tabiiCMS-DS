@@ -3,19 +3,17 @@ component: User Card
 figma_page: "🗂️ Cards"
 figma_node: "287:1036"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # User Card
 
-Layout: Full / Compact · State: Default / Hover · Nested: Avatar · Text: Name, Email
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+The signed-in person; opens the user menu. Full shows avatar, name, email and a caret (expanded sidebar). Compact shows only the avatar (Rail sidebar, top bar). Hover fills bg/interactive/hover.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | Layout | Full, Compact | Full |
 | State | Default, Hover | Default |
@@ -24,34 +22,31 @@ Layout: Full / Compact · State: Default / Hover · Nested: Avatar · Text: Name
 
 | Property | Type | Default |
 |---|---|---|
-| Name | Text | Ayse Cavdar |
-| Email | Text | ayse.cavdar@trt.net.tr |
+| Layout | Variant | Full |
+| State | Variant | Default |
+| Name | Text | A person name |
+| Email | Text | An email address |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 52 | `Spacing/2` (8) | `Spacing/2` (8) | `Spacing/2․5` (10) | `rounded-lg` (8) | `text-sm/medium` |
+| Layout | Size | Padding | Gap | Radius | Text |
+|---|---|---|---|---|---|
+| Full | 224 × 52 | `Spacing/2` (8) | `Spacing/2․5` (10) | `rounded-lg` | `text-sm/medium` (name), `text-xs/regular` (email) |
+| Compact | 48 × 48 | `Spacing/2` (8) | — | `rounded-lg` | — |
+
+Avatar: Medium. Chevron: CaretDown, `Spacing/4` (16).
 
 ## States
 
-| Layout | State | Background | Border | Text | Opacity |
-|---|---|---|---|---|---|
-| Full | Default | none | none | `text/primary` |  |
-| Full | Hover | `bg/interactive/hover` 5% | none | `text/primary` |  |
-| Compact | Default | none | none | — |  |
-| Compact | Hover | `bg/interactive/hover` 5% | none | — |  |
-
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Avatar | Avatar | 32 × 32 | `bg/subtle` | yes |
-| Text | Frame | 140 × 36 | none | yes |
-| Chevron | CaretDown | 16 × 16 | none | yes |
+| State | Fill | Name | Email |
+|---|---|---|---|
+| Default | — | `text/primary` | `text/tertiary` |
+| Hover | `bg/interactive/hover` | `text/primary` | `text/tertiary` |
 
 ## Used in
 
-Sidebar
+| Component | Where |
+|---|---|
+| [Sidebar](../sidebar/spec.md) | Footer: Full when expanded, Compact in Rail |
+
+Playground uses: user menu trigger (Compact).

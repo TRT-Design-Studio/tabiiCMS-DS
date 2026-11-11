@@ -3,54 +3,42 @@ component: Image
 figma_page: "🖼️ Media"
 figma_node: "1208:31"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Image
 
-Image or video frame with a fixed aspect ratio. Ratio: 16:9 / 21:9 / 3:2 / 4:3 / 5:4 / 1:1 / 4:5 / 3:4 / 2:3 / 9:16. The default fill is the placeholder image (icon only, no ratio text); replace the fill with the real image. Resize the instance; the ratio stays locked. In code: aspect-&lt;w&gt;/&lt;h&gt; (e.g. aspect-16/9). Replaces Thumbnail and Ratio Placeholder.
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+Image or video frame with a fixed aspect ratio. The default fill is the placeholder image (icon only); replace the fill with the real image. Resize the instance; the ratio stays locked. In code: `aspect-<w>/<h>` with `object-cover`.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | Ratio | 16:9, 21:9, 3:2, 4:3, 5:4, 1:1, 4:5, 3:4, 2:3, 9:16 | 16:9 |
 
 ## Properties
 
-None.
+| Property | Type | Default |
+|---|---|---|
+| Ratio | Variant | 16:9 |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 135 | — | — | — | `rounded-md` (6) | — |
+| Ratio | Default size |
+|---|---|
+| 16:9 · 21:9 · 3:2 · 4:3 · 5:4 | 240×135 · 240×103 · 240×160 · 240×180 · 240×192 |
+| 1:1 · 4:5 · 3:4 · 2:3 · 9:16 | 240×240 · 192×240 · 180×240 · 160×240 · 135×240 |
+
+Radius `rounded-md` for every ratio. No border.
 
 ## States
 
-| Ratio | Background | Border | Text | Opacity |
-|---|---|---|---|---|
-| 16:9 | image | none | — |  |
-| 21:9 | image | none | — |  |
-| 3:2 | image | none | — |  |
-| 4:3 | image | none | — |  |
-| 5:4 | image | none | — |  |
-| 1:1 | image | none | — |  |
-| 4:5 | image | none | — |  |
-| 3:4 | image | none | — |  |
-| 2:3 | image | none | — |  |
-| 9:16 | image | none | — |  |
-
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
+No states. The fill is an image (placeholder PNG); it has no colour token and does not change in Dark mode.
 
 ## Used in
 
-Table Cell, Upload
+| Component | Where |
+|---|---|
+| [Table Cell](../table-cell/spec.md) | 16:9, 85 × 48, before the title when Show Image is on |
+| Upload | File preview |

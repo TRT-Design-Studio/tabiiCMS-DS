@@ -3,48 +3,48 @@ component: Logo
 figma_page: "🖼️ Media"
 figma_node: "287:1009"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Logo
 
-Type: Full / Mark · Colors are bound to bg/inverse, text/inverse and text/primary (they invert in Dark mode)
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+The tabii brand mark. Full (mark + wordmark) where there is room; Mark alone for tight spaces like the Rail sidebar. Colours are bound to bg/inverse, text/inverse and text/primary and invert in Dark mode. Never stretch it or change its colours.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | Type | Full, Mark | Full |
 
 ## Properties
 
-None.
+| Property | Type | Default |
+|---|---|---|
+| Type | Variant | Full |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 28 | 0 | 0 | `Spacing/2` (8) | 0 | — |
+| Type | Size | Gap |
+|---|---|---|
+| Full | 82 × 28 | `Spacing/2` (8) between mark and wordmark |
+| Mark | 28 × 28 | — |
 
 ## States
 
-| Type | Background | Border | Text | Opacity |
-|---|---|---|---|---|
-| Full | `bg/inverse` (Vector) | none | — |  |
-| Mark | `bg/inverse` (Vector) | none | — |  |
+No states.
 
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Mark | Frame | 28 × 28 | none | yes |
-| Wordmark | Frame | 46 × 27 | none | yes |
+| Part | Fill |
+|---|---|
+| Mark square | `bg/inverse` |
+| Mark symbol | `text/inverse` |
+| Wordmark | `text/primary` |
 
 ## Used in
 
-Sidebar, Top Bar
+| Component | Where |
+|---|---|
+| [Sidebar](../sidebar/spec.md) | Header: Full when expanded, Mark in Rail |
+| Top Bar | Logo |
+
+Also in every documentation Doc Header.

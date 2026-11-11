@@ -33,7 +33,7 @@ _Henüz yok._
 
 ## Komponentler
 
-- [Avatar](../components/avatar/spec.md) · draft
+- [Avatar](../components/avatar/spec.md) · stable
 - [Badge Count](../components/badge-count/spec.md) · stable
 - [Badge Dot](../components/badge-dot/spec.md) · stable
 - [Badge Label](../components/badge-label/spec.md) · stable
@@ -43,8 +43,8 @@ _Henüz yok._
 - [Calendar Day](../components/calendar-day/spec.md) · stable
 - [Calendar Header](../components/calendar-header/spec.md) · stable
 - [Calendar](../components/calendar/spec.md) · stable
-- [Card Header](../components/card-header/spec.md) · draft
-- [Card](../components/card/spec.md) · draft
+- [Card Header](../components/card-header/spec.md) · stable
+- [Card](../components/card/spec.md) · stable
 - [Checkbox](../components/checkbox/spec.md) · stable
 - [Divider](../components/divider/spec.md) · stable
 - [Field Message](../components/field-message/spec.md) · stable
@@ -52,12 +52,12 @@ _Henüz yok._
 - [Filter Group](../components/filter-group/spec.md) · stable
 - [Form Field](../components/form-field/spec.md) · stable
 - [Icon Button](../components/icon-button/spec.md) · stable
-- [Icon Stat](../components/icon-stat/spec.md) · draft
-- [Image](../components/image/spec.md) · draft
+- [Icon Stat](../components/icon-stat/spec.md) · stable
+- [Image](../components/image/spec.md) · stable
 - [Input](../components/input/spec.md) · stable
 - [Label](../components/label/spec.md) · stable
 - [List Item](../components/list-item/spec.md) · draft
-- [Logo](../components/logo/spec.md) · draft
+- [Logo](../components/logo/spec.md) · stable
 - [Menu Group Label](../components/menu-group-label/spec.md) · stable
 - [Menu Item](../components/menu-item/spec.md) · stable
 - [Menu Separator](../components/menu-separator/spec.md) · stable
@@ -65,7 +65,7 @@ _Henüz yok._
 - [Nav Item](../components/nav-item/spec.md) · stable
 - [Nav Sub Group](../components/nav-sub-group/spec.md) · stable
 - [Number Stepper](../components/number-stepper/spec.md) · stable
-- [Page Header](../components/page-header/spec.md) · draft
+- [Page Header](../components/page-header/spec.md) · stable
 - [Pagination Item](../components/pagination-item/spec.md) · stable
 - [Pagination](../components/pagination/spec.md) · stable
 - [Phone Field](../components/phone-field/spec.md) · stable
@@ -77,7 +77,7 @@ _Henüz yok._
 - [Select](../components/select/spec.md) · stable
 - [Sidebar](../components/sidebar/spec.md) · stable
 - [Split Button](../components/split-button/spec.md) · stable
-- [Stat Card](../components/stat-card/spec.md) · draft
+- [Stat Card](../components/stat-card/spec.md) · stable
 - [Status](../components/status/spec.md) · stable
 - [Step Icon](../components/step-icon/spec.md) · stable
 - [Tab Segment](../components/tab-segment/spec.md) · draft
@@ -94,7 +94,7 @@ _Henüz yok._
 - [Upload/Badge](../components/upload-badge/spec.md) · draft
 - [Upload/Media placeholder](../components/upload-media-placeholder/spec.md) · draft
 - [Upload](../components/upload/spec.md) · draft
-- [User Card](../components/user-card/spec.md) · draft
+- [User Card](../components/user-card/spec.md) · stable
 
 ## Öneriler
 

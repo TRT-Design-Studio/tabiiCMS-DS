@@ -4,7 +4,7 @@ figma_page: "💬 Tooltip"
 figma_node: "867:17726"
 version: 1.0.0
 status: stable
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 # Tooltip

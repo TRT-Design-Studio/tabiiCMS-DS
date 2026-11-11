@@ -1,0 +1,4 @@
+{
+  "$comment": "Playground'da 'icon swap' kontrolünde seçilebilecek ek ikonlar. Komponentlerin kendi ikonları kendiliğinden eklenir. Adlar Figma'daki Icons sayfasıyla aynı (PascalCase).",
+  "icons": ["Sun", "Moon", "Cube", "Fill:Cube", "CaretUp", "Minus", "Copy", "PencilSimple", "Trash", "FolderSimple", "CalendarBlank", "FloppyDisk", "DotsThree", "MagnifyingGlass", "Plus", "X", "Check", "CaretDown", "CaretRight", "WarningCircle", "Gear", "User", "Star", "Heart", "Bell", "Funnel"]
+}

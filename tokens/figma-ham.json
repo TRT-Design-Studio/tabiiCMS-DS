@@ -2761,10 +2761,12 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/green/200"
+              "alias": "Colors/green/600",
+              "opacity": 10
             },
             "Dark Mode": {
-              "alias": "Colors/green/800"
+              "alias": "Colors/green/900",
+              "opacity": 50
             }
           },
           "codeSyntax": {
@@ -2840,10 +2842,12 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/yellow/200"
+              "alias": "Colors/yellow/700",
+              "opacity": 10
             },
             "Dark Mode": {
-              "alias": "Colors/yellow/800"
+              "alias": "Colors/yellow/900",
+              "opacity": 50
             }
           },
           "codeSyntax": {
@@ -2919,10 +2923,12 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/red/200"
+              "alias": "Colors/red/300",
+              "opacity": 20
             },
             "Dark Mode": {
-              "alias": "Colors/red/800"
+              "alias": "Colors/red/900",
+              "opacity": 50
             }
           },
           "codeSyntax": {
@@ -2998,10 +3004,12 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/blue/200"
+              "alias": "Colors/blue/600",
+              "opacity": 10
             },
             "Dark Mode": {
-              "alias": "Colors/blue/800"
+              "alias": "Colors/blue/800",
+              "opacity": 50
             }
           },
           "codeSyntax": {
@@ -3038,10 +3046,10 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/neutral/200"
+              "alias": "Colors/neutral/100"
             },
             "Dark Mode": {
-              "alias": "Colors/neutral/700"
+              "alias": "Colors/neutral/800"
             }
           },
           "codeSyntax": {
@@ -3058,10 +3066,10 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/neutral/700"
+              "alias": "Colors/neutral/600"
             },
             "Dark Mode": {
-              "alias": "Colors/neutral/300"
+              "alias": "Colors/neutral/400"
             }
           },
           "codeSyntax": {
@@ -3077,10 +3085,10 @@
           ],
           "values": {
             "Light Mode": {
-              "alias": "Colors/neutral/300"
+              "alias": "Colors/neutral/200"
             },
             "Dark Mode": {
-              "alias": "Colors/neutral/600"
+              "alias": "Colors/neutral/700"
             }
           },
           "codeSyntax": {
@@ -3241,6 +3249,256 @@
           },
           "codeSyntax": {
             "WEB": "var(--color-action-soft-pressed)"
+          }
+        },
+        {
+          "id": "VariableID:1211:11",
+          "name": "avatar/blue/bg",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "alias": "Colors/blue/100"
+            },
+            "Dark Mode": {
+              "alias": "Colors/blue/900"
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-avatar-blue-bg)"
+          }
+        },
+        {
+          "id": "VariableID:1211:12",
+          "name": "avatar/blue/text",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "alias": "Colors/blue/700"
+            },
+            "Dark Mode": {
+              "alias": "Colors/blue/200"
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-avatar-blue-text)"
+          }
+        },
+        {
+          "id": "VariableID:1211:13",
+          "name": "avatar/purple/bg",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "color": [
+                0.9294,
+                0.9059,
+                1,
+                1
+              ]
+            },
+            "Dark Mode": {
+              "color": [
+                0.298,
+                0.1137,
+                0.5843,
+                1
+              ]
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-avatar-purple-bg)"
+          }
+        },
+        {
+          "id": "VariableID:1211:14",
+          "name": "avatar/purple/text",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "color": [
+                0.4275,
+                0.2471,
+                0.8471,
+                1
+              ]
+            },
+            "Dark Mode": {
+              "color": [
+                0.8667,
+                0.8392,
+                0.9961,
+                1
+              ]
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-avatar-purple-text)"
+          }
+        },
+        {
+          "id": "VariableID:1211:15",
+          "name": "avatar/teal/bg",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "color": [
+                0.8,
+                0.9843,
+                0.9451,
+                1
+              ]
+            },
+            "Dark Mode": {
+              "color": [
+                0.0745,
+                0.3059,
+                0.2902,
+                1
+              ]
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-avatar-teal-bg)"
+          }
+        },
+        {
+          "id": "VariableID:1211:16",
+          "name": "avatar/teal/text",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "color": [
+                0.0588,
+                0.4627,
+                0.4314,
+                1
+              ]
+            },
+            "Dark Mode": {
+              "color": [
+                0.6,
+                0.9647,
+                0.8941,
+                1
+              ]
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-avatar-teal-text)"
+          }
+        },
+        {
+          "id": "VariableID:1211:17",
+          "name": "avatar/pink/bg",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "color": [
+                0.9882,
+                0.9059,
+                0.9529,
+                1
+              ]
+            },
+            "Dark Mode": {
+              "color": [
+                0.5137,
+                0.0941,
+                0.2627,
+                1
+              ]
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-avatar-pink-bg)"
+          }
+        },
+        {
+          "id": "VariableID:1211:18",
+          "name": "avatar/pink/text",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "color": [
+                0.7451,
+                0.0941,
+                0.3647,
+                1
+              ]
+            },
+            "Dark Mode": {
+              "color": [
+                0.9843,
+                0.8118,
+                0.9098,
+                1
+              ]
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-avatar-pink-text)"
+          }
+        },
+        {
+          "id": "VariableID:1225:2",
+          "name": "bg/inverse-overlay",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "values": {
+            "Light Mode": {
+              "color": [
+                0.0902,
+                0.0902,
+                0.0902,
+                0.6
+              ]
+            },
+            "Dark Mode": {
+              "color": [
+                0.9804,
+                0.9804,
+                0.9804,
+                0.6
+              ]
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--color-bg-inverse-overlay)"
           }
         }
       ]

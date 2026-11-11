@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sidebar · resize</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app mode-ease" id="app">
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sb-header">
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M22 0H6C2.686 0 0 2.686 0 6V22C0 25.314 2.686 28 6 28H22C25.314 28 28 25.314 28 22V6C28 2.686 25.314 0 22 0Z" fill="#171717"/><path d="M22.451 14.024L24 10.099L19.634 8.397L17.897 4L14 5.56L10.056 4L8.366 8.35L4 10.099L5.549 14.024L4 17.948L8.366 19.65L10.056 24L13.953 22.44L17.85 24L19.54 19.65L23.906 17.948L22.451 14.024ZM14.845 16.955L14 19.083L13.155 16.955L9.728 18.326L11.089 14.875L8.977 14.024L11.089 13.173L9.728 9.721L13.155 11.092L14 8.965L14.845 11.092L18.272 9.721L16.911 13.173L19.024 14.024L16.911 14.875L18.272 18.326L14.845 16.955Z" fill="#FAFAFA"/></svg>
+        <span class="wordmark">
+          <svg class="label" width="46" height="28" viewBox="36 0 46 28" fill="none" aria-label="tabii"><path d="M72.993 6.059V9.406H76.454V6.059H72.993ZM72.993 10.427V22.569H76.454V10.427H72.993Z" fill="#171717"/><path d="M78.27 6.059V9.406H81.73V6.059H78.27ZM78.27 10.427V22.569H81.73V10.427H78.27Z" fill="#171717"/><path d="M42.809 13.376V10.199H39.461V6H36V19.333C36 21.092 37.418 22.511 39.177 22.511H42.752V19.333H39.404V13.376H42.809Z" fill="#171717"/><path d="M53.305 10.197V11.559C52.283 10.651 50.978 10.141 49.56 10.141C46.269 10.141 43.659 12.978 43.659 16.495C43.659 20.013 46.326 22.85 49.56 22.85C50.978 22.85 52.283 22.339 53.305 21.431V22.623H56.766V10.197H53.305ZM53.305 19.389H47.29V13.375H53.305V19.389Z" fill="#171717"/><path d="M65.56 10.144C64.142 10.144 62.837 10.654 61.816 11.562V6.059H58.355V22.569H61.816V21.378C62.837 22.286 64.142 22.796 65.56 22.796C68.851 22.796 71.461 19.959 71.461 16.442C71.461 12.981 68.794 10.144 65.56 10.144ZM67.83 19.392H61.816V13.378H67.83V19.392Z" fill="#171717"/></svg>
+        </span>
+      </div>
+    </div>
+    <nav class="sb-nav" id="nav"></nav>
+    <div class="sb-footer">
+      <button class="user" type="button" data-title="Ayse Cavdar">
+        <span class="avatar">AC</span>
+        <span class="user-text label"><span class="user-name">Ayse Cavdar</span><span class="user-mail">ayse.cavdar@trt.net.tr</span></span>
+        <i class="ph ph-caret-up-down user-caret label"></i>
+      </button>
+    </div>
+    <div class="handle" id="handle" role="separator" aria-orientation="vertical" aria-label="Resize sidebar" aria-controls="sidebar" tabindex="0"><span class="handle-line"></span></div>
+  </aside>
+  <div class="tip" id="tip">Drag to resize sidebar</div>
+
+  <main class="content">
+    <button type="button" class="toggle" id="toggle" aria-expanded="true" aria-controls="sidebar">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.25" y="3" width="13.5" height="12" rx="2" stroke="currentColor" stroke-width="1.25"/><path d="M6.75 3v12" stroke="currentColor" stroke-width="1.25"/><path id="toggleArrow" d="M11.5 7.5 10 9l1.5 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span id="toggleText">Close sidebar</span>
+      <kbd>⌘B</kbd>
+    </button>
+    <div class="page">
+      <div class="sk sk-title"></div>
+      <div class="sk sk-line"></div>
+      <div class="sk-divider"></div>
+      <div class="sk-card"><div class="sk-row"><div class="sk sk-thumb"></div><div class="sk-col"><div class="sk sk-l1"></div><div class="sk sk-l2"></div></div></div><div class="sk-foot"><div class="sk sk-f1"></div><div class="sk sk-f2"></div></div></div>
+      <div class="sk-card"><div class="sk-row"><div class="sk sk-thumb"></div><div class="sk-col"><div class="sk sk-l1"></div><div class="sk sk-l2"></div></div></div><div class="sk-foot"><div class="sk sk-f1"></div><div class="sk sk-f2"></div></div></div>
+    </div>
+
+  <div class="panel">
+    <p class="panel-text" id="modeText"></p>
+    <div class="panel-row">
+      <div class="segment" role="tablist" id="modes">
+        <button type="button" data-mode="ease" role="tab">Ease out</button>
+        <button type="button" data-mode="cascade" role="tab">Cascade</button>
+        <button type="button" data-mode="scrub" role="tab">Scrub</button>
+      </div>
+      <button type="button" class="reset" id="reset" disabled><i class="ph ph-arrow-counter-clockwise"></i>Reset</button>
+    </div>
+  </div>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

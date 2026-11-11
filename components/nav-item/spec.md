@@ -4,7 +4,7 @@ figma_page: "↪︎ Sidebar"
 figma_node: "282:938"
 version: 1.0.0
 status: stable
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 # Nav Item
@@ -45,7 +45,7 @@ Trailing caret 16 px (`Spacing/4`).
 | Default | none | none | `text/secondary` |
 | Hover | `bg/interactive/hover` | none | `text/primary` |
 | Selected (Item, Rail) | `bg/surface` | 1 px `border/default` | `text/primary`, icon from Icon Active |
-| Selected (SubItem) | none | none | `text/primary`, `text-sm/medium`; optional 2 px `bg/inverse` indicator |
+| Selected (SubItem) | none | none | `text/primary`, `text-sm/medium`; optional indicator: 2 × 32 `bg/inverse` line on the left edge, hidden by default (Show Indicator) |
 | Disabled | none | none | 50% opacity (`opacity-50`) |
 
 ## Slots

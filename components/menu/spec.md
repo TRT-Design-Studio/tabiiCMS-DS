@@ -4,7 +4,7 @@ figma_page: "📋 Menu"
 figma_node: "721:10568"
 version: 1.0.0
 status: stable
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 # Menu
@@ -46,6 +46,15 @@ Floating list for dropdowns, Select, autocomplete and filters. Rows go in the It
 | No Results | Title `text-sm/medium` `text/primary`, Description `text-xs/regular` `text/tertiary` |
 | Error | WarningCircle 20 px, title, description, Button Secondary Small "Try again" |
 | Hint | One line `text-sm/regular` `text/tertiary` |
+
+| State | Padding V | Padding H | Gap | Align | Icon |
+|---|---|---|---|---|---|
+| Loading | `Spacing/3` | `Spacing/3` | `Spacing/2` | start | none |
+| No Results | `Spacing/3` | `Spacing/3` | `Spacing/1` | start | none |
+| Error | `Spacing/4` | `Spacing/3` | `Spacing/2` | center | WarningCircle 20, `feedback/danger/text` |
+| Hint | `Spacing/3` | `Spacing/3` | `Spacing/1` | start | none |
+
+Loading skeleton lines: 12 px tall, 208 / 166 / 125 px wide.
 
 ## Slots
 

@@ -3,54 +3,47 @@ component: Radio
 figma_page: "↪︎ Checkbox & Radio"
 figma_node: "281:900"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Radio
 
-Radio control only (16 px). For a labelled radio, place a Label next to it; in lists use a Menu/Item with the radio in the Leading slot.
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+Radio control only (16 px). For a labelled radio, place a Label next to it; in lists use a Menu Item with the radio in the Leading slot.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | Selected | False, True | False |
 | State | Default, Hover, Focused, Disabled | Default |
 
 ## Properties
 
-None.
+| Property | Type | Default |
+|---|---|---|
+| Selected | Variant | False |
+| State | Variant | Default |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 16 | 0 | 0 | 0 | 0 | — |
+| Part | Size | Border | Radius |
+|---|---|---|---|
+| Circle | `Spacing/4` (16) | `border` 1 px; `border-2` when Focused | `rounded-full` |
+| Dot | `Spacing/2` (8) | — | `rounded-full` |
 
 ## States
 
-| Selected | State | Background | Border | Text | Opacity |
-|---|---|---|---|---|---|
-| False | Default | `bg/base` (Circle) | `border/default` | — |  |
-| False | Hover | `bg/subtle` (Circle) | `border/strong` | — |  |
-| False | Focused | `bg/base` (Circle) | `border/focus` | — |  |
-| False | Disabled | `bg/base` (Circle) | `border/default` | — | 50% |
-| True | Default | `bg/base` (Circle) | `border/selected` | — |  |
-| True | Hover | `bg/subtle` (Circle) | `border/selected` | — |  |
-| True | Focused | `bg/base` (Circle) | `border/focus` | — |  |
-| True | Disabled | `bg/base` (Circle) | `border/selected` | — | 50% |
-
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Circle | Frame | 16 × 16 | `bg/base` | yes |
+| Selected · State | Fill | Border | Dot |
+|---|---|---|---|
+| False · Default | `bg/base` | `border/default` | — |
+| False · Hover | `bg/subtle` | `border/strong` | — |
+| False · Focused | `bg/base` | `border/focus` 2 px | — |
+| True · Default | `bg/base` | `border/selected` | `action/primary/default` |
+| True · Hover | `bg/subtle` | `border/selected` | `action/primary/default` |
+| True · Focused | `bg/base` | `border/focus` 2 px | `action/primary/default` |
+| Any · Disabled | as Default | as Default | `Opacity/opacity-50` on the control |
 
 ## Used in
 
-Not nested in other components.
+Not used inside other components. Playground uses: next to a Label with a Description.

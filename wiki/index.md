@@ -49,7 +49,7 @@ _Henüz yok._
 - [Divider](../components/divider/spec.md) · stable
 - [Field Message](../components/field-message/spec.md) · stable
 - [File Sheet](../components/file-sheet/spec.md) · draft
-- [Filter Group](../components/filter-group/spec.md) · draft
+- [Filter Group](../components/filter-group/spec.md) · stable
 - [Form Field](../components/form-field/spec.md) · stable
 - [Icon Button](../components/icon-button/spec.md) · stable
 - [Icon Stat](../components/icon-stat/spec.md) · draft

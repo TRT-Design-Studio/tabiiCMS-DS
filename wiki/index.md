@@ -46,7 +46,7 @@ _Henüz yok._
 - [Card Header](../components/card-header/spec.md) · draft
 - [Card](../components/card/spec.md) · draft
 - [Checkbox](../components/checkbox/spec.md) · stable
-- [Divider](../components/divider/spec.md) · draft
+- [Divider](../components/divider/spec.md) · stable
 - [Field Message](../components/field-message/spec.md) · stable
 - [File Sheet](../components/file-sheet/spec.md) · draft
 - [Filter Group](../components/filter-group/spec.md) · draft

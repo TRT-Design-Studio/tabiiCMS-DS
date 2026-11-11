@@ -3,64 +3,60 @@ component: Calendar Day
 figma_page: "↪︎ Datepicker"
 figma_node: "735:10917"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Calendar Day
 
-One day cell in Calendar. 32×32 cell with a 28 px round mark. Range band continues across cells; start and end cells round it off. Today has a dot. While choosing an end date, cells up to the pointer show Range Preview; the candidate day behaves like Hover. Week Edge (In Range, Today In Range): None / First / Last. First = first day of a week row, the band starts rounded; Last = last day of a week row, the band ends rounded. In code: round the band on :first-child / :last-child of the week row.
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+One day cell in Calendar. 32 × 32 cell with a 28 px round mark. The range band continues across cells; start and end cells round it off. Today has a dot. Week Edge rounds the band at the first or last day of a week row (in code: `:first-child` / `:last-child` of the week row).
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
-| State | Default, Hover, Today, Focused, Selected, Today Selected, Range Start, In Range, Range End, Disabled, Outside Month, Today In Range | Default |
+| State | Default, Hover, Today, Focused, Selected, Today Selected, Range Start, In Range, Today In Range, Range End, Disabled, Outside Month | Default |
 | Week Edge | None, First, Last | None |
+
+First and Last exist only for In Range and Today In Range (16 variants in total).
 
 ## Properties
 
 | Property | Type | Default |
 |---|---|---|
+| State | Variant | Default |
+| Week Edge | Variant | None |
 | Day | Text | 15 |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 32 | — | — | — | 0 | `text-sm/regular` |
+| Part | Size | Radius | Text |
+|---|---|---|---|
+| Cell | `Spacing/8` (32) | — | — |
+| Band | 32 × 32 | `rounded-full` on the start or end side | — |
+| Mark | `Spacing/7` (28) | `rounded-full` | `text-sm/regular`; `text-sm/medium` when selected |
+| Today Dot | `Spacing/1` (4) | — | — |
+| Focus ring | `border-2` | — | — |
 
 ## States
 
-| State | Week Edge | Background | Border | Text | Opacity |
-|---|---|---|---|---|---|
-| Default | None | none | none | `text/primary` |  |
-| Hover | None | `bg/interactive/hover` 5% (Mark) | none | `text/primary` |  |
-| Today | None | `text/primary` (Today Dot) | none | `text/primary` |  |
-| Focused | None | none | none | `text/primary` |  |
-| Selected | None | `action/primary/default` (Mark) | none | `text/inverse` |  |
-| Today Selected | None | `action/primary/default` (Mark) | none | `text/inverse` |  |
-| Range Start | None | `bg/subtle` (Band) | none | `text/inverse` |  |
-| In Range | None | `bg/subtle` (Band) | none | `text/primary` |  |
-| Today In Range | None | `bg/subtle` (Band) | none | `text/primary` |  |
-| Range End | None | `bg/subtle` (Band) | none | `text/inverse` |  |
-| Disabled | None | none | none | `text/disabled` |  |
-| Outside Month | None | none | none | `text/tertiary` |  |
-| In Range | First | `bg/subtle` (Band) | none | `text/primary` |  |
-| In Range | Last | `bg/subtle` (Band) | none | `text/primary` |  |
-| Today In Range | First | `bg/subtle` (Band) | none | `text/primary` |  |
-| Today In Range | Last | `bg/subtle` (Band) | none | `text/primary` |  |
-
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Mark | Frame | 28 × 28 | none | yes |
+| State | Fill | Border | Text |
+|---|---|---|---|
+| Default | — | — | `text/primary` |
+| Hover | `bg/interactive/hover` (mark) | — | `text/primary` |
+| Today | — | — | `text/primary` + dot `text/primary` |
+| Focused | — | `border/focus` 2 px | `text/primary` |
+| Selected | `action/primary/default` | — | `text/inverse` |
+| Today Selected | `action/primary/default` | — | `text/inverse` + dot `text/inverse` |
+| Range Start | mark `action/primary/default`, band `bg/subtle` (left rounded) | — | `text/inverse` |
+| In Range | band `bg/subtle` | — | `text/primary` |
+| Today In Range | band `bg/subtle` | — | `text/primary` + dot `text/primary` |
+| Range End | mark `action/primary/default`, band `bg/subtle` (right rounded) | — | `text/inverse` |
+| Disabled | — | — | `text/disabled` |
+| Outside Month | — | — | `text/tertiary` |
 
 ## Used in
 
-Calendar
+| Component | Where |
+|---|---|
+| [Calendar](../calendar/spec.md) | Days grid, 42 cells |

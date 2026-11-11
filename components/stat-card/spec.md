@@ -3,19 +3,17 @@ component: Stat Card
 figma_page: "🗂️ Cards"
 figma_node: "1206:8382"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Stat Card
 
-Single metric with an optional trend. Show Trend toggles the nested Trend; its Direction, Value and Context are edited on the nested Trend (exposed). Text: Label, Value.
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+Single metric with an optional trend. Show Trend toggles the nested Trend; its Direction, Value and Context are edited on the nested Trend (exposed).
 
 ## Variants
 
-None.
+No variants. Single component.
 
 ## Properties
 
@@ -27,20 +25,21 @@ None.
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 128 | `Spacing/5` (20) | `Spacing/5` (20) | `Spacing/2` (8) | `rounded-xl` (12) | `text-sm/medium` |
+| Part | Size | Padding | Gap | Radius | Text |
+|---|---|---|---|---|---|
+| Container | 256 × 128 | `Spacing/5` (20) | `Spacing/2` (8) | `rounded-xl` | — |
+| Label | — | — | — | — | `text-sm/medium` |
+| Value | — | — | — | — | `text-3xl/semibold` |
 
-## Parts
+## States
 
-From the default variant. Hidden parts are turned on by a property.
+No states.
 
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Label | Text | 78 × 20 | `text-sm/medium` `text/primary` | yes |
-| Value | Text | 55 × 36 | `text-3xl/semibold` `text/primary` | yes |
-| Trend | Trend | 110 × 16 | none | yes |
+| Part | Fill | Border | Text |
+|---|---|---|---|
+| Container | `bg/surface` | `border/default` 1 px | — |
+| Label, Value | — | — | `text/primary` |
 
 ## Used in
 
-Not nested in other components.
+Not used inside other components. Uses [Trend](../trend/spec.md). Playground uses: four Stat Cards at the top of Overview.

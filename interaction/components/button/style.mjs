@@ -32,7 +32,8 @@ export default function css(spec, v) {
     if (v.first(r.pressed)) out += `.tds-button[data-variant="${k}"]:active${live}, .tds-button[data-variant="${k}"][data-state="pressed"] { background: ${v.color(v.first(r.pressed))}; }
 `;
     if (/underline/i.test(r.hover)) out += `.tds-button[data-variant="${k}"] { padding-left: 0; padding-right: 0; }
-.tds-button[data-variant="${k}"]:hover${live} .tds-button-label, .tds-button[data-variant="${k}"][data-state="hover"] .tds-button-label { text-decoration: underline; text-underline-offset: 3px; }
+.tds-button[data-variant="${k}"] .tds-button-label { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: transparent; transition: text-decoration-color ${dur} ${ease}; }
+.tds-button[data-variant="${k}"]:hover${live} .tds-button-label, .tds-button[data-variant="${k}"][data-state="hover"] .tds-button-label { text-decoration-color: currentColor; }
 `;
   }
   return out;

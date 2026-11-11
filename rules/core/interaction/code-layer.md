@@ -3,7 +3,7 @@ id: core.interaction-code-layer
 title: Code layer'lar (Interaction) nasıl yazılır
 owner: "@mucahitpuren"
 status: active
-version: 4
+version: 5
 applies_to: components
 updated: 2026-11-11
 ---
@@ -28,6 +28,7 @@ Dokümanların Interaction frame'indeki çalışan komponentler Figma'daki kompo
 5. **İkonlar** Figma'daki Icons sayfasıyla aynı paketten gelir: Phosphor (Regular ve Fill), sürümü `interaction/lib/icons.mjs` içinde sabittir. `TDS.icon('<FigmaAdı>', boyut, 'Regular' | 'Fill')` ile çizilir. Build, sayfada geçen ikonları SVG olarak gömer; geometri Figma ile aynıdır. İkon fontu kullanılmaz (glifler Figma'dakinden büyük görünür). SVG koda elle kopyalanmaz. Paket dışı özel ikonlar (Custom Icons) `interaction/shared/icons.js` dosyasına Figma'dan dışa aktarılarak eklenir. Playground'da seçilebilecek ek ikonlar `interaction/shared/icon-list.json` dosyasına yazılır.
    **İkon boyutu her zaman Figma'daki komponentteki boyuttur.** Spec tablosunda yazar (ör. Button Sizes → Icon) ve komponent kodu onu `TDS.spec(...)` ile okuyup `TDS.icon(ad, boyut)` olarak verir. Boyutsuz ikon çizilmez.
    **Animasyon** (süre, easing, ölçek) Figma'da olmadığı için spec'in `Motion` tablosuna yazılır ve oradan okunur. Sistemde "hareketi azalt" açıksa animasyon kapanır.
+   **State geçişleri keskin olmaz.** Hover, odak, seçim ve açılma gibi her state değişikliği yumuşak geçer. Komponentin kendi `Motion` tablosu yoksa Button'ın `Motion` tablosundaki süre ve easing kullanılır (build bunu `--tds-transition` olarak verir). Ölçek (basınca küçülme) sadece butonlardadır.
 6. **Bayraklar** Figma'daki Flags ile aynı paketten (circle-flags) `TDS.flag('<kod>')` ile gelir.
 7. **Yazı tipi** Geist'tir; token'daki yazı stilleri (`text-sm/medium` → `var(--text-sm-medium)`) kullanılır.
 8. **Açık ve koyu mod** her code layer'da çalışır (`data-theme`). Renkler sadece semantic token'lardan gelir.
@@ -41,7 +42,7 @@ Dokümanların Interaction frame'indeki çalışan komponentler Figma'daki kompo
 ### Playground
 
 12. Her variant ekseni bir seçim kutusu, her boolean bir anahtar (switch), her text property bir yazı alanı olur. State'in yanında **Live** seçeneği bulunur: gerçek hover, basma ve odak.
-13. **Arayüz Sidebar'dır.** Yapı ve hareket `interaction/reference/sidebar/` (Sidebar Interaction code layer) ile aynıdır: solda Expanded Sidebar (248 px, daralmaz), üstte tabii logosu, her komponent bir Nav Item. Tıklanan komponent seçilir, sahnede görünür ve altında Nav Sub Group gibi açılarak property'leri gösterir; diğerleri kapanır. Footer'da User Card yerine açık/koyu mod düğmesi durur. Sahne kalan alanın tamamını kaplar ve sağ altta yakınlaştırma (−, %, +; Ctrl/⌘ + tekerlek; + − 0 tuşları) bulunur. Bütün varyantlar tablosu yoktur.
+13. **Arayüz Sidebar'dır.** Yapı ve hareket `interaction/reference/sidebar/` (Sidebar Interaction code layer) ile aynıdır: solda Expanded Sidebar (248 px, daralmaz), üstte tabii logosu, her komponent ikonsuz bir Nav Item. Tıklanan komponent seçilir, sahnede görünür ve altında Nav Sub Group gibi açılarak property'leri gösterir; diğerleri kapanır. Footer'da User Card yerine açık/koyu mod düğmesi durur. Sahne kalan alanın tamamını kaplar ve sağ altta yakınlaştırma (−, %, +; Ctrl/⌘ + tekerlek; + − 0 tuşları) bulunur. Bütün varyantlar tablosu yoktur.
 14. Erişilebilirlik: düğmeler `button`, menüler `role="menu"` ve `role="menuitem"`, ikonlar `aria-hidden`; yalnız ikonlu düğmelerde `aria-label` olur. Odak halkası `border/focus` token'ıdır.
 
 ## Örnek

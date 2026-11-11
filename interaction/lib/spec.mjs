@@ -45,6 +45,7 @@ export const v = {
   shadow: (t) => `var(--${t.replace(/^Shadow\//, '')})`,
   text: (t) => `var(--${t.replace('/', '-')})`,
   first: (cell) => tokensIn(cell)[0],
-  num: (cell) => parseFloat(String(cell).replace(/[^\d.]/g, '')),
+  // "16 (`Spacing/4`)" → 16, "`Spacing/3` (12)" → 12, "120 ms" → 120
+  num: (cell) => { const s = String(cell == null ? '' : cell).trim(); const lead = /^-?\d+(?:\.\d+)?/.exec(s); if (lead) return parseFloat(lead[0]); const par = /\((\d+(?:\.\d+)?)\)/.exec(s); if (par) return parseFloat(par[1]); const any = /\d+(?:\.\d+)?/.exec(s); return any ? parseFloat(any[0]) : NaN; },
   slug: (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
 };

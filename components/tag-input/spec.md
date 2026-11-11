@@ -34,7 +34,7 @@ Field that turns typed values into removable Tags (Enter or comma). Tags wrap to
 | Small | 32 | `Spacing/1․5` (6) top/bottom, `Spacing/2` (8) sides | `Spacing/1` (4), lines `Spacing/1` | `rounded-md` | `text-sm/regular` |
 | Medium | 36 | `Spacing/2` (8) | `Spacing/1` (4), lines `Spacing/1` | `rounded-lg` | `text-sm/regular` |
 
-Width is 320 by default. Both sizes use Tag Small (20 high): it fills the inner height exactly (Medium 36 − 2 × 8 = 20; Small 32 − 2 × 6 = 20), so Tag Input stays as tall as Input. Tag Medium (28) would make the field 44 high.
+Width is 320 by default. The typing area (Value) is at least 66 px wide; when it does not fit after the tags it moves to the next line. Both sizes use Tag Small (20 high): it fills the inner height exactly (Medium 36 − 2 × 8 = 20; Small 32 − 2 × 6 = 20), so Tag Input stays as tall as Input. Tag Medium (28) would make the field 44 high.
 
 ## States
 

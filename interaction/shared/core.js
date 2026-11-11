@@ -43,8 +43,8 @@
       const rows = (t && t[index]) || [];
       return key ? (rows.find((r) => String(r[key]).toLowerCase() === String(value).toLowerCase()) || {}) : rows;
     },
-    // "16 (`Spacing/4`)" → 16
-    num(cell) { return parseFloat(String(cell || '').replace(/[^\d.]/g, '')) || undefined; },
+    // "16 (`Spacing/4`)" → 16, "`Spacing/3` (12)" → 12 (lib/spec.mjs → v.num ile aynı)
+    num(cell) { const n = ((cell) => { const s = String(cell == null ? '' : cell).trim(); const lead = /^-?\d+(?:\.\d+)?/.exec(s); if (lead) return parseFloat(lead[0]); const par = /\((\d+(?:\.\d+)?)\)/.exec(s); if (par) return parseFloat(par[1]); const any = /\d+(?:\.\d+)?/.exec(s); return any ? parseFloat(any[0]) : NaN; })(cell); return Number.isFinite(n) ? n : undefined; },
     iconNames(weight = 'Regular') { return Object.keys((window.TDS_PHOSPHOR || {})[weight] || {}); },
     // Bayrak: Figma'daki Flags (circle-flags). Kod: "TR", "DE"…
     flag(code, size = 14) {
@@ -61,6 +61,20 @@
       open.remove();
       if (trigger) { trigger.setAttribute('aria-expanded', 'false'); if (returnFocus) trigger.focus(); }
     },
+    // Açılan katmanı (menü, tooltip) tetikleyicinin yanına koyar. Tetikleyici yakınlaştırılmış sahnedeyse
+    // ([data-tds-layer]) katman da sahnenin içine girer, böylece aynı ölçekte durur ve yerinden kaymaz.
+    place(trigger, el, fn) {
+      const layer = trigger.closest('[data-tds-layer]');
+      const box = layer || document.body;
+      box.appendChild(el);
+      const c = layer ? layer.getBoundingClientRect() : { top: -window.scrollY, left: -window.scrollX };
+      const s = layer && layer.offsetWidth ? c.width / layer.offsetWidth : 1;
+      const t = trigger.getBoundingClientRect();
+      const r = { top: (t.top - c.top) / s, bottom: (t.bottom - c.top) / s, left: (t.left - c.left) / s, right: (t.right - c.left) / s, width: t.width / s, height: t.height / s };
+      const pos = fn(r, { width: el.offsetWidth, height: el.offsetHeight });
+      if (!layer) pos.left = Math.max(8, pos.left);
+      return pos;
+    },
     openMenu(trigger) {
       TDS.closeMenu();
       const name = trigger.dataset.tdsMenu;
@@ -70,20 +84,68 @@
       pop.className = 'tds-popover';
       pop._trigger = trigger;
       pop.innerHTML = TDS.render('menu', props);
-      document.body.appendChild(pop);
-      const r = trigger.getBoundingClientRect();
       const gap = 4; // Menu spec: "Opens 4 px below its trigger"
       const align = trigger.dataset.tdsAlign || 'start';
-      pop.style.top = `${r.bottom + gap + window.scrollY}px`;
-      const left = align === 'end' ? r.right - pop.offsetWidth : r.left;
-      pop.style.left = `${Math.max(8, left + window.scrollX)}px`;
+      const { top, left } = TDS.place(trigger, pop, (r, p) => ({ top: r.bottom + gap, left: align === 'end' ? r.right - p.width : r.left }));
+      pop.style.top = `${top}px`;
+      pop.style.left = `${left}px`;
       trigger.setAttribute('aria-expanded', 'true');
       const first = pop.querySelector('[role="menuitem"]:not([aria-disabled="true"])');
       if (first) first.focus();
     },
 
+    // Durumlu komponentler (takvim, filtre grubu, tag input…): kök elemanda data-tds-comp ve data-tds-props durur.
+    // TDS.update(el, { ... }) props'u değiştirip komponenti yeniden çizer ve odağı aynı parçaya geri verir.
+    props(p) { return ` data-tds-props="${esc(JSON.stringify(p))}"`; },
+    read(el) { return JSON.parse(el.dataset.tdsProps || '{}'); },
+    update(el, patch, focus) {
+      const name = el.dataset.tdsComp;
+      const next = { ...TDS.read(el), ...patch };
+      const tmp = document.createElement('div');
+      tmp.innerHTML = TDS.render(name, next);
+      const fresh = tmp.firstElementChild;
+      el.replaceWith(fresh);
+      if (focus) { const f = fresh.querySelector(focus); if (f) { f.focus(); if (f.setSelectionRange && f.value != null) f.setSelectionRange(f.value.length, f.value.length); } }
+      return fresh;
+    },
+
+    // Tooltip: tetikleyiciye data-tds-tooltip="Metin" verilir. Üzerinde ~500 ms durunca veya klavye odağında açılır
+    // (components/tooltip/spec.md). Çizimi tooltip komponenti yapar.
+    tooltipDelay: 500,
+
     // Playground arayüzü shared/playground.js dosyasında: TDS.playground(mount, page).
   };
+
+  // Tooltip davranışı.
+  let tipTimer = null;
+  const hideTip = () => { clearTimeout(tipTimer); document.querySelectorAll('.tds-tooltip-layer').forEach((t) => t.remove()); };
+  const showTip = (trigger) => {
+    hideTip();
+    if (!comps.tooltip) return;
+    const layer = document.createElement('div');
+    layer.className = 'tds-tooltip-layer';
+    const placement = trigger.dataset.tdsPlacement || 'Top';
+    layer.innerHTML = TDS.render('tooltip', { Text: trigger.dataset.tdsTooltip, 'Show Shortcut': false, Placement: placement });
+    const gap = 4;
+    const pos = TDS.place(trigger, layer, (r, t) => ({
+      Top: { left: r.left + r.width / 2 - t.width / 2, top: r.top - t.height - gap },
+      Bottom: { left: r.left + r.width / 2 - t.width / 2, top: r.bottom + gap },
+      Left: { left: r.left - t.width - gap, top: r.top + r.height / 2 - t.height / 2 },
+      Right: { left: r.right + gap, top: r.top + r.height / 2 - t.height / 2 },
+    }[placement]));
+    layer.style.left = `${pos.left}px`;
+    layer.style.top = `${pos.top}px`;
+    requestAnimationFrame(() => layer.classList.add('is-open'));
+  };
+  document.addEventListener('pointerover', (e) => {
+    const t = e.target.closest('[data-tds-tooltip]');
+    if (!t) return;
+    clearTimeout(tipTimer);
+    tipTimer = setTimeout(() => showTip(t), TDS.tooltipDelay);
+  });
+  document.addEventListener('pointerout', (e) => { if (e.target.closest('[data-tds-tooltip]')) hideTip(); });
+  document.addEventListener('focusin', (e) => { const t = e.target.closest && e.target.closest('[data-tds-tooltip]'); if (t && t.matches(':focus-visible')) showTip(t); });
+  document.addEventListener('focusout', (e) => { if (e.target.closest && e.target.closest('[data-tds-tooltip]')) hideTip(); });
 
   // Menü davranışı: tıklama, klavye (oklar, Enter, Escape, Tab) ve dışarı tıklama.
   document.addEventListener('click', (e) => {
@@ -94,7 +156,15 @@
       return;
     }
     const item = e.target.closest('.tds-popover [role="menuitem"]');
-    if (item) { if (item.getAttribute('aria-disabled') !== 'true') TDS.closeMenu(true); return; }
+    if (item) {
+      if (item.getAttribute('aria-disabled') === 'true') return;
+      // Seçilen satır tetikleyiciye bildirilir (Select, Phone Field, takvim başlığı değeri buradan alır).
+      const trigger = item.closest('.tds-popover')._trigger;
+      const value = item.dataset.value || item.querySelector('.tds-menu-item-label')?.textContent || '';
+      TDS.closeMenu(true);
+      if (trigger && trigger.isConnected) trigger.dispatchEvent(new CustomEvent('tds-menu-select', { bubbles: true, detail: { value } }));
+      return;
+    }
     if (!e.target.closest('.tds-popover')) TDS.closeMenu();
   });
   document.addEventListener('keydown', (e) => {

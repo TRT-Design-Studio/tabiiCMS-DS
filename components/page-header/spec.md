@@ -3,19 +3,17 @@ component: Page Header
 figma_page: "📄 Page Header"
 figma_node: "287:1386"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Page Header
 
-Size: Desktop / Mobile · Boolean: Show Eyebrow, Show Meta · Slot: Actions · Text: Eyebrow, Title, Meta
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+Opens every page: optional eyebrow, page title, short description and page actions. Desktop puts the actions on the right; Mobile stacks them under the text. Turn Eyebrow, Description and Actions on or off from the panel. Put buttons in the Actions slot, primary action last.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | Size | Desktop, Mobile | Desktop |
 
@@ -23,31 +21,40 @@ Size: Desktop / Mobile · Boolean: Show Eyebrow, Show Meta · Slot: Actions · T
 
 | Property | Type | Default |
 |---|---|---|
-| Title | Text | Page title |
-| Description | Text | Meta information |
-| Eyebrow | Text | Eyebrow Content |
+| Size | Variant | Desktop |
 | Show Eyebrow | Boolean | false |
-| Show Description | Boolean | true |
-| Actions | Slot | empty |
+| Eyebrow | Text | Eyebrow Content |
 | Show Title | Boolean | true |
+| Title | Text | Page title |
+| Show Description | Boolean | true |
+| Description | Text | Meta information |
 | Show Actions | Boolean | true |
+| Actions | Slot | — |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Desktop | 100 | 0 | 0 | `Spacing/6` (24) | 0 | `text-3xl/bold` |
-| Mobile | 172 | 0 | 0 | `Spacing/4` (16) | 0 | `text-2xl/bold` |
+| Size | Layout | Gap | Title |
+|---|---|---|---|
+| Desktop (1024 by default) | Text left, Actions right | `Spacing/6` (24) text to actions; `Spacing/1` (4) inside the text | `text-3xl/bold` |
+| Mobile (352 by default) | Text, then Actions | `Spacing/4` (16) text to actions; `Spacing/1` (4) inside the text | `text-2xl/bold` |
+| Actions | Row | `Spacing/2` (8) | — |
 
-## Parts
+## States
 
-From the default variant. Hidden parts are turned on by a property.
+No states.
 
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Text | Frame | 900 × 60 | none | yes |
-| Actions | Slot | 100 × 100 | none | yes |
+| Part | Text | Style |
+|---|---|---|
+| Eyebrow | `text/secondary` | `text-sm/regular` |
+| Title | `text/primary` | `text-3xl/bold` (Desktop), `text-2xl/bold` (Mobile) |
+| Description | `text/tertiary` | `text-sm/regular` |
+
+## Slots
+
+| Slot | Default content |
+|---|---|
+| Actions | Empty. Page buttons; primary action last. |
 
 ## Used in
 
-Not nested in other components.
+Not used inside other components. Every Playground screen starts with one (Shows, Overview, Create Show; web, tablet, mobile).

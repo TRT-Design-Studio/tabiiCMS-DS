@@ -3,19 +3,17 @@ component: Card Header
 figma_page: "🗂️ Cards"
 figma_node: "284:1092"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Card Header
 
-Trailing: None / Badge / Action (nested) / Slot · Boolean: Show Subtitle · Slot: Trailing Slot · Text: Title, Subtitle
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+Title bar of Card. Title with an optional subtitle. Trailing: None, Badge (a Status), Action (Secondary XSmall button), Slot - H (free content on the right) or Slot - V (free content under the title).
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | Trailing | None, Badge, Action, Slot - H, Slot - V | None |
 
@@ -23,35 +21,34 @@ Trailing: None / Badge / Action (nested) / Slot · Boolean: Show Subtitle · Slo
 
 | Property | Type | Default |
 |---|---|---|
+| Trailing | Variant | None |
 | Title | Text | Card title |
-| Subtitle | Text | Supporting text |
 | Show Subtitle | Boolean | true |
-| Trailing Slot | Slot | empty |
+| Subtitle | Text | Supporting text |
+| Trailing Slot | Slot | — (Slot - H, Slot - V) |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 78 | `Spacing/5` (20) | `Spacing/4` (16) | `Spacing/4` (16) | 0 | `text-lg/semibold` |
+| Part | Size | Padding | Gap | Text |
+|---|---|---|---|---|
+| Container | 78 high with subtitle | `Spacing/4` (16) top/bottom, `Spacing/5` (20) sides | `Spacing/4` (16) | — |
+| Title / Subtitle | — | — | `Spacing/0․5` (2) | `text-lg/semibold` / `text-xs/regular` |
+| Trailing Slot | — | — | `Spacing/2` (8) | — |
 
 ## States
 
-| Trailing | Background | Border | Text | Opacity |
-|---|---|---|---|---|
-| None | `bg/base` | `border/default` | `text/primary` |  |
-| Badge | `bg/base` | `border/default` | `text/primary` |  |
-| Action | `bg/base` | `border/default` | `text/primary` |  |
-| Slot - H | `bg/base` | `border/default` | `text/primary` |  |
-| Slot - V | `bg/base` | `border/default` | `text/primary` |  |
+No states.
 
-## Parts
+| Part | Fill | Border | Text |
+|---|---|---|---|
+| Container | `bg/base` | `border/default` bottom | — |
+| Title | — | — | `text/primary` |
+| Subtitle | — | — | `text/tertiary` |
 
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Text | Frame | 520 × 46 | none | yes |
+Trailing: Badge = Status (Success, Small); Action = Button (Secondary, XSmall).
 
 ## Used in
 
-Card
+| Component | Where |
+|---|---|
+| [Card](../card/spec.md) | Header (exposed) |

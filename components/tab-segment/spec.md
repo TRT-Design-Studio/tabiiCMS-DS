@@ -3,19 +3,17 @@ component: Tab Segment
 figma_page: "↪︎ Tabs"
 figma_node: "282:723"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Tab Segment
 
-State: Default / Hover / Selected / Disabled · Boolean: Leading Icon, Trailing Icon (lock) · Instance swap: Leading/Trailing Icon Swap · Text: Label · Leading Icon Active Swap (Fill, in selected state)
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+One tab of Tabs Segmented. Use Disabled with the lock icon for sections that open later. The leading icon turns to Fill when Selected.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | State | Default, Hover, Selected, Disabled | Default |
 
@@ -23,38 +21,33 @@ State: Default / Hover / Selected / Disabled · Boolean: Leading Icon, Trailing 
 
 | Property | Type | Default |
 |---|---|---|
+| State | Variant | Default |
 | Label | Text | Tab |
 | Leading Icon | Boolean | false |
+| Leading Icon Swap | Instance swap | SquaresFour (Regular) |
+| Leading Icon Active Swap | Instance swap | SquaresFour (Fill) |
 | Trailing Icon | Boolean | false |
-| Leading Icon Swap | Instance swap | SquaresFour |
-| Trailing Icon Swap | Instance swap | Lock |
-| Leading Icon Active Swap | Instance swap | SquaresFour |
+| Trailing Icon Swap | Instance swap | Lock (Regular) |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 32 | `Spacing/3․5` (14) | `Spacing/1․5` (6) | `Spacing/1․5` (6) | `rounded-lg` (8) | `text-sm/medium` |
+| Part | Size | Padding | Gap | Radius | Text |
+|---|---|---|---|---|---|
+| Container | 32 high | `Spacing/1․5` (6) top/bottom, `Spacing/3․5` (14) sides | `Spacing/1․5` (6) | `rounded-lg` | `text-sm/medium` |
+| Leading Icon | `Spacing/4` (16) | — | — | — | — |
+| Trailing Icon | `Spacing/3․5` (14) | — | — | — | — |
 
 ## States
 
-| State | Background | Border | Text | Opacity |
-|---|---|---|---|---|
-| Default | none | none | `text/secondary` |  |
-| Hover | `bg/interactive/hover` 5% | none | `text/primary` |  |
-| Selected | `bg/raised` | `border/default` | `text/primary` |  |
-| Disabled | `text/disabled` (Vector) | none | `text/secondary` | 50% |
-
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Leading Icon | SquaresFour | 16 × 16 | none | no |
-| Label | Text | 24 × 20 | `text-sm/medium` `text/secondary` | yes |
-| Trailing Icon | Lock | 14 × 14 | none | no |
+| State | Fill | Border | Label |
+|---|---|---|---|
+| Default | — | — | `text/secondary` |
+| Hover | `bg/interactive/hover` | — | `text/primary` |
+| Selected | `bg/raised` | `border/default` 1 px | `text/primary` |
+| Disabled | — | — | `text/secondary`, `Opacity/opacity-50` on the tab |
 
 ## Used in
 
-Tabs
+| Component | Where |
+|---|---|
+| [Tabs](../tabs/spec.md) | Type Segmented: Tab 1–5 (Items) and Tabs Slot |

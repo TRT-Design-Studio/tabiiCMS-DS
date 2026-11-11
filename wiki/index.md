@@ -47,6 +47,7 @@ _Henüz yok._
 - [Split Button](../components/split-button/spec.md) · stable
 - [Status](../components/status/spec.md) · stable
 - [Tag](../components/tag/spec.md) · stable
+- [Tooltip](../components/tooltip/spec.md) · stable
 
 ## Öneriler
 

@@ -4,7 +4,7 @@ figma_page: "📋 Menu"
 figma_node: "720:10572"
 version: 1.0.0
 status: stable
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 # Menu Item
@@ -37,6 +37,13 @@ One row of a Menu. Single line is 32 px; rows with Description (48 px) or larger
 | 32 (one line) | `Spacing/2` (8) | `Spacing/1․5` (6) | `Spacing/2` (8) | `rounded-md` (6) | `text-sm/regular` | 16 (`Spacing/4`) |
 
 Description and Trailing Text `text-xs/regular`, `text/tertiary`. Icons `text/secondary`.
+
+## Icons
+
+| Part | Icon | Size | Color |
+|---|---|---|---|
+| Leading Icon | Copy (swap) | 16 | `text/secondary` |
+| Submenu | CaretRight | 16 | `text/secondary` |
 
 ## States
 

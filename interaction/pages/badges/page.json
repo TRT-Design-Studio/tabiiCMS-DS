@@ -1,0 +1,5 @@
+{
+  "title": "Badges, Status & Tag",
+  "figmaPage": "🏷️ Badges, Status & Tag",
+  "components": ["badge-count", "badge-dot", "badge-label", "status", "tag"]
+}

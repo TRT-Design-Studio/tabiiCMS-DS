@@ -25,12 +25,12 @@ Label (Text) · Icon Left / Left Icon (Boolean / swap, Plus) · Icon Right / Rig
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| XSmall | 28 | `Spacing/2․5` | `Spacing/1․5` | `Spacing/1` | `rounded-md` | `text-xs/medium` |
-| Small | 32 | `Spacing/3` | `Spacing/1․5` | `Spacing/1․5` | `rounded-md` | `text-sm/medium` |
-| Medium | 36 | `Spacing/3․5` | `Spacing/2` | `Spacing/1․5` | `rounded-lg` | `text-sm/medium` |
-| Large | 40 | `Spacing/4` | `Spacing/2` | `Spacing/2` | `rounded-lg` | `text-base/medium` |
+| Size | Height | Padding H | Padding V | Gap | Radius | Text | Icon |
+|---|---|---|---|---|---|---|---|
+| XSmall | 28 | `Spacing/2․5` | `Spacing/1․5` | `Spacing/1` | `rounded-md` | `text-xs/medium` | 14 |
+| Small | 32 | `Spacing/3` | `Spacing/1․5` | `Spacing/1․5` | `rounded-md` | `text-sm/medium` | 16 |
+| Medium | 36 | `Spacing/3․5` | `Spacing/2` | `Spacing/1․5` | `rounded-lg` | `text-sm/medium` | 16 |
+| Large | 40 | `Spacing/4` | `Spacing/2` | `Spacing/2` | `rounded-lg` | `text-base/medium` | 20 |
 
 Link: no fill, no horizontal padding, underline on hover.
 
@@ -45,7 +45,22 @@ Link: no fill, no horizontal padding, underline on hover.
 | Danger | `action/danger/default` | `action/danger/hover` | `action/danger/pressed` | none | `text/on-color` |
 | Link | none | none (underline) | none | none | `text/primary` |
 
-Focused: `border/focus` outline. Disabled: 50% opacity.
+| State | Token | Note |
+|---|---|---|
+| Focused | `border/focus` | 2 px ring outside |
+| Disabled | `Opacity/opacity-50` | whole button |
+
+## Motion
+
+Code only; Figma variants show the end states. Icon Button and Split Button use the same motion.
+
+| Property | Value | Note |
+|---|---|---|
+| Duration | 120 ms | Fill, border and scale; short enough not to feel slow |
+| Easing | ease-out | |
+| Pressed scale | 0.98 | The button shrinks by 0.1× while pressed |
+
+With "reduce motion" turned on in the system, there is no animation and no scale.
 
 ## Used in
 

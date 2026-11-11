@@ -20,4 +20,9 @@ Main action plus a menu of related actions.
 
 ## Parts
 
-Action (exposed Button) and Menu (exposed Icon Button) of the same variant and size, gap `Spacing/px`. Menu opens a Menu aligned to the right edge.
+| Part | Component | Corners | Icon |
+|---|---|---|---|
+| Action | Button (same variant and size) | left only | none |
+| Menu | Icon Button, Square (same variant and size) | right only | CaretDown |
+
+Gap between the parts: `Spacing/px` (1 px). Menu opens a Menu aligned to the right edge.

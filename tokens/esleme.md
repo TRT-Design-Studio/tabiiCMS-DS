@@ -41,23 +41,23 @@
 | `action/danger/pressed` | `bg-action-danger-pressed` | `--color-action-danger-pressed` | red/900 | red/900 |
 | `feedback/success/bg` | `bg-feedback-success` | `--color-feedback-success-bg` | green/50 | green/950 |
 | `feedback/success/text` | `text-feedback-success` | `--color-feedback-success-text` | green/700 | green/300 |
-| `feedback/success/border` | `border-feedback-success` | `--color-feedback-success-border` | green/200 | green/800 |
+| `feedback/success/border` | `border-feedback-success` | `--color-feedback-success-border` | green/600 %10 | green/900 %50 |
 | `feedback/success/dot` | `bg-feedback-success-dot` | `--color-feedback-success-dot` | green/500 | green/400 |
 | `feedback/warning/bg` | `bg-feedback-warning` | `--color-feedback-warning-bg` | yellow/50 | yellow/950 |
 | `feedback/warning/text` | `text-feedback-warning` | `--color-feedback-warning-text` | yellow/800 | yellow/300 |
-| `feedback/warning/border` | `border-feedback-warning` | `--color-feedback-warning-border` | yellow/200 | yellow/800 |
+| `feedback/warning/border` | `border-feedback-warning` | `--color-feedback-warning-border` | yellow/700 %10 | yellow/900 %50 |
 | `feedback/warning/dot` | `bg-feedback-warning-dot` | `--color-feedback-warning-dot` | yellow/500 | yellow/400 |
 | `feedback/danger/bg` | `bg-feedback-danger` | `--color-feedback-danger-bg` | red/50 | red/950 |
 | `feedback/danger/text` | `text-feedback-danger` | `--color-feedback-danger-text` | red/700 | red/300 |
-| `feedback/danger/border` | `border-feedback-danger` | `--color-feedback-danger-border` | red/200 | red/800 |
+| `feedback/danger/border` | `border-feedback-danger` | `--color-feedback-danger-border` | red/300 %20 | red/900 %50 |
 | `feedback/danger/dot` | `bg-feedback-danger-dot` | `--color-feedback-danger-dot` | red/500 | red/400 |
 | `feedback/info/bg` | `bg-feedback-info` | `--color-feedback-info-bg` | blue/50 | blue/950 |
 | `feedback/info/text` | `text-feedback-info` | `--color-feedback-info-text` | blue/700 | blue/300 |
-| `feedback/info/border` | `border-feedback-info` | `--color-feedback-info-border` | blue/200 | blue/800 |
+| `feedback/info/border` | `border-feedback-info` | `--color-feedback-info-border` | blue/600 %10 | blue/800 %50 |
 | `feedback/info/dot` | `bg-feedback-info-dot` | `--color-feedback-info-dot` | blue/500 | blue/400 |
-| `feedback/neutral/bg` | `bg-feedback-neutral` | `--color-feedback-neutral-bg` | neutral/200 | neutral/700 |
-| `feedback/neutral/text` | `text-feedback-neutral` | `--color-feedback-neutral-text` | neutral/700 | neutral/300 |
-| `feedback/neutral/border` | `border-feedback-neutral` | `--color-feedback-neutral-border` | neutral/300 | neutral/600 |
+| `feedback/neutral/bg` | `bg-feedback-neutral` | `--color-feedback-neutral-bg` | neutral/100 | neutral/800 |
+| `feedback/neutral/text` | `text-feedback-neutral` | `--color-feedback-neutral-text` | neutral/600 | neutral/400 |
+| `feedback/neutral/border` | `border-feedback-neutral` | `--color-feedback-neutral-border` | neutral/200 | neutral/700 |
 | `feedback/neutral/dot` | `bg-feedback-neutral-dot` | `--color-feedback-neutral-dot` | neutral/500 | neutral/400 |
 | `border/danger` | `border-danger` | `--color-border-danger` | red/600 | red/500 |
 | `border/control` | `border-control` | `--color-border-control` | neutral/500 | neutral/500 |
@@ -66,6 +66,15 @@
 | `action/soft/default` | `bg-action-soft` | `--color-action-soft-default` | neutral/100 | neutral/800 |
 | `action/soft/hover` | `bg-action-soft-hover` | `--color-action-soft-hover` | neutral/200 | neutral/700 |
 | `action/soft/pressed` | `bg-action-soft-pressed` | `--color-action-soft-pressed` | neutral/300 | neutral/600 |
+| `avatar/blue/bg` | `bg-avatar-blue` | `--color-avatar-blue-bg` | blue/100 | blue/900 |
+| `avatar/blue/text` | `text-avatar-blue` | `--color-avatar-blue-text` | blue/700 | blue/200 |
+| `avatar/purple/bg` | `bg-avatar-purple` | `--color-avatar-purple-bg` | #ede7ff | #4c1d95 |
+| `avatar/purple/text` | `text-avatar-purple` | `--color-avatar-purple-text` | #6d3fd8 | #ddd6fe |
+| `avatar/teal/bg` | `bg-avatar-teal` | `--color-avatar-teal-bg` | #ccfbf1 | #134e4a |
+| `avatar/teal/text` | `text-avatar-teal` | `--color-avatar-teal-text` | #0f766e | #99f6e4 |
+| `avatar/pink/bg` | `bg-avatar-pink` | `--color-avatar-pink-bg` | #fce7f3 | #831843 |
+| `avatar/pink/text` | `text-avatar-pink` | `--color-avatar-pink-text` | #be185d | #fbcfe8 |
+| `bg/inverse-overlay` | `bg-inverse-overlay` | `--color-bg-inverse-overlay` | #171717 %60 | #fafafa %60 |
 
 Hover, focus gibi durumlar Tailwind önekleriyle yazılır: `hover:bg-action-primary-hover`, `dark:` gerekmez (renkler moda göre kendiliğinden değişir).
 

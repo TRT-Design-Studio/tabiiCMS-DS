@@ -4,7 +4,7 @@ figma_page: "↪︎ Sidebar"
 figma_node: "287:1369"
 version: 1.0.0
 status: stable
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 # Sidebar
@@ -25,6 +25,7 @@ Type only. The selected item, labels and icons are set on the nested Nav Item in
 
 | Part | Size | Padding | Gap |
 |---|---|---|---|
+| Frame (Expanded) | 1048 | — | — |
 | Header | 56 | `Spacing/3․5` V, `Spacing/7` H (Rail: no H) | — |
 | Navigation | Fill | `Spacing/4` | `Spacing/3` (Rail: `Spacing/0․5`) |
 | Group | Hug | — | `Spacing/0․5` |

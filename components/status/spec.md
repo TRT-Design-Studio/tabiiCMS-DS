@@ -4,7 +4,7 @@ figma_page: "🏷️ Badges, Status & Tag"
 figma_node: "725:10549"
 version: 1.0.0
 status: stable
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 # Status
@@ -26,16 +26,26 @@ Label (Text) · Show dot (Boolean) · Show icon (Boolean) · Leading (Instance s
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Text |
-|---|---|---|---|---|---|
-| Small | 20 | `Spacing/2` | `Spacing/0․5` | `Spacing/1` | `text-xs/medium` |
-| Medium | 28 | `Spacing/2․5` | `Spacing/1` | `Spacing/1․5` | `text-sm/medium` |
+| Size | Height | Padding H | Padding V | Gap | Text | Icon |
+|---|---|---|---|---|---|---|
+| Small | 20 | `Spacing/2` | `Spacing/0․5` | `Spacing/1` | `text-xs/medium` | 12 |
+| Medium | 28 | `Spacing/2․5` | `Spacing/1` | `Spacing/1․5` | `text-sm/medium` | 14 |
 
-Radius `rounded-full`, 1 px inside border outside the layout.
+Radius `rounded-full`, 1 px inside border outside the layout. The dot is Badge Dot Small of the same tone. The icon and the chevron take the label color.
 
 ## Tones
 
-Background `feedback/<tone>/bg`, border `feedback/<tone>/border`, label `feedback/<tone>/text`, dot Badge Dot of the same tone. Hover adds `bg/interactive/hover`.
+| Tone | Background | Border | Label | Dot |
+|---|---|---|---|---|
+| Neutral | `feedback/neutral/bg` | `feedback/neutral/border` | `feedback/neutral/text` | Neutral |
+| Info | `feedback/info/bg` | `feedback/info/border` | `feedback/info/text` | Info |
+| Success | `feedback/success/bg` | `feedback/success/border` | `feedback/success/text` | Success |
+| Warning | `feedback/warning/bg` | `feedback/warning/border` | `feedback/warning/text` | Warning |
+| Danger | `feedback/danger/bg` | `feedback/danger/border` | `feedback/danger/text` | Danger |
+
+| State | Overlay | Note |
+|---|---|---|
+| Hover | `bg/interactive/hover` | Interactive=True only, on top of the tone background |
 
 ## Used in
 

@@ -3,19 +3,17 @@ component: Tab Underline
 figma_page: "↪︎ Tabs"
 figma_node: "282:744"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Tab Underline
 
-State: Default / Hover / Selected / Disabled · Boolean: Leading Icon · Instance swap: Leading Icon Swap · Text: Label · Leading Icon Active Swap (Fill, in selected state)
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+One tab of Tabs Underline. A 2 px line shows Hover and Selected; the label turns semibold when Selected. The leading icon turns to Fill when Selected.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | State | Default, Hover, Selected, Disabled | Default |
 
@@ -23,35 +21,33 @@ State: Default / Hover / Selected / Disabled · Boolean: Leading Icon · Instanc
 
 | Property | Type | Default |
 |---|---|---|
+| State | Variant | Default |
 | Label | Text | Tab |
 | Leading Icon | Boolean | false |
-| Leading Icon Swap | Instance swap | SquaresFour |
-| Leading Icon Active Swap | Instance swap | SquaresFour |
+| Leading Icon Swap | Instance swap | SquaresFour (Regular) |
+| Leading Icon Active Swap | Instance swap | SquaresFour (Fill) |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 40 | `Spacing/1` (4) | `Spacing/2․5` (10) | `Spacing/1․5` (6) | 0 | `text-sm/medium` |
+| Part | Size | Padding | Gap | Text |
+|---|---|---|---|---|
+| Container | 40 high | `Spacing/2․5` (10) top/bottom, `Spacing/1` (4) sides | `Spacing/1․5` (6) | `text-sm/medium`; `text-sm/semibold` when Selected |
+| Leading Icon | `Spacing/4` (16) | — | — | — |
+| Indicator | `border-2` bottom | — | — | — |
 
 ## States
 
-| State | Background | Border | Text | Opacity |
-|---|---|---|---|---|
-| Default | none | none | `text/tertiary` |  |
-| Hover | none | `border/strong` | `text/primary` |  |
-| Selected | none | `border/selected` | `text/primary` |  |
-| Disabled | none | none | `text/tertiary` | 50% |
-
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Leading Icon | SquaresFour | 16 × 16 | none | no |
-| Label | Text | 24 × 20 | `text-sm/medium` `text/tertiary` | yes |
+| State | Indicator | Label |
+|---|---|---|
+| Default | — | `text/tertiary` |
+| Hover | `border/strong` 2 px | `text/primary` |
+| Selected | `border/selected` 2 px | `text/primary`, semibold |
+| Disabled | — | `text/tertiary`, `Opacity/opacity-50` on the tab |
 
 ## Used in
 
-Tabs
+| Component | Where |
+|---|---|
+| [Tabs](../tabs/spec.md) | Type Underline: Tab 1–5 (Items) and Tabs Slot |
+
+Playground uses: Content Sidebar tabs.

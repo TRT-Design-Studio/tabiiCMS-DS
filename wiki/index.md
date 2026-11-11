@@ -80,11 +80,11 @@ _Henüz yok._
 - [Stat Card](../components/stat-card/spec.md) · draft
 - [Status](../components/status/spec.md) · stable
 - [Step Icon](../components/step-icon/spec.md) · draft
-- [Tab Segment](../components/tab-segment/spec.md) · draft
-- [Tab Underline](../components/tab-underline/spec.md) · draft
+- [Tab Segment](../components/tab-segment/spec.md) · stable
+- [Tab Underline](../components/tab-underline/spec.md) · stable
 - [Table Cell](../components/table-cell/spec.md) · draft
 - [Table Header Cell](../components/table-header-cell/spec.md) · draft
-- [Tabs](../components/tabs/spec.md) · draft
+- [Tabs](../components/tabs/spec.md) · stable
 - [Tag Input](../components/tag-input/spec.md) · draft
 - [Tag](../components/tag/spec.md) · stable
 - [Textarea](../components/textarea/spec.md) · stable

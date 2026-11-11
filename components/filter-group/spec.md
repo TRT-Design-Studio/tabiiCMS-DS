@@ -36,7 +36,7 @@ One group of a filter panel. Header: icon, title, selected count (Badge Count), 
 | Search | 40 | `Spacing/3` (12) sides, `Spacing/2` (8) bottom | — |
 | Options | Hug | `Spacing/1` (4) sides, `Spacing/2` (8) bottom | — |
 
-Width 320 by default; the group fills the panel. Bottom border 1 px `border/subtle` (inside), no fill. Title `text-sm/medium` `text/primary`. Icon and chevron 16 px. Rows are Menu Items (32 px).
+Width 320 by default; the group fills the panel. Bottom border 1 px `border/subtle` (inside), no fill. Title `text-sm/medium` `text/primary`. Icon and chevron 16 px, `text/secondary`. Rows are Menu Items (32 px).
 
 ## States
 
@@ -47,15 +47,15 @@ Width 320 by default; the group fills the panel. Bottom border 1 px `border/subt
 
 ## Parts
 
-| Part | Component | Controlled by |
-|---|---|---|
-| Icon | Icon (User) | Icon |
-| Title | Text | Title |
-| Count | Badge Count, Neutral | Show Count |
-| Clear | Button, Link, XSmall | Show Clear |
-| Chevron | CaretUp / CaretDown | State |
-| Search | Input, Small, Leading Icon MagnifyingGlass | Show Search (nested Input exposed) |
-| Options | Slot of Menu Items: Checkbox in Leading, count as Trailing Text | Options |
+| Part | Component | Size | Controlled by |
+|---|---|---|---|
+| Icon | Icon (User) | 16 | Icon |
+| Title | Text | — | Title |
+| Count | Badge Count, Neutral | 20 | Show Count |
+| Clear | Button, Link, XSmall | 28 | Show Clear |
+| Chevron | CaretUp / CaretDown | 16 | State |
+| Search | Input, Small, Leading Icon MagnifyingGlass | 32 | Show Search (nested Input exposed) |
+| Options | Slot of Menu Items: Checkbox in Leading, count as Trailing Text | 32 per row | Options |
 
 ## Slots
 

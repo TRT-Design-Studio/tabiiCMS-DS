@@ -36,7 +36,7 @@ One row of a Menu. Single line is 32 px; rows with Description (48 px) or larger
 |---|---|---|---|---|---|---|
 | 32 (one line) | `Spacing/2` (8) | `Spacing/1․5` (6) | `Spacing/2` (8) | `rounded-md` (6) | `text-sm/regular` | 16 (`Spacing/4`) |
 
-Description and Trailing Text `text-xs/regular`, `text/tertiary`. Icons `text/secondary`.
+Description and Trailing Text `text-xs/regular`, `text/tertiary`. Icons `text/secondary`; on Destructive rows the leading icon takes the label color (`feedback/danger/text`). In Figma the Destructive variants have an empty icon, so this color follows the label.
 
 ## Icons
 
@@ -44,6 +44,7 @@ Description and Trailing Text `text-xs/regular`, `text/tertiary`. Icons `text/se
 |---|---|---|---|
 | Leading Icon | Copy (swap) | 16 | `text/secondary` |
 | Submenu | CaretRight | 16 | `text/secondary` |
+| Leading Icon (Destructive) | Trash (swap) | 16 | `feedback/danger/text` |
 
 ## States
 

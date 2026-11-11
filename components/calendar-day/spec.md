@@ -36,6 +36,7 @@ First and Last exist only for In Range and Today In Range (16 variants in total)
 | Band | 32 × 32 | `rounded-full` on the start or end side | — |
 | Mark | `Spacing/7` (28) | `rounded-full` | `text-sm/regular`; `text-sm/medium` when selected |
 | Today Dot | `Spacing/1` (4) | — | — |
+| Today Dot offset | 3 (from the bottom of the Mark, centred) | — | — |
 | Focus ring | `border-2` | — | — |
 
 ## States

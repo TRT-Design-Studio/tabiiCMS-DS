@@ -38,7 +38,10 @@ Kural: [rules/core/interaction/code-layer.md](../rules/core/interaction/code-lay
 | İkonlar | Figma'daki Icons sayfasıyla aynı paket: Phosphor (Regular ve Fill), `TDS.icon('MagnifyingGlass')`. Build SVG olarak gömer, boyut ve çizim Figma ile aynı |
 | Bayraklar | Figma'daki Flags ile aynı paket: circle-flags, `TDS.flag('TR')` |
 | Yazı tipi | Geist |
-| Açılır menü | Gerçek Menu komponenti: `TDS.defineMenu` ve `data-tds-menu`. Oklar, Enter ve Escape ile çalışır |
+| Açılır menü | Gerçek Menu komponenti: `TDS.defineMenu` ve `data-tds-menu`. Oklar, Enter ve Escape ile çalışır. Seçilen satır tetikleyiciye `tds-menu-select` olayıyla bildirilir (Select, Phone Field, takvim başlığı) |
+| Tooltip | Tetikleyiciye `data-tds-tooltip="Metin"` verilir; ~500 ms bekleyince veya klavye odağında açılır (Label → Help) |
+| Hareket | Bütün state geçişleri Button'ın Motion tablosundaki süre ve easing ile yumuşar (`--tds-transition`) |
+| Durumlu komponentler | Takvim, Tag Input, Filter Group, Number Stepper, Phone Field: `TDS.update(el, {...})` ile kendilerini yeniden çizer |
 | Açık / koyu mod | Her playground'da üstteki düğme |
 
 İkonlar dosyanın içinde, internet gerekmez. Bayraklar ve yazı tipi internetten yüklenir.
@@ -53,6 +56,11 @@ Bir komponent başka bir komponenti içeriyorsa onu tekrar yazmaz. `TDS.render('
 - Split Button, `button` ve `icon-button` komponentlerini kullanır. Menü düğmesi `menu` komponentini açar.
 - Status, noktasını `badge-dot` ile çizer. Interactive açıkken `menu` komponentini açar.
 - Menu, satırlarını `menu-item`, `menu-group-label` ve `menu-separator` ile çizer. Error halindeki düğme `button` komponentidir.
+- Form Field, `label`, `input` / `select` / `textarea` ve `field-message` komponentlerini kullanır. Label'daki Help, `tooltip` açar.
+- Select ve Phone Field'ın ülke kodu `menu` açar. Phone Field, `input` ve `button` (Ghost XSmall) kullanır.
+- Number Stepper, `icon-button` ve `input` kullanır.
+- Calendar, `calendar-header` (`icon-button`, `button`, `menu`), `calendar-day` ve saat için `input` kullanır.
+- Tag Input, `tag` kullanır. Filter Group, `badge-count`, `button`, `input`, `menu-item` + `checkbox` ve sonuç yokken `menu` kullanır.
 
 Yeni bir komponent eklerken önce burada var olanlara bak.
 

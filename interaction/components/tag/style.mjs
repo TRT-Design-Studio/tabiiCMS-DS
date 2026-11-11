@@ -1,12 +1,14 @@
 // components/tag/spec.md → CSS. "Type · State" satırlarından üretilir.
 export default function css(spec, v) {
-  let out = `.tds-tag { display: inline-flex; align-items: center; box-sizing: border-box; border: 0; margin: 0; border-radius: var(--rounded-md); white-space: nowrap; background: transparent; }
-.tds-tag-remove { display: inline-flex; padding: 0; border: 0; background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: var(--rounded-xs); }
+  let out = `.tds-tag { display: inline-flex; align-items: center; box-sizing: border-box; border: 0; margin: 0; border-radius: var(--rounded-md); white-space: nowrap; background: transparent; transition: var(--tds-transition); }
+.tds-tag-remove { display: inline-flex; padding: 0; border: 0; background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: var(--rounded-xs); transition: var(--tds-transition); }
+.tds-tag-remove:hover:not(:disabled) { color: var(--text-primary); }
 .tds-tag-remove:focus-visible, a.tds-tag:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 0; }
 .tds-tag[data-state="disabled"] .tds-tag-remove { color: var(--text-disabled); cursor: not-allowed; }
 a.tds-tag { color: inherit; text-decoration: none; cursor: pointer; }
 .tds-tag[data-type="link"] { padding-left: 0 !important; padding-right: 0 !important; }
-a.tds-tag[data-type="link"]:not([data-state]):hover span, .tds-tag[data-type="link"][data-state="hover"] span { text-decoration: underline; text-underline-offset: 3px; }
+.tds-tag[data-type="link"] span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: transparent; transition: var(--tds-transition); }
+a.tds-tag[data-type="link"]:not([data-state]):hover span, .tds-tag[data-type="link"][data-state="hover"] span { text-decoration-color: currentColor; }
 `;
   for (const s of spec.table('Sizes')) {
     const k = v.slug(s.size);

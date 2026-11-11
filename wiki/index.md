@@ -9,7 +9,7 @@
 | [Doküman frame düzeni](../rules/core/dokumantasyon/frame-duzeni.md) | `core.dokuman-frame-duzeni` | active | 3 |
 | [Referans frame'ler kopyalanır ama incelenir](../rules/core/dokumantasyon/referans-inceleme.md) | `core.dokuman-referans-inceleme` | active | 1 |
 | [Komponent dokümantasyon şablonu](../rules/core/dokumantasyon/sablon.md) | `core.dokuman-sablon` | active | 5 |
-| [Code layer'lar (Interaction) nasıl yazılır](../rules/core/interaction/code-layer.md) | `core.interaction-code-layer` | active | 4 |
+| [Code layer'lar (Interaction) nasıl yazılır](../rules/core/interaction/code-layer.md) | `core.interaction-code-layer` | active | 5 |
 | [Kural dosyası yazım formatı](../rules/core/kural-yazim-formati.md) | `core.kural-yazim-formati` | active | 1 |
 | [README ve rehber yazım kuralı](../rules/core/readme-yazim-kurali.md) | `core.readme-yazim-kurali` | active | 1 |
 | [Tailwind temel alınır](../rules/core/tailwind-temel.md) | `core.tailwind-temel` | active | 4 |

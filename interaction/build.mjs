@@ -19,7 +19,14 @@ const only = args.filter((a) => !a.startsWith('--'));
 const rd = (...p) => readFileSync(join(here, ...p), 'utf8');
 
 const pages = readdirSync(join(here, 'pages')).filter((p) => existsSync(join(here, 'pages', p, 'page.json')) && (!only.length || only.includes(p)));
-const tokensCss = buildTokensCss(root);
+// Ortak hareket: components/button/spec.md → Motion. Hover ve state geçişleri her komponentte bununla yumuşar
+// (kural: rules/core/interaction/code-layer.md, madde 5). Ölçek sadece butonlarda.
+const motionRows = readSpec(root, 'button').table('Motion');
+const motion = Object.fromEntries(motionRows.map((r) => [r.property.toLowerCase(), r.value]));
+const motionCss = `:root { --tds-motion-duration: ${v.num(motion.duration)}ms; --tds-motion-easing: ${motion.easing.trim()};
+  --tds-transition: background-color var(--tds-motion-duration) var(--tds-motion-easing), color var(--tds-motion-duration) var(--tds-motion-easing), box-shadow var(--tds-motion-duration) var(--tds-motion-easing), border-color var(--tds-motion-duration) var(--tds-motion-easing), opacity var(--tds-motion-duration) var(--tds-motion-easing), text-decoration-color var(--tds-motion-duration) var(--tds-motion-easing); }
+`;
+const tokensCss = buildTokensCss(root) + motionCss;
 let stale = [];
 
 for (const page of pages) {

@@ -5,7 +5,7 @@ TDS.playground('#app', {
   title: 'Buttons',
   components: [
     {
-      name: 'button', label: 'Button', icon: 'CursorClick',
+      name: 'button', label: 'Button',
       controls: [
         { key: 'Variant', type: 'select', options: ['Primary', 'Secondary', 'Tertiary', 'Ghost', 'Danger', 'Link'], default: 'Primary' },
         { key: 'Size', type: 'select', options: SIZES, default: 'Medium' },
@@ -18,7 +18,7 @@ TDS.playground('#app', {
       ],
     },
     {
-      name: 'icon-button', label: 'Icon Button', icon: 'MagnifyingGlass',
+      name: 'icon-button', label: 'Icon Button',
       controls: [
         { key: 'Variant', type: 'select', options: ['Primary', 'Secondary', 'Tertiary', 'Ghost'], default: 'Primary' },
         { key: 'Shape', type: 'select', options: ['Square', 'Circle'], default: 'Square' },
@@ -27,7 +27,7 @@ TDS.playground('#app', {
       ],
     },
     {
-      name: 'split-button', label: 'Split Button', icon: 'ArrowsSplit',
+      name: 'split-button', label: 'Split Button',
       controls: [
         { key: 'Variant', type: 'select', options: ['Primary', 'Secondary'], default: 'Primary' },
         { key: 'Size', type: 'select', options: SIZES, default: 'Medium' },

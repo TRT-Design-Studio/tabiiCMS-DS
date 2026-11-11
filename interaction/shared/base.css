@@ -62,7 +62,7 @@ body { background: var(--bg-surface); color: var(--text-primary); font: var(--te
 /* ---------- Sahne ---------- */
 .pg-stage { position: relative; flex: 1; min-width: 0; height: 100%; background: var(--bg-surface); outline: none; }
 .pg-canvas { position: absolute; inset: 0; overflow: auto; display: grid; place-items: center; padding: var(--spacing-16); }
-.pg-preview { display: flex; align-items: center; justify-content: center; transform: scale(var(--zoom, 1)); transform-origin: center; transition: transform 0.2s var(--pg-ease); }
+.pg-preview { position: relative; display: flex; align-items: center; justify-content: center; transform: scale(var(--zoom, 1)); transform-origin: center; transition: transform 0.2s var(--pg-ease); }
 
 .pg-zoom { position: absolute; right: var(--spacing-4); bottom: var(--spacing-4); display: flex; align-items: center; gap: var(--spacing-0-5); padding: var(--spacing-0-5);
   background: var(--bg-raised); border-radius: var(--rounded-lg); box-shadow: inset 0 0 0 1px var(--border-default), var(--shadow-sm); }
@@ -78,6 +78,11 @@ body { background: var(--bg-surface); color: var(--text-primary); font: var(--te
 .tds-icon { display: inline-flex; flex: none; width: 1em; height: 1em; font-size: 16px; line-height: 1; align-items: center; justify-content: center; }
 .tds-icon svg { display: block; width: 1em; height: 1em; }
 .tds-flag { display: inline-block; flex: none; border-radius: var(--rounded-full); }
-.tds-popover { position: absolute; z-index: 1000; }
+/* Sahne örnekleri: kontrol + Label (Checkbox & Radio spec: 8 px aralık) */
+.pg-choices { display: flex; flex-direction: column; gap: var(--spacing-3); }
+.pg-choice { display: flex; align-items: flex-start; gap: var(--spacing-2); }
+.pg-choice > .tds-checkbox, .pg-choice > .tds-radio { margin-top: var(--spacing-0-5); }
+.tds-popover { position: absolute; z-index: 1000; animation: tds-pop-in var(--tds-motion-duration) var(--tds-motion-easing); }
+@keyframes tds-pop-in { from { opacity: 0; transform: translateY(-4px); } }
 
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; transition-delay: 0ms !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; transition-delay: 0ms !important; animation-duration: 0.01ms !important; } }

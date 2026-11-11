@@ -21,14 +21,14 @@ TDS.playground('#app', {
   title: 'Menu',
   components: [
     {
-      name: 'menu', label: 'Menu', icon: 'List',
+      name: 'menu', label: 'Menu',
       controls: [
         { key: 'State', type: 'select', options: ['Default', 'Loading', 'No Results', 'Error', 'Hint'], default: 'Default' },
         { key: 'Width', type: 'text', default: '240', label: 'Width (px)' },
       ],
     },
     {
-      name: 'menu-item', label: 'Menu Item', icon: 'ListBullets',
+      name: 'menu-item', label: 'Menu Item',
       controls: [
         { key: 'State', type: 'select', options: ['Live', 'Default', 'Hover', 'Focused', 'Selected', 'Disabled'], default: 'Live' },
         { key: 'Destructive', type: 'select', options: ['False', 'True'], default: 'False', label: 'Destructive (Default, Hover, Focused)' },
@@ -43,7 +43,7 @@ TDS.playground('#app', {
       ],
     },
     {
-      name: 'menu-trigger-demo', label: 'Open from a button', icon: 'DotsThree',
+      name: 'menu-trigger-demo', label: 'Open from a button',
       controls: [{ key: 'Size', type: 'select', options: ['XSmall', 'Small', 'Medium', 'Large'], default: 'Medium' }],
     },
   ],

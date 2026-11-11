@@ -8,15 +8,13 @@ import { join } from 'node:path';
 export const PHOSPHOR_CORE = '2.1.1';
 const kebab = (n) => n.replace(/(?<!^)([A-Z])/g, '-$1').toLowerCase();
 
-// component.js ve page.js içinde geçen ikon adlarını bulur: TDS.icon('Plus'), Icon: 'Trash', icon: 'X'
+// component.js ve page.js içinde geçen ikon adlarını bulur: TDS.icon('Plus'), Icon: 'Trash', icon: 'X', iconRight: 'CaretDown'
 export function collectIconNames(here, files) {
   const names = new Map(); // "Regular:Plus"
   for (const f of files) {
     const src = readFileSync(f, 'utf8');
     for (const m of src.matchAll(/TDS\.icon\(\s*'([A-Za-z0-9]+)'(?:\s*,\s*[^,)]*\s*,\s*'(Regular|Fill)')?/g)) names.set(`${m[2] || 'Regular'}:${m[1]}`, 1);
-    for (const m of src.matchAll(/\b(?:Icon|icon)\s*:\s*'([A-Z][A-Za-z0-9]+)'/g)) names.set(`Regular:${m[1]}`, 1);
-    // page.js: sidebar'daki komponent ikonu seçiliyken Fill olur.
-    for (const m of src.matchAll(/\bicon:\s*'([A-Z][A-Za-z0-9]+)'/g)) names.set(`Fill:${m[1]}`, 1);
+    for (const m of src.matchAll(/\b(?:Icon|icon|iconLeft|iconRight)\s*:\s*'([A-Z][A-Za-z0-9]+)'/g)) names.set(`Regular:${m[1]}`, 1);
     for (const m of src.matchAll(/options:\s*\[([^\]]+)\][^}]*iconOptions/g)) for (const o of m[1].matchAll(/'([A-Z][A-Za-z0-9]+)'/g)) names.set(`Regular:${o[1]}`, 1);
   }
   const extra = join(here, 'shared', 'icon-list.json');

@@ -34,7 +34,16 @@ Field that opens a list of options and shows the chosen one. Height is fixed per
 | Medium | 36 | `Spacing/3` (12) | `Spacing/2` (8) | `rounded-lg` (8) | `text-sm/regular` |
 | Large | 40 | `Spacing/3` (12) | `Spacing/2` (8) | `rounded-lg` (8) | `text-sm/regular` |
 
-Border: 1 px inside, outside the layout. Leading icon and chevron (CaretDown) 16 px.
+Border: 1 px inside, outside the layout.
+
+## Parts
+
+| Part | Icon | Size | Empty | Filled |
+|---|---|---|---|---|
+| Leading Icon | SquaresFour (swap) | 16 | `text/tertiary` | `text/secondary` |
+| Chevron | CaretDown | 16 | see States | see States |
+
+In Figma only the Filled variant carries a Leading Icon color; when empty it follows Input (`text/tertiary`).
 
 ## States
 

@@ -3,15 +3,13 @@ component: Pagination
 figma_page: "↪︎ Pagination"
 figma_node: "301:4472"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Pagination
 
-Size: Desktop / Mobile · Desktop nested: Pagination Item, Button, Input · Mobile nested: Icon Button (Previous, Next), Select (page, exposed) · Boolean: Show Per Page, Show Go To (Desktop) · Text: Total
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+Footer bar for long lists and tables. Shows the total count, a per-page selector, the page items and a "Go to" field. Mobile keeps only previous / next and a page Select.
 
 ## Variants
 
@@ -27,6 +25,8 @@ Size: Desktop / Mobile · Desktop nested: Pagination Item, Button, Input · Mobi
 | Show Per Page | Boolean | true |
 | Show Go To | Boolean | true |
 
+Show Per Page and Show Go To apply to Desktop only.
+
 ## Sizes
 
 | Size | Height | Padding H | Padding V | Gap | Radius | Text |
@@ -36,14 +36,21 @@ Size: Desktop / Mobile · Desktop nested: Pagination Item, Button, Input · Mobi
 
 ## Parts
 
-From the default variant. Hidden parts are turned on by a property.
+Desktop:
 
 | Part | Kind | Size | Fill | Shown |
 |---|---|---|---|---|
-| Total | Text | 67 × 20 | `text-sm/medium` `text/primary` | yes |
-| Per page | Frame | 126 × 32 | none | yes |
-| Items | Frame | 472 × 32 | none | yes |
-| Go to | Frame | 140 × 32 | none | yes |
+| Total | Text | hug × 20 | `text-sm/medium` `text/primary` | yes |
+| Per page | Button (Secondary, Small) + "per page" | 126 × 32 | none | Show Per Page |
+| Items | Pagination Items, `border/default` stroke, radius 8 | 472 × 32 | none | yes |
+| Go to | "Go to" + Input (Small, Filled) + "Page" | 140 × 32 | none | Show Go To |
+
+Mobile:
+
+| Part | Kind | Size | Fill | Shown |
+|---|---|---|---|---|
+| Total | Text | hug × 20 | `text-sm/medium` `text/primary` | yes |
+| Controls | Icon Button (Previous) + Select (Small) + Icon Button (Next), gap 8 | — | none | yes |
 
 ## Used in
 

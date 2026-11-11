@@ -1,0 +1,1 @@
+{ "uses": ["badge-count", "button", "input", "menu-item", "checkbox", "menu"] }

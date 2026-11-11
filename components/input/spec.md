@@ -39,7 +39,20 @@ Single-line text field. Height is fixed per size, so slot content never changes 
 | Medium | 36 | `Spacing/3` (12) | `Spacing/2` (8) | `rounded-lg` (8) | `text-sm/regular` | Button XSmall (28) |
 | Large | 40 | `Spacing/3` (12) | `Spacing/2` (8) | `rounded-lg` (8) | `text-sm/regular` | Button Small (32) |
 
-Border: 1 px inside, outside the layout. Icons 16 px. Counter `text-xs/regular`, `text/tertiary`.
+Border: 1 px inside, outside the layout.
+
+## Parts
+
+Empty: the placeholder is showing (State Default). Filled: any other state.
+
+| Part | Icon | Size | Empty | Filled |
+|---|---|---|---|---|
+| Leading Icon | MagnifyingGlass (swap) | 16 | `text/tertiary` | `text/secondary` |
+| Trailing Icon | X (swap) | 16 | `text/tertiary` | `text/secondary` |
+| Status Icon (Success only) | CheckCircle | 16 | `feedback/success/text` | `feedback/success/text` |
+| Counter | — | `text-xs/regular` | `text/tertiary` | `text/tertiary` |
+
+In Figma only the Default and Filled variants carry icon colors; the other states use the Filled colors. Trailing Icon has no color in the Default variant, so it follows Leading Icon.
 
 ## States
 

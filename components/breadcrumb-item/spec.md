@@ -3,15 +3,13 @@ component: Breadcrumb Item
 figma_page: "↪︎ Breadcrumb"
 figma_node: "282:1028"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Breadcrumb Item
 
-State: Default / Hover / Current · Boolean: Icon, Separator · Text: Label
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+One step of the Breadcrumb: an optional House icon, the label and a caret separator. Default and Hover are links; Current is the page you are on and is not clickable. Collapsed is a "More" Icon Button that stands for the hidden middle items.
 
 ## Variants
 
@@ -37,22 +35,22 @@ State: Default / Hover / Current · Boolean: Icon, Separator · Text: Label
 
 | State | Background | Border | Text | Opacity |
 |---|---|---|---|---|
-| Default | `text/tertiary` (Vector) | none | `text/secondary` |  |
-| Hover | none | none | `text/primary` |  |
-| Current | `text/tertiary` (Vector) | none | `text/tertiary` |  |
-| Focused | none | `border/focus` | `text/primary` |  |
-| Collapsed | `text/secondary` (Vector) | none | — |  |
+| Default | none | none | `text/secondary` |  |
+| Hover | none | none | `text/primary` (underline) |  |
+| Current | none | none | `text/tertiary` |  |
+| Focused | none | `border/focus` 2 px outside, radius 4 | `text/primary` |  |
+| Collapsed | Icon Button (Ghost, XSmall) | none | — |  |
+
+The separator is always `text/tertiary`.
 
 ## Parts
 
-From the default variant. Hidden parts are turned on by a property.
-
 | Part | Kind | Size | Fill | Shown |
 |---|---|---|---|---|
-| Icon | House | 16 × 16 | none | no |
-| Label | Text | 33 × 20 | `text-sm/regular` `text/secondary` | yes |
-| Separator | CaretRight | 14 × 14 | none | yes |
+| Icon | House | 16 × 16 | label color | Icon |
+| Label | Text | hug × 20 | `text-sm/regular` | yes |
+| Separator | CaretRight | 14 × 14 | `text/tertiary` | Separator |
 
 ## Used in
 
-Breadcrumb
+Breadcrumb.

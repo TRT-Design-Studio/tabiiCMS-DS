@@ -3,15 +3,13 @@ component: Step Icon
 figma_page: "↪︎ Stepper"
 figma_node: "281:917"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Step Icon
 
-Status: Empty / Current / Complete / Error
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+16 px status icon of a stepper step. Not used alone; it sits inside the Section Nav Item and follows its Status.
 
 ## Variants
 
@@ -31,21 +29,13 @@ None.
 
 ## States
 
-| Status | Background | Border | Text | Opacity |
-|---|---|---|---|---|
-| Empty | `text/tertiary` (Vector) | none | — |  |
-| Current | `text/primary` (Vector) | none | — |  |
-| Complete | `feedback/success/text` (Vector) | none | — |  |
-| Error | `feedback/danger/text` (Vector) | none | — |  |
-
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Icon | Circle | 16 × 16 | none | yes |
+| Status | Icon | Color |
+|---|---|---|
+| Empty | Circle (Regular) | `text/tertiary` |
+| Current | RadioButton (Fill) | `text/primary` |
+| Complete | CheckCircle (Fill) | `feedback/success/text` |
+| Error | XCircle (Fill) | `feedback/danger/text` |
 
 ## Used in
 
-Section Nav Item
+Section Nav Item.

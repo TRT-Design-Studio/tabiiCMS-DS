@@ -34,6 +34,7 @@ Popover calendar under a date field. Week starts Monday. Type: Date closes when 
 | Days | 6 rows × 7 cells, 224 × 192 | — | — | — | — |
 | Time | Divider + Footer | bottom `Spacing/3` (12) | `Spacing/3` (12) | — | — |
 | Footer | 32 high | sides `Spacing/3` (12) | `Spacing/2` (8) | — | `text-xs/regular` (time zone) |
+| Time input | 88 × 32, Input Small, Leading Icon Clock | — | `Spacing/2` (8) to the time zone | — | — |
 
 The grid always has 6 week rows, so the popover does not change height between months.
 
@@ -45,6 +46,7 @@ Calendar has no state axis. Day states live in [Calendar Day](../calendar-day/sp
 |---|---|---|---|---|
 | Container | `bg/raised` | `border/default` 1 px | — | `Shadow/shadow-lg` |
 | Weekday | — | — | `text/tertiary` | — |
+| Time zone | — | — | `text/tertiary` | — |
 | Divider | `border/default` | — | — | — |
 
 ## Slots

@@ -6,10 +6,10 @@
 
 | Kural | id | Durum | Sürüm |
 |---|---|---|---|
-| [Doküman frame düzeni](../rules/core/dokumantasyon/frame-duzeni.md) | `core.dokuman-frame-duzeni` | active | 2 |
+| [Doküman frame düzeni](../rules/core/dokumantasyon/frame-duzeni.md) | `core.dokuman-frame-duzeni` | active | 3 |
 | [Referans frame'ler kopyalanır ama incelenir](../rules/core/dokumantasyon/referans-inceleme.md) | `core.dokuman-referans-inceleme` | active | 1 |
-| [Komponent dokümantasyon şablonu](../rules/core/dokumantasyon/sablon.md) | `core.dokuman-sablon` | active | 4 |
-| [Code layer'lar (Interaction) nasıl yazılır](../rules/core/interaction/code-layer.md) | `core.interaction-code-layer` | active | 4 |
+| [Komponent dokümantasyon şablonu](../rules/core/dokumantasyon/sablon.md) | `core.dokuman-sablon` | active | 5 |
+| [Code layer'lar (Interaction) nasıl yazılır](../rules/core/interaction/code-layer.md) | `core.interaction-code-layer` | active | 5 |
 | [Kural dosyası yazım formatı](../rules/core/kural-yazim-formati.md) | `core.kural-yazim-formati` | active | 1 |
 | [README ve rehber yazım kuralı](../rules/core/readme-yazim-kurali.md) | `core.readme-yazim-kurali` | active | 1 |
 | [Tailwind temel alınır](../rules/core/tailwind-temel.md) | `core.tailwind-temel` | active | 4 |
@@ -37,8 +37,8 @@ _Henüz yok._
 - [Badge Count](../components/badge-count/spec.md) · stable
 - [Badge Dot](../components/badge-dot/spec.md) · stable
 - [Badge Label](../components/badge-label/spec.md) · stable
-- [Breadcrumb Item](../components/breadcrumb-item/spec.md) · draft
-- [Breadcrumb](../components/breadcrumb/spec.md) · draft
+- [Breadcrumb Item](../components/breadcrumb-item/spec.md) · stable
+- [Breadcrumb](../components/breadcrumb/spec.md) · stable
 - [Button](../components/button/spec.md) · stable
 - [Calendar Day](../components/calendar-day/spec.md) · stable
 - [Calendar Header](../components/calendar-header/spec.md) · stable
@@ -46,10 +46,10 @@ _Henüz yok._
 - [Card Header](../components/card-header/spec.md) · stable
 - [Card](../components/card/spec.md) · stable
 - [Checkbox](../components/checkbox/spec.md) · stable
-- [Divider](../components/divider/spec.md) · draft
+- [Divider](../components/divider/spec.md) · stable
 - [Field Message](../components/field-message/spec.md) · stable
 - [File Sheet](../components/file-sheet/spec.md) · draft
-- [Filter Group](../components/filter-group/spec.md) · draft
+- [Filter Group](../components/filter-group/spec.md) · stable
 - [Form Field](../components/form-field/spec.md) · stable
 - [Icon Button](../components/icon-button/spec.md) · stable
 - [Icon Stat](../components/icon-stat/spec.md) · stable
@@ -66,20 +66,20 @@ _Henüz yok._
 - [Nav Sub Group](../components/nav-sub-group/spec.md) · stable
 - [Number Stepper](../components/number-stepper/spec.md) · stable
 - [Page Header](../components/page-header/spec.md) · stable
-- [Pagination Item](../components/pagination-item/spec.md) · draft
-- [Pagination](../components/pagination/spec.md) · draft
+- [Pagination Item](../components/pagination-item/spec.md) · stable
+- [Pagination](../components/pagination/spec.md) · stable
 - [Phone Field](../components/phone-field/spec.md) · stable
 - [Progress Bar](../components/progress-bar/spec.md) · draft
 - [Radio](../components/radio/spec.md) · stable
 - [Rich Text Editor/Toolbar](../components/rich-text-editor-toolbar/spec.md) · draft
 - [Rich Text Editor](../components/rich-text-editor/spec.md) · draft
-- [Section Nav Item](../components/section-nav-item/spec.md) · draft
+- [Section Nav Item](../components/section-nav-item/spec.md) · stable
 - [Select](../components/select/spec.md) · stable
 - [Sidebar](../components/sidebar/spec.md) · stable
 - [Split Button](../components/split-button/spec.md) · stable
 - [Stat Card](../components/stat-card/spec.md) · stable
 - [Status](../components/status/spec.md) · stable
-- [Step Icon](../components/step-icon/spec.md) · draft
+- [Step Icon](../components/step-icon/spec.md) · stable
 - [Tab Segment](../components/tab-segment/spec.md) · draft
 - [Tab Underline](../components/tab-underline/spec.md) · draft
 - [Table Cell](../components/table-cell/spec.md) · draft

@@ -1,0 +1,9 @@
+{
+  "title": "Checkbox & Radio",
+  "figmaPage": "↪︎ Checkbox & Radio",
+  "components": [
+    "checkbox",
+    "radio",
+    "label"
+  ]
+}

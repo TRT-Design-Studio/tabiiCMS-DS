@@ -3,9 +3,9 @@ id: core.dokuman-sablon
 title: Komponent dokümantasyon şablonu
 owner: "@mucahitpuren"
 status: active
-version: 4
+version: 5
 applies_to: docs
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 # Komponent dokümantasyon şablonu
@@ -20,7 +20,7 @@ Her komponent sayfası aynı yapıda dokümante edilsin. "Şu sayfayı dokümant
 
 1. Doküman, komponentin **kendi sayfasında** (`↪︎ <Aile>` alt sayfası veya tek sayfalık grup) durur. Ayrı doküman sayfası açılmaz.
 2. Ana komponent seti doküman içine, **Component Sets** frame'ine taşınır. Sayfadaki eski grup frame'i (Group Title + Sets) boşalınca silinir. Set taşınır, kopyalanmaz; instance bağlantıları kopmaz.
-3. Sadece güncel komponentler kullanılır. Documentation Draft, Badge ve Input sayfaları eski denemelerdir; oradan **yapı ve görsel dil** alınır, komponent ve instance alınmaz.
+3. Sadece güncel komponentler kullanılır. Yapı ve görsel dil için dokümante edilmiş bir sayfaya bakılır (ör. `↪︎ Input`).
 4. Doküman metinleri İngilizcedir. Sayfa zemini `#171717`'dir.
 
 ### Frame sırası (soldan sağa, aralarında 160 px)
@@ -76,4 +76,4 @@ Do / Don't frame'i eklenmez.
 
 ✅ `↪︎ Input` sayfası: Overview → Changelog → Interaction → Examples → Component Sets (Input seti içinde) → Anatomy & Specs → Properties. Değerler Input setinden okunmuş, örnekler Playground'daki prefix, suffix, inner button ve dosya seçici kullanımları.
 
-❌ Eski Input deneme sayfasındaki seti kopyalamak, Do/Don't eklemek, ana seti sayfadaki eski grup frame'inde bırakıp dokümana kopyasını koymak.
+❌ Setin bir kopyasını kullanmak, Do/Don't eklemek, ana seti sayfadaki eski grup frame'inde bırakıp dokümana kopyasını koymak.

@@ -3,7 +3,7 @@ component: Calendar Header
 figma_page: "↪︎ Datepicker"
 figma_node: "736:10699"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
@@ -11,32 +11,28 @@ updated: 2026-11-11
 
 Month and year bar of Calendar. Month and Year are Link buttons with a caret: each opens a Menu (months / allowed years). Arrows change the month; disable an arrow at min/max.
 
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
-
 ## Variants
 
-None.
+No variants. Single component.
 
 ## Properties
 
-None.
+No properties of its own. Previous, Month, Year and Next are nested instances and are not exposed.
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 28 | 0 | 0 | 0 | 0 | `text-xs/medium` |
+| Part | Size | Padding | Gap | Radius | Text |
+|---|---|---|---|---|---|
+| Header | 224 × 28 | — | — | — | — |
+| Previous, Next | Icon Button Ghost Square XSmall, 28 × 28 | `Spacing/1․5` (6) | — | `rounded-lg` | — |
+| Title (Month + Year) | 28 high | — | `Spacing/3` (12) | — | Button Link XSmall |
 
-## Parts
+## States
 
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Previous | Icon Button | 28 × 28 | none | yes |
-| Title | Frame | 125 × 28 | none | yes |
-| Next | Icon Button | 28 × 28 | none | yes |
+No state axis. Arrow and button states come from Icon Button and Button.
 
 ## Used in
 
-Calendar
+| Component | Where |
+|---|---|
+| [Calendar](../calendar/spec.md) | Top of the grid area |

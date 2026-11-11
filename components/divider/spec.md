@@ -3,46 +3,47 @@ component: Divider
 figma_page: "↪︎ Divider"
 figma_node: "281:959"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Divider
 
-Orientation: Horizontal / Vertical
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+1 px line that separates groups of content. Horizontal splits stacked sections; Vertical splits items in a row. No padding or margin of its own: the space around it comes from the parent's auto layout gap.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | Orientation | Horizontal, Vertical | Horizontal |
 
 ## Properties
 
-None.
+| Property | Type | Default |
+|---|---|---|
+| Orientation | Variant | Horizontal |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 1 | 0 | 0 | 0 | 0 | — |
+| Orientation | Width | Height |
+|---|---|---|
+| Horizontal | `Spacing/60` (240) by default; usually fills the container | `Spacing/px` (1) |
+| Vertical | `Spacing/px` (1) | `Spacing/6` (24) by default; match the row height |
 
 ## States
 
-| Orientation | Background | Border | Text | Opacity |
-|---|---|---|---|---|
-| Horizontal | `border/default` | none | — |  |
-| Vertical | `border/default` | none | — |  |
+No states.
 
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
+| Part | Fill |
+|---|---|
+| Line | `border/default` |
 
 ## Used in
 
-Calendar, Sidebar, Top Bar
+| Component | Where |
+|---|---|
+| [Sidebar](../sidebar/spec.md) | Horizontal, in the Rail type: in place of each group title |
+| [Calendar](../calendar/spec.md) | Horizontal, above the time footer in Date & Time |
+| Top Bar | Vertical, between the sidebar toggle and the breadcrumb or the actions |
+
+Playground uses: under section titles in the Create Show side panel.

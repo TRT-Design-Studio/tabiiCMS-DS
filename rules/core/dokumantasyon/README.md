@@ -1,6 +1,6 @@
 # Dokümantasyon kuralları
 
-Komponent dokümantasyonlarının kuralları. Şablon, Figma'daki dokümante edilmiş sayfalardan (Documentation Draft, Badge, Input, Icons) ve Doc Kit'ten çıkarılır. Şablon: [sablon.md](sablon.md).
+Komponent dokümantasyonlarının kuralları. Şablon, Figma'daki dokümante edilmiş komponent sayfalarından (ör. `↪︎ Input`, Icons) ve Doc Kit'ten çıkarılır. Şablon: [sablon.md](sablon.md).
 
 🔒 Korumalı klasör. Değişiklik için: [proposals/](../../../proposals/README.md)
 

@@ -13,7 +13,7 @@
    - [frame-duzeni.md](../rules/core/dokumantasyon/frame-duzeni.md)
    - [referans-inceleme.md](../rules/core/dokumantasyon/referans-inceleme.md)
 
-   Görsel dil için gerekirse eski Input deneme sayfasına bak; oradan komponent alma.
+   Görsel dil için gerekirse dokümante edilmiş bir sayfaya bak (ör. `↪︎ Input`).
 2. **Komponenti oku.** Sayfadaki her set için şunları komponentin kendisinden oku:
    - varyant eksenleri ve property tanımları;
    - her varyantın yükseklik, iç boşluk, aralık, köşe, çizgi ve dolgu token'ları;

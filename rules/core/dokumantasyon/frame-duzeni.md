@@ -3,9 +3,9 @@ id: core.dokuman-frame-duzeni
 title: Doküman frame düzeni
 owner: "@mucahitpuren"
 status: active
-version: 2
+version: 3
 applies_to: docs
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 # Doküman frame düzeni
@@ -17,7 +17,7 @@ Bütün dokümantasyon sayfaları (komponentler ve foundations) aynı sırayla v
 ## Kural
 
 1. **Frame sırası soldan sağa:** `Overview` → `Changelog` → sayfaya özel frame'ler. Changelog her zaman Overview'un hemen yanındadır. Komponent sayfalarında tam sıra [sablon.md](sablon.md)'de: Overview → Changelog → Interaction → Examples → Component Sets → Anatomy & Specs → Properties.
-2. **Overview her zaman aynı girişle başlar.** Documentation Draft → Overview'daki gibi:
+2. **Overview her zaman aynı girişle başlar.** `↪︎ Input` → Overview'daki gibi:
    - Doc Header (logo + "Tabii CMS Design System")
    - **Hero:** ortada 256 × 256 px'lik bir kare (`bg/subtle`, `rounded-2xl`). İçinde sayfanın konusunu anlatan komponent ya da görsel durur.
    - Altında ortalanmış başlık (`text-4xl/bold`) ve açıklama (`text-base/regular`, 720 px)

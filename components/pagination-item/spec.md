@@ -3,15 +3,13 @@ component: Pagination Item
 figma_page: "↪︎ Pagination"
 figma_node: "301:4316"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Pagination Item
 
-State: Default / Hover / Selected / Disabled · Boolean: Leading Icon, Trailing Icon · Text: Label (sayfa, …, Previous, Next)
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+One cell of the Pagination items group: a page number, "…" or Previous / Next with a caret. Selected marks the current page. Disabled is used for Previous on the first page and Next on the last.
 
 ## Variants
 
@@ -38,20 +36,18 @@ State: Default / Hover / Selected / Disabled · Boolean: Leading Icon, Trailing 
 | State | Background | Border | Text | Opacity |
 |---|---|---|---|---|
 | Default | `bg/surface` | `border/default` | `text/primary` |  |
-| Hover | `bg/interactive/hover` 5% | `border/default` | `text/primary` |  |
-| Selected | `bg/interactive/selected` 4% | `border/default` | `text/primary` |  |
+| Hover | `bg/interactive/hover` | `border/default` | `text/primary` |  |
+| Selected | `bg/interactive/selected` | `border/default` | `text/primary` `text-sm/semibold` |  |
 | Disabled | `bg/surface` | `border/default` | `text/primary` | 50% |
 
 ## Parts
 
-From the default variant. Hidden parts are turned on by a property.
-
 | Part | Kind | Size | Fill | Shown |
 |---|---|---|---|---|
-| Leading Icon | CaretLeft | 14 × 14 | none | no |
-| Label | Text | 6 × 20 | `text-sm/medium` `text/primary` | yes |
-| Trailing Icon | CaretRight | 14 × 14 | none | no |
+| Leading Icon | CaretLeft | 14 × 14 | `text/primary` | Leading Icon |
+| Label | Text | hug × 20 | `text-sm/medium` `text/primary` | yes |
+| Trailing Icon | CaretRight | 14 × 14 | `text/primary` | Trailing Icon |
 
 ## Used in
 
-Pagination
+Pagination.

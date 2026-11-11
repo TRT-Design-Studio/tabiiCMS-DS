@@ -35,7 +35,6 @@
     const navItem = (c) => {
       const isOpen = open.has(c.name);
       return `<button type="button" class="item${c.name === active ? ' selected' : ''}${isOpen ? '' : ' closed'}" data-item="${c.name}" aria-expanded="${isOpen}" aria-controls="sub-${c.name}"${c.name === active ? ' aria-current="page"' : ''}>`
-        + TDS.icon(c.icon || 'Cube', 20, c.name === active ? 'Fill' : 'Regular')
         + `<span class="text">${esc(c.label)}</span><span class="caret">${TDS.icon('CaretUp', 16)}</span></button>`
         + `<div class="sub${isOpen ? '' : ' shut'}" id="sub-${c.name}"><div><div class="sub-wrap"><div class="sub-list" data-controls="${c.name}">${controls(c)}</div></div></div></div>`;
     };
@@ -55,7 +54,7 @@
             </div>
           </aside>
           <main class="pg-stage" aria-label="Preview" tabindex="-1">
-            <div class="pg-canvas"><div class="pg-preview" style="--zoom:${zoom}">${TDS.render(active, state[active])}</div></div>
+            <div class="pg-canvas"><div class="pg-preview" data-tds-layer style="--zoom:${zoom}">${TDS.render(active, state[active])}</div></div>
             <div class="pg-zoom" role="group" aria-label="Zoom">
               <button type="button" data-zoom="out" aria-label="Zoom out"${zoom <= ZOOMS[0] ? ' disabled' : ''}>${TDS.icon('Minus', 16)}</button>
               <button type="button" data-zoom="reset" class="pg-zoom-value" aria-label="Reset zoom to 100%">${Math.round(zoom * 100)}%</button>
@@ -71,6 +70,7 @@
       root.querySelector('.pg-preview').innerHTML = TDS.render(active, state[active]);
     };
     const setZoom = (z) => {
+      TDS.closeMenu();
       zoom = Math.min(ZOOMS[ZOOMS.length - 1], Math.max(ZOOMS[0], z));
       root.querySelector('.pg-preview').style.setProperty('--zoom', zoom);
       root.querySelector('.pg-zoom-value').textContent = `${Math.round(zoom * 100)}%`;
@@ -105,8 +105,6 @@
             const on = b.dataset.item === name;
             b.classList.toggle('selected', on);
             if (on) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
-            const c = page.components.find((x) => x.name === b.dataset.item);
-            b.querySelector('.tds-icon').outerHTML = TDS.icon(c.icon || 'Cube', 20, on ? 'Fill' : 'Regular');
           });
           renderStage();
         } else if (open.has(name)) open.delete(name); else open.add(name);

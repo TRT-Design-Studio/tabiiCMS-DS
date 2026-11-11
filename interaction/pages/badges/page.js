@@ -3,28 +3,28 @@ TDS.playground('#app', {
   title: 'Badges, Status & Tag',
   components: [
     {
-      name: 'badge-count', label: 'Badge Count', icon: 'NumberCircleFive',
+      name: 'badge-count', label: 'Badge Count',
       controls: [
         { key: 'Tone', type: 'select', options: ['Neutral', 'Strong', 'Info', 'Danger'], default: 'Neutral' },
         { key: 'Count', type: 'text', default: '5', label: 'Count (above 99 shows 99+)' },
       ],
     },
     {
-      name: 'badge-dot', label: 'Badge Dot', icon: 'Circle',
+      name: 'badge-dot', label: 'Badge Dot',
       controls: [
         { key: 'Tone', type: 'select', options: ['Neutral', 'Strong', 'Info', 'Success', 'Warning', 'Danger'], default: 'Info' },
         { key: 'Size', type: 'select', options: ['Small', 'Medium'], default: 'Medium' },
       ],
     },
     {
-      name: 'badge-label', label: 'Badge Label', icon: 'Sparkle',
+      name: 'badge-label', label: 'Badge Label',
       controls: [
         { key: 'Tone', type: 'select', options: ['Strong', 'Info'], default: 'Strong' },
         { key: 'Label', type: 'text', default: 'New' },
       ],
     },
     {
-      name: 'status', label: 'Status', icon: 'CircleHalf',
+      name: 'status', label: 'Status',
       controls: [
         { key: 'Tone', type: 'select', options: ['Neutral', 'Info', 'Success', 'Warning', 'Danger'], default: 'Neutral' },
         { key: 'Size', type: 'select', options: ['Small', 'Medium'], default: 'Small' },
@@ -36,7 +36,7 @@ TDS.playground('#app', {
       ],
     },
     {
-      name: 'tag', label: 'Tag', icon: 'Tag',
+      name: 'tag', label: 'Tag',
       controls: [
         { key: 'Type', type: 'select', options: ['Static', 'Removable', 'Link'], default: 'Static' },
         { key: 'Size', type: 'select', options: ['Small', 'Medium'], default: 'Small' },

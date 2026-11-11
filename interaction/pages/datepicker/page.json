@@ -1,0 +1,9 @@
+{
+  "title": "Datepicker",
+  "figmaPage": "↪︎ Datepicker",
+  "components": [
+    "calendar",
+    "calendar-header",
+    "calendar-day"
+  ]
+}

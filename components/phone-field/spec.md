@@ -35,7 +35,15 @@ No own properties besides Size. Nested, exposed:
 | Medium | 36 | `rounded-lg` (8) | `Spacing/3` (12) | `Spacing/1` (4) H, `bg/subtle`, right `border/default` 1 px |
 | Small | 32 | `rounded-md` (6) | `Spacing/2․5` (10) | same |
 
-Country code button 28 px in both sizes; flag 14 px round, caret 14 px. The nested Input fills the Phone Field width.
+The nested Input fills the Phone Field width.
+
+## Parts
+
+| Part | Component | Size |
+|---|---|---|
+| Country code | Button, Ghost, XSmall | 28 high in both sizes |
+| Flag | Flag/<code>, round | 14 |
+| Caret | CaretDown | 14 |
 
 ## States
 

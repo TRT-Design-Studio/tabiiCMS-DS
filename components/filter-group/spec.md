@@ -3,19 +3,17 @@ component: Filter Group
 figma_page: "↪︎ Filter Group"
 figma_node: "742:11724"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
 # Filter Group
 
-One group of the filter panel. Header: icon, title, selected count (Badge Count), Clear (clears only this group) and chevron. Expanded shows a Small search (Show Search, on by default; turn off for short lists) and an Options slot of Menu Items with a Checkbox in the Leading slot and the result count as Trailing Text. Selected options move to the top; show at most 8 rows, then scroll.
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+One group of a filter panel. Header: icon, title, selected count (Badge Count), Clear (clears only this group) and chevron. Expanded shows an optional Small search and an Options slot of Menu Items with a Checkbox in the Leading slot and the result count as Trailing Text. Selected options move to the top; show at most 8 rows, then scroll. Groups stack in a column to form the panel; one is open at a time.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | State | Expanded, Collapsed | Expanded |
 
@@ -23,36 +21,46 @@ One group of the filter panel. Header: icon, title, selected count (Badge Count)
 
 | Property | Type | Default |
 |---|---|---|
-| Options | Slot | empty |
 | Title | Text | Producer |
+| Icon | Instance swap | User |
 | Show Count | Boolean | true |
 | Show Clear | Boolean | true |
-| Icon | Instance swap | User |
 | Show Search | Boolean | true |
+| Options | Slot | 5 Menu Items |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 261 | 0 | 0 | 0 | 0 | `text-sm/medium` |
+| Part | Height | Padding | Gap |
+|---|---|---|---|
+| Header | 52 | `Spacing/3` (12) all sides | `Spacing/2` (8) |
+| Search | 40 | `Spacing/3` (12) sides, `Spacing/2` (8) bottom | — |
+| Options | Hug | `Spacing/1` (4) sides, `Spacing/2` (8) bottom | — |
+
+Width 320 by default; the group fills the panel. Bottom border 1 px `border/subtle` (inside), no fill. Title `text-sm/medium` `text/primary`. Icon and chevron 16 px, `text/secondary`. Rows are Menu Items (32 px).
 
 ## States
 
-| State | Background | Border | Text | Opacity |
-|---|---|---|---|---|
-| Expanded | none | `border/subtle` | `text/primary` |  |
-| Collapsed | none | `border/subtle` | `text/primary` |  |
+| State | Shows | Chevron |
+|---|---|---|
+| Expanded | Header, Search (if Show Search), Options | CaretUp |
+| Collapsed | Header only | CaretDown |
 
 ## Parts
 
-From the default variant. Hidden parts are turned on by a property.
+| Part | Component | Size | Controlled by |
+|---|---|---|---|
+| Icon | Icon (User) | 16 | Icon |
+| Title | Text | — | Title |
+| Count | Badge Count, Neutral | 20 | Show Count |
+| Clear | Button, Link, XSmall | 28 | Show Clear |
+| Chevron | CaretUp / CaretDown | 16 | State |
+| Search | Input, Small, Leading Icon MagnifyingGlass | 32 | Show Search (nested Input exposed) |
+| Options | Slot of Menu Items: Checkbox in Leading, count as Trailing Text | 32 per row | Options |
 
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Header | Frame | 320 × 52 | none | yes |
-| Search | Frame | 320 × 40 | none | yes |
-| Options | Slot | 320 × 168 | none | yes |
+## Slots
+
+- **Options:** Menu Items. Leading slot holds a Checkbox (Checked = selected); Trailing Text holds the result count. A short message replaces the rows when the search finds nothing.
 
 ## Used in
 
-Not nested in other components.
+Not nested in other components. Screens stack it in the filter panel (Shows table filters).

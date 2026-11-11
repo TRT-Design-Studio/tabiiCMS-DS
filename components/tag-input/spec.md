@@ -3,7 +3,7 @@ component: Tag Input
 figma_page: "↪︎ Tag Input"
 figma_node: "738:12313"
 version: 1.0.0
-status: draft
+status: stable
 updated: 2026-11-11
 ---
 
@@ -11,49 +11,48 @@ updated: 2026-11-11
 
 Field that turns typed values into removable Tags (Enter or comma). Tags wrap to new lines and the field grows up to 3 lines, then scrolls. Same border and colors as Input. Error for duplicates or limit. Read-only shows Static tags. Small (32) for filter bars.
 
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
-
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
-| Size | Small, Medium | Small |
+| Size | Small, Medium | Medium (team default; Figma adds Small from the panel) |
 | State | Default, Focused, Filled, Error, Disabled, Read-only | Default |
 
 ## Properties
 
 | Property | Type | Default |
 |---|---|---|
-| Tags | Slot | empty |
+| Size | Variant | Medium |
+| State | Variant | Default |
+| Tags | Slot | Two Removable Tags (Small) |
 | Placeholder | Text | Add tags… |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Small | 32 | `Spacing/2` (8) | `Spacing/1․5` (6) | `Spacing/1` (4) | `rounded-md` (6) | `text-sm/regular` |
-| Medium | 36 | `Spacing/2` (8) | `Spacing/2` (8) | `Spacing/1` (4) | `rounded-lg` (8) | `text-sm/regular` |
+| Size | Height | Padding | Gap | Radius | Text |
+|---|---|---|---|---|---|
+| Small | 32 | `Spacing/1․5` (6) top/bottom, `Spacing/2` (8) sides | `Spacing/1` (4), lines `Spacing/1` | `rounded-md` | `text-sm/regular` |
+| Medium | 36 | `Spacing/2` (8) | `Spacing/1` (4), lines `Spacing/1` | `rounded-lg` | `text-sm/regular` |
+
+Width is 320 by default. Both sizes use Tag Small (20 high): it fills the inner height exactly (Medium 36 − 2 × 8 = 20; Small 32 − 2 × 6 = 20), so Tag Input stays as tall as Input. Tag Medium (28) would make the field 44 high.
 
 ## States
 
-| State | Background | Border | Text | Opacity |
+| State | Fill | Border | Text | Tags |
 |---|---|---|---|---|
-| Default | `bg/surface` | `border/default` | `text/tertiary` |  |
-| Focused | `bg/surface` | `border/selected` | `text/primary` |  |
-| Filled | `bg/surface` | `border/default` | — |  |
-| Error | `bg/surface` | `border/danger` | — |  |
-| Disabled | `bg/disabled` | `border/default` | — |  |
-| Read-only | `bg/base` | `border/default` | — |  |
+| Default | `bg/surface` | `border/default` | `text/tertiary` (placeholder) | — |
+| Focused | `bg/surface` | `border/selected` | `text/primary` (typed) | Removable · Default |
+| Filled | `bg/surface` | `border/default` | — | Removable · Default |
+| Error | `bg/surface` | `border/danger` | — | Removable · Default |
+| Disabled | `bg/disabled` | `border/default` | `text/disabled` | Removable · Disabled |
+| Read-only | `bg/base` | `border/default` | `text/primary` | Static · Read-only |
 
-## Parts
+## Slots
 
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Tags | Slot | 100 × 100 | none | no |
-| Value | Text | 66 × 20 | `text-sm/regular` `text/tertiary` | yes |
+| Slot | Default content |
+|---|---|
+| Tags | Tag instances (Small). Removable while editing, Static · Read-only in Read-only. |
 
 ## Used in
 
-Not nested in other components.
+Not used inside other components. Playground uses: suggestions Menu under a focused field, Error with a Field Message, tags wrapping to two lines.

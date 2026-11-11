@@ -40,12 +40,12 @@ _Henüz yok._
 - [Breadcrumb Item](../components/breadcrumb-item/spec.md) · stable
 - [Breadcrumb](../components/breadcrumb/spec.md) · stable
 - [Button](../components/button/spec.md) · stable
-- [Calendar Day](../components/calendar-day/spec.md) · draft
-- [Calendar Header](../components/calendar-header/spec.md) · draft
-- [Calendar](../components/calendar/spec.md) · draft
+- [Calendar Day](../components/calendar-day/spec.md) · stable
+- [Calendar Header](../components/calendar-header/spec.md) · stable
+- [Calendar](../components/calendar/spec.md) · stable
 - [Card Header](../components/card-header/spec.md) · draft
 - [Card](../components/card/spec.md) · draft
-- [Checkbox](../components/checkbox/spec.md) · draft
+- [Checkbox](../components/checkbox/spec.md) · stable
 - [Divider](../components/divider/spec.md) · draft
 - [Field Message](../components/field-message/spec.md) · stable
 - [File Sheet](../components/file-sheet/spec.md) · draft
@@ -70,7 +70,7 @@ _Henüz yok._
 - [Pagination](../components/pagination/spec.md) · stable
 - [Phone Field](../components/phone-field/spec.md) · stable
 - [Progress Bar](../components/progress-bar/spec.md) · draft
-- [Radio](../components/radio/spec.md) · draft
+- [Radio](../components/radio/spec.md) · stable
 - [Rich Text Editor/Toolbar](../components/rich-text-editor-toolbar/spec.md) · draft
 - [Rich Text Editor](../components/rich-text-editor/spec.md) · draft
 - [Section Nav Item](../components/section-nav-item/spec.md) · stable
@@ -85,7 +85,7 @@ _Henüz yok._
 - [Table Cell](../components/table-cell/spec.md) · draft
 - [Table Header Cell](../components/table-header-cell/spec.md) · draft
 - [Tabs](../components/tabs/spec.md) · draft
-- [Tag Input](../components/tag-input/spec.md) · draft
+- [Tag Input](../components/tag-input/spec.md) · stable
 - [Tag](../components/tag/spec.md) · stable
 - [Textarea](../components/textarea/spec.md) · stable
 - [Tooltip](../components/tooltip/spec.md) · stable

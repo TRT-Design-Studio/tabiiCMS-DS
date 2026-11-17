@@ -3,81 +3,68 @@ component: Table Cell
 figma_page: "↪︎ Table"
 figma_node: "284:1246"
 version: 1.0.0
-status: draft
-updated: 2026-11-11
+status: stable
+updated: 2026-11-17
 ---
 
 # Table Cell
 
-Type: Text / Two Line / Slot / Checkbox · Interactive: False (static, no hover) / True (fill hover) / Link (Hover underlines Value) · State: Default / Hover / Selected / Selected Hover · Boolean: Show Image (Text and Two Line; nested Image, 16:9, 48 px tall (85x48), left of the text; replace its fill with the real image) · Row state: give every cell in the row the same State · Text: Value, Overline · Slot: Cell Slot
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+One data cell of a table. Cells stack into columns under a [Table Header Cell](../table-header-cell/spec.md); give every cell in a row the same State. Type sets what the cell holds; Interactive sets how it reacts to the pointer.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | Type | Text, Two Line, Slot, Checkbox | Text |
 | Interactive | False, True, Link | False |
 | State | Default, Hover, Selected, Selected Hover | Default |
 
+Hover and Selected Hover exist only for Interactive True and Link (Slot: True only). Checkbox has Default and Selected. 28 variants in all.
+
 ## Properties
 
 | Property | Type | Default |
 |---|---|---|
+| Type | Variant | Text |
+| Interactive | Variant | False |
+| State | Variant | Default |
 | Value | Text | Cell value |
 | Overline | Text | MOVIE |
-| Cell Slot | Slot | empty |
 | Show Image | Boolean | false |
+| Cell Slot | Slot | empty |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 44 | `Spacing/4` (16) | `Spacing/3` (12) | `Spacing/2` (8) | 0 | `text-sm/regular` |
+| Part | Height | Padding | Gap | Radius | Text |
+|---|---|---|---|---|---|
+| Text | 44 | `Spacing/3` (12) top/bottom, `Spacing/4` (16) sides | `Spacing/2` (8) | — | `text-sm/regular` |
+| Two Line | 62 | same | `Spacing/2` (8); lines `Spacing/0․5` (2) | — | `text-xs/medium` + `text-sm/regular` |
+| Slot | hugs content | same | `Spacing/0․5`; slot `Spacing/1․5` (6) | — | — |
+| Checkbox | 44 | same | — | — | — |
+| Image | 48 (85 × 48, 16:9) | — | — | `rounded-md` | — |
+| Hover layer | inset 8 px | — | — | `rounded-md` | — |
+
+Cells are 160 px wide in the set. On screens they fill their column, and the cells of one row are set to the same height.
 
 ## States
 
-| Type | Interactive | State | Background | Border | Text | Opacity |
-|---|---|---|---|---|---|---|
-| Text | False | Default | none | `border/default` | `text/primary` |  |
-| Two Line | False | Default | none | `border/default` | `text/tertiary` |  |
-| Slot | False | Default | none | `border/default` | — |  |
-| Text | True | Default | none | `border/default` | `text/primary` |  |
-| Text | True | Hover | `bg/surface` | `border/default` | `text/primary` |  |
-| Two Line | True | Default | none | `border/default` | `text/tertiary` |  |
-| Two Line | True | Hover | `bg/surface` | `border/default` | `text/tertiary` |  |
-| Slot | True | Default | none | `border/default` | — |  |
-| Slot | True | Hover | `bg/surface` | `border/default` | — |  |
-| Text | False | Selected | `bg/surface` + `bg/interactive/selected` 4% | `border/default` | `text/primary` |  |
-| Text | True | Selected | `bg/surface` + `bg/interactive/selected` 4% | `border/default` | `text/primary` |  |
-| Two Line | False | Selected | `bg/surface` + `bg/interactive/selected` 4% | `border/default` | `text/tertiary` |  |
-| Two Line | True | Selected | `bg/surface` + `bg/interactive/selected` 4% | `border/default` | `text/tertiary` |  |
-| Slot | False | Selected | `bg/surface` + `bg/interactive/selected` 4% | `border/default` | — |  |
-| Slot | True | Selected | `bg/surface` + `bg/interactive/selected` 4% | `border/default` | — |  |
-| Text | Link | Default | none | `border/default` | `text/primary` |  |
-| Text | Link | Hover | none | `border/default` | `text/primary` |  |
-| Text | Link | Selected | `bg/surface` + `bg/interactive/selected` 4% | `border/default` | `text/primary` |  |
-| Two Line | Link | Default | none | `border/default` | `text/tertiary` |  |
-| Two Line | Link | Hover | none | `border/default` | `text/tertiary` |  |
-| Two Line | Link | Selected | `bg/surface` + `bg/interactive/selected` 4% | `border/default` | `text/tertiary` |  |
-| Checkbox | False | Default | none | `border/default` | — |  |
-| Checkbox | False | Selected | `bg/surface` + `bg/interactive/selected` 4% | `border/default` | — |  |
-| Text | True | Selected Hover | `bg/subtle` | `border/default` | `text/primary` |  |
-| Two Line | True | Selected Hover | `bg/subtle` | `border/default` | `text/tertiary` |  |
-| Slot | True | Selected Hover | `bg/subtle` | `border/default` | — |  |
-| Text | Link | Selected Hover | `bg/surface` + `bg/interactive/selected` 4% | `border/default` | `text/primary` |  |
-| Two Line | Link | Selected Hover | `bg/surface` + `bg/interactive/selected` 4% | `border/default` | `text/tertiary` |  |
+| State | Fill | Border | Text |
+|---|---|---|---|
+| Default | — | `border/default` bottom | Value `text/primary`, Overline `text/tertiary` |
+| Hover (True) | `bg/surface` + inset layer `bg/interactive/selected` 4% | `border/default` bottom | same |
+| Hover (Link) | — | `border/default` bottom | Value underlined |
+| Selected | `bg/surface` + `bg/interactive/selected` 4% | `border/default` bottom | same |
+| Selected Hover (True) | `bg/subtle` + inset layer `bg/interactive/selected` 4% | `border/default` bottom | same |
+| Selected Hover (Link) | Selected fill | `border/default` bottom | Value underlined |
 
-## Parts
+## Slots
 
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Image | Image | 85.33 × 48 | image | no |
-| Content | Frame | 63 × 20 | none | yes |
+| Slot | Used for |
+|---|---|
+| Cell Slot | Type Slot: Status, Avatar, Button, Icon Stat, a content ID with a copy Icon Button |
 
 ## Used in
 
-Not nested in other components.
+Not nested in other components. On screens, columns of cells sit in the Body slot of a [Card](../card/spec.md).
+
+Playground uses: Pending Content and Publish Calendar (Overview), Show library (Shows).

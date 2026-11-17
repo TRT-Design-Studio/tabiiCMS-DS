@@ -56,7 +56,7 @@ _Henüz yok._
 - [Image](../components/image/spec.md) · stable
 - [Input](../components/input/spec.md) · stable
 - [Label](../components/label/spec.md) · stable
-- [List Item](../components/list-item/spec.md) · draft
+- [List Item](../components/list-item/spec.md) · stable
 - [Logo](../components/logo/spec.md) · stable
 - [Menu Group Label](../components/menu-group-label/spec.md) · stable
 - [Menu Item](../components/menu-item/spec.md) · stable
@@ -69,7 +69,7 @@ _Henüz yok._
 - [Pagination Item](../components/pagination-item/spec.md) · stable
 - [Pagination](../components/pagination/spec.md) · stable
 - [Phone Field](../components/phone-field/spec.md) · stable
-- [Progress Bar](../components/progress-bar/spec.md) · draft
+- [Progress Bar](../components/progress-bar/spec.md) · stable
 - [Radio](../components/radio/spec.md) · stable
 - [Rich Text Editor/Toolbar](../components/rich-text-editor-toolbar/spec.md) · draft
 - [Rich Text Editor](../components/rich-text-editor/spec.md) · draft
@@ -82,15 +82,15 @@ _Henüz yok._
 - [Step Icon](../components/step-icon/spec.md) · stable
 - [Tab Segment](../components/tab-segment/spec.md) · stable
 - [Tab Underline](../components/tab-underline/spec.md) · stable
-- [Table Cell](../components/table-cell/spec.md) · draft
-- [Table Header Cell](../components/table-header-cell/spec.md) · draft
+- [Table Cell](../components/table-cell/spec.md) · stable
+- [Table Header Cell](../components/table-header-cell/spec.md) · stable
 - [Tabs](../components/tabs/spec.md) · stable
 - [Tag Input](../components/tag-input/spec.md) · stable
 - [Tag](../components/tag/spec.md) · stable
 - [Textarea](../components/textarea/spec.md) · stable
 - [Tooltip](../components/tooltip/spec.md) · stable
 - [Top Bar](../components/top-bar/spec.md) · draft
-- [Trend](../components/trend/spec.md) · draft
+- [Trend](../components/trend/spec.md) · stable
 - [Upload/Badge](../components/upload-badge/spec.md) · draft
 - [Upload/Media placeholder](../components/upload-media-placeholder/spec.md) · draft
 - [Upload](../components/upload/spec.md) · draft

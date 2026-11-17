@@ -3,19 +3,17 @@ component: Trend
 figma_page: "↪︎ Trend"
 figma_node: "284:996"
 version: 1.0.0
-status: draft
-updated: 2026-11-11
+status: stable
+updated: 2026-11-17
 ---
 
 # Trend
 
-Direction: Positive / Negative / Neutral — color follows meaning, not direction · Boolean: Show Context · Instance swap: Icon · Text: Value, Context
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+How a number changed since the last period: an icon, the change and an optional context. Direction follows meaning, not the arrow: a rise in missing items is Negative.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | Direction | Positive, Negative, Neutral | Positive |
 
@@ -23,34 +21,32 @@ Direction: Positive / Negative / Neutral — color follows meaning, not directio
 
 | Property | Type | Default |
 |---|---|---|
+| Direction | Variant | Positive |
 | Value | Text | 12 |
 | Context | Text | vs last month |
 | Show Context | Boolean | true |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 16 | 0 | 0 | `Spacing/1` (4) | 0 | `text-xs/medium` |
+| Part | Size | Gap | Text |
+|---|---|---|---|
+| Container | 16 high, hugs content | `Spacing/1` (4) | — |
+| Icon | `Spacing/3․5` (14) | — | — |
+| Value | hug | — | `text-xs/medium` |
+| Context | hug | — | `text-xs/regular` |
 
 ## States
 
-| Direction | Background | Border | Text | Opacity |
-|---|---|---|---|---|
-| Positive | `feedback/success/text` (Vector) | none | `feedback/success/text` |  |
-| Negative | `feedback/danger/text` (Vector) | none | `feedback/danger/text` |  |
-| Neutral | `text/secondary` (Vector) | none | `text/secondary` |  |
+No states.
 
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Icon | TrendUp | 14 × 14 | none | yes |
-| Value | Text | 13 × 16 | `text-xs/medium` `feedback/success/text` | yes |
-| Context | Text | 75 × 16 | `text-xs/regular` `text/tertiary` | yes |
+| Direction | Icon | Icon · Value | Context |
+|---|---|---|---|
+| Positive | TrendUp | `feedback/success/text` | `text/tertiary` |
+| Negative | TrendDown | `feedback/danger/text` | `text/tertiary` |
+| Neutral | Minus | `text/secondary` | `text/tertiary` |
 
 ## Used in
 
-Stat Card
+| Component | Where |
+|---|---|
+| [Stat Card](../stat-card/spec.md) | Under the number, with Context "vs last month" |

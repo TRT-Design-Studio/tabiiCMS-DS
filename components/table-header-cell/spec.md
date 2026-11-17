@@ -3,60 +3,58 @@ component: Table Header Cell
 figma_page: "↪︎ Table"
 figma_node: "284:1234"
 version: 1.0.0
-status: draft
-updated: 2026-11-11
+status: stable
+updated: 2026-11-17
 ---
 
 # Table Header Cell
 
-Type: Label / Checkbox (select all; nested Checkbox exposed) · Sort: None / Ascending / Descending · State: Default (bg/surface) / Hover (bg/base) · Boolean: Sortable, Divider · Text: Label
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+Column title of a table, above a column of [Table Cell](../table-cell/spec.md). Sortable shows the sort icon; Sort marks the column the table is sorted by. Type Checkbox selects every row.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | Type | Label, Checkbox | Label |
 | Sort | None, Ascending, Descending | None |
 | State | Default, Hover | Default |
 
+Checkbox has only Sort None, State Default. 7 variants in all.
+
 ## Properties
 
 | Property | Type | Default |
 |---|---|---|
+| Type | Variant | Label |
+| Sort | Variant | None |
+| State | Variant | Default |
 | Label | Text | COLUMN |
 | Sortable | Boolean | true |
 | Divider | Boolean | false |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 36 | `Spacing/4` (16) | `Spacing/2․5` (10) | `Spacing/1` (4) | 0 | `text-xs/medium` |
+| Part | Size | Padding | Gap | Radius | Text |
+|---|---|---|---|---|---|
+| Container | 36 high | `Spacing/2․5` (10) top/bottom, `Spacing/4` (16) sides | `Spacing/1` (4) | — | `text-xs/medium` |
+| Sort Icon | `Spacing/3` (12) | — | — | — | — |
+| Divider | 1 × 36 | — | — | — | — |
 
 ## States
 
-| Type | Sort | State | Background | Border | Text | Opacity |
-|---|---|---|---|---|---|---|
-| Label | None | Default | `bg/surface` | `border/default` | `text/tertiary` |  |
-| Label | None | Hover | `bg/base` | `border/default` | `text/tertiary` |  |
-| Label | Ascending | Default | `bg/surface` | `border/default` | `text/primary` |  |
-| Label | Ascending | Hover | `bg/base` | `border/default` | `text/primary` |  |
-| Label | Descending | Default | `bg/surface` | `border/default` | `text/primary` |  |
-| Label | Descending | Hover | `bg/base` | `border/default` | `text/primary` |  |
-| Checkbox | None | Default | `bg/surface` | `border/default` | — |  |
+| State | Fill | Border | Label · icon |
+|---|---|---|---|
+| Default | `bg/surface` | `border/default` bottom | `text/tertiary` |
+| Hover | `bg/base` | `border/default` bottom | `text/tertiary` |
+| Sorted (Ascending, Descending) | `bg/surface` (Hover `bg/base`) | `border/default` bottom | `text/primary` |
 
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Label | Text | 52 × 16 | `text-xs/medium` `text/tertiary` | yes |
-| Sort Icon | CaretUpDown | 12 × 12 | none | yes |
-| Divider | Frame | 1 × 36 | `border/default` | no |
+| Part | Value |
+|---|---|
+| Sort icon | CaretUpDown (None), ArrowUp (Ascending), ArrowDown (Descending) |
+| Divider | `border/default`, right edge |
 
 ## Used in
 
-Not nested in other components.
+Not nested in other components. On screens, each column starts with one Table Header Cell inside the Body slot of a [Card](../card/spec.md).
+
+Playground uses: Label with Sortable off and Divider on (off in the last column); Checkbox above the row checkboxes in Show library.

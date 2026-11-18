@@ -1,0 +1,5 @@
+{
+  "title": "Cards",
+  "figmaPage": "🗂 Cards",
+  "components": ["card", "card-header", "stat-card", "icon-stat", "user-card"]
+}

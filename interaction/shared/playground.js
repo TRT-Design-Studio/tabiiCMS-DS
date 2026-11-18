@@ -54,7 +54,7 @@
             </div>
           </aside>
           <main class="pg-stage" aria-label="Preview" tabindex="-1">
-            <div class="pg-canvas"><div class="pg-preview" data-tds-layer style="--zoom:${zoom}">${TDS.render(active, state[active])}</div></div>
+            <div class="pg-canvas"><div class="pg-sizer"><div class="pg-preview" data-tds-layer style="--zoom:${zoom}">${TDS.render(active, state[active])}</div></div></div>
             <div class="pg-zoom" role="group" aria-label="Zoom">
               <button type="button" data-zoom="out" aria-label="Zoom out"${zoom <= ZOOMS[0] ? ' disabled' : ''}>${TDS.icon('Minus', 16)}</button>
               <button type="button" data-zoom="reset" class="pg-zoom-value" aria-label="Reset zoom to 100%">${Math.round(zoom * 100)}%</button>
@@ -62,17 +62,74 @@
             </div>
           </main>
         </div>`;
+      requestAnimationFrame(watch);
     };
 
+    // Sahne yerleşimi. .pg-sizer kaydırılabilir alanın kendisi, .pg-preview onun içinde (ox, oy) noktasında durur.
+    // - Menü yokken komponent ortadadır ("ev" konumu).
+    // - Menü / tooltip açılınca komponent YERİNDEN OYNAMAZ: alan, açılan katmanı (sol, sağ, üst, alt) içine alacak
+    //   kadar büyür. Sola veya yukarı taşarsa içerik o kadar kaydırılır ve kaydırma çubuğu da aynı miktarda
+    //   ilerletilir; ekranda görünen yer değişmez, sadece artık o tarafa da kaydırılabilir.
+    // - data-pg-fluid="<max>" olan içerik (responsive tablo) sahnenin genişliğine göre, en fazla <max> px olur.
+    let ox = null, oy = null;
+    const fit = (mode) => {
+      const canvas = root.querySelector('.pg-canvas');
+      const sizer = root.querySelector('.pg-sizer');
+      const pv = root.querySelector('.pg-preview');
+      if (!canvas || !pv) return;
+      const P = parseFloat(getComputedStyle(canvas).getPropertyValue('--pg-pad')) || 64;
+      const cw = canvas.clientWidth, ch = canvas.clientHeight;
+      const fluid = pv.querySelector(':scope > [data-pg-fluid]');
+      pv.style.width = fluid ? `${Math.max(0, Math.min(Number(fluid.dataset.pgFluid), cw - 2 * P))}px` : '';
+      const w = pv.offsetWidth * zoom, h = pv.offsetHeight * zoom;
+      let L = 0, T = 0, R = w, B = h;
+      pv.querySelectorAll(':scope > .tds-popover, :scope > .tds-tooltip-layer').forEach((el) => {
+        L = Math.min(L, el.offsetLeft * zoom); T = Math.min(T, el.offsetTop * zoom);
+        R = Math.max(R, (el.offsetLeft + el.offsetWidth) * zoom); B = Math.max(B, (el.offsetTop + el.offsetHeight) * zoom);
+      });
+      const homeX = Math.max(P, (cw - w) / 2), homeY = Math.max(P, (ch - h) / 2);
+      const layered = L < 0 || T < 0 || R > w || B > h;
+      let nx = homeX, ny = homeY;
+      if (mode !== 'home' && ox !== null && layered) {
+        nx = Math.max(ox, P - L); ny = Math.max(oy, P - T);
+      }
+      sizer.style.width = `${Math.ceil(Math.max(cw, nx + R + P))}px`;
+      sizer.style.height = `${Math.ceil(Math.max(ch, ny + B + P))}px`;
+      pv.style.left = `${nx}px`;
+      pv.style.top = `${ny}px`;
+      if (mode === 'home') {
+        // Yeni komponent ya da yakınlaştırma: komponentin ortası ekranın ortasına gelsin.
+        canvas.scrollLeft = nx + w / 2 - cw / 2;
+        canvas.scrollTop = ny + h / 2 - ch / 2;
+      } else if (ox !== null) {
+        canvas.scrollLeft += nx - ox;
+        canvas.scrollTop += ny - oy;
+      }
+      ox = nx; oy = ny;
+    };
+    const watch = () => {
+      const pv = root.querySelector('.pg-preview');
+      if (!pv || pv._watched) return;
+      pv._watched = true;
+      ox = null; oy = null;
+      new MutationObserver(() => fit()).observe(pv, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'data-tds-props'] });
+      if (window.ResizeObserver) {
+        new ResizeObserver(() => fit()).observe(pv);
+        new ResizeObserver(() => fit()).observe(root.querySelector('.pg-canvas'));
+      }
+      fit('home');
+    };
     // Sadece sahneyi yeniler (kontroller yerinde kalır, odak kaybolmaz).
     const renderStage = () => {
       TDS.closeMenu();
       root.querySelector('.pg-preview').innerHTML = TDS.render(active, state[active]);
+      fit('home');
     };
     const setZoom = (z) => {
       TDS.closeMenu();
       zoom = Math.min(ZOOMS[ZOOMS.length - 1], Math.max(ZOOMS[0], z));
       root.querySelector('.pg-preview').style.setProperty('--zoom', zoom);
+      fit('home');
       root.querySelector('.pg-zoom-value').textContent = `${Math.round(zoom * 100)}%`;
       root.querySelector('[data-zoom="out"]').disabled = zoom <= ZOOMS[0];
       root.querySelector('[data-zoom="in"]').disabled = zoom >= ZOOMS[ZOOMS.length - 1];

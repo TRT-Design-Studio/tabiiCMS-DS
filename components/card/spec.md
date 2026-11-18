@@ -48,6 +48,12 @@ No states.
 | Subtle | `bg/base` | `border/default` 1 px |
 | Footer | — | `border/default` top |
 
+### Placeholder
+
+| Part | Text | Color |
+|---|---|---|
+| Body placeholder ("Body slot — place content here") | `text-sm/regular` | `text/tertiary` |
+
 ## Slots
 
 | Slot | Default content |

@@ -36,9 +36,11 @@ Checkbox has only Sort None, State Default. 7 variants in all.
 
 | Part | Size | Padding | Gap | Radius | Text |
 |---|---|---|---|---|---|
-| Container | 36 high | `Spacing/2․5` (10) top/bottom, `Spacing/4` (16) sides | `Spacing/1` (4) | — | `text-xs/medium` |
+| Container | 36 high | `Spacing/2․5` (10) top/bottom, `Spacing/5` (20) sides; Checkbox: `Spacing/5` (20) left, `Spacing/0` (0) right | `Spacing/1` (4) | — | `text-xs/medium` |
 | Sort Icon | `Spacing/3` (12) | — | — | — | — |
 | Divider | 1 × 36 | — | — | — | — |
+
+Cells are 160 px wide in the set; Checkbox cells are 36 px wide (hug, no right padding). On screens they fill their column.
 
 ## States
 

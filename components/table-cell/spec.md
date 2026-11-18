@@ -37,14 +37,14 @@ Hover and Selected Hover exist only for Interactive True and Link (Slot: True on
 
 | Part | Height | Padding | Gap | Radius | Text |
 |---|---|---|---|---|---|
-| Text | 44 | `Spacing/3` (12) top/bottom, `Spacing/4` (16) sides | `Spacing/2` (8) | — | `text-sm/regular` |
+| Text | 44 | `Spacing/3` (12) top/bottom, `Spacing/5` (20) sides | `Spacing/2` (8) | — | `text-sm/regular` |
 | Two Line | 62 | same | `Spacing/2` (8); lines `Spacing/0․5` (2) | — | `text-xs/medium` + `text-sm/regular` |
 | Slot | hugs content | same | `Spacing/0․5`; slot `Spacing/1․5` (6) | — | — |
-| Checkbox | 44 | same | — | — | — |
+| Checkbox | 44 | `Spacing/3` (12) top/bottom, `Spacing/5` (20) left, `Spacing/0` (0) right | — | — | — |
 | Image | 48 (85 × 48, 16:9) | — | — | `rounded-md` | — |
 | Hover layer | inset 8 px | — | — | `rounded-md` | — |
 
-Cells are 160 px wide in the set. On screens they fill their column, and the cells of one row are set to the same height.
+Cells are 160 px wide in the set; Checkbox cells are 36 px wide (they hug: no right padding, so the first data column does not get a double gap). On screens they fill their column, and the cells of one row are set to the same height.
 
 ## States
 
@@ -56,6 +56,8 @@ Cells are 160 px wide in the set. On screens they fill their column, and the cel
 | Selected | `bg/surface` + `bg/interactive/selected` 4% | `border/default` bottom | same |
 | Selected Hover (True) | `bg/subtle` + inset layer `bg/interactive/selected` 4% | `border/default` bottom | same |
 | Selected Hover (Link) | Selected fill | `border/default` bottom | Value underlined |
+
+A row is selected only with its Checkbox cell (or the header checkbox for all rows). Interactive True gives the hover feedback; clicking it does not select the row.
 
 ## Slots
 

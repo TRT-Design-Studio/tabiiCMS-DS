@@ -3,9 +3,9 @@ id: core.interaction-code-layer
 title: Code layer'lar (Interaction) nasıl yazılır
 owner: "@mucahitpuren"
 status: active
-version: 5
+version: 6
 applies_to: components
-updated: 2026-11-11
+updated: 2026-11-18
 ---
 
 # Code layer'lar (Interaction) nasıl yazılır
@@ -53,4 +53,5 @@ Dokümanların Interaction frame'indeki çalışan komponentler Figma'daki kompo
 
 ## İstisnalar
 
+- **Sidebar code layer'ı (Mücahit, 2026-11-18).** Spec'ten üretilmez. `interaction/reference/sidebar/` altındaki elle yazılmış kod (farklı animasyon setleriyle: Ease out, Cascade, Scrub) olduğu gibi kalır. Build onu tek `interaction/layers/sidebar/index.html` dosyasında birleştirir (`page.json` → `raw`). Bu kuralın 2, 5 ve 12–13. maddeleri bu dosyaya uygulanmaz. Mücahit aksini söyleyene kadar geçerlidir.
 - Figma eklenti arayüzü code layer oluşturamaz ve içine yazamaz. Code layer'ı Figma'ya koymak (yapıştırmak) elle yapılır: [interaction/README.md](../../../interaction/README.md).

@@ -30,6 +30,8 @@ Figma değişkenleri → figma senkron → tokens/ ──┘
 
 Kural: [rules/core/interaction/code-layer.md](../rules/core/interaction/code-layer.md).
 
+**İstisna: Sidebar.** Sidebar code layer'ı spec'ten üretilmez. İçinde farklı animasyon setleri (Ease out, Cascade, Scrub) var. Kaynağı `reference/sidebar/` altındaki elle yazılmış kod; build onu tek `layers/sidebar/index.html` dosyasında birleştirir. Mücahit aksini söyleyene kadar böyle kalır.
+
 ## Ortak temel (foundation)
 
 | Konu | Nereden? |
@@ -61,6 +63,11 @@ Bir komponent başka bir komponenti içeriyorsa onu tekrar yazmaz. `TDS.render('
 - Number Stepper, `icon-button` ve `input` kullanır.
 - Calendar, `calendar-header` (`icon-button`, `button`, `menu`), `calendar-day` ve saat için `input` kullanır.
 - Tag Input, `tag` kullanır. Filter Group, `badge-count`, `button`, `input`, `menu-item` + `checkbox` ve sonuç yokken `menu` kullanır.
+- Breadcrumb, `breadcrumb-item` ve Back için `icon-button` kullanır. Collapsed satırın More düğmesi `menu` açar.
+- Pagination, `pagination-item`, `button` (per page, `menu` açar), `input` (Go to) ve Mobile'da `icon-button` + `select` kullanır.
+- Section Nav Item, `step-icon` kullanır. Tabs, `tab-segment` veya `tab-underline` kullanır.
+- Card, `card-header` kullanır; Card Header `status`, `button`, `input` kullanır. Stat Card, `trend` kullanır. User Card, `avatar` kullanır ve `menu` açar.
+- Table Cell, `checkbox` ve `status` kullanır; Table Header Cell, `checkbox` kullanır. List Item, `avatar` ve `status` kullanır.
 
 Yeni bir komponent eklerken önce burada var olanlara bak.
 

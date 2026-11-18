@@ -27,7 +27,7 @@ No variants. Single component.
 
 | Part | Size | Padding | Gap | Radius | Text |
 |---|---|---|---|---|---|
-| Container | 256 × 128 | `Spacing/5` (20) | `Spacing/2` (8) | `rounded-xl` | — |
+| Container | 256 × 128 (with Trend; height hugs, shorter without Trend) | `Spacing/5` (20) | `Spacing/2` (8) | `rounded-xl` | — |
 | Label | — | — | — | — | `text-sm/medium` |
 | Value | — | — | — | — | `text-3xl/semibold` |
 

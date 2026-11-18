@@ -8,6 +8,15 @@ export default function css(spec, v) {
 .tds-menu-hint { font: var(--text-sm-regular); color: var(--text-tertiary); }
 .tds-menu-skeleton { height: 12px; border-radius: var(--rounded-sm); background: var(--bg-interactive-pressed); }
 `;
+  // Motion tablosu: skeleton'da soldan sağa kayan açık bant (shimmer). Hareketi azalt açıksa durur.
+  const m = Object.fromEntries(spec.table('Motion').map((r) => [r.property.toLowerCase(), r.value]));
+  const base = v.color(v.first(m.base)); const hi = v.color(v.first(m.highlight));
+  out += `.tds-menu-skeleton { background: linear-gradient(90deg, ${base} 0%, ${hi} 50%, ${base} 100%) 0 0 / 200% 100%, ${base}; animation: tds-skeleton-shimmer ${v.num(m.duration)}ms ${m.easing.trim()} infinite; }
+.tds-menu-skeleton:nth-child(2) { animation-delay: ${v.num(m.stagger)}ms; }
+.tds-menu-skeleton:nth-child(3) { animation-delay: ${v.num(m.stagger) * 2}ms; }
+@keyframes tds-skeleton-shimmer { from { background-position: 100% 0, 0 0; } to { background-position: -100% 0, 0 0; } }
+@media (prefers-reduced-motion: reduce) { .tds-menu-skeleton { animation: none; background: ${base}; } }
+`;
   for (const r of spec.table('States', 1)) {
     const k = v.slug(r.state);
     out += `.tds-menu[data-state="${k}"] .tds-menu-status { padding: ${v.space(v.first(r['padding v']))} ${v.space(v.first(r['padding h']))}; gap: ${v.space(v.first(r.gap))};${r.align === 'center' ? ' align-items: center; text-align: center;' : ''} }

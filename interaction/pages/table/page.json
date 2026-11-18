@@ -1,0 +1,5 @@
+{
+  "title": "Table",
+  "figmaPage": "↪︎ Table",
+  "components": ["table-cell", "table-header-cell", "card", "icon-stat", "pagination", "tooltip"]
+}

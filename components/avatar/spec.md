@@ -28,7 +28,7 @@ A person shown with their initials. Color is not picked per screen: code chooses
 
 ## Sizes
 
-| Size | Size | Radius | Text |
+| Size | Width / Height | Radius | Text |
 |---|---|---|---|
 | Small | `Spacing/7` (28) | `rounded-md` | `text-xs/medium` |
 | Medium | `Spacing/8` (32) | `rounded-lg` | `text-sm/medium` |

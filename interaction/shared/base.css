@@ -61,8 +61,11 @@ body { background: var(--bg-surface); color: var(--text-primary); font: var(--te
 
 /* ---------- Sahne ---------- */
 .pg-stage { position: relative; flex: 1; min-width: 0; height: 100%; background: var(--bg-surface); outline: none; }
-.pg-canvas { position: absolute; inset: 0; overflow: auto; display: grid; place-items: center; padding: var(--spacing-16); }
-.pg-preview { position: relative; display: flex; align-items: center; justify-content: center; transform: scale(var(--zoom, 1)); transform-origin: center; transition: transform 0.2s var(--pg-ease); }
+/* Yakınlaştırma: .pg-preview ölçeklenir ve .pg-sizer içinde JS'in verdiği yerde durur (playground.js → fit).
+   Açılan menü komponenti yerinden oynatmaz; kaydırma alanı menüyü içine alacak kadar her yöne büyür. */
+.pg-canvas { position: absolute; inset: 0; overflow: auto; --pg-pad: var(--spacing-16); }
+.pg-sizer { position: relative; }
+.pg-preview { position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; width: max-content; transform: scale(var(--zoom, 1)); transform-origin: 0 0; transition: transform 0.2s var(--pg-ease); }
 
 .pg-zoom { position: absolute; right: var(--spacing-4); bottom: var(--spacing-4); display: flex; align-items: center; gap: var(--spacing-0-5); padding: var(--spacing-0-5);
   background: var(--bg-raised); border-radius: var(--rounded-lg); box-shadow: inset 0 0 0 1px var(--border-default), var(--shadow-sm); }

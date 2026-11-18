@@ -28,9 +28,9 @@ One step of the stepper on long forms. Shows the section status (Step Icon), its
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 40 | `Spacing/3` (12) | `Spacing/2․5` (10) | `Spacing/2․5` (10) | `rounded-lg` (8) | `text-sm/medium` |
+| Size | Width | Height | Padding H | Padding V | Gap | Radius | Text |
+|---|---|---|---|---|---|---|---|
+| Default | 240 (in the set) | 40 | `Spacing/3` (12) | `Spacing/2․5` (10) | `Spacing/2․5` (10) | `rounded-lg` (8) | `text-sm/medium` |
 
 ## States
 
@@ -56,3 +56,11 @@ One step of the stepper on long forms. Shows the section status (Step Icon), its
 ## Used in
 
 Not nested in other components.
+
+### Stack
+
+| Part | Layout | Gap |
+|---|---|---|
+| Sections | vertical, items fill the width | `Spacing/1` (4) |
+
+On a form, the sections before the current one are Complete (or Error if a required field is missing), the current one is Current and the rest are Empty. Figma Examples: Primary Information, Media & Visual Assets, Rights & Licensing, SEO & Metadata.

@@ -36,13 +36,13 @@ One row of a Menu. Single line is 32 px; rows with Description (48 px) or larger
 |---|---|---|---|---|---|---|
 | 32 (one line) | `Spacing/2` (8) | `Spacing/1․5` (6) | `Spacing/2` (8) | `rounded-md` (6) | `text-sm/regular` | 16 (`Spacing/4`) |
 
-Description and Trailing Text `text-xs/regular`, `text/tertiary`. Icons `text/secondary`; on Destructive rows the leading icon takes the label color (`feedback/danger/text`). In Figma the Destructive variants have an empty icon, so this color follows the label.
+Description and Trailing Text `text-xs/regular`, `text/tertiary`. The leading icon is `text/primary` and the Submenu caret `text/secondary`; on Destructive rows the leading icon takes the label color (`feedback/danger/text`). In Figma the Destructive variants have an empty icon, so this color follows the label.
 
 ## Icons
 
 | Part | Icon | Size | Color |
 |---|---|---|---|
-| Leading Icon | Copy (swap) | 16 | `text/secondary` |
+| Leading Icon | Copy (swap) | 16 | `text/primary` |
 | Submenu | CaretRight | 16 | `text/secondary` |
 | Leading Icon (Destructive) | Trash (swap) | 16 | `feedback/danger/text` |
 
@@ -62,7 +62,7 @@ Description and Trailing Text `text-xs/regular`, `text/tertiary`. Icons `text/se
 ## Slots
 
 - **Leading:** Avatar, poster image, flag, Checkbox, Radio.
-- **Trailing:** check icon on the selected row, external link icon.
+- **Trailing:** check icon on the selected row (optional: the Selected fill alone can mark the row), external link icon.
 
 ## Used in
 

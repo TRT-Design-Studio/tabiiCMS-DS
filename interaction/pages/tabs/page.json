@@ -1,0 +1,6 @@
+{
+  "title": "Tabs",
+  "figmaPage": "↪︎ Tabs",
+  "components": ["tabs", "tab-segment", "tab-underline"],
+  "fillIcons": true
+}

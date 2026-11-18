@@ -6,4 +6,4 @@
 |---|---|
 | `sidebar/` | Sidebar sayfasındaki "Sidebar Interaction" code layer'ının kodu (Mücahit, 2026-11-11). Playground'daki Sidebar'ın yapısı ve hareketi buradan |
 
-**Ne zaman dokunurum?** Hiç. Bunlar örnektir; playground'ın kodu `interaction/shared/` altında.
+**Ne zaman dokunurum?** Bunlar örnektir; playground'ın kodu `interaction/shared/` altında. İstisna: `sidebar/` aynı zamanda Sidebar sayfasının code layer kaynağıdır, o kod değişecekse buradan değişir.

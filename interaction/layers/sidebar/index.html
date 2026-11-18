@@ -1,0 +1,462 @@
+<!doctype html>
+<!-- Bu dosya `node interaction/build.mjs` ile üretilir. Elle düzenleme. Kaynak: interaction/reference/sidebar/ (istisna: spec'ten üretilmez) -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sidebar · resize</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<style>
+/* Light-mode tokens of the tabii CMS design system (Figma). */
+:root {
+  --bg-base: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f5f5f5;
+  --bg-hover: #f0f0f0;
+  --bg-pressed: rgba(0, 0, 0, 0.1);
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --text-tertiary: #a1a1a1;
+  --border-default: #e8e8e8;
+  --border-focus: #2474ff;
+  --ring: rgba(23, 23, 23, 0.15);
+  --radius: 8px;
+  --radius-xl: 12px;
+  /* One curve and one duration for everything that morphs between Expanded and Rail. */
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur: 0.4s;
+}
+
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; }
+body {
+  font-family: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text-primary); background: var(--bg-surface);
+  -webkit-font-smoothing: antialiased; overflow: hidden;
+}
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; text-align: left; }
+button:focus-visible, .handle:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ring); }
+
+.app { position: relative; display: flex; height: 100vh; min-height: 640px; }
+.app.dragging, .app.dragging * { cursor: col-resize !important; user-select: none; }
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  position: relative; flex: none; width: 248px; height: 100%;
+  display: flex; flex-direction: column; overflow: visible;
+  background: var(--bg-base); border-right: 1px solid var(--border-default);
+}
+/* The width is set frame by frame from app.js, so drag and the toggle button share one motion path. */
+
+.sb-header {
+  flex: none; display: flex; align-items: center; overflow: hidden;
+  padding: 14px 28px; border-bottom: 1px solid var(--border-default);
+  transition: padding var(--dur) var(--ease);
+}
+.logo { display: flex; align-items: center; flex: none; }
+.logo svg { display: block; flex: none; }
+.wordmark { display: block; width: 46px; margin-left: 8px; overflow: hidden; transition: width var(--dur) var(--ease), margin-left var(--dur) var(--ease); }
+.rail .sb-header { padding: 14px 0 14px 19.5px; }
+.rail .wordmark { width: 0; margin-left: 0; }
+
+.sb-nav {
+  flex: 1; min-height: 0; overflow: hidden auto; scrollbar-width: none;
+  display: flex; flex-direction: column; gap: 12px; padding: 16px;
+  transition: gap var(--dur) var(--ease);
+}
+.rail .sb-nav { gap: 2px; }
+.sb-group { display: flex; flex-direction: column; gap: 2px; }
+
+.group-label { position: relative; height: 28px; flex: none; display: flex; align-items: center; padding: 0 10px; overflow: hidden; }
+.group-label p { font-size: 12px; line-height: 16px; font-weight: 500; color: var(--text-tertiary); white-space: nowrap; }
+/* In Rail the section title turns into a divider line. */
+.group-label::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--border-default); opacity: 0; transition: opacity var(--dur) var(--ease); }
+.rail .group-label::after { opacity: 1; }
+
+.item {
+  position: relative; flex: none; display: flex; align-items: center; gap: 10px;
+  width: 100%; height: 36px; padding: 8px 10px; overflow: hidden;
+  border: 1px solid transparent; border-radius: var(--radius);
+  color: var(--text-secondary); font-size: 14px; line-height: 20px; font-weight: 500; white-space: nowrap;
+  transition: width var(--dur) var(--ease), padding var(--dur) var(--ease), background-color 0.15s ease, color 0.15s ease;
+}
+.item:hover { background: var(--bg-hover); color: var(--text-primary); }
+.item:active { background: var(--bg-pressed); }
+.item.selected { background: var(--bg-surface); border-color: var(--border-default); color: var(--text-primary); }
+.item .ph, .item .ph-fill { flex: none; font-size: 20px; }
+.item .text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.item .caret { flex: none; display: flex; font-size: 16px; }
+.item .caret i { transition: transform 0.2s ease-out; }
+.item.closed .caret i { transform: rotate(180deg); }
+.rail .item { width: 36px; padding: 7px; }
+
+.sub {
+  display: grid; grid-template-rows: 1fr; opacity: 1;
+  transition: grid-template-rows var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+.sub.shut, .rail .sub { grid-template-rows: 0fr; opacity: 0; pointer-events: none; }
+.sub > div { min-height: 0; overflow: hidden; }
+.sub-wrap { padding: 6px 0 6px 18px; }
+.sub-list { display: flex; flex-direction: column; gap: 2px; padding-left: 8px; border-left: 1px solid var(--border-default); }
+.sub-item {
+  display: flex; align-items: center; width: 100%; padding: 6px 12px 6px 16px; border-radius: var(--radius);
+  font-size: 14px; line-height: 20px; color: var(--text-secondary); white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.sub-item:hover { background: var(--bg-hover); }
+.sub-item.selected { color: var(--text-primary); font-weight: 500; }
+
+.sb-footer {
+  flex: none; overflow: hidden; padding: 16px; border-top: 1px solid var(--border-default);
+  transition: padding var(--dur) var(--ease);
+}
+.rail .sb-footer { padding: 18px 10px 18px 9.5px; }
+.user {
+  display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px; overflow: hidden;
+  border-radius: var(--radius); white-space: nowrap;
+  transition: width var(--dur) var(--ease), background-color 0.15s ease;
+}
+.user:hover { background: var(--bg-hover); }
+.rail .user { width: 48px; }
+.avatar { flex: none; width: 32px; height: 32px; display: grid; place-items: center; border-radius: var(--radius); border: 1px solid var(--border-default); background: var(--bg-subtle); font-size: 14px; line-height: 20px; font-weight: 500; }
+.user-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.user-name { font-size: 14px; line-height: 20px; font-weight: 500; }
+.user-mail { font-size: 12px; line-height: 16px; color: var(--text-tertiary); }
+.user-caret { flex: none; font-size: 16px; color: var(--text-tertiary); }
+
+/* ---------- Label motion: depends on the mode ---------- */
+.label { transition: opacity 0.2s ease 0.1s, transform 0.2s var(--ease) 0.1s; }
+.narrow .label { opacity: 0; transition: opacity 0.1s ease, transform 0.1s ease; }
+/* Cascade: labels drift left and leave one after another, top down. */
+.mode-cascade .label { transition-delay: var(--d, 0ms); }
+.mode-cascade .narrow .label { transform: translateX(-8px); transition: opacity 0.2s ease var(--d, 0ms), transform 0.2s var(--ease) var(--d, 0ms); }
+/* Scrub: opacity is tied to the current width on every frame (drag or toggle). */
+.mode-scrub .label { opacity: var(--scrub, 1); transform: none; transition: none; }
+
+/* ---------- Resize handle ---------- */
+.handle { position: absolute; top: 0; right: -5px; width: 10px; height: 100%; cursor: col-resize; z-index: 3; }
+.handle-line { position: absolute; left: 4px; top: 0; width: 2px; height: 100%; background: var(--border-focus); opacity: 0; transition: opacity 0.15s ease; }
+.handle:hover .handle-line, .dragging .handle-line, .handle:focus-visible .handle-line { opacity: 1; }
+.tip {
+  position: absolute; z-index: 4; pointer-events: none; opacity: 0; transform: translateY(-50%);
+  padding: 6px 10px; border-radius: var(--radius); background: var(--bg-surface); border: 1px solid var(--border-default);
+  font-size: 12px; line-height: 16px; color: var(--text-secondary); white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06); transition: opacity 0.15s ease;
+}
+.tip.show { opacity: 1; }
+
+/* ---------- Content ---------- */
+.content { flex: 1; min-width: 0; position: relative; padding: 16px; }
+.toggle {
+  display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 10px 0 9px;
+  border: 1px solid var(--border-default); border-radius: var(--radius); background: var(--bg-surface);
+  color: var(--text-secondary); font-size: 14px; line-height: 20px; font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.toggle:hover { background: var(--bg-base); color: var(--text-primary); }
+.toggle:active { background: var(--bg-subtle); }
+.toggle kbd { margin-left: 2px; padding: 0 5px; border: 1px solid var(--border-default); border-radius: 4px; background: var(--bg-base); font: inherit; font-size: 11px; line-height: 16px; color: var(--text-tertiary); }
+.page { max-width: 760px; margin: 36px auto 0; padding: 0 24px; }
+.sk { background: var(--bg-subtle); border-radius: 6px; }
+.sk-title { width: 180px; height: 24px; }
+.sk-line { width: 100%; height: 12px; margin-top: 16px; }
+.sk-divider { height: 1px; background: var(--border-default); margin: 24px 0; }
+.sk-card { border: 1px solid var(--border-default); border-radius: var(--radius-xl); margin-bottom: 24px; overflow: hidden; }
+.sk-row { display: flex; align-items: center; gap: 16px; padding: 16px; }
+.sk-thumb { width: 64px; height: 44px; border-radius: 8px; flex: none; }
+.sk-col { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.sk-l1 { width: 60%; height: 12px; } .sk-l2 { width: 35%; height: 10px; }
+.sk-foot { display: flex; justify-content: space-between; padding: 14px 16px; border-top: 1px solid var(--border-default); background: var(--bg-base); }
+.sk-f1 { width: 30%; height: 10px; } .sk-f2 { width: 20%; height: 10px; }
+
+/* ---------- Control panel ---------- */
+.panel {
+  position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 5;
+  width: 440px; padding: 12px 16px; text-align: center;
+  background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-xl);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.panel-text { font-size: 12px; line-height: 16px; color: var(--text-secondary); min-height: 32px; }
+.panel-row { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
+.segment { display: flex; gap: 2px; padding: 2px; border-radius: var(--radius); background: var(--bg-subtle); }
+.segment button { height: 28px; padding: 0 12px; border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--text-secondary); }
+.segment button:hover { color: var(--text-primary); }
+.segment button[aria-selected="true"] { background: var(--bg-surface); color: var(--text-primary); box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+.reset { display: flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: var(--radius); border: 1px solid var(--border-default); background: var(--bg-surface); font-size: 12px; font-weight: 500; }
+.reset .ph { font-size: 14px; }
+.reset:hover:not(:disabled) { background: var(--bg-subtle); }
+.reset:disabled { opacity: 0.5; cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; transition-delay: 0ms !important; }
+}
+</style>
+</head>
+<body>
+<div class="app mode-ease" id="app">
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sb-header">
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M22 0H6C2.686 0 0 2.686 0 6V22C0 25.314 2.686 28 6 28H22C25.314 28 28 25.314 28 22V6C28 2.686 25.314 0 22 0Z" fill="#171717"/><path d="M22.451 14.024L24 10.099L19.634 8.397L17.897 4L14 5.56L10.056 4L8.366 8.35L4 10.099L5.549 14.024L4 17.948L8.366 19.65L10.056 24L13.953 22.44L17.85 24L19.54 19.65L23.906 17.948L22.451 14.024ZM14.845 16.955L14 19.083L13.155 16.955L9.728 18.326L11.089 14.875L8.977 14.024L11.089 13.173L9.728 9.721L13.155 11.092L14 8.965L14.845 11.092L18.272 9.721L16.911 13.173L19.024 14.024L16.911 14.875L18.272 18.326L14.845 16.955Z" fill="#FAFAFA"/></svg>
+        <span class="wordmark">
+          <svg class="label" width="46" height="28" viewBox="36 0 46 28" fill="none" aria-label="tabii"><path d="M72.993 6.059V9.406H76.454V6.059H72.993ZM72.993 10.427V22.569H76.454V10.427H72.993Z" fill="#171717"/><path d="M78.27 6.059V9.406H81.73V6.059H78.27ZM78.27 10.427V22.569H81.73V10.427H78.27Z" fill="#171717"/><path d="M42.809 13.376V10.199H39.461V6H36V19.333C36 21.092 37.418 22.511 39.177 22.511H42.752V19.333H39.404V13.376H42.809Z" fill="#171717"/><path d="M53.305 10.197V11.559C52.283 10.651 50.978 10.141 49.56 10.141C46.269 10.141 43.659 12.978 43.659 16.495C43.659 20.013 46.326 22.85 49.56 22.85C50.978 22.85 52.283 22.339 53.305 21.431V22.623H56.766V10.197H53.305ZM53.305 19.389H47.29V13.375H53.305V19.389Z" fill="#171717"/><path d="M65.56 10.144C64.142 10.144 62.837 10.654 61.816 11.562V6.059H58.355V22.569H61.816V21.378C62.837 22.286 64.142 22.796 65.56 22.796C68.851 22.796 71.461 19.959 71.461 16.442C71.461 12.981 68.794 10.144 65.56 10.144ZM67.83 19.392H61.816V13.378H67.83V19.392Z" fill="#171717"/></svg>
+        </span>
+      </div>
+    </div>
+    <nav class="sb-nav" id="nav"></nav>
+    <div class="sb-footer">
+      <button class="user" type="button" data-title="Ayse Cavdar">
+        <span class="avatar">AC</span>
+        <span class="user-text label"><span class="user-name">Ayse Cavdar</span><span class="user-mail">ayse.cavdar@trt.net.tr</span></span>
+        <i class="ph ph-caret-up-down user-caret label"></i>
+      </button>
+    </div>
+    <div class="handle" id="handle" role="separator" aria-orientation="vertical" aria-label="Resize sidebar" aria-controls="sidebar" tabindex="0"><span class="handle-line"></span></div>
+  </aside>
+  <div class="tip" id="tip">Drag to resize sidebar</div>
+
+  <main class="content">
+    <button type="button" class="toggle" id="toggle" aria-expanded="true" aria-controls="sidebar">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.25" y="3" width="13.5" height="12" rx="2" stroke="currentColor" stroke-width="1.25"/><path d="M6.75 3v12" stroke="currentColor" stroke-width="1.25"/><path id="toggleArrow" d="M11.5 7.5 10 9l1.5 1.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span id="toggleText">Close sidebar</span>
+      <kbd>⌘B</kbd>
+    </button>
+    <div class="page">
+      <div class="sk sk-title"></div>
+      <div class="sk sk-line"></div>
+      <div class="sk-divider"></div>
+      <div class="sk-card"><div class="sk-row"><div class="sk sk-thumb"></div><div class="sk-col"><div class="sk sk-l1"></div><div class="sk sk-l2"></div></div></div><div class="sk-foot"><div class="sk sk-f1"></div><div class="sk sk-f2"></div></div></div>
+      <div class="sk-card"><div class="sk-row"><div class="sk sk-thumb"></div><div class="sk-col"><div class="sk sk-l1"></div><div class="sk sk-l2"></div></div></div><div class="sk-foot"><div class="sk sk-f1"></div><div class="sk sk-f2"></div></div></div>
+    </div>
+
+  <div class="panel">
+    <p class="panel-text" id="modeText"></p>
+    <div class="panel-row">
+      <div class="segment" role="tablist" id="modes">
+        <button type="button" data-mode="ease" role="tab">Ease out</button>
+        <button type="button" data-mode="cascade" role="tab">Cascade</button>
+        <button type="button" data-mode="scrub" role="tab">Scrub</button>
+      </div>
+      <button type="button" class="reset" id="reset" disabled><i class="ph ph-arrow-counter-clockwise"></i>Reset</button>
+    </div>
+  </div>
+  </main>
+</div>
+<script>
+// tabii CMS Sidebar: Expanded / Rail with drag to resize. Under 160 px it settles to the 68 px icon rail.
+// The default width is also the maximum: the sidebar can only be narrowed and opened back up.
+const RAIL = 68, SNAP = 160, DEFAULT = 248, MAX = DEFAULT, DUR = 400;
+
+const SECTIONS = [
+  { items: [{ label: 'Overview', icon: 'ph ph-squares-four' }] },
+  { title: 'FAVORİLER', items: [
+    { label: 'Asset HQ', icon: 'ph ph-folder-open' },
+    { label: 'Publish Management', icon: 'ph ph-monitor-play' } ] },
+  { title: 'İÇERİK YÖNETİMİ', items: [
+    { label: 'Content', icon: 'ph-fill ph-stack', sub: ['Shows', 'Movies', 'Episodes', 'Persons'] },
+    { label: 'Live & Fast', icon: 'ph ph-broadcast' },
+    { label: 'Categories & Genres', icon: 'ph ph-tag' } ] },
+  { title: 'KÜRASYON & VİTRİN', items: [
+    { label: 'Rows', icon: 'ph ph-rows' },
+    { label: 'Queues', icon: 'ph ph-flow-arrow' },
+    { label: 'Menu Items', icon: 'ph ph-list-bullets' },
+    { label: 'Menus', icon: 'ph ph-list' } ] },
+  { title: 'YÖNETİM', items: [
+    { label: 'Users & Roles', icon: 'ph ph-users-three' },
+    { label: 'Audit Log', icon: 'ph ph-clipboard-text' },
+    { label: 'RBAC', icon: 'ph ph-shield-check' },
+    { label: 'Settings', icon: 'ph ph-gear' },
+    { label: 'Help', icon: 'ph ph-question' } ] },
+];
+
+const MODE_TEXT = {
+  ease: 'Drag inward to collapse to icons, outward to expand. Labels fade at once while the width glides over 0.4s.',
+  cascade: 'Drag inward to collapse to icons, outward to expand. Past 160px the labels drift left and fade from the top down.',
+  scrub: 'Drag inward to collapse to icons, outward to expand. Labels fade with the width as it glides over 0.4s.',
+};
+
+const $ = (s) => document.querySelector(s);
+const app = $('#app'), sidebar = $('#sidebar'), nav = $('#nav'), handle = $('#handle'), tip = $('#tip');
+const resetBtn = $('#reset'), toggleBtn = $('#toggle'), toggleText = $('#toggleText'), toggleArrow = $('#toggleArrow');
+
+// ---------- Build the navigation ----------
+let subEl = null, contentItem = null;
+for (const s of SECTIONS) {
+  const g = document.createElement('div');
+  g.className = 'sb-group';
+  if (s.title) g.insertAdjacentHTML('beforeend', `<div class="group-label"><p class="label">${s.title}</p></div>`);
+  for (const it of s.items) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'item';
+    b.dataset.title = it.label;
+    b.setAttribute('aria-label', it.label);
+    b.innerHTML = `<i class="${it.icon}"></i><span class="text label">${it.label}</span>` +
+      (it.sub ? '<span class="caret label"><i class="ph ph-caret-up"></i></span>' : '');
+    g.appendChild(b);
+    if (it.sub) {
+      contentItem = b;
+      b.setAttribute('aria-expanded', 'true');
+      subEl = document.createElement('div');
+      subEl.className = 'sub';
+      subEl.innerHTML = `<div><div class="sub-wrap"><div class="sub-list">${it.sub.map((x) =>
+        `<button type="button" class="sub-item">${x}</button>`).join('')}</div></div></div>`;
+      g.appendChild(subEl);
+    }
+  }
+  nav.appendChild(g);
+}
+// Top-down order for the cascade
+document.querySelectorAll('.sidebar .label').forEach((n, i) => n.style.setProperty('--d', `${i * 14}ms`));
+
+// ---------- Selection: a sub item also selects its parent branch ----------
+function select(item, sub = null) {
+  nav.querySelectorAll('.item, .sub-item').forEach((n) => {
+    const on = n === item || n === sub;
+    n.classList.toggle('selected', on);
+    if (on && (n === sub || !sub)) n.setAttribute('aria-current', 'page'); else n.removeAttribute('aria-current');
+  });
+}
+nav.addEventListener('click', (e) => {
+  const sub = e.target.closest('.sub-item');
+  if (sub) return select(contentItem, sub);
+  const item = e.target.closest('.item');
+  if (!item) return;
+  if (item === contentItem) {
+    if (isRail()) return toggle(); // in Rail, the branch first opens the sidebar
+    const open = subEl.classList.toggle('shut') === false;
+    item.classList.toggle('closed', !open);
+    item.setAttribute('aria-expanded', String(open));
+    return;
+  }
+  select(item);
+});
+select(contentItem, subEl.querySelector('.sub-item'));
+
+// ---------- Motion ----------
+// cubic-bezier(0.32, 0.72, 0, 1), the same curve the CSS uses
+function bezier(x1, y1, x2, y2) {
+  const f = (a, b, t) => 3 * a * t * (1 - t) ** 2 + 3 * b * t * t * (1 - t) + t ** 3;
+  return (x) => {
+    let lo = 0, hi = 1, t = x;
+    for (let i = 0; i < 20; i++) { t = (lo + hi) / 2; if (f(x1, x2, t) < x) lo = t; else hi = t; }
+    return f(y1, y2, t);
+  };
+}
+const ease = bezier(0.32, 0.72, 0, 1);
+console.assert(ease(0) < 0.01 && ease(1) > 0.99 && ease(0.5) > 0.8, 'ease curve');
+
+let mode = 'ease', width = DEFAULT, anim = null;
+const isRail = () => width < SNAP;
+const target = () => (anim ? anim.to : width);
+
+function render() {
+  sidebar.style.width = `${width}px`;
+  // Ease out commits to the destination at once; Cascade and Scrub react to the width as it passes 160.
+  const rail = (mode === 'ease' ? target() : width) < SNAP;
+  sidebar.classList.toggle('narrow', rail);
+  sidebar.classList.toggle('rail', rail);
+  sidebar.style.setProperty('--scrub', Math.max(0, Math.min(1, (width - 100) / 100)).toFixed(3));
+  sidebar.querySelectorAll('[data-title]').forEach((n) => (rail ? n.title = n.dataset.title : n.removeAttribute('title')));
+  subEl.querySelectorAll('button').forEach((b) => (b.tabIndex = rail ? -1 : 0));
+  const closed = target() < SNAP;
+  toggleText.textContent = closed ? 'Open sidebar' : 'Close sidebar';
+  toggleArrow.setAttribute('d', closed ? 'M10 7.5 11.5 9 10 10.5' : 'M11.5 7.5 10 9l1.5 1.5');
+  toggleBtn.setAttribute('aria-expanded', String(!closed));
+  handle.setAttribute('aria-valuenow', String(Math.round(width)));
+  resetBtn.disabled = Math.round(target()) === DEFAULT;
+}
+const clamp = (w) => Math.max(RAIL, Math.min(MAX, w));
+
+function stop() { if (anim) { cancelAnimationFrame(anim.raf); clearTimeout(anim.timer); anim = null; } }
+// Glide to a width over 0.4s. Every frame goes through render(), exactly like a drag.
+function glideTo(to) {
+  stop();
+  to = clamp(to);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { width = to; return render(); }
+  const from = width, t0 = performance.now(), a = (anim = { to });
+  const finish = () => { if (anim !== a) return; anim = null; width = to; render(); };
+  const step = (t) => {
+    if (anim !== a) return;
+    const p = Math.min(1, (t - t0) / DUR);
+    width = from + (to - from) * ease(p);
+    if (p < 1) { render(); a.raf = requestAnimationFrame(step); } else finish();
+  };
+  render();
+  a.raf = requestAnimationFrame(step);
+  a.timer = setTimeout(finish, DUR + 80); // throttled frames still end on the target
+}
+
+// ---------- Modes ----------
+const modeButtons = document.querySelectorAll('#modes button');
+function setMode(m) {
+  mode = m;
+  app.classList.remove('mode-ease', 'mode-cascade', 'mode-scrub');
+  app.classList.add(`mode-${m}`);
+  modeButtons.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.mode === m)));
+  $('#modeText').textContent = MODE_TEXT[m];
+  render();
+}
+modeButtons.forEach((b) => b.addEventListener('click', () => setMode(b.dataset.mode)));
+
+// ---------- Drag ----------
+let dragging = false;
+function showTip(y) {
+  tip.style.left = `${sidebar.getBoundingClientRect().right + 12}px`;
+  tip.style.top = `${y}px`;
+  tip.classList.add('show');
+}
+handle.addEventListener('pointerenter', (e) => showTip(e.clientY));
+handle.addEventListener('pointerleave', () => { if (!dragging) tip.classList.remove('show'); });
+// No in-between widths: dragging inward collapses to the rail, dragging outward expands to full width.
+const DRAG_THRESHOLD = 12;
+let anchorX = 0;
+handle.addEventListener('pointerdown', (e) => {
+  dragging = true;
+  anchorX = e.clientX;
+  try { handle.setPointerCapture(e.pointerId); } catch (_) { /* synthetic pointers have no capture */ }
+  app.classList.add('dragging');
+});
+handle.addEventListener('pointermove', (e) => {
+  showTip(e.clientY);
+  if (!dragging) return;
+  const dx = e.clientX - anchorX, closed = target() < SNAP;
+  if (!closed && dx < -DRAG_THRESHOLD) { glideTo(RAIL); anchorX = e.clientX; }
+  else if (closed && dx > DRAG_THRESHOLD) { glideTo(DEFAULT); anchorX = e.clientX; }
+  else if ((closed && dx < 0) || (!closed && dx > 0)) anchorX = e.clientX; // reversing counts from the furthest point
+});
+function endDrag() {
+  if (!dragging) return;
+  dragging = false;
+  app.classList.remove('dragging');
+  tip.classList.remove('show');
+}
+handle.addEventListener('pointerup', endDrag);
+handle.addEventListener('pointercancel', endDrag);
+handle.addEventListener('lostpointercapture', endDrag);
+
+// Keyboard on the handle: arrows resize, Enter toggles
+handle.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+    e.preventDefault();
+    glideTo(e.key === 'ArrowRight' ? DEFAULT : RAIL);
+  } else if (e.key === 'Enter') toggle();
+});
+
+// ---------- Toggle, shortcut, reset ----------
+function toggle() { glideTo(target() < SNAP ? DEFAULT : RAIL); }
+toggleBtn.addEventListener('click', toggle);
+window.addEventListener('keydown', (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'b') { e.preventDefault(); toggle(); }
+});
+resetBtn.addEventListener('click', () => glideTo(DEFAULT));
+
+handle.setAttribute('aria-valuemin', String(RAIL));
+handle.setAttribute('aria-valuemax', String(MAX));
+setMode('ease');
+</script>
+</body>
+</html>

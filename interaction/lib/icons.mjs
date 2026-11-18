@@ -14,18 +14,23 @@ export function collectIconNames(here, files) {
   for (const f of files) {
     const src = readFileSync(f, 'utf8');
     for (const m of src.matchAll(/TDS\.icon\(\s*'([A-Za-z0-9]+)'(?:\s*,\s*[^,)]*\s*,\s*'(Regular|Fill)')?/g)) names.set(`${m[2] || 'Regular'}:${m[1]}`, 1);
-    for (const m of src.matchAll(/\b(?:Icon|icon|iconLeft|iconRight)\s*:\s*'([A-Z][A-Za-z0-9]+)'/g)) names.set(`Regular:${m[1]}`, 1);
+    for (const m of src.matchAll(/\b(?:Icon|icon|iconLeft|iconRight|Leading)\s*:\s*'([A-Z][A-Za-z0-9]+)'/g)) names.set(`Regular:${m[1]}`, 1);
     for (const m of src.matchAll(/options:\s*\[([^\]]+)\][^}]*iconOptions/g)) for (const o of m[1].matchAll(/'([A-Z][A-Za-z0-9]+)'/g)) names.set(`Regular:${o[1]}`, 1);
   }
+  // Özel ikonlar (shared/icons.js → TDS_ICONS) Phosphor'dan indirilmez.
+  const custom = new Set([...readFileSync(join(here, 'shared', 'icons.js'), 'utf8').matchAll(/^\s+([A-Z][A-Za-z0-9]+):\s*'/gm)].map((m) => m[1]));
   const extra = join(here, 'shared', 'icon-list.json');
   if (existsSync(extra)) for (const n of JSON.parse(readFileSync(extra, 'utf8')).icons) names.set(n.includes(':') ? n : `Regular:${n}`, 1);
-  return [...names.keys()].sort();
+  return [...names.keys()].filter((k) => !custom.has(k.split(':')[1])).sort();
 }
 
-export async function buildIconsJs(here, files) {
+// fillAll: sayfadaki her Regular ikonun Fill hali de gömülür (Tabs: seçili tab'de ikon Fill olur, ikon değiştirilebilir).
+export async function buildIconsJs(here, files, { fillAll = false } = {}) {
   const out = { Regular: {}, Fill: {} };
   const missing = [];
-  for (const key of collectIconNames(here, files)) {
+  let keys = collectIconNames(here, files);
+  if (fillAll) keys = [...new Set([...keys, ...keys.filter((k) => k.startsWith('Regular:')).map((k) => k.replace('Regular:', 'Fill:'))])].sort();
+  for (const key of keys) {
     const [weight, name] = key.split(':');
     const file = weight === 'Fill' ? `${kebab(name)}-fill.svg` : `${kebab(name)}.svg`;
     const dir = join(here, 'shared', 'phosphor', weight.toLowerCase());

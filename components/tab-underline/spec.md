@@ -9,7 +9,7 @@ updated: 2026-11-11
 
 # Tab Underline
 
-One tab of Tabs Underline. A 2 px line shows Hover and Selected; the label turns semibold when Selected. The leading icon turns to Fill when Selected.
+One tab of Tabs Underline. A 2 px line shows Hover and Selected; the label turns semibold when Selected. The leading icon turns to Fill when Selected. Use Disabled with the trailing lock icon for tabs that open later, as in Tab Segment.
 
 ## Variants
 
@@ -26,6 +26,8 @@ One tab of Tabs Underline. A 2 px line shows Hover and Selected; the label turns
 | Leading Icon | Boolean | false |
 | Leading Icon Swap | Instance swap | SquaresFour (Regular) |
 | Leading Icon Active Swap | Instance swap | SquaresFour (Fill) |
+| Trailing Icon | Boolean | false |
+| Trailing Icon Swap | Instance swap | Lock (Regular) |
 
 ## Sizes
 
@@ -33,6 +35,7 @@ One tab of Tabs Underline. A 2 px line shows Hover and Selected; the label turns
 |---|---|---|---|---|
 | Container | 40 high | `Spacing/2․5` (10) top/bottom, `Spacing/1` (4) sides | `Spacing/1․5` (6) | `text-sm/medium`; `text-sm/semibold` when Selected |
 | Leading Icon | `Spacing/4` (16) | — | — | — |
+| Trailing Icon | `Spacing/3․5` (14) | — | — | — |
 | Indicator | `border-2` bottom | — | — | — |
 
 ## States

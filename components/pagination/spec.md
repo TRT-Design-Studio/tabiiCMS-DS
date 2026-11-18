@@ -22,10 +22,11 @@ Footer bar for long lists and tables. Shows the total count, a per-page selector
 | Property | Type | Default |
 |---|---|---|
 | Total | Text | Total: 958 |
+| Show Total | Boolean | true |
 | Show Per Page | Boolean | true |
 | Show Go To | Boolean | true |
 
-Show Per Page and Show Go To apply to Desktop only.
+Show Per Page and Show Go To apply to Desktop only. With Show Total, Show Per Page and Show Go To off, only the page items remain.
 
 ## Sizes
 
@@ -40,7 +41,7 @@ Desktop:
 
 | Part | Kind | Size | Fill | Shown |
 |---|---|---|---|---|
-| Total | Text | hug × 20 | `text-sm/medium` `text/primary` | yes |
+| Total | Text | hug × 20 | `text-sm/medium` `text/primary` | Show Total |
 | Per page | Button (Secondary, Small) + "per page" | 126 × 32 | none | Show Per Page |
 | Items | Pagination Items, `border/default` stroke, radius 8 | 472 × 32 | none | yes |
 | Go to | "Go to" + Input (Small, Filled) + "Page" | 140 × 32 | none | Show Go To |
@@ -49,8 +50,19 @@ Mobile:
 
 | Part | Kind | Size | Fill | Shown |
 |---|---|---|---|---|
-| Total | Text | hug × 20 | `text-sm/medium` `text/primary` | yes |
+| Total | Text | hug × 20 | `text-sm/medium` `text/primary` | Show Total |
 | Controls | Icon Button (Previous) + Select (Small) + Icon Button (Next), gap 8 | — | none | yes |
+
+### Controls
+
+| Part | Kind | Width | Gap | Text |
+|---|---|---|---|---|
+| Per page | Button (Secondary, Small, label "10", CaretDown) + "per page" | hug | `Spacing/2` (8) | `text-sm/regular` `text/secondary` |
+| Go to | "Go to" + Input (Small, centered, "123") + "Page" | 56 | `Spacing/2` (8) | `text-sm/regular` `text/secondary` |
+| Page select | Select (Small, Mobile) | 72 | — | — |
+| Previous, Next | Pagination Item with CaretLeft / CaretRight; Mobile: Icon Button (Secondary, Small) | hug | — | — |
+
+Desktop items in Figma: Previous, 1–8, …, 99, Next (page 3 Selected).
 
 ## Used in
 

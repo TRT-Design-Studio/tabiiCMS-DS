@@ -34,7 +34,12 @@ A small count with an icon, e.g. the number of countries. Vertical stacks the ic
 
 ## States
 
-No states. Value in `text/primary`.
+No states.
+
+| Part | Color |
+|---|---|
+| Icon | `text/tertiary` |
+| Value | `text/primary` |
 
 ## Used in
 

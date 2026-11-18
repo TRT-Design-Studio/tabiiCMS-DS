@@ -55,11 +55,41 @@
     menus,
     defineMenu(name, props) { menus[name] = props; },
     closeMenu(returnFocus) {
-      const open = document.querySelector('.tds-popover');
-      if (!open) return;
-      const trigger = open._trigger;
-      open.remove();
+      const all = document.querySelectorAll('.tds-popover');
+      if (!all.length) return;
+      const trigger = all[0]._trigger;
+      all.forEach((p) => p.remove());
       if (trigger) { trigger.setAttribute('aria-expanded', 'false'); if (returnFocus) trigger.focus(); }
+    },
+    // Alt menü: data-tds-submenu="<isim>" olan satırın üzerine gelince, tıklayınca veya → ile yanında açılır.
+    // ← veya Escape alt menüyü kapatır ve odağı satıra geri verir.
+    closeSubmenu(returnFocus) {
+      const sub = document.querySelector('.tds-popover[data-submenu]');
+      if (!sub) return;
+      const item = sub._item;
+      sub.remove();
+      if (item) { item.setAttribute('aria-expanded', 'false'); if (returnFocus) item.focus(); }
+    },
+    openSubmenu(item, focusFirst) {
+      const open = document.querySelector('.tds-popover[data-submenu]');
+      if (open && open._item === item) return;
+      TDS.closeSubmenu();
+      const name = item.dataset.tdsSubmenu;
+      const props = typeof menus[name] === 'function' ? menus[name](item) : menus[name];
+      if (!props) return;
+      const parent = item.closest('.tds-popover');
+      const pop = document.createElement('div');
+      pop.className = 'tds-popover';
+      pop.dataset.submenu = '';
+      pop._trigger = parent._trigger;
+      pop._item = item;
+      pop.innerHTML = TDS.render('menu', props);
+      const gap = 4; // Menu spec: menünün tetikleyiciye uzaklığı
+      const { top, left } = TDS.place(item, pop, (r) => ({ top: r.top - gap, left: r.right + gap }));
+      pop.style.top = `${top}px`;
+      pop.style.left = `${left}px`;
+      item.setAttribute('aria-expanded', 'true');
+      if (focusFirst) pop.querySelector('[role="menuitem"]:not([aria-disabled="true"])')?.focus({ preventScroll: true });
     },
     // Açılan katmanı (menü, tooltip) tetikleyicinin yanına koyar. Tetikleyici yakınlaştırılmış sahnedeyse
     // ([data-tds-layer]) katman da sahnenin içine girer, böylece aynı ölçekte durur ve yerinden kaymaz.
@@ -91,7 +121,8 @@
       pop.style.left = `${left}px`;
       trigger.setAttribute('aria-expanded', 'true');
       const first = pop.querySelector('[role="menuitem"]:not([aria-disabled="true"])');
-      if (first) first.focus();
+      // preventScroll: menü açılınca sahne kendiliğinden kaymasın; taşan menüye kullanıcı kaydırarak ulaşır.
+      if (first) first.focus({ preventScroll: true });
     },
 
     // Durumlu komponentler (takvim, filtre grubu, tag input…): kök elemanda data-tds-comp ve data-tds-props durur.
@@ -158,6 +189,7 @@
     const item = e.target.closest('.tds-popover [role="menuitem"]');
     if (item) {
       if (item.getAttribute('aria-disabled') === 'true') return;
+      if (item.dataset.tdsSubmenu) { TDS.openSubmenu(item, true); return; }
       // Seçilen satır tetikleyiciye bildirilir (Select, Phone Field, takvim başlığı değeri buradan alır).
       const trigger = item.closest('.tds-popover')._trigger;
       const value = item.dataset.value || item.querySelector('.tds-menu-item-label')?.textContent || '';
@@ -167,12 +199,24 @@
     }
     if (!e.target.closest('.tds-popover')) TDS.closeMenu();
   });
+  // Alt menü üzerine gelince açılır; menüde başka bir satıra geçince kapanır.
+  let subTimer = null;
+  document.addEventListener('pointerover', (e) => {
+    const item = e.target.closest && e.target.closest('.tds-popover:not([data-submenu]) [role="menuitem"]');
+    if (!item) return;
+    clearTimeout(subTimer);
+    subTimer = setTimeout(() => { if (item.dataset.tdsSubmenu) TDS.openSubmenu(item, false); else TDS.closeSubmenu(); }, 150);
+  });
   document.addEventListener('keydown', (e) => {
-    const pop = document.querySelector('.tds-popover');
-    if (!pop) return;
+    const pops = document.querySelectorAll('.tds-popover');
+    if (!pops.length) return;
+    const pop = (document.activeElement && document.activeElement.closest && document.activeElement.closest('.tds-popover')) || pops[pops.length - 1];
     const items = [...pop.querySelectorAll('[role="menuitem"]:not([aria-disabled="true"])')];
     const i = items.indexOf(document.activeElement);
-    if (e.key === 'Escape') { e.preventDefault(); TDS.closeMenu(true); }
+    const inSub = pop.hasAttribute('data-submenu');
+    if ((e.key === 'Escape' || e.key === 'ArrowLeft') && inSub) { e.preventDefault(); TDS.closeSubmenu(true); }
+    else if (e.key === 'ArrowRight' && i >= 0 && items[i].dataset.tdsSubmenu) { e.preventDefault(); TDS.openSubmenu(items[i], true); }
+    else if (e.key === 'Escape') { e.preventDefault(); TDS.closeMenu(true); }
     else if (e.key === 'Tab') TDS.closeMenu();
     else if (e.key === 'ArrowDown') { e.preventDefault(); (items[i + 1] || items[0])?.focus(); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); (items[i - 1] || items[items.length - 1])?.focus(); }

@@ -56,6 +56,19 @@ Floating list for dropdowns, Select, autocomplete and filters. Rows go in the It
 
 Loading skeleton lines: 12 px tall, 208 / 166 / 125 px wide.
 
+## Motion
+
+The Loading skeleton is animated so it reads as loading: a lighter band sweeps across each line from left to right, again and again. Figma cannot play it; the documentation shows it in the Interaction frame. With "reduce motion" on, the lines stay still.
+
+| Property | Value |
+|---|---|
+| Animation | Shimmer, left → right, infinite |
+| Duration | 1500 ms |
+| Easing | ease-in-out |
+| Base | `bg/interactive/pressed` |
+| Highlight | `bg/interactive/hover` |
+| Stagger | 150 ms per line |
+
 ## Slots
 
 - **Items:** Menu Item, Menu Group Label, Menu Separator. Destructive rows go last, after a separator.

@@ -36,6 +36,13 @@ The signed-in person; opens the user menu. Full shows avatar, name, email and a 
 
 Avatar: Medium. Chevron: CaretDown, `Spacing/4` (16).
 
+### Parts
+
+| Part | Kind | Size |
+|---|---|---|
+| Avatar | Avatar (Medium) | 32 |
+| Chevron | CaretDown | `Spacing/4` (16) |
+
 ## States
 
 | State | Fill | Name | Email |

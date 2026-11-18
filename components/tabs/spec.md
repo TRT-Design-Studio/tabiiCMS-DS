@@ -29,6 +29,17 @@ Switches between views of the same page. Segmented: main sections of a screen. U
 
 Nested tabs (Tab 1–5) are exposed in Items.
 
+## Motion
+
+Selecting a tab moves the selection to it. Figma shows only the end states; the motion is code only and does not change the Figma layout.
+
+| Property | Value |
+|---|---|
+| Fade | The old tab's fill (Segmented) or line (Underline) fades out, the new one fades in |
+| Slide | The fill or line slides from the old tab to the new one and takes its width |
+| Duration | Button Motion (120 ms) for Fade; 200 ms for Slide |
+| Easing | ease-out |
+
 ## Sizes
 
 | Type | Height | Padding | Gap | Radius |
@@ -36,7 +47,7 @@ Nested tabs (Tab 1–5) are exposed in Items.
 | Segmented | 40 | `Spacing/1` (4) | `Spacing/1` (4) | `rounded-xl` |
 | Underline | 40 | `Spacing/0` top/bottom, `Spacing/1` (4) sides | `Spacing/6` (24) | — |
 
-Width hugs the tabs.
+Width hugs the tabs. On Underline the side padding (before the first and after the last tab) can be changed on the instance, e.g. `Spacing/6` (24); the bottom line still spans the whole row. The tabs keep their own padding.
 
 ## States
 

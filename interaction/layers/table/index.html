@@ -1,0 +1,1911 @@
+<!doctype html>
+<!-- Bu dosya `node interaction/build.mjs` ile üretilir. Elle düzenleme. Kaynak: interaction/ ve components/*/spec.md -->
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table · Tabii CMS Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* tokens/ klasöründen üretildi. Elle düzenleme. */
+:root {
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-8: 32px;
+  --spacing-9: 36px;
+  --spacing-10: 40px;
+  --spacing-11: 44px;
+  --spacing-12: 48px;
+  --spacing-14: 56px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-28: 112px;
+  --spacing-32: 128px;
+  --spacing-36: 144px;
+  --spacing-40: 160px;
+  --spacing-44: 176px;
+  --spacing-48: 192px;
+  --spacing-52: 208px;
+  --spacing-56: 224px;
+  --spacing-60: 240px;
+  --spacing-64: 256px;
+  --spacing-72: 288px;
+  --spacing-80: 320px;
+  --spacing-96: 384px;
+  --spacing-px: 1px;
+  --spacing-0-5: 2px;
+  --spacing-1-5: 6px;
+  --spacing-2-5: 10px;
+  --spacing-3-5: 14px;
+  --spacing-4-5: 18px;
+  --rounded-none: 0px;
+  --rounded-xs: 2px;
+  --rounded-sm: 4px;
+  --rounded-md: 6px;
+  --rounded-lg: 8px;
+  --rounded-xl: 12px;
+  --rounded-2xl: 16px;
+  --rounded-3xl: 24px;
+  --rounded-4xl: 32px;
+  --rounded-full: 9999px;
+  --border-width-0: 0px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+  --border-width-8: 8px;
+  --border-width-default: 1px;
+  --opacity-50: 0.5;
+  --font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --text-xs-thin: 100 12px/16px var(--font-family);
+  --text-xs-extralight: 200 12px/16px var(--font-family);
+  --text-xs-light: 300 12px/16px var(--font-family);
+  --text-xs-regular: 400 12px/16px var(--font-family);
+  --text-xs-medium: 500 12px/16px var(--font-family);
+  --text-xs-semibold: 600 12px/16px var(--font-family);
+  --text-xs-bold: 700 12px/16px var(--font-family);
+  --text-xs-extrabold: 800 12px/16px var(--font-family);
+  --text-xs-black: 900 12px/16px var(--font-family);
+  --text-sm-thin: 100 14px/20px var(--font-family);
+  --text-sm-extralight: 200 14px/20px var(--font-family);
+  --text-sm-light: 300 14px/20px var(--font-family);
+  --text-sm-regular: 400 14px/20px var(--font-family);
+  --text-sm-medium: 500 14px/20px var(--font-family);
+  --text-sm-semibold: 600 14px/20px var(--font-family);
+  --text-sm-bold: 700 14px/20px var(--font-family);
+  --text-sm-extrabold: 800 14px/20px var(--font-family);
+  --text-sm-black: 900 14px/20px var(--font-family);
+  --text-base-thin: 100 16px/24px var(--font-family);
+  --text-base-extralight: 200 16px/24px var(--font-family);
+  --text-base-light: 300 16px/24px var(--font-family);
+  --text-base-regular: 400 16px/24px var(--font-family);
+  --text-base-medium: 500 16px/24px var(--font-family);
+  --text-base-semibold: 600 16px/24px var(--font-family);
+  --text-base-bold: 700 16px/24px var(--font-family);
+  --text-base-extrabold: 800 16px/24px var(--font-family);
+  --text-base-black: 900 16px/24px var(--font-family);
+  --text-lg-thin: 100 18px/28px var(--font-family);
+  --text-lg-extralight: 200 18px/28px var(--font-family);
+  --text-lg-light: 300 18px/28px var(--font-family);
+  --text-lg-regular: 400 18px/28px var(--font-family);
+  --text-lg-medium: 500 18px/28px var(--font-family);
+  --text-lg-semibold: 600 18px/28px var(--font-family);
+  --text-lg-bold: 700 18px/28px var(--font-family);
+  --text-lg-extrabold: 800 18px/28px var(--font-family);
+  --text-lg-black: 900 18px/28px var(--font-family);
+  --text-xl-thin: 100 20px/28px var(--font-family);
+  --text-xl-extralight: 200 20px/28px var(--font-family);
+  --text-xl-light: 300 20px/28px var(--font-family);
+  --text-xl-regular: 400 20px/28px var(--font-family);
+  --text-xl-medium: 500 20px/28px var(--font-family);
+  --text-xl-semibold: 600 20px/28px var(--font-family);
+  --text-xl-bold: 700 20px/28px var(--font-family);
+  --text-xl-extrabold: 800 20px/28px var(--font-family);
+  --text-xl-black: 900 20px/28px var(--font-family);
+  --text-2xl-thin: 100 24px/32px var(--font-family);
+  --text-2xl-extralight: 200 24px/32px var(--font-family);
+  --text-2xl-light: 300 24px/32px var(--font-family);
+  --text-2xl-regular: 400 24px/32px var(--font-family);
+  --text-2xl-medium: 500 24px/32px var(--font-family);
+  --text-2xl-semibold: 600 24px/32px var(--font-family);
+  --text-2xl-bold: 700 24px/32px var(--font-family);
+  --text-2xl-extrabold: 800 24px/32px var(--font-family);
+  --text-2xl-black: 900 24px/32px var(--font-family);
+  --text-3xl-thin: 100 30px/36px var(--font-family);
+  --text-3xl-extralight: 200 30px/36px var(--font-family);
+  --text-3xl-light: 300 30px/36px var(--font-family);
+  --text-3xl-regular: 400 30px/36px var(--font-family);
+  --text-3xl-medium: 500 30px/36px var(--font-family);
+  --text-3xl-semibold: 600 30px/36px var(--font-family);
+  --text-3xl-bold: 700 30px/36px var(--font-family);
+  --text-3xl-extrabold: 800 30px/36px var(--font-family);
+  --text-3xl-black: 900 30px/36px var(--font-family);
+  --text-4xl-thin: 100 36px/40px var(--font-family);
+  --text-4xl-extralight: 200 36px/40px var(--font-family);
+  --text-4xl-light: 300 36px/40px var(--font-family);
+  --text-4xl-regular: 400 36px/40px var(--font-family);
+  --text-4xl-medium: 500 36px/40px var(--font-family);
+  --text-4xl-semibold: 600 36px/40px var(--font-family);
+  --text-4xl-bold: 700 36px/40px var(--font-family);
+  --text-4xl-extrabold: 800 36px/40px var(--font-family);
+  --text-4xl-black: 900 36px/40px var(--font-family);
+  --shadow-2xs: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+  --shadow-xs: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --bg-base: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f5f5f5;
+  --bg-raised: #ffffff;
+  --bg-inverse: #171717;
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  --bg-disabled: #f5f5f5;
+  --bg-interactive-hover: rgba(0, 0, 0, 0.05);
+  --bg-interactive-pressed: rgba(0, 0, 0, 0.1);
+  --bg-interactive-selected: rgba(0, 0, 0, 0.04);
+  --bg-inverse-overlay: rgba(23, 23, 23, 0.6);
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --text-tertiary: #a1a1a1;
+  --text-inverse: #fafafa;
+  --text-on-color: #ffffff;
+  --text-disabled: #a1a1a1;
+  --border-subtle: #f5f5f5;
+  --border-default: #e8e8e8;
+  --border-strong: #d4d4d4;
+  --border-selected: #171717;
+  --border-focus: #2474ff;
+  --border-disabled: #f5f5f5;
+  --border-danger: #ff0000;
+  --border-control: #737373;
+  --border-success: #009b68;
+  --border-warning: #d2a500;
+  --action-primary-default: #171717;
+  --action-primary-hover: #212121;
+  --action-primary-pressed: #404040;
+  --action-secondary-default: #ffffff;
+  --action-secondary-hover: #f5f5f5;
+  --action-secondary-pressed: #e8e8e8;
+  --action-danger-default: #db0000;
+  --action-danger-hover: #af0000;
+  --action-danger-pressed: #940808;
+  --action-soft-default: #f5f5f5;
+  --action-soft-hover: #e8e8e8;
+  --action-soft-pressed: #d4d4d4;
+  --feedback-success-bg: #ebfef5;
+  --feedback-success-text: #007a55;
+  --feedback-success-border: rgba(0, 155, 104, 0.1);
+  --feedback-success-dot: #0abf80;
+  --feedback-warning-bg: #fefee8;
+  --feedback-warning-text: #875a0c;
+  --feedback-warning-border: rgba(164, 116, 4, 0.1);
+  --feedback-warning-dot: #efcf03;
+  --feedback-danger-bg: #ffefef;
+  --feedback-danger-text: #db0000;
+  --feedback-danger-border: rgba(255, 146, 146, 0.2);
+  --feedback-danger-dot: #ff1f1f;
+  --feedback-info-bg: #eef6ff;
+  --feedback-info-text: #1447e1;
+  --feedback-info-border: rgba(27, 92, 245, 0.1);
+  --feedback-info-dot: #2474ff;
+  --feedback-neutral-bg: #f5f5f5;
+  --feedback-neutral-text: #525252;
+  --feedback-neutral-border: #e8e8e8;
+  --feedback-neutral-dot: #737373;
+  --avatar-blue-bg: #d9e9ff;
+  --avatar-blue-text: #1447e1;
+  --avatar-purple-bg: #ede7ff;
+  --avatar-purple-text: #6d3fd8;
+  --avatar-teal-bg: #ccfbf1;
+  --avatar-teal-text: #0f766e;
+  --avatar-pink-bg: #fce7f3;
+  --avatar-pink-text: #be185d;
+}
+[data-theme="dark"] {
+  --bg-base: #0a0a0a;
+  --bg-surface: #171717;
+  --bg-subtle: #212121;
+  --bg-raised: #212121;
+  --bg-inverse: #fafafa;
+  --bg-overlay: rgba(0, 0, 0, 0.7);
+  --bg-disabled: #212121;
+  --bg-interactive-hover: rgba(255, 255, 255, 0.06);
+  --bg-interactive-pressed: rgba(255, 255, 255, 0.12);
+  --bg-interactive-selected: rgba(255, 255, 255, 0.06);
+  --bg-inverse-overlay: rgba(250, 250, 250, 0.6);
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1a1;
+  --text-tertiary: #737373;
+  --text-inverse: #171717;
+  --text-on-color: #ffffff;
+  --text-disabled: #737373;
+  --border-subtle: #212121;
+  --border-default: #404040;
+  --border-strong: #525252;
+  --border-selected: #fafafa;
+  --border-focus: #59a2ff;
+  --border-disabled: #212121;
+  --border-danger: #ff1f1f;
+  --border-control: #737373;
+  --border-success: #0abf80;
+  --border-warning: #efcf03;
+  --action-primary-default: #fafafa;
+  --action-primary-hover: #e8e8e8;
+  --action-primary-pressed: #d4d4d4;
+  --action-secondary-default: #171717;
+  --action-secondary-hover: #212121;
+  --action-secondary-pressed: #404040;
+  --action-danger-default: #db0000;
+  --action-danger-hover: #af0000;
+  --action-danger-pressed: #940808;
+  --action-soft-default: #212121;
+  --action-soft-hover: #404040;
+  --action-soft-pressed: #525252;
+  --feedback-success-bg: #012d22;
+  --feedback-success-text: #6aebb6;
+  --feedback-success-border: rgba(4, 80, 59, 0.5);
+  --feedback-success-dot: #2fd897;
+  --feedback-warning-bg: #432705;
+  --feedback-warning-text: #fff743;
+  --feedback-warning-border: rgba(115, 74, 16, 0.5);
+  --feedback-warning-dot: #ffe910;
+  --feedback-danger-bg: #520000;
+  --feedback-danger-text: #ff9292;
+  --feedback-danger-border: rgba(148, 8, 8, 0.5);
+  --feedback-danger-dot: #ff5454;
+  --feedback-info-bg: #142257;
+  --feedback-info-text: #8ec3ff;
+  --feedback-info-border: rgba(23, 58, 182, 0.5);
+  --feedback-info-dot: #59a2ff;
+  --feedback-neutral-bg: #212121;
+  --feedback-neutral-text: #a1a1a1;
+  --feedback-neutral-border: #404040;
+  --feedback-neutral-dot: #a1a1a1;
+  --avatar-blue-bg: #19358f;
+  --avatar-blue-text: #bcdaff;
+  --avatar-purple-bg: #4c1d95;
+  --avatar-purple-text: #ddd6fe;
+  --avatar-teal-bg: #134e4a;
+  --avatar-teal-text: #99f6e4;
+  --avatar-pink-bg: #831843;
+  --avatar-pink-text: #fbcfe8;
+}
+:root { --tds-motion-duration: 120ms; --tds-motion-easing: ease-out;
+  --tds-transition: background-color var(--tds-motion-duration) var(--tds-motion-easing), color var(--tds-motion-duration) var(--tds-motion-easing), box-shadow var(--tds-motion-duration) var(--tds-motion-easing), border-color var(--tds-motion-duration) var(--tds-motion-easing), opacity var(--tds-motion-duration) var(--tds-motion-easing), text-decoration-color var(--tds-motion-duration) var(--tds-motion-easing); }
+/* Playground çerçevesi. Yapı ve hareket interaction/reference/sidebar/style.css ile aynı;
+   değerler Sidebar, Nav Item ve Nav Sub Group spec'lerindeki token'lar. */
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg-surface); color: var(--text-primary); font: var(--text-sm-regular); -webkit-font-smoothing: antialiased; overflow: hidden; }
+#app { height: 100%; }
+:root { --pg-ease: cubic-bezier(0.32, 0.72, 0, 1); --pg-dur: 0.4s; --pg-fast: 0.15s; }
+
+.pg-app { display: flex; height: 100vh; min-height: 560px; }
+
+/* ---------- Sidebar (Type=Expanded, 248) ---------- */
+.sidebar { flex: none; width: 248px; height: 100%; display: flex; flex-direction: column; background: var(--bg-base); border-right: 1px solid var(--border-default); }
+.sb-header { flex: none; display: flex; align-items: center; height: 56px; padding: var(--spacing-3-5) var(--spacing-7); border-bottom: 1px solid var(--border-default); }
+.logo { display: flex; align-items: center; gap: var(--spacing-2); border-radius: var(--rounded-md); }
+.logo svg { display: block; flex: none; }
+.logo:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; }
+
+.sb-nav { flex: 1; min-height: 0; overflow: hidden auto; scrollbar-width: thin; display: flex; flex-direction: column; gap: var(--spacing-3); padding: var(--spacing-4); }
+.sb-group { display: flex; flex-direction: column; gap: var(--spacing-0-5); }
+.group-label { height: 28px; flex: none; display: flex; align-items: center; padding: var(--spacing-1-5) var(--spacing-2-5); }
+.group-label p { margin: 0; font: var(--text-xs-medium); color: var(--text-tertiary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Nav Item, Level=Item */
+.item { position: relative; flex: none; display: flex; align-items: center; gap: var(--spacing-2-5); width: 100%; height: 36px; padding: var(--spacing-2) var(--spacing-2-5); margin: 0; overflow: hidden;
+  border: 1px solid transparent; border-radius: var(--rounded-lg); background: transparent; cursor: pointer; text-align: left;
+  color: var(--text-secondary); font: var(--text-sm-medium); white-space: nowrap;
+  transition: background-color var(--pg-fast) ease, color var(--pg-fast) ease; }
+.item:hover { background: var(--bg-interactive-hover); color: var(--text-primary); }
+.item:active { background: var(--bg-interactive-pressed); }
+.item.selected { background: var(--bg-surface); border-color: var(--border-default); color: var(--text-primary); }
+.item:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--border-focus); }
+.item .text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.item .caret { flex: none; display: flex; }
+.item .caret .tds-icon { transition: transform 0.2s ease-out; }
+.item.closed .caret .tds-icon { transform: rotate(180deg); }
+
+/* Nav Sub Group: açılır alan, içinde property kontrolleri */
+.sub { display: grid; grid-template-rows: 1fr; opacity: 1; transition: grid-template-rows var(--pg-dur) var(--pg-ease), opacity var(--pg-dur) var(--pg-ease); }
+.sub.shut { grid-template-rows: 0fr; opacity: 0; pointer-events: none; visibility: hidden; transition: grid-template-rows var(--pg-dur) var(--pg-ease), opacity var(--pg-dur) var(--pg-ease), visibility 0s linear var(--pg-dur); }
+.sub > div { min-height: 0; overflow: hidden; }
+.sub-wrap { padding: var(--spacing-1-5) 0 var(--spacing-1-5) var(--spacing-4-5); }
+.sub-list { display: flex; flex-direction: column; gap: var(--spacing-3); padding: var(--spacing-1) 0 var(--spacing-1) var(--spacing-2); border-left: 1px solid var(--border-default); }
+
+/* Kontroller (Select Small ve Input Small görünümünde) */
+.pg-field { display: flex; flex-direction: column; gap: var(--spacing-1); padding-left: var(--spacing-2); }
+.pg-field > span:first-child, .pg-check > span { font: var(--text-xs-medium); color: var(--text-secondary); }
+.pg-select { position: relative; display: flex; }
+.pg-select .tds-icon { position: absolute; right: var(--spacing-2-5); top: 50%; transform: translateY(-50%); color: var(--text-secondary); pointer-events: none; }
+.pg-field select, .pg-field input { width: 100%; height: 32px; padding: 0 var(--spacing-2-5); font: var(--text-sm-regular); color: var(--text-primary); background: var(--bg-surface);
+  border: 1px solid var(--border-default); border-radius: var(--rounded-md); appearance: none; -webkit-appearance: none; }
+.pg-field select { padding-right: var(--spacing-8); cursor: pointer; }
+.pg-field select:focus-visible, .pg-field input:focus-visible { outline: none; border-color: var(--border-selected); }
+.pg-check { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-2); padding-left: var(--spacing-2); min-height: 24px; cursor: pointer; }
+.pg-check input { appearance: none; -webkit-appearance: none; flex: none; width: 28px; height: 16px; margin: 0; border-radius: var(--rounded-full); background: var(--border-strong); position: relative; cursor: pointer; transition: background-color var(--pg-fast) ease; }
+.pg-check input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: var(--rounded-full); background: var(--bg-surface); transition: transform var(--pg-fast) ease; }
+.pg-check input:checked { background: var(--action-primary-default); }
+.pg-check input:checked::after { transform: translateX(12px); background: var(--text-inverse); }
+.pg-check input:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; }
+
+.sb-footer { flex: none; padding: var(--spacing-4); border-top: 1px solid var(--border-default); }
+
+/* ---------- Sahne ---------- */
+.pg-stage { position: relative; flex: 1; min-width: 0; height: 100%; background: var(--bg-surface); outline: none; }
+/* Yakınlaştırma: .pg-preview ölçeklenir ve .pg-sizer içinde JS'in verdiği yerde durur (playground.js → fit).
+   Açılan menü komponenti yerinden oynatmaz; kaydırma alanı menüyü içine alacak kadar her yöne büyür. */
+.pg-canvas { position: absolute; inset: 0; overflow: auto; --pg-pad: var(--spacing-16); }
+.pg-sizer { position: relative; }
+.pg-preview { position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; width: max-content; transform: scale(var(--zoom, 1)); transform-origin: 0 0; transition: transform 0.2s var(--pg-ease); }
+
+.pg-zoom { position: absolute; right: var(--spacing-4); bottom: var(--spacing-4); display: flex; align-items: center; gap: var(--spacing-0-5); padding: var(--spacing-0-5);
+  background: var(--bg-raised); border-radius: var(--rounded-lg); box-shadow: inset 0 0 0 1px var(--border-default), var(--shadow-sm); }
+.pg-zoom button { display: inline-flex; align-items: center; justify-content: center; height: 28px; min-width: 28px; padding: 0 var(--spacing-1-5); border: 0; margin: 0; border-radius: var(--rounded-md);
+  background: transparent; color: var(--text-secondary); font: var(--text-xs-medium); cursor: pointer; transition: background-color var(--pg-fast) ease, color var(--pg-fast) ease; }
+.pg-zoom button:hover:not(:disabled) { background: var(--bg-interactive-hover); color: var(--text-primary); }
+.pg-zoom button:active:not(:disabled) { background: var(--bg-interactive-pressed); }
+.pg-zoom button:disabled { opacity: var(--opacity-50); cursor: not-allowed; }
+.pg-zoom button:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 0; }
+.pg-zoom-value { min-width: 48px !important; font-variant-numeric: tabular-nums; }
+
+/* ---------- Komponentlerin ortak parçaları ---------- */
+.tds-icon { display: inline-flex; flex: none; width: 1em; height: 1em; font-size: 16px; line-height: 1; align-items: center; justify-content: center; }
+.tds-icon svg { display: block; width: 1em; height: 1em; }
+.tds-flag { display: inline-block; flex: none; border-radius: var(--rounded-full); }
+/* Sahne örnekleri: kontrol + Label (Checkbox & Radio spec: 8 px aralık) */
+.pg-choices { display: flex; flex-direction: column; gap: var(--spacing-3); }
+.pg-choice { display: flex; align-items: flex-start; gap: var(--spacing-2); }
+.pg-choice > .tds-checkbox, .pg-choice > .tds-radio { margin-top: var(--spacing-0-5); }
+.tds-popover { position: absolute; z-index: 1000; animation: tds-pop-in var(--tds-motion-duration) var(--tds-motion-easing); }
+@keyframes tds-pop-in { from { opacity: 0; transform: translateY(-4px); } }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; transition-delay: 0ms !important; animation-duration: 0.01ms !important; } }
+
+/* checkbox: components/checkbox/spec.md */
+.tds-checkbox { display: inline-grid; place-items: center; flex: none; box-sizing: border-box; width: var(--spacing-4); height: var(--spacing-4); padding: 0; margin: 0; border: 0; border-radius: var(--rounded-sm); cursor: pointer; outline: none; transition: var(--tds-transition); }
+.tds-checkbox .tds-icon { font-size: 12px; }
+.tds-checkbox:disabled { cursor: not-allowed; }
+.tds-checkbox[aria-checked="false"] { background: var(--bg-base); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-checkbox[aria-checked="false"]:hover:not(:disabled):not([data-state]), .tds-checkbox[aria-checked="false"][data-state="hover"] { background: var(--bg-subtle); box-shadow: inset 0 0 0 1px var(--border-strong); }
+.tds-checkbox[aria-checked="false"]:focus-visible, .tds-checkbox[aria-checked="false"][data-state="focused"] { background: var(--bg-base); box-shadow: inset 0 0 0 2px var(--border-focus); }
+.tds-checkbox[aria-checked="true"], .tds-checkbox[aria-checked="mixed"] { background: var(--action-primary-default); box-shadow: none; color: var(--text-inverse); }
+.tds-checkbox[aria-checked="true"]:hover:not(:disabled):not([data-state]), .tds-checkbox[aria-checked="mixed"]:hover:not(:disabled):not([data-state]), .tds-checkbox[aria-checked="true"][data-state="hover"], .tds-checkbox[aria-checked="mixed"][data-state="hover"] { background: var(--action-primary-hover); box-shadow: none; color: var(--text-inverse); }
+.tds-checkbox[aria-checked="true"]:focus-visible, .tds-checkbox[aria-checked="mixed"]:focus-visible, .tds-checkbox[aria-checked="true"][data-state="focused"], .tds-checkbox[aria-checked="mixed"][data-state="focused"] { background: var(--action-primary-default); box-shadow: inset 0 0 0 2px var(--border-focus); color: var(--text-inverse); }
+.tds-checkbox[aria-checked="false"][data-state="disabled"], .tds-checkbox[aria-checked="true"][data-state="disabled"], .tds-checkbox[aria-checked="mixed"][data-state="disabled"] { opacity: var(--opacity-50); }
+
+/* badge-dot: components/badge-dot/spec.md */
+.tds-badge-dot { display: inline-block; flex: none; border-radius: var(--rounded-full); }
+.tds-badge-dot[data-size="small"] { width: 6px; height: 6px; }
+.tds-badge-dot[data-size="medium"] { width: 8px; height: 8px; }
+.tds-badge-dot[data-tone="neutral"] { background: var(--feedback-neutral-dot); }
+.tds-badge-dot[data-tone="strong"] { background: var(--bg-inverse); }
+.tds-badge-dot[data-tone="info"] { background: var(--feedback-info-dot); }
+.tds-badge-dot[data-tone="success"] { background: var(--feedback-success-dot); }
+.tds-badge-dot[data-tone="warning"] { background: var(--feedback-warning-dot); }
+.tds-badge-dot[data-tone="danger"] { background: var(--feedback-danger-dot); }
+
+/* menu-item: components/menu-item/spec.md */
+.tds-menu-item { display: flex; align-items: center; box-sizing: border-box; width: 100%; min-height: 32px; padding: var(--spacing-1-5) var(--spacing-2); gap: var(--spacing-2); border-radius: var(--rounded-md); font: var(--text-sm-regular); border: 0; margin: 0; background: transparent; text-align: left; cursor: pointer; outline: none; transition: var(--tds-transition); }
+.tds-menu-item .tds-icon { transition: color var(--tds-motion-duration) var(--tds-motion-easing); }
+.tds-menu-item-leading { display: inline-flex; flex: none; align-items: center; }
+.tds-menu-item .tds-icon { font-size: 16px; }
+.tds-menu-item-text { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.tds-menu-item-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tds-menu-item-desc, .tds-menu-item-trailing { font: var(--text-xs-regular); color: var(--text-tertiary); }
+.tds-menu-item .tds-icon[data-part="leading-icon"] { color: var(--text-primary); width: 16px; height: 16px; font-size: 16px; }
+.tds-menu-item .tds-icon[data-part="submenu"] { color: var(--text-secondary); width: 16px; height: 16px; font-size: 16px; }
+.tds-menu-item[data-destructive="true"] .tds-icon[data-part="leading-icon"] { color: var(--feedback-danger-text); width: 16px; height: 16px; font-size: 16px; }
+.tds-menu-item:not([data-destructive="true"]) { color: var(--text-primary); }
+.tds-menu-item:not([data-destructive="true"]):hover:not([aria-disabled="true"]):not([data-state]), .tds-menu-item:not([data-destructive="true"])[data-state="hover"] { background: var(--bg-interactive-hover); color: var(--text-primary); }
+.tds-menu-item:not([data-destructive="true"]):focus-visible, .tds-menu-item:not([data-destructive="true"])[data-state="focused"] { background: var(--bg-interactive-hover); box-shadow: inset 0 0 0 2px var(--border-focus); color: var(--text-primary); }
+.tds-menu-item:not([data-destructive="true"])[data-state="selected"] { background: var(--bg-interactive-selected); color: var(--text-primary); }
+.tds-menu-item:not([data-destructive="true"])[data-state="selected"] .tds-menu-item-label { font: var(--text-sm-medium); }
+.tds-menu-item:not([data-destructive="true"])[data-state="disabled"] { opacity: var(--opacity-50); cursor: not-allowed; }
+.tds-menu-item[data-destructive="true"] { color: var(--feedback-danger-text); }
+.tds-menu-item[data-destructive="true"]:hover:not([aria-disabled="true"]):not([data-state]), .tds-menu-item[data-destructive="true"][data-state="hover"] { background: var(--feedback-danger-bg); color: var(--feedback-danger-text); }
+.tds-menu-item[data-destructive="true"]:focus-visible, .tds-menu-item[data-destructive="true"][data-state="focused"] { background: var(--feedback-danger-bg); box-shadow: inset 0 0 0 2px var(--border-focus); color: var(--feedback-danger-text); }
+
+/* menu-group-label: components/menu-group-label/spec.md */
+.tds-menu-group-label { box-sizing: border-box; min-height: 28px; padding: var(--spacing-2) var(--spacing-2) var(--spacing-1); font: var(--text-xs-medium); color: var(--text-tertiary); }
+
+/* menu-separator: components/menu-separator/spec.md */
+.tds-menu-separator { box-sizing: border-box; height: 9px; padding: var(--spacing-1) var(--spacing-0); }
+.tds-menu-separator::after { content: ""; display: block; height: 1px; background: var(--border-subtle); }
+
+/* badge-count: components/badge-count/spec.md */
+.tds-badge-count { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; min-width: 20px; height: 20px; padding: var(--spacing-0-5) var(--spacing-1-5); border-radius: var(--rounded-full); font: var(--text-xs-medium); }
+.tds-badge-count[data-tone="neutral"] { background: var(--feedback-neutral-bg); color: var(--feedback-neutral-text); }
+.tds-badge-count[data-tone="strong"] { background: var(--bg-inverse); color: var(--text-inverse); }
+.tds-badge-count[data-tone="info"] { background: var(--feedback-info-bg); color: var(--feedback-info-text); }
+.tds-badge-count[data-tone="danger"] { background: var(--action-danger-default); color: var(--text-on-color); }
+
+/* button: components/button/spec.md */
+.tds-button { display: inline-flex; align-items: center; justify-content: center; border: 0; margin: 0; cursor: pointer; white-space: nowrap; text-decoration: none; background: transparent; transition: background-color 120ms ease-out, box-shadow 120ms ease-out, color 120ms ease-out, transform 120ms ease-out; }
+.tds-button:active:not(:disabled):not([data-state]), .tds-button[data-state="pressed"] { transform: scale(0.98); }
+@media (prefers-reduced-motion: reduce) { .tds-button { transition: none; } .tds-button:active:not(:disabled):not([data-state]), .tds-button[data-state="pressed"] { transform: none; } }
+.tds-button:focus-visible, .tds-button[data-state="focused"] { outline: 2px solid var(--border-focus); outline-offset: 0; }
+.tds-button:disabled, .tds-button[data-state="disabled"] { opacity: var(--opacity-50); cursor: not-allowed; }
+.tds-button[data-size="xsmall"] { height: 28px; padding: var(--spacing-1-5) var(--spacing-2-5); gap: var(--spacing-1); border-radius: var(--rounded-md); font: var(--text-xs-medium); }
+.tds-button[data-size="xsmall"] .tds-icon { font-size: 14px; }
+.tds-button[data-size="small"] { height: 32px; padding: var(--spacing-1-5) var(--spacing-3); gap: var(--spacing-1-5); border-radius: var(--rounded-md); font: var(--text-sm-medium); }
+.tds-button[data-size="small"] .tds-icon { font-size: 16px; }
+.tds-button[data-size="medium"] { height: 36px; padding: var(--spacing-2) var(--spacing-3-5); gap: var(--spacing-1-5); border-radius: var(--rounded-lg); font: var(--text-sm-medium); }
+.tds-button[data-size="medium"] .tds-icon { font-size: 16px; }
+.tds-button[data-size="large"] { height: 40px; padding: var(--spacing-2) var(--spacing-4); gap: var(--spacing-2); border-radius: var(--rounded-lg); font: var(--text-base-medium); }
+.tds-button[data-size="large"] .tds-icon { font-size: 20px; }
+.tds-button[data-variant="primary"] { background: var(--action-primary-default); color: var(--text-inverse); }
+.tds-button[data-variant="primary"]:hover:not(:disabled):not([data-state]), .tds-button[data-variant="primary"][data-state="hover"] { background: var(--action-primary-hover); }
+.tds-button[data-variant="primary"]:active:not(:disabled):not([data-state]), .tds-button[data-variant="primary"][data-state="pressed"] { background: var(--action-primary-pressed); }
+.tds-button[data-variant="secondary"] { background: var(--action-secondary-default); color: var(--text-primary); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-button[data-variant="secondary"]:hover:not(:disabled):not([data-state]), .tds-button[data-variant="secondary"][data-state="hover"] { background: var(--action-secondary-hover); }
+.tds-button[data-variant="secondary"]:active:not(:disabled):not([data-state]), .tds-button[data-variant="secondary"][data-state="pressed"] { background: var(--action-secondary-pressed); }
+.tds-button[data-variant="tertiary"] { background: var(--action-soft-default); color: var(--text-primary); }
+.tds-button[data-variant="tertiary"]:hover:not(:disabled):not([data-state]), .tds-button[data-variant="tertiary"][data-state="hover"] { background: var(--action-soft-hover); }
+.tds-button[data-variant="tertiary"]:active:not(:disabled):not([data-state]), .tds-button[data-variant="tertiary"][data-state="pressed"] { background: var(--action-soft-pressed); }
+.tds-button[data-variant="ghost"] { background: transparent; color: var(--text-primary); }
+.tds-button[data-variant="ghost"]:hover:not(:disabled):not([data-state]), .tds-button[data-variant="ghost"][data-state="hover"] { background: var(--bg-interactive-hover); }
+.tds-button[data-variant="ghost"]:active:not(:disabled):not([data-state]), .tds-button[data-variant="ghost"][data-state="pressed"] { background: var(--bg-interactive-pressed); }
+.tds-button[data-variant="danger"] { background: var(--action-danger-default); color: var(--text-on-color); }
+.tds-button[data-variant="danger"]:hover:not(:disabled):not([data-state]), .tds-button[data-variant="danger"][data-state="hover"] { background: var(--action-danger-hover); }
+.tds-button[data-variant="danger"]:active:not(:disabled):not([data-state]), .tds-button[data-variant="danger"][data-state="pressed"] { background: var(--action-danger-pressed); }
+.tds-button[data-variant="link"] { background: transparent; color: var(--text-primary); }
+.tds-button[data-variant="link"] { padding-left: 0; padding-right: 0; }
+.tds-button[data-variant="link"] .tds-button-label { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: transparent; transition: text-decoration-color 120ms ease-out; }
+.tds-button[data-variant="link"]:hover:not(:disabled):not([data-state]) .tds-button-label, .tds-button[data-variant="link"][data-state="hover"] .tds-button-label { text-decoration-color: currentColor; }
+
+/* menu: components/menu/spec.md */
+.tds-menu { box-sizing: border-box; width: 240px; padding: var(--spacing-1); border-radius: var(--rounded-lg); background: var(--bg-raised); box-shadow: inset 0 0 0 1px var(--border-default), var(--shadow-lg); display: flex; flex-direction: column; color: var(--text-primary); }
+.tds-menu-status { display: flex; flex-direction: column; }
+.tds-menu-status-title { font: var(--text-sm-medium); color: var(--text-primary); }
+.tds-menu-status-desc { font: var(--text-xs-regular); color: var(--text-tertiary); }
+.tds-menu-hint { font: var(--text-sm-regular); color: var(--text-tertiary); }
+.tds-menu-skeleton { height: 12px; border-radius: var(--rounded-sm); background: var(--bg-interactive-pressed); }
+.tds-menu-skeleton { background: linear-gradient(90deg, var(--bg-interactive-pressed) 0%, var(--bg-interactive-hover) 50%, var(--bg-interactive-pressed) 100%) 0 0 / 200% 100%, var(--bg-interactive-pressed); animation: tds-skeleton-shimmer 1500ms ease-in-out infinite; }
+.tds-menu-skeleton:nth-child(2) { animation-delay: 150ms; }
+.tds-menu-skeleton:nth-child(3) { animation-delay: 300ms; }
+@keyframes tds-skeleton-shimmer { from { background-position: 100% 0, 0 0; } to { background-position: -100% 0, 0 0; } }
+@media (prefers-reduced-motion: reduce) { .tds-menu-skeleton { animation: none; background: var(--bg-interactive-pressed); } }
+.tds-menu[data-state="loading"] .tds-menu-status { padding: var(--spacing-3) var(--spacing-3); gap: var(--spacing-2); }
+.tds-menu[data-state="no-results"] .tds-menu-status { padding: var(--spacing-3) var(--spacing-3); gap: var(--spacing-1); }
+.tds-menu[data-state="error"] .tds-menu-status { padding: var(--spacing-4) var(--spacing-3); gap: var(--spacing-2); align-items: center; text-align: center; }
+.tds-menu[data-state="error"] .tds-menu-status .tds-icon { font-size: 20px; color: var(--feedback-danger-text); }
+.tds-menu[data-state="hint"] .tds-menu-status { padding: var(--spacing-3) var(--spacing-3); gap: var(--spacing-1); }
+
+/* status: components/status/spec.md */
+.tds-status { display: inline-flex; align-items: center; box-sizing: border-box; border: 0; margin: 0; border-radius: var(--rounded-full); white-space: nowrap; transition: var(--tds-transition); }
+button.tds-status { cursor: pointer; }
+.tds-status:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 0; }
+.tds-status[data-size="small"] { height: 20px; padding: var(--spacing-0-5) var(--spacing-2); gap: var(--spacing-1); font: var(--text-xs-medium); }
+.tds-status[data-size="small"] .tds-icon { font-size: 12px; }
+.tds-status[data-size="medium"] { height: 28px; padding: var(--spacing-1) var(--spacing-2-5); gap: var(--spacing-1-5); font: var(--text-sm-medium); }
+.tds-status[data-size="medium"] .tds-icon { font-size: 14px; }
+.tds-status[data-tone="neutral"] { background: var(--feedback-neutral-bg); color: var(--feedback-neutral-text); box-shadow: inset 0 0 0 1px var(--feedback-neutral-border), inset 0 0 0 999px transparent; }
+button.tds-status[data-tone="neutral"]:hover:not([data-state]), .tds-status[data-tone="neutral"][data-state="hover"] { box-shadow: inset 0 0 0 1px var(--feedback-neutral-border), inset 0 0 0 999px var(--bg-interactive-hover); }
+.tds-status[data-tone="info"] { background: var(--feedback-info-bg); color: var(--feedback-info-text); box-shadow: inset 0 0 0 1px var(--feedback-info-border), inset 0 0 0 999px transparent; }
+button.tds-status[data-tone="info"]:hover:not([data-state]), .tds-status[data-tone="info"][data-state="hover"] { box-shadow: inset 0 0 0 1px var(--feedback-info-border), inset 0 0 0 999px var(--bg-interactive-hover); }
+.tds-status[data-tone="success"] { background: var(--feedback-success-bg); color: var(--feedback-success-text); box-shadow: inset 0 0 0 1px var(--feedback-success-border), inset 0 0 0 999px transparent; }
+button.tds-status[data-tone="success"]:hover:not([data-state]), .tds-status[data-tone="success"][data-state="hover"] { box-shadow: inset 0 0 0 1px var(--feedback-success-border), inset 0 0 0 999px var(--bg-interactive-hover); }
+.tds-status[data-tone="warning"] { background: var(--feedback-warning-bg); color: var(--feedback-warning-text); box-shadow: inset 0 0 0 1px var(--feedback-warning-border), inset 0 0 0 999px transparent; }
+button.tds-status[data-tone="warning"]:hover:not([data-state]), .tds-status[data-tone="warning"][data-state="hover"] { box-shadow: inset 0 0 0 1px var(--feedback-warning-border), inset 0 0 0 999px var(--bg-interactive-hover); }
+.tds-status[data-tone="danger"] { background: var(--feedback-danger-bg); color: var(--feedback-danger-text); box-shadow: inset 0 0 0 1px var(--feedback-danger-border), inset 0 0 0 999px transparent; }
+button.tds-status[data-tone="danger"]:hover:not([data-state]), .tds-status[data-tone="danger"][data-state="hover"] { box-shadow: inset 0 0 0 1px var(--feedback-danger-border), inset 0 0 0 999px var(--bg-interactive-hover); }
+
+/* table-cell: components/table-cell/spec.md */
+.tds-table-cell { position: relative; display: flex; align-items: center; box-sizing: border-box; width: 160px; min-height: 44px; padding: var(--spacing-3) var(--spacing-5); gap: var(--spacing-2); font: var(--text-sm-regular); color: var(--text-primary); box-shadow: inset 0 -1px 0 var(--border-default); transition: var(--tds-transition); }
+.tds-table-cell::before { content: ""; position: absolute; inset: 8px; border-radius: var(--rounded-md); background: transparent; pointer-events: none; transition: var(--tds-transition); }
+.tds-table-cell > * { position: relative; }
+.tds-table-cell[data-type="two-line"] { min-height: 62px; }
+.tds-table-cell-lines { display: flex; flex-direction: column; gap: var(--spacing-0-5); min-width: 0; }
+.tds-table-cell-overline { font: var(--text-xs-medium); color: var(--text-tertiary); }
+.tds-table-cell-value { font: var(--text-sm-regular); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tds-table-cell[data-type="text"] .tds-table-cell-value { font: var(--text-sm-regular); }
+.tds-table-cell[data-type="slot"] { min-height: 0; gap: var(--spacing-1-5); }
+.tds-table-cell[data-type="checkbox"] { width: 36px; min-height: 44px; padding: var(--spacing-3) var(--spacing-0) var(--spacing-3) var(--spacing-5); }
+.tds-table-cell-image { flex: none; width: 85px; height: 48px; border-radius: var(--rounded-md); object-fit: cover; background: var(--bg-subtle); }
+.tds-table-cell a.tds-table-cell-value { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: transparent; transition: var(--tds-transition); }
+.tds-table-cell[data-interactive="link"] { cursor: pointer; }
+.tds-table-cell[data-toggle] { cursor: pointer; }
+.tds-table-cell[data-interactive]:focus-visible { outline: 2px solid var(--border-focus); outline-offset: -2px; }
+.tds-table-cell[data-interactive="true"]:hover:not([data-state]):not([aria-selected="true"]), .tds-table-cell[data-state="hover"] { background: var(--bg-surface); }
+.tds-table-cell[data-interactive="true"]:hover:not([data-state]):not([aria-selected="true"])::before, .tds-table-cell[data-state="hover"]::before { background: var(--bg-interactive-selected); }
+.tds-table-cell[aria-selected="true"] { background: linear-gradient(var(--bg-interactive-selected), var(--bg-interactive-selected)), var(--bg-surface); }
+.tds-table-cell[data-interactive="true"][aria-selected="true"]:hover:not([data-state]), .tds-table-cell[data-interactive="true"][data-state="selected-hover"] { background: var(--bg-subtle); }
+.tds-table-cell[data-interactive="true"][aria-selected="true"]:hover:not([data-state])::before, .tds-table-cell[data-interactive="true"][data-state="selected-hover"]::before { background: var(--bg-interactive-selected); }
+.tds-table-cell[data-interactive="link"]:hover:not([data-state]) a.tds-table-cell-value, .tds-table-cell[data-interactive="link"][data-state="hover"] a.tds-table-cell-value, .tds-table-cell[data-interactive="link"][data-state="selected-hover"] a.tds-table-cell-value { text-decoration-color: currentColor; }
+.tds-table-cell[data-interactive="link"][data-state="hover"] { background: transparent; }
+.tds-table-cell[data-interactive="link"][data-state="hover"]::before { background: transparent; }
+
+/* table-header-cell: components/table-header-cell/spec.md */
+.tds-table-header-cell { position: relative; display: flex; align-items: center; box-sizing: border-box; width: 160px; height: 36px; padding: var(--spacing-2-5) var(--spacing-5); gap: var(--spacing-1); margin: 0; border: 0; font: var(--text-xs-medium); text-align: left; white-space: nowrap; background: var(--bg-surface); color: var(--text-tertiary); box-shadow: inset 0 -1px 0 var(--border-default); transition: var(--tds-transition); }
+button.tds-table-header-cell { cursor: pointer; }
+button.tds-table-header-cell:focus-visible { outline: 2px solid var(--border-focus); outline-offset: -2px; }
+button.tds-table-header-cell:hover:not([data-state]), .tds-table-header-cell[data-state="hover"] { background: var(--bg-base); }
+.tds-table-header-cell[aria-sort="ascending"], .tds-table-header-cell[aria-sort="descending"] { background: var(--bg-surface); color: var(--text-primary); }
+button.tds-table-header-cell[aria-sort="ascending"]:hover:not([data-state]), button.tds-table-header-cell[aria-sort="descending"]:hover:not([data-state]), .tds-table-header-cell[aria-sort][data-state="hover"] { background: var(--bg-base); }
+.tds-table-header-cell[data-type="checkbox"] { width: 36px; padding-left: var(--spacing-5); padding-right: var(--spacing-0); }
+.tds-table-header-cell .tds-icon { font-size: 12px; }
+.tds-table-header-cell[data-divider]::after { content: ""; position: absolute; right: 0; top: 0; width: 1px; height: 36px; background: var(--border-default); }
+
+/* icon-button: components/icon-button/spec.md */
+.tds-button.tds-icon-button { padding: 0; }
+.tds-icon-button[data-size="xsmall"] { width: 28px; height: 28px; padding: var(--spacing-1-5); }
+.tds-icon-button[data-size="xsmall"] .tds-icon { font-size: 16px; }
+.tds-icon-button[data-size="small"] { width: 32px; height: 32px; padding: var(--spacing-2); }
+.tds-icon-button[data-size="small"] .tds-icon { font-size: 16px; }
+.tds-icon-button[data-size="medium"] { width: 36px; height: 36px; padding: var(--spacing-2); }
+.tds-icon-button[data-size="medium"] .tds-icon { font-size: 20px; }
+.tds-icon-button[data-size="large"] { width: 40px; height: 40px; padding: var(--spacing-2-5); }
+.tds-icon-button[data-size="large"] .tds-icon { font-size: 20px; }
+.tds-icon-button[data-shape="square"] { border-radius: var(--rounded-lg); }
+.tds-icon-button[data-shape="circle"] { border-radius: var(--rounded-full); }
+.tds-icon-button[data-variant="ghost"][data-state="active"] { background: var(--bg-interactive-selected); }
+
+/* input: components/input/spec.md */
+.tds-input { position: relative; display: flex; align-items: center; box-sizing: border-box; width: 320px; max-width: 100%; margin: 0; cursor: text;
+  background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-default); transition: var(--tds-transition); }
+.tds-input-field { flex: 1; min-width: 0; width: 100%; height: 100%; padding: 0; margin: 0; border: 0; outline: none; background: transparent; font: inherit; color: var(--text-primary); text-overflow: ellipsis; }
+.tds-input-field::placeholder { color: var(--text-tertiary); opacity: 1; }
+.tds-input[data-align="center"] .tds-input-field { text-align: center; }
+.tds-input .tds-icon { flex: none; transition: color var(--tds-motion-duration) var(--tds-motion-easing); }
+.tds-input-leading, .tds-input-trailing { display: flex; align-items: center; flex: none; align-self: stretch; }
+.tds-input-clear { display: inline-flex; flex: none; padding: 0; border: 0; margin: 0; background: transparent; color: inherit; cursor: pointer; border-radius: var(--rounded-sm); }
+.tds-input-clear:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 1px; }
+.tds-input-counter { flex: none; font: var(--text-xs-regular); color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
+.tds-input[data-state="disabled"] { cursor: not-allowed; }
+.tds-input[data-state="disabled"] .tds-input-field { cursor: not-allowed; }
+.tds-input[data-size="small"] { height: 32px; padding: 0 var(--spacing-2-5); gap: var(--spacing-2); border-radius: var(--rounded-md); font: var(--text-sm-regular); }
+.tds-input[data-size="medium"] { height: 36px; padding: 0 var(--spacing-3); gap: var(--spacing-2); border-radius: var(--rounded-lg); font: var(--text-sm-regular); }
+.tds-input[data-size="large"] { height: 40px; padding: 0 var(--spacing-3); gap: var(--spacing-2); border-radius: var(--rounded-lg); font: var(--text-sm-regular); }
+.tds-input .tds-icon[data-part="leading-icon"] { font-size: 16px; color: var(--text-secondary); }
+.tds-input:has(.tds-input-field:placeholder-shown) .tds-icon[data-part="leading-icon"] { color: var(--text-tertiary); }
+.tds-input .tds-icon[data-part="trailing-icon"] { font-size: 16px; color: var(--text-secondary); }
+.tds-input:has(.tds-input-field:placeholder-shown) .tds-icon[data-part="trailing-icon"] { color: var(--text-tertiary); }
+.tds-input .tds-icon[data-part="status-icon"] { font-size: 16px; color: var(--feedback-success-text); }
+.tds-input[data-state="default"] { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-input[data-state="focused"], .tds-input:not([data-state]):focus-within { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-selected); }
+.tds-input[data-state="filled"] { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-input[data-state="error"] { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-danger); }
+.tds-input[data-state="success"] { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-success); }
+.tds-input[data-state="disabled"] { background: var(--bg-disabled); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-input[data-state="disabled"] > * { opacity: var(--opacity-50); }
+.tds-input[data-state="read-only"] { background: var(--bg-base); box-shadow: inset 0 0 0 1px var(--border-default); }
+
+/* card-header: components/card-header/spec.md */
+.tds-card-header { display: flex; align-items: flex-start; box-sizing: border-box; width: 100%; padding: var(--spacing-4) var(--spacing-5); gap: var(--spacing-4); background: var(--bg-base); box-shadow: inset 0 -1px 0 var(--border-default); }
+.tds-card-header[data-trailing="slot-v"] { flex-direction: column; align-items: stretch; }
+.tds-card-header-text { display: flex; flex-direction: column; flex: 1; min-width: 0; gap: var(--spacing-0-5); }
+.tds-card-header-title { font: var(--text-lg-semibold); color: var(--text-primary); }
+.tds-card-header-subtitle { font: var(--text-xs-regular); color: var(--text-tertiary); }
+.tds-card-header-slot { display: flex; align-items: center; gap: var(--spacing-2); }
+.tds-card-header-slot .tds-input { flex: 1; }
+.tds-card-header > .tds-status, .tds-card-header > .tds-button { flex: none; }
+
+/* avatar: components/avatar/spec.md */
+.tds-avatar { display: inline-flex; align-items: center; justify-content: center; flex: none; box-sizing: border-box; overflow: hidden; user-select: none; }
+.tds-avatar[data-size="small"] { width: 28px; height: 28px; border-radius: var(--rounded-md); font: var(--text-xs-medium); }
+.tds-avatar[data-size="medium"] { width: 32px; height: 32px; border-radius: var(--rounded-lg); font: var(--text-sm-medium); }
+.tds-avatar[data-size="large"] { width: 40px; height: 40px; border-radius: var(--rounded-lg); font: var(--text-base-medium); }
+.tds-avatar[data-color="neutral"] { background: var(--bg-subtle); color: var(--text-primary); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-avatar[data-color="blue"] { background: var(--avatar-blue-bg); color: var(--avatar-blue-text); }
+.tds-avatar[data-color="purple"] { background: var(--avatar-purple-bg); color: var(--avatar-purple-text); }
+.tds-avatar[data-color="teal"] { background: var(--avatar-teal-bg); color: var(--avatar-teal-text); }
+.tds-avatar[data-color="pink"] { background: var(--avatar-pink-bg); color: var(--avatar-pink-text); }
+
+/* list-item: components/list-item/spec.md */
+.tds-list-item { display: flex; align-items: center; box-sizing: border-box; width: 320px; padding: var(--spacing-3) var(--spacing-2); border-radius: var(--rounded-lg); color: inherit; text-decoration: none; }
+.tds-list-item:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 0; }
+.tds-list-item-text { display: flex; flex-direction: column; flex: 1; min-width: 0; gap: var(--spacing-0-5); }
+.tds-list-item-title, .tds-list-item-desc { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tds-list-item-title { color: var(--text-primary); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: transparent; transition: var(--tds-transition); }
+a.tds-list-item:hover:not([data-state]) .tds-list-item-title, .tds-list-item[data-state="hover"] .tds-list-item-title { text-decoration-color: currentColor; }
+.tds-list-item-desc { color: var(--text-tertiary); }
+.tds-list-item-wrap { display: flex; flex: none; padding: var(--spacing-1-5); border-radius: var(--rounded-full); background: var(--bg-subtle); box-shadow: inset 0 0 0 1px var(--border-subtle); }
+.tds-list-item-inner { display: flex; padding: var(--spacing-1-5); border-radius: var(--rounded-full); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-default); color: var(--text-primary); }
+.tds-list-item-inner .tds-icon { font-size: 18px; }
+.tds-list-item-meta { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.tds-list-item-slot { display: flex; flex: none; }
+.tds-list-item[data-type="issue"] { gap: var(--spacing-3); min-height: 68px; }
+.tds-list-item[data-type="issue"] .tds-list-item-title { font: var(--text-sm-medium); }
+.tds-list-item[data-type="issue"] .tds-list-item-desc { font: var(--text-sm-regular); }
+.tds-list-item[data-type="activity"] { gap: var(--spacing-3); min-height: 62px; }
+.tds-list-item[data-type="activity"] .tds-list-item-title { font: var(--text-sm-medium); }
+.tds-list-item[data-type="activity"] .tds-list-item-desc { font: var(--text-xs-regular); }
+.tds-list-item[data-type="note"] { gap: var(--spacing-2-5); flex-direction: column; align-items: flex-start; min-height: 74px; }
+.tds-list-item[data-type="note"] .tds-list-item-title { font: var(--text-sm-regular); }
+.tds-list-item[data-type="note"] .tds-list-item-desc { font: var(--text-xs-regular); }
+.tds-list-item[data-type="slot"] { gap: var(--spacing-3); }
+.tds-list-item[data-type="slot"] .tds-list-item-title { font: var(--text-sm-medium); }
+.tds-list-item[data-type="slot"] .tds-list-item-desc { font: var(--text-sm-regular); }
+
+/* trend: components/trend/spec.md */
+.tds-trend { display: inline-flex; align-items: center; height: 16px; gap: var(--spacing-1); white-space: nowrap; }
+.tds-trend .tds-icon { font-size: 14px; }
+.tds-trend-value { font: var(--text-xs-medium); }
+.tds-trend-context { font: var(--text-xs-regular); }
+.tds-trend[data-direction="positive"] { color: var(--feedback-success-text); }
+.tds-trend[data-direction="positive"] .tds-trend-context { color: var(--text-tertiary); }
+.tds-trend[data-direction="negative"] { color: var(--feedback-danger-text); }
+.tds-trend[data-direction="negative"] .tds-trend-context { color: var(--text-tertiary); }
+.tds-trend[data-direction="neutral"] { color: var(--text-secondary); }
+.tds-trend[data-direction="neutral"] .tds-trend-context { color: var(--text-tertiary); }
+
+/* stat-card: components/stat-card/spec.md */
+.tds-stat-card { display: flex; flex-direction: column; box-sizing: border-box; width: 256px; /* yükseklik içeriğe göre: Trend'le 128 px, Trend kapalıyken boşluk kalmaz */ padding: var(--spacing-5); gap: var(--spacing-2); border-radius: var(--rounded-xl); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-stat-card-label { font: var(--text-sm-medium); color: var(--text-primary); }
+.tds-stat-card-value { font: var(--text-3xl-semibold); color: var(--text-primary); }
+
+/* card: components/card/spec.md */
+.tds-card { display: flex; flex-direction: column; box-sizing: border-box; width: 560px; max-width: 100%; overflow: hidden; border-radius: var(--rounded-xl); }
+.tds-card-body { display: flex; flex-direction: column; padding: var(--spacing-5); gap: var(--spacing-4); }
+.tds-card-footer { display: flex; align-items: center; padding: var(--spacing-3) var(--spacing-5); gap: var(--spacing-2); box-shadow: inset 0 1px 0 var(--border-default); }
+.tds-card-footer { justify-content: flex-end; }
+.tds-card[data-flush] > .tds-card-body, .tds-card[data-flush] > .tds-card-footer { padding: 0; }
+.tds-card[data-flush] > .tds-card-footer > * { flex: 1; }
+.tds-card-row { display: flex; gap: var(--spacing-4); }
+.tds-card-row > .tds-stat-card { flex: 1 1 0; width: auto; min-width: 0; }
+.tds-card-body > .tds-list-item { width: 100%; }
+.tds-card-placeholder { font: var(--text-sm-regular); color: var(--text-tertiary); }
+.tds-card[data-style="default"] { background: var(--bg-surface); border: 1px solid var(--border-default); }
+.tds-card[data-style="subtle"] { background: var(--bg-base); border: 1px solid var(--border-default); }
+
+/* icon-stat: components/icon-stat/spec.md */
+.tds-icon-stat { display: inline-flex; align-items: center; gap: var(--spacing-1); font: var(--text-sm-regular); color: var(--text-primary); white-space: nowrap; }
+.tds-icon-stat[data-layout="vertical"] { flex-direction: column; }
+.tds-icon-stat .tds-icon { font-size: 16px; color: var(--text-tertiary); }
+
+/* pagination-item: components/pagination-item/spec.md */
+.tds-pagination-item { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 32px; padding: var(--spacing-1-5) var(--spacing-3); gap: var(--spacing-1); margin: 0; border: 0; border-radius: 0; font: var(--text-sm-medium); white-space: nowrap; cursor: pointer; transition: var(--tds-transition); }
+.tds-pagination-item:focus-visible { outline: 2px solid var(--border-focus); outline-offset: -2px; }
+.tds-pagination-item:disabled, .tds-pagination-item[aria-disabled="true"] { cursor: not-allowed; }
+.tds-pagination-item[data-ellipsis] { cursor: default; }
+.tds-pagination-item .tds-icon { font-size: 14px; color: var(--text-primary); }
+.tds-pagination-item { box-shadow: inset -1px 0 0 var(--border-default); }
+.tds-pagination-item { background: var(--bg-surface); color: var(--text-primary); }
+.tds-pagination-item:hover:not(:disabled):not([aria-current]):not([data-ellipsis]):not([data-state]), .tds-pagination-item[data-state="hover"] { background: var(--bg-interactive-hover); color: var(--text-primary); }
+.tds-pagination-item[aria-current="page"], .tds-pagination-item[data-state="selected"] { background: var(--bg-interactive-selected); color: var(--text-primary); font: var(--text-sm-semibold); }
+.tds-pagination-item:disabled, .tds-pagination-item[data-state="disabled"] { background: var(--bg-surface); color: var(--text-primary); opacity: var(--opacity-50); }
+
+/* select: components/select/spec.md */
+.tds-select { display: flex; align-items: center; box-sizing: border-box; width: 320px; max-width: 100%; margin: 0; border: 0; text-align: left; cursor: pointer; font: inherit; background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-default); transition: var(--tds-transition); }
+.tds-select-value { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-tertiary); transition: color var(--tds-motion-duration) var(--tds-motion-easing); }
+.tds-select .tds-icon { flex: none; transition: color var(--tds-motion-duration) var(--tds-motion-easing), transform var(--tds-motion-duration) var(--tds-motion-easing); }
+.tds-select .tds-icon[data-part="chevron"] { font-size: 16px; color: var(--text-tertiary); }
+.tds-select[aria-expanded="true"] .tds-icon[data-part="chevron"] { transform: rotate(180deg); }
+.tds-select .tds-icon[data-part="leading-icon"] { font-size: 16px; color: var(--text-tertiary); }
+.tds-select[data-filled] .tds-icon[data-part="leading-icon"], .tds-select[data-state]:not([data-state="default"]) .tds-icon[data-part="leading-icon"] { color: var(--text-secondary); }
+.tds-select-leading { display: flex; align-items: center; flex: none; }
+.tds-select:focus-visible { outline: none; }
+.tds-select:disabled, .tds-select[data-state="disabled"] { cursor: not-allowed; }
+.tds-select[data-state="read-only"] { cursor: default; }
+.tds-select[data-size="small"] { height: 32px; padding: 0 var(--spacing-2-5); gap: var(--spacing-2); border-radius: var(--rounded-md); font: var(--text-sm-regular); }
+.tds-select[data-size="medium"] { height: 36px; padding: 0 var(--spacing-3); gap: var(--spacing-2); border-radius: var(--rounded-lg); font: var(--text-sm-regular); }
+.tds-select[data-size="large"] { height: 40px; padding: 0 var(--spacing-3); gap: var(--spacing-2); border-radius: var(--rounded-lg); font: var(--text-sm-regular); }
+.tds-select:not([data-state])[data-filled] { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-select:not([data-state])[data-filled] .tds-select-value { color: var(--text-primary); }
+.tds-select:not([data-state])[data-filled] .tds-icon[data-part="chevron"] { color: var(--text-secondary); }
+.tds-select[data-state="default"] { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-select[data-state="default"] .tds-select-value { color: var(--text-tertiary); }
+.tds-select[data-state="default"] .tds-icon[data-part="chevron"] { color: var(--text-tertiary); }
+.tds-select[data-state="focused"], .tds-select:not([data-state])[aria-expanded="true"], .tds-select:not([data-state]):focus-visible { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-selected); }
+.tds-select[data-state="focused"] .tds-select-value, .tds-select:not([data-state])[aria-expanded="true"] .tds-select-value, .tds-select:not([data-state]):focus-visible .tds-select-value { color: var(--text-primary); }
+.tds-select[data-state="focused"] .tds-icon[data-part="chevron"], .tds-select:not([data-state])[aria-expanded="true"] .tds-icon[data-part="chevron"], .tds-select:not([data-state]):focus-visible .tds-icon[data-part="chevron"] { color: var(--text-secondary); }
+.tds-select[data-state="filled"] { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-select[data-state="filled"] .tds-select-value { color: var(--text-primary); }
+.tds-select[data-state="filled"] .tds-icon[data-part="chevron"] { color: var(--text-secondary); }
+.tds-select[data-state="error"] { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--border-danger); }
+.tds-select[data-state="error"] .tds-select-value { color: var(--text-primary); }
+.tds-select[data-state="error"] .tds-icon[data-part="chevron"] { color: var(--text-secondary); }
+.tds-select[data-state="disabled"] { background: var(--bg-disabled); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-select[data-state="disabled"] .tds-select-value { color: var(--text-primary); }
+.tds-select[data-state="disabled"] .tds-icon[data-part="chevron"] { color: var(--text-secondary); }
+.tds-select[data-state="disabled"] > * { opacity: var(--opacity-50); }
+.tds-select[data-state="read-only"] { background: var(--bg-base); box-shadow: inset 0 0 0 1px var(--border-default); }
+.tds-select[data-state="read-only"] .tds-select-value { color: var(--text-primary); }
+.tds-select[data-state="read-only"] .tds-icon[data-part="chevron"] { color: var(--text-tertiary); }
+
+/* pagination: components/pagination/spec.md */
+.tds-pagination { display: flex; align-items: center; box-sizing: border-box; }
+.tds-pagination-total { font: var(--text-sm-medium); color: var(--text-primary); white-space: nowrap; }
+.tds-pagination-items { display: flex; overflow: hidden; border-radius: 8px; border: 1px solid var(--border-default); }
+.tds-pagination-items .tds-pagination-item:last-child { box-shadow: none; }
+.tds-pagination-group { display: flex; align-items: center; gap: var(--spacing-2); white-space: nowrap; font: var(--text-sm-regular); color: var(--text-secondary); }
+.tds-pagination-mobile { gap: 8px; }
+.tds-pagination-goto .tds-input { width: 56px; }
+.tds-pagination-mobile .tds-select { width: 72px; }
+.tds-pagination[data-size="desktop"] { min-height: 72px; padding: var(--spacing-5) var(--spacing-6); gap: var(--spacing-4); }
+.tds-pagination[data-size="mobile"] { min-height: 72px; padding: var(--spacing-5) var(--spacing-4); gap: var(--spacing-4); }
+
+/* tooltip: components/tooltip/spec.md */
+.tds-tooltip-layer { position: absolute; z-index: 1100; pointer-events: none; opacity: 0; transition: opacity var(--tds-motion-duration) var(--tds-motion-easing); }
+.tds-tooltip-layer.is-open { opacity: 1; }
+.tds-tooltip { display: inline-flex; align-items: center; gap: var(--spacing-0); }
+.tds-tooltip[data-placement="top"] { flex-direction: column; }
+.tds-tooltip[data-placement="bottom"] { flex-direction: column-reverse; }
+.tds-tooltip[data-placement="left"] { flex-direction: row; }
+.tds-tooltip[data-placement="right"] { flex-direction: row-reverse; }
+.tds-tooltip-bubble { display: inline-flex; align-items: center; box-sizing: border-box; min-height: 24px; padding: var(--spacing-1) var(--spacing-2); gap: var(--spacing-1-5); border-radius: var(--rounded-md); background: var(--bg-inverse-overlay); color: var(--text-inverse); font: var(--text-xs-medium); white-space: nowrap; -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
+.tds-tooltip-shortcut { font: var(--text-xs-regular); opacity: 0.6; }
+.tds-tooltip-arrow { flex: none; width: 8.66px; height: 3.75px; background: var(--bg-inverse-overlay); }
+.tds-tooltip[data-placement="top"] .tds-tooltip-arrow { clip-path: polygon(0 0, 100% 0, 50% 100%); }
+.tds-tooltip[data-placement="bottom"] .tds-tooltip-arrow { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.tds-tooltip[data-placement="left"] .tds-tooltip-arrow, .tds-tooltip[data-placement="right"] .tds-tooltip-arrow { width: 3.75px; height: 8.66px; }
+.tds-tooltip[data-placement="left"] .tds-tooltip-arrow { clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.tds-tooltip[data-placement="right"] .tds-tooltip-arrow { clip-path: polygon(100% 0, 100% 100%, 0 50%); }
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+window.TDS_PHOSPHOR = {"Regular":{"ArrowDown":"<path d=\"M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z\"/>","ArrowUp":"<path d=\"M205.66,117.66a8,8,0,0,1-11.32,0L136,59.31V216a8,8,0,0,1-16,0V59.31L61.66,117.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,117.66Z\"/>","Bell":"<path d=\"M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z\"/>","CalendarBlank":"<path d=\"M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Z\"/>","CaretDown":"<path d=\"M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z\"/>","CaretLeft":"<path d=\"M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z\"/>","CaretRight":"<path d=\"M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z\"/>","CaretUp":"<path d=\"M213.66,165.66a8,8,0,0,1-11.32,0L128,91.31,53.66,165.66a8,8,0,0,1-11.32-11.32l80-80a8,8,0,0,1,11.32,0l80,80A8,8,0,0,1,213.66,165.66Z\"/>","CaretUpDown":"<path d=\"M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z\"/>","Check":"<path d=\"M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z\"/>","CheckCircle":"<path d=\"M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z\"/>","Clock":"<path d=\"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z\"/>","Copy":"<path d=\"M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z\"/>","DotsThree":"<path d=\"M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128Zm56-12a12,12,0,1,0,12,12A12,12,0,0,0,196,116ZM60,116a12,12,0,1,0,12,12A12,12,0,0,0,60,116Z\"/>","FloppyDisk":"<path d=\"M219.31,72,184,36.69A15.86,15.86,0,0,0,172.69,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V83.31A15.86,15.86,0,0,0,219.31,72ZM168,208H88V152h80Zm40,0H184V152a16,16,0,0,0-16-16H88a16,16,0,0,0-16,16v56H48V48H172.69L208,83.31ZM160,72a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h56A8,8,0,0,1,160,72Z\"/>","FolderSimple":"<path d=\"M216,72H130.67L102.93,51.2a16.12,16.12,0,0,0-9.6-3.2H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H216.89A15.13,15.13,0,0,0,232,200.89V88A16,16,0,0,0,216,72Zm0,128H40V64H93.33L123.2,86.4A8,8,0,0,0,128,88h88Z\"/>","Funnel":"<path d=\"M230.6,49.53A15.81,15.81,0,0,0,216,40H40A16,16,0,0,0,28.19,66.76l.08.09L96,139.17V216a16,16,0,0,0,24.87,13.32l32-21.34A16,16,0,0,0,160,194.66V139.17l67.74-72.32.08-.09A15.8,15.8,0,0,0,230.6,49.53ZM40,56h0Zm106.18,74.58A8,8,0,0,0,144,136v58.66L112,216V136a8,8,0,0,0-2.16-5.47L40,56H216Z\"/>","Gear":"<path d=\"M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z\"/>","Globe":"<path d=\"M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm88,104a87.61,87.61,0,0,1-3.33,24H174.16a157.44,157.44,0,0,0,0-48h38.51A87.61,87.61,0,0,1,216,128ZM102,168H154a115.11,115.11,0,0,1-26,45A115.27,115.27,0,0,1,102,168Zm-3.9-16a140.84,140.84,0,0,1,0-48h59.88a140.84,140.84,0,0,1,0,48ZM40,128a87.61,87.61,0,0,1,3.33-24H81.84a157.44,157.44,0,0,0,0,48H43.33A87.61,87.61,0,0,1,40,128ZM154,88H102a115.11,115.11,0,0,1,26-45A115.27,115.27,0,0,1,154,88Zm52.33,0H170.71a135.28,135.28,0,0,0-22.3-45.6A88.29,88.29,0,0,1,206.37,88ZM107.59,42.4A135.28,135.28,0,0,0,85.29,88H49.63A88.29,88.29,0,0,1,107.59,42.4ZM49.63,168H85.29a135.28,135.28,0,0,0,22.3,45.6A88.29,88.29,0,0,1,49.63,168Zm98.78,45.6a135.28,135.28,0,0,0,22.3-45.6h35.66A88.29,88.29,0,0,1,148.41,213.6Z\"/>","Heart":"<path d=\"M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z\"/>","Info":"<path d=\"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z\"/>","ListBullets":"<path d=\"M80,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H88A8,8,0,0,1,80,64Zm136,56H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM44,52A12,12,0,1,0,56,64,12,12,0,0,0,44,52Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,116Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,180Z\"/>","Lock":"<path d=\"M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-68-56a12,12,0,1,1-12-12A12,12,0,0,1,140,152Z\"/>","MagnifyingGlass":"<path d=\"M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z\"/>","Minus":"<path d=\"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z\"/>","Moon":"<path d=\"M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z\"/>","PencilSimple":"<path d=\"M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.68,147.31,64l24-24L216,84.68Z\"/>","Plus":"<path d=\"M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z\"/>","Question":"<path d=\"M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z\"/>","Rows":"<path d=\"M208,136H48a16,16,0,0,0-16,16v40a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V152A16,16,0,0,0,208,136Zm0,56H48V152H208v40Zm0-144H48A16,16,0,0,0,32,64v40a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V64A16,16,0,0,0,208,48Zm0,56H48V64H208v40Z\"/>","SortAscending":"<path d=\"M128,128a8,8,0,0,1-8,8H48a8,8,0,0,1,0-16h72A8,8,0,0,1,128,128ZM48,72H184a8,8,0,0,0,0-16H48a8,8,0,0,0,0,16Zm56,112H48a8,8,0,0,0,0,16h56a8,8,0,0,0,0-16Zm125.66-21.66a8,8,0,0,0-11.32,0L192,188.69V112a8,8,0,0,0-16,0v76.69l-26.34-26.35a8,8,0,0,0-11.32,11.32l40,40a8,8,0,0,0,11.32,0l40-40A8,8,0,0,0,229.66,162.34Z\"/>","SquaresFour":"<path d=\"M104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-96,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Zm0,64H152V152h48v48Z\"/>","Stack":"<path d=\"M230.91,172A8,8,0,0,1,228,182.91l-96,56a8,8,0,0,1-8.06,0l-96-56A8,8,0,0,1,36,169.09l92,53.65,92-53.65A8,8,0,0,1,230.91,172ZM220,121.09l-92,53.65L36,121.09A8,8,0,0,0,28,134.91l96,56a8,8,0,0,0,8.06,0l96-56A8,8,0,1,0,220,121.09ZM24,80a8,8,0,0,1,4-6.91l96-56a8,8,0,0,1,8.06,0l96,56a8,8,0,0,1,0,13.82l-96,56a8,8,0,0,1-8.06,0l-96-56A8,8,0,0,1,24,80Zm23.88,0L128,126.74,208.12,80,128,33.26Z\"/>","Star":"<path d=\"M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z\"/>","Sun":"<path d=\"M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z\"/>","Translate":"<path d=\"M247.15,212.42l-56-112a8,8,0,0,0-14.31,0l-21.71,43.43A88,88,0,0,1,108,126.93,103.65,103.65,0,0,0,135.69,64H160a8,8,0,0,0,0-16H104V32a8,8,0,0,0-16,0V48H32a8,8,0,0,0,0,16h87.63A87.76,87.76,0,0,1,96,116.35a87.74,87.74,0,0,1-19-31,8,8,0,1,0-15.08,5.34A103.63,103.63,0,0,0,84,127a87.55,87.55,0,0,1-52,17,8,8,0,0,0,0,16,103.46,103.46,0,0,0,64-22.08,104.18,104.18,0,0,0,51.44,21.31l-26.6,53.19a8,8,0,0,0,14.31,7.16L148.94,192h70.11l13.79,27.58A8,8,0,0,0,240,224a8,8,0,0,0,7.15-11.58ZM156.94,176,184,121.89,211.05,176Z\"/>","Trash":"<path d=\"M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z\"/>","TrendDown":"<path d=\"M240,128v64a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h44.69L136,107.31l-34.34,34.35a8,8,0,0,1-11.32,0l-72-72A8,8,0,0,1,29.66,58.34L96,124.69l34.34-34.35a8,8,0,0,1,11.32,0L224,172.69V128a8,8,0,0,1,16,0Z\"/>","TrendUp":"<path d=\"M240,56v64a8,8,0,0,1-16,0V75.31l-82.34,82.35a8,8,0,0,1-11.32,0L96,123.31,29.66,189.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0L136,140.69,212.69,64H168a8,8,0,0,1,0-16h64A8,8,0,0,1,240,56Z\"/>","User":"<path d=\"M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z\"/>","Warning":"<path d=\"M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z\"/>","WarningCircle":"<path d=\"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-8-80V80a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,172Z\"/>","X":"<path d=\"M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z\"/>"},"Fill":{}};
+window.TDS_SPEC = {"checkbox":{"Variants":[[{"axis":"Checked","values":"False, True, Indeterminate","default":"False"},{"axis":"State","values":"Default, Hover, Focused, Disabled","default":"Default"}]],"Properties":[[{"property":"Checked","type":"Variant","default":"False"},{"property":"State","type":"Variant","default":"Default"}]],"Sizes":[[{"part":"Box","size":"`Spacing/4` (16)","border":"`border` 1 px; `border-2` when Focused; none when checked","radius":"`rounded-sm`"},{"part":"Mark","size":"`Spacing/3` (12)","border":"—","radius":"—"}]],"States":[[{"checked · state":"False · Default","fill":"`bg/base`","border":"`border/default`","mark":"—"},{"checked · state":"False · Hover","fill":"`bg/subtle`","border":"`border/strong`","mark":"—"},{"checked · state":"False · Focused","fill":"`bg/base`","border":"`border/focus` 2 px","mark":"—"},{"checked · state":"True / Indeterminate · Default","fill":"`action/primary/default`","border":"—","mark":"`text/inverse`"},{"checked · state":"True / Indeterminate · Hover","fill":"`action/primary/hover`","border":"—","mark":"`text/inverse`"},{"checked · state":"True / Indeterminate · Focused","fill":"`action/primary/default`","border":"`border/focus` 2 px","mark":"`text/inverse`"},{"checked · state":"Any · Disabled","fill":"as Default","border":"as Default","mark":"`Opacity/opacity-50` on the control"}]],"Used in":[[{"component":"Table Header Cell","where":"Type Checkbox: select all (exposed)"},{"component":"Table Cell","where":"Type Checkbox: select one row (Selected = checked)"}]]},"badge-dot":{"Sizes":[[{"size":"Small","diameter":"6"},{"size":"Medium","diameter":"8"}]],"Tones":[[{"tone":"Neutral","fill":"`feedback/neutral/dot`"},{"tone":"Strong","fill":"`bg/inverse`"},{"tone":"Info","fill":"`feedback/info/dot`"},{"tone":"Success","fill":"`feedback/success/dot`"},{"tone":"Warning","fill":"`feedback/warning/dot`"},{"tone":"Danger","fill":"`feedback/danger/dot`"}]]},"menu-item":{"Variants":[[{"axis":"State","values":"Default, Hover, Focused, Selected, Disabled","default":"Default"},{"axis":"Destructive","values":"False, True (Default, Hover, Focused only)","default":"False"}]],"Properties":[[{"property":"Label","type":"Text","default":"Menu item"},{"property":"Show Description / Description","type":"Boolean / Text","default":"false / Description"},{"property":"Leading Icon / Leading Icon Swap","type":"Boolean / Instance swap","default":"false / Copy"},{"property":"Leading Content / Leading","type":"Boolean / Slot","default":"false / empty"},{"property":"Show Trailing Text / Trailing Text","type":"Boolean / Text","default":"false / ⌘D"},{"property":"Submenu","type":"Boolean","default":"false"},{"property":"Trailing Content / Trailing","type":"Boolean / Slot","default":"false / empty"}]],"Sizes":[[{"height":"32 (one line)","padding h":"`Spacing/2` (8)","padding v":"`Spacing/1․5` (6)","gap":"`Spacing/2` (8)","radius":"`rounded-md` (6)","text":"`text-sm/regular`","icon":"16 (`Spacing/4`)"}]],"Icons":[[{"part":"Leading Icon","icon":"Copy (swap)","size":"16","color":"`text/primary`"},{"part":"Submenu","icon":"CaretRight","size":"16","color":"`text/secondary`"},{"part":"Leading Icon (Destructive)","icon":"Trash (swap)","size":"16","color":"`feedback/danger/text`"}]],"States":[[{"state":"Default","fill":"none","border":"none","label":"`text/primary`"},{"state":"Hover","fill":"`bg/interactive/hover`","border":"none","label":"`text/primary`"},{"state":"Focused","fill":"`bg/interactive/hover`","border":"2 px inside `border/focus`","label":"`text/primary`"},{"state":"Selected","fill":"`bg/interactive/selected`","border":"none","label":"`text/primary`, `text-sm/medium`"},{"state":"Disabled","fill":"none","border":"none","label":"50% opacity (`opacity-50`)"},{"state":"Destructive Default","fill":"none","border":"none","label":"`feedback/danger/text`"},{"state":"Destructive Hover","fill":"`feedback/danger/bg`","border":"none","label":"`feedback/danger/text`"},{"state":"Destructive Focused","fill":"`feedback/danger/bg`","border":"2 px inside `border/focus`","label":"`feedback/danger/text`"}]]},"menu-group-label":{"Properties":[[{"property":"Label","type":"Text","default":"Group"}]],"Sizes":[[{"height":"28","padding":"`Spacing/2` (8) top and sides, `Spacing/1` (4) bottom","text":"`text-xs/medium`, `text/tertiary`"}]]},"menu-separator":{"Sizes":[[{"height":"9","padding":"`Spacing/1` (4) top and bottom, `Spacing/0` sides","line":"1 px, `border/subtle`"}]]},"badge-count":{"Sizes":[[{"height":"20","padding h":"`Spacing/1․5`","padding v":"`Spacing/0․5`","radius":"`rounded-full`","text":"`text-xs/medium`"}]],"Tones":[[{"tone":"Neutral","background":"`feedback/neutral/bg`","text":"`feedback/neutral/text`"},{"tone":"Strong","background":"`bg/inverse`","text":"`text/inverse`"},{"tone":"Info","background":"`feedback/info/bg`","text":"`feedback/info/text`"},{"tone":"Danger","background":"`action/danger/default`","text":"`text/on-color`"}]]},"button":{"Variants":[[{"axis":"Variant","values":"Primary, Secondary, Tertiary, Ghost, Danger, Link","default (figma)":"Primary"},{"axis":"Size","values":"XSmall (28), Small (32), Medium (36), Large (40)","default (figma)":"XSmall"},{"axis":"State","values":"Default, Hover, Pressed, Focused, Disabled","default (figma)":"Default"}]],"Sizes":[[{"size":"XSmall","height":"28","padding h":"`Spacing/2․5`","padding v":"`Spacing/1․5`","gap":"`Spacing/1`","radius":"`rounded-md`","text":"`text-xs/medium`","icon":"14"},{"size":"Small","height":"32","padding h":"`Spacing/3`","padding v":"`Spacing/1․5`","gap":"`Spacing/1․5`","radius":"`rounded-md`","text":"`text-sm/medium`","icon":"16"},{"size":"Medium","height":"36","padding h":"`Spacing/3․5`","padding v":"`Spacing/2`","gap":"`Spacing/1․5`","radius":"`rounded-lg`","text":"`text-sm/medium`","icon":"16"},{"size":"Large","height":"40","padding h":"`Spacing/4`","padding v":"`Spacing/2`","gap":"`Spacing/2`","radius":"`rounded-lg`","text":"`text-base/medium`","icon":"20"}]],"States":[[{"variant":"Primary","default":"`action/primary/default`","hover":"`action/primary/hover`","pressed":"`action/primary/pressed`","border":"none","label":"`text/inverse`"},{"variant":"Secondary","default":"`action/secondary/default`","hover":"`action/secondary/hover`","pressed":"`action/secondary/pressed`","border":"`border/default`","label":"`text/primary`"},{"variant":"Tertiary","default":"`action/soft/default`","hover":"`action/soft/hover`","pressed":"`action/soft/pressed`","border":"none","label":"`text/primary`"},{"variant":"Ghost","default":"none","hover":"`bg/interactive/hover`","pressed":"`bg/interactive/pressed`","border":"none","label":"`text/primary`"},{"variant":"Danger","default":"`action/danger/default`","hover":"`action/danger/hover`","pressed":"`action/danger/pressed`","border":"none","label":"`text/on-color`"},{"variant":"Link","default":"none","hover":"none (underline)","pressed":"none","border":"none","label":"`text/primary`"}],[{"state":"Focused","token":"`border/focus`","note":"2 px ring outside"},{"state":"Disabled","token":"`Opacity/opacity-50`","note":"whole button"}]],"Motion":[[{"property":"Duration","value":"120 ms","note":"Fill, border and scale; short enough not to feel slow"},{"property":"Easing","value":"ease-out","note":""},{"property":"Pressed scale","value":"0.98","note":"The button shrinks by 0.1× while pressed"}]]},"menu":{"Variants":[[{"axis":"State","values":"Default, Loading, No Results, Error, Hint","default":"Default"}]],"Properties":[[{"property":"Items","type":"Slot","default":"4 Menu Item"},{"property":"Title","type":"Text (No Results)","default":"No results for \"xyzq\""},{"property":"Description","type":"Text (No Results)","default":"Check the spelling or search by Content ID."}]],"Sizes":[[{"part":"Width","value":"240 px by default; set it to the trigger or the content"},{"part":"Padding","value":"`Spacing/1` (4)"},{"part":"Radius","value":"`rounded-lg` (8)"},{"part":"Border","value":"1 px inside, `border/default`"},{"part":"Background","value":"`bg/raised`"},{"part":"Effect","value":"`Shadow/shadow-lg`"},{"part":"List state content","value":"Padding `Spacing/3` (Error: `Spacing/4` top and bottom), gap `Spacing/1` or `Spacing/2`"}]],"States":[[{"state":"Default","shows":"The Items slot"},{"state":"Loading","shows":"Three skeleton lines, `bg/interactive/pressed`, `rounded-sm`"},{"state":"No Results","shows":"Title `text-sm/medium` `text/primary`, Description `text-xs/regular` `text/tertiary`"},{"state":"Error","shows":"WarningCircle 20 px, title, description, Button Secondary Small \"Try again\""},{"state":"Hint","shows":"One line `text-sm/regular` `text/tertiary`"}],[{"state":"Loading","padding v":"`Spacing/3`","padding h":"`Spacing/3`","gap":"`Spacing/2`","align":"start","icon":"none"},{"state":"No Results","padding v":"`Spacing/3`","padding h":"`Spacing/3`","gap":"`Spacing/1`","align":"start","icon":"none"},{"state":"Error","padding v":"`Spacing/4`","padding h":"`Spacing/3`","gap":"`Spacing/2`","align":"center","icon":"WarningCircle 20, `feedback/danger/text`"},{"state":"Hint","padding v":"`Spacing/3`","padding h":"`Spacing/3`","gap":"`Spacing/1`","align":"start","icon":"none"}]],"Motion":[[{"property":"Animation","value":"Shimmer, left → right, infinite"},{"property":"Duration","value":"1500 ms"},{"property":"Easing","value":"ease-in-out"},{"property":"Base","value":"`bg/interactive/pressed`"},{"property":"Highlight","value":"`bg/interactive/hover`"},{"property":"Stagger","value":"150 ms per line"}]]},"status":{"Variants":[[{"axis":"Tone","values":"Neutral, Info, Success, Warning, Danger","default":"Neutral"},{"axis":"Size","values":"Small (20), Medium (28)","default":"Small"},{"axis":"Interactive","values":"False, True (chevron, opens a menu)","default":"False"},{"axis":"State","values":"Default, Hover (Interactive only)","default":"Default"}]],"Sizes":[[{"size":"Small","height":"20","padding h":"`Spacing/2`","padding v":"`Spacing/0․5`","gap":"`Spacing/1`","text":"`text-xs/medium`","icon":"12"},{"size":"Medium","height":"28","padding h":"`Spacing/2․5`","padding v":"`Spacing/1`","gap":"`Spacing/1․5`","text":"`text-sm/medium`","icon":"14"}]],"Tones":[[{"tone":"Neutral","background":"`feedback/neutral/bg`","border":"`feedback/neutral/border`","label":"`feedback/neutral/text`","dot":"Neutral"},{"tone":"Info","background":"`feedback/info/bg`","border":"`feedback/info/border`","label":"`feedback/info/text`","dot":"Info"},{"tone":"Success","background":"`feedback/success/bg`","border":"`feedback/success/border`","label":"`feedback/success/text`","dot":"Success"},{"tone":"Warning","background":"`feedback/warning/bg`","border":"`feedback/warning/border`","label":"`feedback/warning/text`","dot":"Warning"},{"tone":"Danger","background":"`feedback/danger/bg`","border":"`feedback/danger/border`","label":"`feedback/danger/text`","dot":"Danger"}],[{"state":"Hover","overlay":"`bg/interactive/hover`","note":"Interactive=True only, on top of the tone background"}]]},"table-cell":{"Variants":[[{"axis":"Type","values":"Text, Two Line, Slot, Checkbox","default":"Text"},{"axis":"Interactive","values":"False, True, Link","default":"False"},{"axis":"State","values":"Default, Hover, Selected, Selected Hover","default":"Default"}]],"Properties":[[{"property":"Type","type":"Variant","default":"Text"},{"property":"Interactive","type":"Variant","default":"False"},{"property":"State","type":"Variant","default":"Default"},{"property":"Value","type":"Text","default":"Cell value"},{"property":"Overline","type":"Text","default":"MOVIE"},{"property":"Show Image","type":"Boolean","default":"false"},{"property":"Cell Slot","type":"Slot","default":"empty"}]],"Sizes":[[{"part":"Text","height":"44","padding":"`Spacing/3` (12) top/bottom, `Spacing/5` (20) sides","gap":"`Spacing/2` (8)","radius":"—","text":"`text-sm/regular`"},{"part":"Two Line","height":"62","padding":"same","gap":"`Spacing/2` (8); lines `Spacing/0․5` (2)","radius":"—","text":"`text-xs/medium` + `text-sm/regular`"},{"part":"Slot","height":"hugs content","padding":"same","gap":"`Spacing/0․5`; slot `Spacing/1․5` (6)","radius":"—","text":"—"},{"part":"Checkbox","height":"44","padding":"`Spacing/3` (12) top/bottom, `Spacing/5` (20) left, `Spacing/0` (0) right","gap":"—","radius":"—","text":"—"},{"part":"Image","height":"48 (85 × 48, 16:9)","padding":"—","gap":"—","radius":"`rounded-md`","text":"—"},{"part":"Hover layer","height":"inset 8 px","padding":"—","gap":"—","radius":"`rounded-md`","text":"—"}]],"States":[[{"state":"Default","fill":"—","border":"`border/default` bottom","text":"Value `text/primary`, Overline `text/tertiary`"},{"state":"Hover (True)","fill":"`bg/surface` + inset layer `bg/interactive/selected` 4%","border":"`border/default` bottom","text":"same"},{"state":"Hover (Link)","fill":"—","border":"`border/default` bottom","text":"Value underlined"},{"state":"Selected","fill":"`bg/surface` + `bg/interactive/selected` 4%","border":"`border/default` bottom","text":"same"},{"state":"Selected Hover (True)","fill":"`bg/subtle` + inset layer `bg/interactive/selected` 4%","border":"`border/default` bottom","text":"same"},{"state":"Selected Hover (Link)","fill":"Selected fill","border":"`border/default` bottom","text":"Value underlined"}]],"Slots":[[{"slot":"Cell Slot","used for":"Type Slot: Status, Avatar, Button, Icon Stat, a content ID with a copy Icon Button"}]]},"table-header-cell":{"Variants":[[{"axis":"Type","values":"Label, Checkbox","default":"Label"},{"axis":"Sort","values":"None, Ascending, Descending","default":"None"},{"axis":"State","values":"Default, Hover","default":"Default"}]],"Properties":[[{"property":"Type","type":"Variant","default":"Label"},{"property":"Sort","type":"Variant","default":"None"},{"property":"State","type":"Variant","default":"Default"},{"property":"Label","type":"Text","default":"COLUMN"},{"property":"Sortable","type":"Boolean","default":"true"},{"property":"Divider","type":"Boolean","default":"false"}]],"Sizes":[[{"part":"Container","size":"36 high","padding":"`Spacing/2․5` (10) top/bottom, `Spacing/5` (20) sides; Checkbox: `Spacing/5` (20) left, `Spacing/0` (0) right","gap":"`Spacing/1` (4)","radius":"—","text":"`text-xs/medium`"},{"part":"Sort Icon","size":"`Spacing/3` (12)","padding":"—","gap":"—","radius":"—","text":"—"},{"part":"Divider","size":"1 × 36","padding":"—","gap":"—","radius":"—","text":"—"}]],"States":[[{"state":"Default","fill":"`bg/surface`","border":"`border/default` bottom","label · icon":"`text/tertiary`"},{"state":"Hover","fill":"`bg/base`","border":"`border/default` bottom","label · icon":"`text/tertiary`"},{"state":"Sorted (Ascending, Descending)","fill":"`bg/surface` (Hover `bg/base`)","border":"`border/default` bottom","label · icon":"`text/primary`"}],[{"part":"Sort icon","value":"CaretUpDown (None), ArrowUp (Ascending), ArrowDown (Descending)"},{"part":"Divider","value":"`border/default`, right edge"}]]},"icon-button":{"Variants":[[{"axis":"Variant","values":"Primary, Secondary, Tertiary, Ghost","default (figma)":"Primary"},{"axis":"Shape","values":"Square (`rounded-lg`), Circle (`rounded-full`)","default (figma)":"Square"},{"axis":"Size","values":"XSmall 28, Small 32, Medium 36, Large 40","default (figma)":"XSmall"},{"axis":"State","values":"Default, Hover, Pressed, Focused, Disabled, Active (Ghost only)","default (figma)":"Default"}]],"Sizes":[[{"size":"XSmall","height":"28","padding":"`Spacing/1․5`","icon":"16"},{"size":"Small","height":"32","padding":"`Spacing/2`","icon":"16"},{"size":"Medium","height":"36","padding":"`Spacing/2`","icon":"20"},{"size":"Large","height":"40","padding":"`Spacing/2․5`","icon":"20"}]],"Shapes":[[{"shape":"Square","radius":"`rounded-lg`"},{"shape":"Circle","radius":"`rounded-full`"}]],"States":[[{"state":"Active","variant":"Ghost","fill":"`bg/interactive/selected`"}]]},"input":{"Variants":[[{"axis":"Size","values":"Small (32), Medium (36), Large (40)","default":"Medium"},{"axis":"State","values":"Default, Focused, Filled, Error, Success, Disabled, Read-only","default":"Default"}]],"Properties":[[{"property":"Value","type":"Text","default":"Placeholder text"},{"property":"Show Value","type":"Boolean","default":"true"},{"property":"Leading Icon / Leading Icon Swap","type":"Boolean / Instance swap","default":"false / MagnifyingGlass"},{"property":"Trailing Icon / Trailing Icon Swap","type":"Boolean / Instance swap","default":"false / X"},{"property":"Counter / Counter Text","type":"Boolean / Text","default":"false / 0/80"},{"property":"Leading Content / Leading","type":"Boolean / Slot","default":"false / empty"},{"property":"Custom Content / Content","type":"Boolean / Slot","default":"false / empty"},{"property":"Trailing Content / Trailing","type":"Boolean / Slot","default":"false / empty"}]],"Sizes":[[{"size":"Small","height":"32","padding h":"`Spacing/2․5` (10)","gap":"`Spacing/2` (8)","radius":"`rounded-md` (6)","text":"`text-sm/regular`","inner button":"none"},{"size":"Medium","height":"36","padding h":"`Spacing/3` (12)","gap":"`Spacing/2` (8)","radius":"`rounded-lg` (8)","text":"`text-sm/regular`","inner button":"Button XSmall (28)"},{"size":"Large","height":"40","padding h":"`Spacing/3` (12)","gap":"`Spacing/2` (8)","radius":"`rounded-lg` (8)","text":"`text-sm/regular`","inner button":"Button Small (32)"}]],"Parts":[[{"part":"Leading Icon","icon":"MagnifyingGlass (swap)","size":"16","empty":"`text/tertiary`","filled":"`text/secondary`"},{"part":"Trailing Icon","icon":"X (swap)","size":"16","empty":"`text/tertiary`","filled":"`text/secondary`"},{"part":"Status Icon (Success only)","icon":"CheckCircle","size":"16","empty":"`feedback/success/text`","filled":"`feedback/success/text`"},{"part":"Counter","icon":"—","size":"`text-xs/regular`","empty":"`text/tertiary`","filled":"`text/tertiary`"}]],"States":[[{"state":"Default","background":"`bg/surface`","border":"`border/default`","value text":"`text/tertiary` (placeholder)"},{"state":"Focused","background":"`bg/surface`","border":"`border/selected`","value text":"`text/primary`"},{"state":"Filled","background":"`bg/surface`","border":"`border/default`","value text":"`text/primary`"},{"state":"Error","background":"`bg/surface`","border":"`border/danger`","value text":"`text/primary`"},{"state":"Success","background":"`bg/surface`","border":"`border/success`","value text":"`text/primary`"},{"state":"Disabled","background":"`bg/disabled`","border":"`border/default`","value text":"`text/primary`, 50% opacity"},{"state":"Read-only","background":"`bg/base`","border":"`border/default`","value text":"`text/primary`"}]]},"card-header":{"Variants":[[{"axis":"Trailing","values":"None, Badge, Action, Slot - H, Slot - V","default":"None"}]],"Properties":[[{"property":"Trailing","type":"Variant","default":"None"},{"property":"Title","type":"Text","default":"Card title"},{"property":"Show Subtitle","type":"Boolean","default":"true"},{"property":"Subtitle","type":"Text","default":"Supporting text"},{"property":"Trailing Slot","type":"Slot","default":"— (Slot - H, Slot - V)"}]],"Sizes":[[{"part":"Container","size":"78 high with subtitle","padding":"`Spacing/4` (16) top/bottom, `Spacing/5` (20) sides","gap":"`Spacing/4` (16)","text":"—"},{"part":"Title / Subtitle","size":"—","padding":"—","gap":"`Spacing/0․5` (2)","text":"`text-lg/semibold` / `text-xs/regular`"},{"part":"Trailing Slot","size":"—","padding":"—","gap":"`Spacing/2` (8)","text":"—"}]],"States":[[{"part":"Container","fill":"`bg/base`","border":"`border/default` bottom","text":"—"},{"part":"Title","fill":"—","border":"—","text":"`text/primary`"},{"part":"Subtitle","fill":"—","border":"—","text":"`text/tertiary`"}]],"Used in":[[{"component":"[Card](../card/spec.md)","where":"Header (exposed)"}]]},"avatar":{"Variants":[[{"axis":"Size","values":"Small, Medium, Large","default":"Small"},{"axis":"Color","values":"Neutral, Blue, Purple, Teal, Pink","default":"Neutral"}]],"Properties":[[{"property":"Size","type":"Variant","default":"Small"},{"property":"Color","type":"Variant","default":"Neutral"},{"property":"Initials","type":"Text","default":"AC"}]],"Sizes":[[{"size":"Small","width / height":"`Spacing/7` (28)","radius":"`rounded-md`","text":"`text-xs/medium`"},{"size":"Medium","width / height":"`Spacing/8` (32)","radius":"`rounded-lg`","text":"`text-sm/medium`"},{"size":"Large","width / height":"`Spacing/10` (40)","radius":"`rounded-lg`","text":"`text-base/medium`"}]],"States":[[{"color":"Neutral","fill":"`bg/subtle`","border":"`border/default` 1 px","initials":"`text/primary`"},{"color":"Blue","fill":"`avatar/blue/bg`","border":"—","initials":"`avatar/blue/text`"},{"color":"Purple","fill":"`avatar/purple/bg`","border":"—","initials":"`avatar/purple/text`"},{"color":"Teal","fill":"`avatar/teal/bg`","border":"—","initials":"`avatar/teal/text`"},{"color":"Pink","fill":"`avatar/pink/bg`","border":"—","initials":"`avatar/pink/text`"}]],"Used in":[[{"component":"[User Card](../user-card/spec.md)","where":"Medium avatar before the name"},{"component":"[List Item](../list-item/spec.md)","where":"Small avatar in activity and note rows"},{"component":"Top Bar","where":"The current user"}]]},"list-item":{"Variants":[[{"axis":"Type","values":"Issue, Activity, Note, Slot","default":"Issue"},{"axis":"State","values":"Default, Hover","default":"Default"}]],"Properties":[[{"property":"Type","type":"Variant","default":"Issue"},{"property":"State","type":"Variant","default":"Default"},{"property":"Title","type":"Text","default":"List item title"},{"property":"Description","type":"Text","default":"Supporting text"},{"property":"Show Description","type":"Boolean","default":"true"},{"property":"Icon","type":"Instance swap","default":"TrendUp"},{"property":"Leading Slot","type":"Slot","default":"empty"},{"property":"Trailing Slot","type":"Slot","default":"empty"}]],"Sizes":[[{"part":"Issue","height":"68","padding":"`Spacing/3` (12) top/bottom, `Spacing/2` (8) sides","gap":"`Spacing/3` (12)","radius":"`rounded-lg`","text":"`text-sm/medium` + `text-sm/regular`"},{"part":"Activity","height":"62","padding":"same","gap":"`Spacing/3` (12)","radius":"`rounded-lg`","text":"`text-sm/medium` + `text-xs/regular`"},{"part":"Note","height":"74","padding":"same","gap":"`Spacing/2․5` (10), vertical","radius":"`rounded-lg`","text":"`text-sm/regular` + `text-xs/regular`"},{"part":"Slot","height":"hugs the slot","padding":"same","gap":"`Spacing/3` (12)","radius":"`rounded-lg`","text":"`text-sm/medium` + `text-sm/regular`"},{"part":"Icon Wrap","height":"44","padding":"`Spacing/1․5` (6)","gap":"—","radius":"`rounded-full`","text":"—"},{"part":"Inner circle","height":"32","padding":"`Spacing/1․5` (6)","gap":"—","radius":"`rounded-full`","text":"—"},{"part":"Icon","height":"18","padding":"—","gap":"—","radius":"—","text":"—"},{"part":"Title + description","height":"hug","padding":"—","gap":"`Spacing/0․5` (2)","radius":"—","text":"—"}]],"States":[[{"state":"Default","fill":"—","title":"`text/primary`"},{"state":"Hover","fill":"—","title":"`text/primary`, underlined"}],[{"part":"Icon Wrap","fill":"`bg/subtle`","border":"`border/subtle`","text":"—"},{"part":"Inner circle","fill":"`bg/surface`","border":"`border/default`","text":"—"},{"part":"Icon","fill":"`text/primary`","border":"—","text":"—"},{"part":"Description","fill":"—","border":"—","text":"`text/tertiary`"},{"part":"Note tag","fill":"[Status](../status/spec.md) Danger, Small","border":"—","text":"—"}]],"Slots":[[{"slot":"Leading Slot","used for":"Type Slot: any component before the title"},{"slot":"Trailing Slot","used for":"Issue, Activity, Slot: any component at the end of the row"}]]},"trend":{"Variants":[[{"axis":"Direction","values":"Positive, Negative, Neutral","default":"Positive"}]],"Properties":[[{"property":"Direction","type":"Variant","default":"Positive"},{"property":"Value","type":"Text","default":"12"},{"property":"Context","type":"Text","default":"vs last month"},{"property":"Show Context","type":"Boolean","default":"true"}]],"Sizes":[[{"part":"Container","size":"16 high, hugs content","gap":"`Spacing/1` (4)","text":"—"},{"part":"Icon","size":"`Spacing/3․5` (14)","gap":"—","text":"—"},{"part":"Value","size":"hug","gap":"—","text":"`text-xs/medium`"},{"part":"Context","size":"hug","gap":"—","text":"`text-xs/regular`"}]],"States":[[{"direction":"Positive","icon":"TrendUp","icon · value":"`feedback/success/text`","context":"`text/tertiary`"},{"direction":"Negative","icon":"TrendDown","icon · value":"`feedback/danger/text`","context":"`text/tertiary`"},{"direction":"Neutral","icon":"Minus","icon · value":"`text/secondary`","context":"`text/tertiary`"}]],"Used in":[[{"component":"[Stat Card](../stat-card/spec.md)","where":"Under the number, with Context \"vs last month\""}]]},"stat-card":{"Properties":[[{"property":"Label","type":"Text","default":"Metric label"},{"property":"Value","type":"Text","default":"847"},{"property":"Show Trend","type":"Boolean","default":"true"}]],"Sizes":[[{"part":"Container","size":"256 × 128 (with Trend; height hugs, shorter without Trend)","padding":"`Spacing/5` (20)","gap":"`Spacing/2` (8)","radius":"`rounded-xl`","text":"—"},{"part":"Label","size":"—","padding":"—","gap":"—","radius":"—","text":"`text-sm/medium`"},{"part":"Value","size":"—","padding":"—","gap":"—","radius":"—","text":"`text-3xl/semibold`"}]],"States":[[{"part":"Container","fill":"`bg/surface`","border":"`border/default` 1 px","text":"—"},{"part":"Label, Value","fill":"—","border":"—","text":"`text/primary`"}]]},"card":{"Variants":[[{"axis":"Style","values":"Default, Subtle","default":"Default"}]],"Properties":[[{"property":"Style","type":"Variant","default":"Default"},{"property":"Header","type":"Boolean","default":"true"},{"property":"Footer","type":"Boolean","default":"false"},{"property":"Body","type":"Slot","default":"Placeholder \"Body slot — place content here\""},{"property":"Footer Slot","type":"Slot","default":"—"}]],"Sizes":[[{"part":"Container (560 wide by default)","padding":"—","gap":"—","radius":"`rounded-xl`"},{"part":"Header","padding":"see [Card Header](../card-header/spec.md)","gap":"","radius":""},{"part":"Body","padding":"`Spacing/5` (20)","gap":"`Spacing/4` (16)","radius":"—"},{"part":"Footer","padding":"`Spacing/3` (12) top/bottom, `Spacing/5` (20) sides","gap":"`Spacing/2` (8)","radius":"—"}]],"States":[[{"style · part":"Default","fill":"`bg/surface`","border":"`border/default` 1 px"},{"style · part":"Subtle","fill":"`bg/base`","border":"`border/default` 1 px"},{"style · part":"Footer","fill":"—","border":"`border/default` top"}]],"Placeholder":[[{"part":"Body placeholder (\"Body slot — place content here\")","text":"`text-sm/regular`","color":"`text/tertiary`"}]],"Slots":[[{"slot":"Body","default content":"Placeholder text"},{"slot":"Footer Slot","default content":"Empty, hidden"}]]},"icon-stat":{"Variants":[[{"axis":"Layout","values":"Vertical, Horizontal","default":"Vertical"}]],"Properties":[[{"property":"Layout","type":"Variant","default":"Vertical"},{"property":"Icon","type":"Instance swap","default":"Globe"},{"property":"Value","type":"Text","default":"3"}]],"Sizes":[[{"part":"Icon","size":"`Spacing/4` (16)","gap":"—","text":"—"},{"part":"Container","size":"hug","gap":"`Spacing/1` (4)","text":"`text-sm/regular`"}]],"States":[[{"part":"Icon","color":"`text/tertiary`"},{"part":"Value","color":"`text/primary`"}]]},"pagination-item":{"Variants":[[{"axis":"State","values":"Default, Hover, Selected, Disabled","default (figma)":"Default"}]],"Properties":[[{"property":"Label","type":"Text","default":"1"},{"property":"Leading Icon","type":"Boolean","default":"false"},{"property":"Trailing Icon","type":"Boolean","default":"false"}]],"Sizes":[[{"size":"Default","height":"32","padding h":"`Spacing/3` (12)","padding v":"`Spacing/1․5` (6)","gap":"`Spacing/1` (4)","radius":"0","text":"`text-sm/medium`"}]],"States":[[{"state":"Default","background":"`bg/surface`","border":"`border/default`","text":"`text/primary`","opacity":""},{"state":"Hover","background":"`bg/interactive/hover`","border":"`border/default`","text":"`text/primary`","opacity":""},{"state":"Selected","background":"`bg/interactive/selected`","border":"`border/default`","text":"`text/primary` `text-sm/semibold`","opacity":""},{"state":"Disabled","background":"`bg/surface`","border":"`border/default`","text":"`text/primary`","opacity":"50%"}]],"Parts":[[{"part":"Leading Icon","kind":"CaretLeft","size":"14 × 14","fill":"`text/primary`","shown":"Leading Icon"},{"part":"Label","kind":"Text","size":"hug × 20","fill":"`text-sm/medium` `text/primary`","shown":"yes"},{"part":"Trailing Icon","kind":"CaretRight","size":"14 × 14","fill":"`text/primary`","shown":"Trailing Icon"}]]},"select":{"Variants":[[{"axis":"Size","values":"Small (32), Medium (36), Large (40)","default":"Medium"},{"axis":"State","values":"Default, Focused, Filled, Error, Disabled, Read-only","default":"Default"}]],"Properties":[[{"property":"Value","type":"Text","default":"Select an option"},{"property":"Leading Icon / Leading Icon Swap","type":"Boolean / Instance swap","default":"false / SquaresFour"},{"property":"Leading Content / Leading","type":"Boolean / Slot","default":"false / empty"}]],"Sizes":[[{"size":"Small","height":"32","padding h":"`Spacing/2․5` (10)","gap":"`Spacing/2` (8)","radius":"`rounded-md` (6)","text":"`text-sm/regular`"},{"size":"Medium","height":"36","padding h":"`Spacing/3` (12)","gap":"`Spacing/2` (8)","radius":"`rounded-lg` (8)","text":"`text-sm/regular`"},{"size":"Large","height":"40","padding h":"`Spacing/3` (12)","gap":"`Spacing/2` (8)","radius":"`rounded-lg` (8)","text":"`text-sm/regular`"}]],"Parts":[[{"part":"Leading Icon","icon":"SquaresFour (swap)","size":"16","empty":"`text/tertiary`","filled":"`text/secondary`"},{"part":"Chevron","icon":"CaretDown","size":"16","empty":"see States","filled":"see States"}]],"States":[[{"state":"Default","background":"`bg/surface`","border":"`border/default`","value text":"`text/tertiary` (placeholder)","chevron":"`text/tertiary`"},{"state":"Focused","background":"`bg/surface`","border":"`border/selected`","value text":"`text/primary`","chevron":"`text/secondary`"},{"state":"Filled","background":"`bg/surface`","border":"`border/default`","value text":"`text/primary`","chevron":"`text/secondary`"},{"state":"Error","background":"`bg/surface`","border":"`border/danger`","value text":"`text/primary`","chevron":"`text/secondary`"},{"state":"Disabled","background":"`bg/disabled`","border":"`border/default`","value text":"`text/primary`, 50% opacity","chevron":"`text/secondary`, 50% opacity"},{"state":"Read-only","background":"`bg/base`","border":"`border/default`","value text":"`text/primary`","chevron":"`text/tertiary`"}]]},"pagination":{"Variants":[[{"axis":"Size","values":"Desktop, Mobile","default (figma)":"Desktop"}]],"Properties":[[{"property":"Total","type":"Text","default":"Total: 958"},{"property":"Show Total","type":"Boolean","default":"true"},{"property":"Show Per Page","type":"Boolean","default":"true"},{"property":"Show Go To","type":"Boolean","default":"true"}]],"Sizes":[[{"size":"Desktop","height":"72","padding h":"`Spacing/6` (24)","padding v":"`Spacing/5` (20)","gap":"`Spacing/4` (16)","radius":"0","text":"`text-sm/medium`"},{"size":"Mobile","height":"72","padding h":"`Spacing/4` (16)","padding v":"`Spacing/5` (20)","gap":"`Spacing/4` (16)","radius":"0","text":"`text-sm/medium`"}]],"Parts":[[{"part":"Total","kind":"Text","size":"hug × 20","fill":"`text-sm/medium` `text/primary`","shown":"Show Total"},{"part":"Per page","kind":"Button (Secondary, Small) + \"per page\"","size":"126 × 32","fill":"none","shown":"Show Per Page"},{"part":"Items","kind":"Pagination Items, `border/default` stroke, radius 8","size":"472 × 32","fill":"none","shown":"yes"},{"part":"Go to","kind":"\"Go to\" + Input (Small, Filled) + \"Page\"","size":"140 × 32","fill":"none","shown":"Show Go To"}],[{"part":"Total","kind":"Text","size":"hug × 20","fill":"`text-sm/medium` `text/primary`","shown":"Show Total"},{"part":"Controls","kind":"Icon Button (Previous) + Select (Small) + Icon Button (Next), gap 8","size":"—","fill":"none","shown":"yes"}]],"Controls":[[{"part":"Per page","kind":"Button (Secondary, Small, label \"10\", CaretDown) + \"per page\"","width":"hug","gap":"`Spacing/2` (8)","text":"`text-sm/regular` `text/secondary`"},{"part":"Go to","kind":"\"Go to\" + Input (Small, centered, \"123\") + \"Page\"","width":"56","gap":"`Spacing/2` (8)","text":"`text-sm/regular` `text/secondary`"},{"part":"Page select","kind":"Select (Small, Mobile)","width":"72","gap":"—","text":"—"},{"part":"Previous, Next","kind":"Pagination Item with CaretLeft / CaretRight; Mobile: Icon Button (Secondary, Small)","width":"hug","gap":"—","text":"—"}]]},"tooltip":{"Variants":[[{"axis":"Placement","values":"Top, Bottom, Left, Right","default":"Top"}]],"Properties":[[{"property":"Text","type":"Text","default":"Bold"},{"property":"Show Shortcut","type":"Boolean","default":"true"},{"property":"Shortcut","type":"Text","default":"⌘B"}]],"Sizes":[[{"part":"Container","height":"hug","padding h":"0","padding v":"0","gap":"`Spacing/0` (0)","radius":"—","text":"—"},{"part":"Bubble","height":"24 (one line)","padding h":"`Spacing/2` (8)","padding v":"`Spacing/1` (4)","gap":"`Spacing/1․5` (6)","radius":"`rounded-md` (6)","text":"`text-xs/medium` (label), `text-xs/regular` (shortcut)"},{"part":"Arrow","height":"3.75 (8.66 × 3.75)","padding h":"—","padding v":"—","gap":"—","radius":"—","text":"—"}]],"States":[[{"part":"Bubble","fill":"`bg/inverse-overlay`","text":"`text/inverse`","effect":"Background blur 2 px (not bound to a variable)"},{"part":"Shortcut","fill":"—","text":"`text/inverse`, opacity 60% (not bound to a variable)","effect":"—"},{"part":"Arrow","fill":"`bg/inverse-overlay`","text":"—","effect":"—"}]]}};
+// Phosphor paketinde olmayan özel ikonlar (Figma → Icons sayfası → Custom Icons).
+// Phosphor ikonları buraya yazılmaz; build onları lib/icons.mjs ile gömer.
+// Yeni özel ikon: Figma'dan 32×32 SVG olarak dışa aktar, sadece <path> kısımlarını fill'siz yaz (currentColor ile boyanır).
+window.TDS_ICONS = {
+  // tabii işareti (Figma → Icons → Custom Icons → tabiiIcon). Status'ta "On tabii / Not on tabii" kaynağı.
+  TabiiIcon: '<path d="M27.2679 16.0315L29.3337 10.7991L23.5121 8.52968L21.1959 2.66675L16.0003 4.74715L10.7421 2.66675L8.48859 8.46661L2.66699 10.7991L4.73272 16.0315L2.66699 21.2641L8.48859 23.5335L10.7421 29.3334L15.9378 27.253L21.1334 29.3334L23.3869 23.5335L29.2085 21.2641L27.2679 16.0315ZM17.1271 19.9402L16.0003 22.777L14.8735 19.9402L10.3039 21.7683L12.1193 17.1663L9.30232 16.0315L12.1193 14.8969L10.3039 10.2947L14.8735 12.123L16.0003 9.28608L17.1271 12.123L21.6967 10.2947L19.8814 14.8969L22.6983 16.0315L19.8814 17.1663L21.6967 21.7683L17.1271 19.9402Z"/>',
+};
+// Tarayıcı tarafı temel: komponent kayıt defteri, ikonlar, spec okuma ve açılır menü.
+// Kurallar: rules/core/interaction/code-layer.md
+(function () {
+  const comps = {};
+  const menus = {};
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+  const TDS = {
+    esc,
+    slug,
+    register(name, def) { comps[name] = def; },
+    get(name) { return comps[name]; },
+    // HTML string döndürür. İç içe komponentler birbirini bununla çağırır.
+    render(name, props) {
+      if (!comps[name]) throw new Error(`"${name}" komponenti bu sayfaya eklenmemiş (page.json → components)`);
+      return comps[name].render({ ...comps[name].defaults, ...props });
+    },
+
+    // İkon: Figma'daki Icons sayfasıyla aynı paket (Phosphor), build sırasında SVG olarak gömülür.
+    // Weight: "Regular" veya "Fill". Boyut verilmezse komponentin CSS'i (spec'teki Icon sütunu) belirler.
+    // SVG'nin kendi boyutu 1em'dir: CSS yüklenmese bile ikon yazı boyutunu aşmaz.
+    // attrs: ikonun kendisine eklenecek nitelikler (ör. 'data-part="submenu"'). İkon ekstra bir kutuya sarılmaz,
+    // yoksa satır yüksekliği yüzünden 16×16 ikon 16×20 kutuda durur.
+    icon(name, size, weight = 'Regular', attrs = '') {
+      const st = size ? ` style="font-size:${size}px"` : '';
+      const custom = (window.TDS_ICONS || {})[name];
+      const paths = custom || ((window.TDS_PHOSPHOR || {})[weight] || {})[name];
+      if (!paths) {
+        console.warn(`TDS.icon: "${name}" (${weight}) bu sayfaya gömülmemiş. interaction/shared/icon-list.json dosyasına ekleyip build'i çalıştır.`);
+        return `<span class="tds-icon" aria-hidden="true"${st} title="${esc(name)}"></span>`;
+      }
+      const viewBox = custom ? '0 0 32 32' : '0 0 256 256';
+      // Boyut verildiyse SVG'ye px olarak yazılır: CSS'ten bağımsız, Figma'daki ikon boyutuyla birebir.
+      const dim = size ? `${size}px` : '1em';
+      const box = size ? ` style="width:${size}px;height:${size}px;font-size:${size}px"` : '';
+      return `<span class="tds-icon"${attrs ? " " + attrs : ""} aria-hidden="true"${box}><svg width="${dim}" height="${dim}" viewBox="${viewBox}" fill="currentColor" focusable="false">${paths}</svg></span>`;
+    },
+    // Spec tablosu satırı: TDS.spec('button', 'Sizes', 'size', 'Medium') → { size, height, icon, ... }
+    // Komponentler ikon boyutunu buradan alır, böylece Figma'daki komponentle aynı olur.
+    spec(name, heading, key, value, index = 0) {
+      const t = ((window.TDS_SPEC || {})[name] || {})[heading];
+      const rows = (t && t[index]) || [];
+      return key ? (rows.find((r) => String(r[key]).toLowerCase() === String(value).toLowerCase()) || {}) : rows;
+    },
+    // "16 (`Spacing/4`)" → 16, "`Spacing/3` (12)" → 12 (lib/spec.mjs → v.num ile aynı)
+    num(cell) { const n = ((cell) => { const s = String(cell == null ? '' : cell).trim(); const lead = /^-?\d+(?:\.\d+)?/.exec(s); if (lead) return parseFloat(lead[0]); const par = /\((\d+(?:\.\d+)?)\)/.exec(s); if (par) return parseFloat(par[1]); const any = /\d+(?:\.\d+)?/.exec(s); return any ? parseFloat(any[0]) : NaN; })(cell); return Number.isFinite(n) ? n : undefined; },
+    iconNames(weight = 'Regular') { return Object.keys((window.TDS_PHOSPHOR || {})[weight] || {}); },
+    // Bayrak: Figma'daki Flags (circle-flags). Kod: "TR", "DE"…
+    flag(code, size = 14) {
+      return `<img class="tds-flag" src="https://hatscripts.github.io/circle-flags/flags/${String(code).toLowerCase()}.svg" width="${size}" height="${size}" alt="">`;
+    },
+
+    // Açılır menü. Bir tetikleyiciye data-tds-menu="<isim>" verilir; menü içeriği TDS.menus ile tanımlanır.
+    menus,
+    defineMenu(name, props) { menus[name] = props; },
+    closeMenu(returnFocus) {
+      const all = document.querySelectorAll('.tds-popover');
+      if (!all.length) return;
+      const trigger = all[0]._trigger;
+      all.forEach((p) => p.remove());
+      if (trigger) { trigger.setAttribute('aria-expanded', 'false'); if (returnFocus) trigger.focus(); }
+    },
+    // Alt menü: data-tds-submenu="<isim>" olan satırın üzerine gelince, tıklayınca veya → ile yanında açılır.
+    // ← veya Escape alt menüyü kapatır ve odağı satıra geri verir.
+    closeSubmenu(returnFocus) {
+      const sub = document.querySelector('.tds-popover[data-submenu]');
+      if (!sub) return;
+      const item = sub._item;
+      sub.remove();
+      if (item) { item.setAttribute('aria-expanded', 'false'); if (returnFocus) item.focus(); }
+    },
+    openSubmenu(item, focusFirst) {
+      const open = document.querySelector('.tds-popover[data-submenu]');
+      if (open && open._item === item) return;
+      TDS.closeSubmenu();
+      const name = item.dataset.tdsSubmenu;
+      const props = typeof menus[name] === 'function' ? menus[name](item) : menus[name];
+      if (!props) return;
+      const parent = item.closest('.tds-popover');
+      const pop = document.createElement('div');
+      pop.className = 'tds-popover';
+      pop.dataset.submenu = '';
+      pop._trigger = parent._trigger;
+      pop._item = item;
+      pop.innerHTML = TDS.render('menu', props);
+      const gap = 4; // Menu spec: menünün tetikleyiciye uzaklığı
+      const { top, left } = TDS.place(item, pop, (r) => ({ top: r.top - gap, left: r.right + gap }));
+      pop.style.top = `${top}px`;
+      pop.style.left = `${left}px`;
+      item.setAttribute('aria-expanded', 'true');
+      if (focusFirst) pop.querySelector('[role="menuitem"]:not([aria-disabled="true"])')?.focus({ preventScroll: true });
+    },
+    // Açılan katmanı (menü, tooltip) tetikleyicinin yanına koyar. Tetikleyici yakınlaştırılmış sahnedeyse
+    // ([data-tds-layer]) katman da sahnenin içine girer, böylece aynı ölçekte durur ve yerinden kaymaz.
+    place(trigger, el, fn) {
+      const layer = trigger.closest('[data-tds-layer]');
+      const box = layer || document.body;
+      box.appendChild(el);
+      const c = layer ? layer.getBoundingClientRect() : { top: -window.scrollY, left: -window.scrollX };
+      const s = layer && layer.offsetWidth ? c.width / layer.offsetWidth : 1;
+      const t = trigger.getBoundingClientRect();
+      const r = { top: (t.top - c.top) / s, bottom: (t.bottom - c.top) / s, left: (t.left - c.left) / s, right: (t.right - c.left) / s, width: t.width / s, height: t.height / s };
+      const pos = fn(r, { width: el.offsetWidth, height: el.offsetHeight });
+      if (!layer) pos.left = Math.max(8, pos.left);
+      return pos;
+    },
+    openMenu(trigger) {
+      TDS.closeMenu();
+      const name = trigger.dataset.tdsMenu;
+      const props = typeof menus[name] === 'function' ? menus[name](trigger) : menus[name];
+      if (!props) return;
+      const pop = document.createElement('div');
+      pop.className = 'tds-popover';
+      pop._trigger = trigger;
+      pop.innerHTML = TDS.render('menu', props);
+      const gap = 4; // Menu spec: "Opens 4 px below its trigger"
+      const align = trigger.dataset.tdsAlign || 'start';
+      const { top, left } = TDS.place(trigger, pop, (r, p) => ({ top: r.bottom + gap, left: align === 'end' ? r.right - p.width : r.left }));
+      pop.style.top = `${top}px`;
+      pop.style.left = `${left}px`;
+      trigger.setAttribute('aria-expanded', 'true');
+      const first = pop.querySelector('[role="menuitem"]:not([aria-disabled="true"])');
+      // preventScroll: menü açılınca sahne kendiliğinden kaymasın; taşan menüye kullanıcı kaydırarak ulaşır.
+      if (first) first.focus({ preventScroll: true });
+    },
+
+    // Durumlu komponentler (takvim, filtre grubu, tag input…): kök elemanda data-tds-comp ve data-tds-props durur.
+    // TDS.update(el, { ... }) props'u değiştirip komponenti yeniden çizer ve odağı aynı parçaya geri verir.
+    props(p) { return ` data-tds-props="${esc(JSON.stringify(p))}"`; },
+    read(el) { return JSON.parse(el.dataset.tdsProps || '{}'); },
+    update(el, patch, focus) {
+      const name = el.dataset.tdsComp;
+      const next = { ...TDS.read(el), ...patch };
+      const tmp = document.createElement('div');
+      tmp.innerHTML = TDS.render(name, next);
+      const fresh = tmp.firstElementChild;
+      el.replaceWith(fresh);
+      if (focus) { const f = fresh.querySelector(focus); if (f) { f.focus(); if (f.setSelectionRange && f.value != null) f.setSelectionRange(f.value.length, f.value.length); } }
+      return fresh;
+    },
+
+    // Tooltip: tetikleyiciye data-tds-tooltip="Metin" verilir. Üzerinde ~500 ms durunca veya klavye odağında açılır
+    // (components/tooltip/spec.md). Çizimi tooltip komponenti yapar.
+    tooltipDelay: 500,
+
+    // Playground arayüzü shared/playground.js dosyasında: TDS.playground(mount, page).
+  };
+
+  // Tooltip davranışı.
+  let tipTimer = null;
+  const hideTip = () => { clearTimeout(tipTimer); document.querySelectorAll('.tds-tooltip-layer').forEach((t) => t.remove()); };
+  const showTip = (trigger) => {
+    hideTip();
+    if (!comps.tooltip) return;
+    const layer = document.createElement('div');
+    layer.className = 'tds-tooltip-layer';
+    const placement = trigger.dataset.tdsPlacement || 'Top';
+    layer.innerHTML = TDS.render('tooltip', { Text: trigger.dataset.tdsTooltip, 'Show Shortcut': false, Placement: placement });
+    const gap = 4;
+    const pos = TDS.place(trigger, layer, (r, t) => ({
+      Top: { left: r.left + r.width / 2 - t.width / 2, top: r.top - t.height - gap },
+      Bottom: { left: r.left + r.width / 2 - t.width / 2, top: r.bottom + gap },
+      Left: { left: r.left - t.width - gap, top: r.top + r.height / 2 - t.height / 2 },
+      Right: { left: r.right + gap, top: r.top + r.height / 2 - t.height / 2 },
+    }[placement]));
+    layer.style.left = `${pos.left}px`;
+    layer.style.top = `${pos.top}px`;
+    requestAnimationFrame(() => layer.classList.add('is-open'));
+  };
+  document.addEventListener('pointerover', (e) => {
+    const t = e.target.closest('[data-tds-tooltip]');
+    if (!t) return;
+    clearTimeout(tipTimer);
+    tipTimer = setTimeout(() => showTip(t), TDS.tooltipDelay);
+  });
+  document.addEventListener('pointerout', (e) => { if (e.target.closest('[data-tds-tooltip]')) hideTip(); });
+  document.addEventListener('focusin', (e) => { const t = e.target.closest && e.target.closest('[data-tds-tooltip]'); if (t && t.matches(':focus-visible')) showTip(t); });
+  document.addEventListener('focusout', (e) => { if (e.target.closest && e.target.closest('[data-tds-tooltip]')) hideTip(); });
+
+  // Menü davranışı: tıklama, klavye (oklar, Enter, Escape, Tab) ve dışarı tıklama.
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-tds-menu]');
+    if (trigger && !trigger.disabled) {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      if (isOpen) TDS.closeMenu(); else TDS.openMenu(trigger);
+      return;
+    }
+    const item = e.target.closest('.tds-popover [role="menuitem"]');
+    if (item) {
+      if (item.getAttribute('aria-disabled') === 'true') return;
+      if (item.dataset.tdsSubmenu) { TDS.openSubmenu(item, true); return; }
+      // Seçilen satır tetikleyiciye bildirilir (Select, Phone Field, takvim başlığı değeri buradan alır).
+      const trigger = item.closest('.tds-popover')._trigger;
+      const value = item.dataset.value || item.querySelector('.tds-menu-item-label')?.textContent || '';
+      TDS.closeMenu(true);
+      if (trigger && trigger.isConnected) trigger.dispatchEvent(new CustomEvent('tds-menu-select', { bubbles: true, detail: { value } }));
+      return;
+    }
+    if (!e.target.closest('.tds-popover')) TDS.closeMenu();
+  });
+  // Alt menü üzerine gelince açılır; menüde başka bir satıra geçince kapanır.
+  let subTimer = null;
+  document.addEventListener('pointerover', (e) => {
+    const item = e.target.closest && e.target.closest('.tds-popover:not([data-submenu]) [role="menuitem"]');
+    if (!item) return;
+    clearTimeout(subTimer);
+    subTimer = setTimeout(() => { if (item.dataset.tdsSubmenu) TDS.openSubmenu(item, false); else TDS.closeSubmenu(); }, 150);
+  });
+  document.addEventListener('keydown', (e) => {
+    const pops = document.querySelectorAll('.tds-popover');
+    if (!pops.length) return;
+    const pop = (document.activeElement && document.activeElement.closest && document.activeElement.closest('.tds-popover')) || pops[pops.length - 1];
+    const items = [...pop.querySelectorAll('[role="menuitem"]:not([aria-disabled="true"])')];
+    const i = items.indexOf(document.activeElement);
+    const inSub = pop.hasAttribute('data-submenu');
+    if ((e.key === 'Escape' || e.key === 'ArrowLeft') && inSub) { e.preventDefault(); TDS.closeSubmenu(true); }
+    else if (e.key === 'ArrowRight' && i >= 0 && items[i].dataset.tdsSubmenu) { e.preventDefault(); TDS.openSubmenu(items[i], true); }
+    else if (e.key === 'Escape') { e.preventDefault(); TDS.closeMenu(true); }
+    else if (e.key === 'Tab') TDS.closeMenu();
+    else if (e.key === 'ArrowDown') { e.preventDefault(); (items[i + 1] || items[0])?.focus(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); (items[i - 1] || items[items.length - 1])?.focus(); }
+    else if (e.key === 'Home') { e.preventDefault(); items[0]?.focus(); }
+    else if (e.key === 'End') { e.preventDefault(); items[items.length - 1]?.focus(); }
+    else if ((e.key === 'Enter' || e.key === ' ') && i >= 0) { e.preventDefault(); items[i].click(); }
+  });
+
+  window.TDS = TDS;
+})();
+// Playground arayüzü. Yapı ve hareket interaction/reference/sidebar/ (Sidebar Interaction code layer) ile aynı:
+// solda Sidebar (Expanded, daralmaz), her komponent bir Nav Item; tıklanınca altında Nav Sub Group gibi açılır
+// ve içinde o komponentin property'leri bulunur. Sağda kalan alanın tamamı sahne; köşede yakınlaştırma.
+(function () {
+  const { esc, slug } = TDS;
+  const ZOOMS = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4];
+
+  // tabii logosu (Logo, Type=Full). Renkler token: işaret bg/inverse + text/inverse, yazı text/primary.
+  const LOGO = `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M22 0H6C2.686 0 0 2.686 0 6V22C0 25.314 2.686 28 6 28H22C25.314 28 28 25.314 28 22V6C28 2.686 25.314 0 22 0Z" fill="var(--bg-inverse)"/><path d="M22.451 14.024L24 10.099L19.634 8.397L17.897 4L14 5.56L10.056 4L8.366 8.35L4 10.099L5.549 14.024L4 17.948L8.366 19.65L10.056 24L13.953 22.44L17.85 24L19.54 19.65L23.906 17.948L22.451 14.024ZM14.845 16.955L14 19.083L13.155 16.955L9.728 18.326L11.089 14.875L8.977 14.024L11.089 13.173L9.728 9.721L13.155 11.092L14 8.965L14.845 11.092L18.272 9.721L16.911 13.173L19.024 14.024L16.911 14.875L18.272 18.326L14.845 16.955Z" fill="var(--text-inverse)"/></svg>
+<svg class="pg-wordmark" width="46" height="28" viewBox="36 0 46 28" fill="none" aria-label="tabii"><path d="M72.993 6.059V9.406H76.454V6.059H72.993ZM72.993 10.427V22.569H76.454V10.427H72.993Z" fill="var(--text-primary)"/><path d="M78.27 6.059V9.406H81.73V6.059H78.27ZM78.27 10.427V22.569H81.73V10.427H78.27Z" fill="var(--text-primary)"/><path d="M42.809 13.376V10.199H39.461V6H36V19.333C36 21.092 37.418 22.511 39.177 22.511H42.752V19.333H39.404V13.376H42.809Z" fill="var(--text-primary)"/><path d="M53.305 10.197V11.559C52.283 10.651 50.978 10.141 49.56 10.141C46.269 10.141 43.659 12.978 43.659 16.495C43.659 20.013 46.326 22.85 49.56 22.85C50.978 22.85 52.283 22.339 53.305 21.431V22.623H56.766V10.197H53.305ZM53.305 19.389H47.29V13.375H53.305V19.389Z" fill="var(--text-primary)"/><path d="M65.56 10.144C64.142 10.144 62.837 10.654 61.816 11.562V6.059H58.355V22.569H61.816V21.378C62.837 22.286 64.142 22.796 65.56 22.796C68.851 22.796 71.461 19.959 71.461 16.442C71.461 12.981 68.794 10.144 65.56 10.144ZM67.83 19.392H61.816V13.378H67.83V19.392Z" fill="var(--text-primary)"/></svg>`;
+
+  TDS.playground = function (mount, page) {
+    const root = typeof mount === 'string' ? document.querySelector(mount) : mount;
+    const state = {};
+    page.components.forEach((c) => { state[c.name] = Object.fromEntries(c.controls.map((k) => [k.key, k.default])); });
+    let active = page.components[0].name;
+    const open = new Set([active]);
+    let zoom = 1;
+
+    const visible = (c, k) => !k.when || k.when(state[c.name]);
+    const control = (c, k) => {
+      const val = state[c.name][k.key];
+      const id = `ctl-${c.name}-${slug(k.key)}`;
+      const label = esc(k.label || k.key);
+      if (k.type === 'bool') {
+        return `<label class="pg-check" for="${id}"><span>${label}</span><input id="${id}" type="checkbox" role="switch" data-comp="${c.name}" data-key="${esc(k.key)}" ${val ? 'checked' : ''}></label>`;
+      }
+      if (k.type === 'select') {
+        return `<label class="pg-field" for="${id}"><span>${label}</span><span class="pg-select">${'<select id="' + id + '" data-comp="' + c.name + '" data-key="' + esc(k.key) + '">'}${k.options.map((o) => `<option ${o === val ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select>${TDS.icon('CaretDown', 16)}</span></label>`;
+      }
+      return `<label class="pg-field" for="${id}"><span>${label}</span><input id="${id}" type="text" data-comp="${c.name}" data-key="${esc(k.key)}" value="${esc(val)}"></label>`;
+    };
+    const controls = (c) => c.controls.filter((k) => visible(c, k)).map((k) => control(c, k)).join('');
+
+    const navItem = (c) => {
+      const isOpen = open.has(c.name);
+      return `<button type="button" class="item${c.name === active ? ' selected' : ''}${isOpen ? '' : ' closed'}" data-item="${c.name}" aria-expanded="${isOpen}" aria-controls="sub-${c.name}"${c.name === active ? ' aria-current="page"' : ''}>`
+        + `<span class="text">${esc(c.label)}</span><span class="caret">${TDS.icon('CaretUp', 16)}</span></button>`
+        + `<div class="sub${isOpen ? '' : ' shut'}" id="sub-${c.name}"><div><div class="sub-wrap"><div class="sub-list" data-controls="${c.name}">${controls(c)}</div></div></div></div>`;
+    };
+
+    const shell = () => {
+      const dark = document.documentElement.dataset.theme === 'dark';
+      root.innerHTML = `
+        <div class="pg-app">
+          <aside class="sidebar" aria-label="${esc(page.title)} components">
+            <div class="sb-header"><a class="logo" href="#" aria-label="tabii CMS Design System" onclick="return false">${LOGO}</a></div>
+            <nav class="sb-nav"><div class="sb-group">
+              <div class="group-label"><p>${esc(page.title.toUpperCase())}</p></div>
+              ${page.components.map(navItem).join('')}
+            </div></nav>
+            <div class="sb-footer">
+              <button type="button" class="item" data-theme-toggle aria-pressed="${dark}">${TDS.icon(dark ? 'Sun' : 'Moon', 20)}<span class="text">${dark ? 'Light mode' : 'Dark mode'}</span></button>
+            </div>
+          </aside>
+          <main class="pg-stage" aria-label="Preview" tabindex="-1">
+            <div class="pg-canvas"><div class="pg-sizer"><div class="pg-preview" data-tds-layer style="--zoom:${zoom}">${TDS.render(active, state[active])}</div></div></div>
+            <div class="pg-zoom" role="group" aria-label="Zoom">
+              <button type="button" data-zoom="out" aria-label="Zoom out"${zoom <= ZOOMS[0] ? ' disabled' : ''}>${TDS.icon('Minus', 16)}</button>
+              <button type="button" data-zoom="reset" class="pg-zoom-value" aria-label="Reset zoom to 100%">${Math.round(zoom * 100)}%</button>
+              <button type="button" data-zoom="in" aria-label="Zoom in"${zoom >= ZOOMS[ZOOMS.length - 1] ? ' disabled' : ''}>${TDS.icon('Plus', 16)}</button>
+            </div>
+          </main>
+        </div>`;
+      requestAnimationFrame(watch);
+    };
+
+    // Sahne yerleşimi. .pg-sizer kaydırılabilir alanın kendisi, .pg-preview onun içinde (ox, oy) noktasında durur.
+    // - Menü yokken komponent ortadadır ("ev" konumu).
+    // - Menü / tooltip açılınca komponent YERİNDEN OYNAMAZ: alan, açılan katmanı (sol, sağ, üst, alt) içine alacak
+    //   kadar büyür. Sola veya yukarı taşarsa içerik o kadar kaydırılır ve kaydırma çubuğu da aynı miktarda
+    //   ilerletilir; ekranda görünen yer değişmez, sadece artık o tarafa da kaydırılabilir.
+    // - data-pg-fluid="<max>" olan içerik (responsive tablo) sahnenin genişliğine göre, en fazla <max> px olur.
+    let ox = null, oy = null;
+    const fit = (mode) => {
+      const canvas = root.querySelector('.pg-canvas');
+      const sizer = root.querySelector('.pg-sizer');
+      const pv = root.querySelector('.pg-preview');
+      if (!canvas || !pv) return;
+      const P = parseFloat(getComputedStyle(canvas).getPropertyValue('--pg-pad')) || 64;
+      const cw = canvas.clientWidth, ch = canvas.clientHeight;
+      const fluid = pv.querySelector(':scope > [data-pg-fluid]');
+      pv.style.width = fluid ? `${Math.max(0, Math.min(Number(fluid.dataset.pgFluid), cw - 2 * P))}px` : '';
+      const w = pv.offsetWidth * zoom, h = pv.offsetHeight * zoom;
+      let L = 0, T = 0, R = w, B = h;
+      pv.querySelectorAll(':scope > .tds-popover, :scope > .tds-tooltip-layer').forEach((el) => {
+        L = Math.min(L, el.offsetLeft * zoom); T = Math.min(T, el.offsetTop * zoom);
+        R = Math.max(R, (el.offsetLeft + el.offsetWidth) * zoom); B = Math.max(B, (el.offsetTop + el.offsetHeight) * zoom);
+      });
+      const homeX = Math.max(P, (cw - w) / 2), homeY = Math.max(P, (ch - h) / 2);
+      const layered = L < 0 || T < 0 || R > w || B > h;
+      let nx = homeX, ny = homeY;
+      if (mode !== 'home' && ox !== null && layered) {
+        nx = Math.max(ox, P - L); ny = Math.max(oy, P - T);
+      }
+      sizer.style.width = `${Math.ceil(Math.max(cw, nx + R + P))}px`;
+      sizer.style.height = `${Math.ceil(Math.max(ch, ny + B + P))}px`;
+      pv.style.left = `${nx}px`;
+      pv.style.top = `${ny}px`;
+      if (mode === 'home') {
+        // Yeni komponent ya da yakınlaştırma: komponentin ortası ekranın ortasına gelsin.
+        canvas.scrollLeft = nx + w / 2 - cw / 2;
+        canvas.scrollTop = ny + h / 2 - ch / 2;
+      } else if (ox !== null) {
+        canvas.scrollLeft += nx - ox;
+        canvas.scrollTop += ny - oy;
+      }
+      ox = nx; oy = ny;
+    };
+    const watch = () => {
+      const pv = root.querySelector('.pg-preview');
+      if (!pv || pv._watched) return;
+      pv._watched = true;
+      ox = null; oy = null;
+      new MutationObserver(() => fit()).observe(pv, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'data-tds-props'] });
+      if (window.ResizeObserver) {
+        new ResizeObserver(() => fit()).observe(pv);
+        new ResizeObserver(() => fit()).observe(root.querySelector('.pg-canvas'));
+      }
+      fit('home');
+    };
+    // Sadece sahneyi yeniler (kontroller yerinde kalır, odak kaybolmaz).
+    const renderStage = () => {
+      TDS.closeMenu();
+      root.querySelector('.pg-preview').innerHTML = TDS.render(active, state[active]);
+      fit('home');
+    };
+    const setZoom = (z) => {
+      TDS.closeMenu();
+      zoom = Math.min(ZOOMS[ZOOMS.length - 1], Math.max(ZOOMS[0], z));
+      root.querySelector('.pg-preview').style.setProperty('--zoom', zoom);
+      fit('home');
+      root.querySelector('.pg-zoom-value').textContent = `${Math.round(zoom * 100)}%`;
+      root.querySelector('[data-zoom="out"]').disabled = zoom <= ZOOMS[0];
+      root.querySelector('[data-zoom="in"]').disabled = zoom >= ZOOMS[ZOOMS.length - 1];
+    };
+    const step = (dir) => {
+      const i = ZOOMS.findIndex((z) => z >= zoom - 1e-6);
+      setZoom(dir > 0 ? ZOOMS[Math.min(ZOOMS.length - 1, ZOOMS[i] > zoom + 1e-6 ? i : i + 1)] : ZOOMS[Math.max(0, i - 1)]);
+    };
+
+    const refreshControls = (name) => {
+      const c = page.components.find((x) => x.name === name);
+      root.querySelector(`[data-controls="${name}"]`).innerHTML = controls(c);
+    };
+
+    root.addEventListener('click', (e) => {
+      const item = e.target.closest('[data-item]');
+      if (item) {
+        const name = item.dataset.item;
+        if (name !== active) {
+          // Başka bir komponent seçildi: onu göster ve aç, diğerlerini kapat.
+          active = name;
+          for (const o of [...open]) {
+            open.delete(o);
+            const b = root.querySelector(`[data-item="${o}"]`);
+            b.classList.add('closed'); b.setAttribute('aria-expanded', 'false');
+            root.querySelector(`#sub-${o}`).classList.add('shut');
+          }
+          open.add(name);
+          root.querySelectorAll('[data-item]').forEach((b) => {
+            const on = b.dataset.item === name;
+            b.classList.toggle('selected', on);
+            if (on) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+          });
+          renderStage();
+        } else if (open.has(name)) open.delete(name); else open.add(name);
+        const isOpen = open.has(name);
+        item.classList.toggle('closed', !isOpen);
+        item.setAttribute('aria-expanded', String(isOpen));
+        root.querySelector(`#sub-${name}`).classList.toggle('shut', !isOpen);
+        return;
+      }
+      if (e.target.closest('[data-theme-toggle]')) {
+        const d = document.documentElement; d.dataset.theme = d.dataset.theme === 'dark' ? 'light' : 'dark';
+        shell();
+        return;
+      }
+      const z = e.target.closest('[data-zoom]');
+      if (z) { if (z.dataset.zoom === 'reset') setZoom(1); else step(z.dataset.zoom === 'in' ? 1 : -1); }
+    });
+    root.addEventListener('input', (e) => {
+      const el = e.target.closest('[data-key]');
+      if (!el || el.type !== 'text') return;
+      state[el.dataset.comp][el.dataset.key] = el.value;
+      if (el.dataset.comp === active) renderStage();
+    });
+    root.addEventListener('change', (e) => {
+      const el = e.target.closest('[data-key]');
+      if (!el || el.type === 'text') return;
+      const name = el.dataset.comp;
+      state[name][el.dataset.key] = el.type === 'checkbox' ? el.checked : el.value;
+      const focusKey = el.dataset.key;
+      refreshControls(name); // "when" ile görünen kontroller değişebilir
+      const again = root.querySelector(`[data-comp="${name}"][data-key="${focusKey}"]`);
+      if (again) again.focus();
+      if (name !== active) {
+        active = name;
+        root.querySelectorAll('[data-item]').forEach((b) => b.classList.toggle('selected', b.dataset.item === name));
+      }
+      renderStage();
+    });
+    // Sahnede Ctrl/⌘ + tekerlek veya + / − / 0 tuşları ile yakınlaştırma.
+    root.addEventListener('wheel', (e) => {
+      if (!(e.ctrlKey || e.metaKey) || !e.target.closest('.pg-stage')) return;
+      e.preventDefault(); step(e.deltaY < 0 ? 1 : -1);
+    }, { passive: false });
+    window.addEventListener('keydown', (e) => {
+      if (e.target.closest && e.target.closest('input, select, textarea')) return;
+      if (e.key === '+' || e.key === '=') step(1);
+      else if (e.key === '-') step(-1);
+      else if (e.key === '0') setZoom(1);
+    });
+
+    shell();
+  };
+})();
+
+// checkbox
+// Checkbox. role="checkbox" bir düğme; tıklayınca veya Space ile değişir. Indeterminate'ten tıklayınca True olur.
+// İç kullanım: label (erişilebilir ad), id, static (tıklanınca kendisi değişmez; Filter Group satırı yönetir).
+TDS.register('checkbox', {
+  defaults: { Checked: 'False', State: 'Live', label: 'Checkbox', id: '', static: false },
+  render(p) {
+    const st = p.State && p.State !== 'Live' ? TDS.slug(p.State) : '';
+    const aria = { False: 'false', True: 'true', Indeterminate: 'mixed' }[p.Checked] || 'false';
+    const size = TDS.num(TDS.spec('checkbox', 'Sizes', 'part', 'Mark').size); // 12
+    const mark = aria === 'true' ? TDS.icon('Check', size) : aria === 'mixed' ? TDS.icon('Minus', size) : '';
+    return `<button type="button" role="checkbox" class="tds-checkbox" aria-checked="${aria}"${p.label ? ` aria-label="${TDS.esc(p.label)}"` : ''}${p.id ? ` id="${TDS.esc(p.id)}"` : ''}`
+      + `${st ? ` data-state="${st}"` : ''}${st === 'disabled' ? ' disabled' : ''}${p.static ? ' data-static' : ''}${st === 'focused' ? ' tabindex="0"' : ''}>${mark}</button>`;
+  },
+});
+TDS.setChecked = (box, checked) => {
+  const size = TDS.num(TDS.spec('checkbox', 'Sizes', 'part', 'Mark').size);
+  box.setAttribute('aria-checked', checked ? 'true' : 'false');
+  box.innerHTML = checked ? TDS.icon('Check', size) : '';
+};
+document.addEventListener('click', (e) => {
+  const box = e.target.closest('.tds-checkbox');
+  if (!box || box.disabled || box.hasAttribute('data-static') || box.dataset.state) return;
+  TDS.setChecked(box, box.getAttribute('aria-checked') !== 'true');
+});
+
+// badge-dot
+// Badge Dot. Status bu komponenti tonun noktası olarak kullanır.
+TDS.register('badge-dot', {
+  defaults: { Size: 'Medium', Tone: 'Info' },
+  render(p) {
+    return `<span class="tds-badge-dot" data-size="${TDS.slug(p.Size)}" data-tone="${TDS.slug(p.Tone)}" role="img" aria-label="${TDS.esc(p.Tone)} indicator"></span>`;
+  },
+});
+
+// menu-item
+// Menu Item. Menü içinde role="menuitem" olarak çizilir; klavye ve tıklama core.js'te.
+// İç kullanım: submenu (TDS.defineMenu adı) verilirse Submenu satırı gerçekten alt menü açar.
+TDS.register('menu-item', {
+  defaults: { State: 'Live', Destructive: 'False', Label: 'Menu item', 'Show Description': false, Description: 'Description', 'Leading Icon': false, Icon: 'Copy', 'Show Trailing Text': false, 'Trailing Text': '⌘D', Submenu: false, Check: false, 'Show Check': true, submenu: '', leading: '', value: '' },
+  render(p) {
+    const st = p.State && p.State !== 'Live' ? TDS.slug(p.State) : '';
+    const destructive = p.Destructive === 'True';
+    const disabled = st === 'disabled';
+    // İkon boyutları spec'teki Icons tablosundan (Leading Icon 16, Submenu 16).
+    const sz = (part) => TDS.num(TDS.spec('menu-item', 'Icons', 'part', part).size);
+    // leading: Leading slot içeriği (HTML): bayrak, Checkbox, Radio, avatar…
+    const lead = p.leading ? `<span class="tds-menu-item-leading">${p.leading}</span>`
+      : p['Leading Icon'] ? TDS.icon(p.Icon, sz('Leading Icon'), 'Regular', 'data-part="leading-icon"') : '';
+    const desc = p['Show Description'] ? `<span class="tds-menu-item-desc">${TDS.esc(p.Description)}</span>` : '';
+    const trailing = p['Show Trailing Text'] ? `<span class="tds-menu-item-trailing">${TDS.esc(p['Trailing Text'])}</span>` : '';
+    const check = p.Check || (st === 'selected' && p['Show Check']) ? TDS.icon('Check', sz('Submenu'), 'Regular', 'data-part="submenu"') : '';
+    const sub = p.Submenu ? TDS.icon('CaretRight', sz('Submenu'), 'Regular', 'data-part="submenu"') : '';
+    return `<div role="menuitem" tabindex="-1" class="tds-menu-item"${st ? ` data-state="${st}"` : ''}${destructive ? ' data-destructive="true"' : ''}${disabled ? ' aria-disabled="true"' : ''}${p.Submenu ? ' aria-haspopup="menu"' : ''}${p.Submenu && p.submenu ? ` data-tds-submenu="${TDS.esc(p.submenu)}" aria-expanded="false"` : ''}${p.value ? ` data-value="${TDS.esc(p.value)}"` : ''}>`
+      + lead + `<span class="tds-menu-item-text"><span class="tds-menu-item-label">${TDS.esc(p.Label)}</span>${desc}</span>` + trailing + check + sub + `</div>`;
+  },
+});
+
+// menu-group-label
+// Menu Group Label.
+TDS.register('menu-group-label', {
+  defaults: { Label: 'Group' },
+  render(p) { return `<div class="tds-menu-group-label" role="presentation">${TDS.esc(p.Label)}</div>`; },
+});
+
+// menu-separator
+// Menu Separator.
+TDS.register('menu-separator', {
+  defaults: {},
+  render() { return `<div class="tds-menu-separator" role="separator"></div>`; },
+});
+
+// badge-count
+// Badge Count. 99'dan büyük sayılar 99+ olarak gösterilir (spec).
+TDS.register('badge-count', {
+  defaults: { Tone: 'Neutral', Count: '5' },
+  render(p) {
+    const n = Number(p.Count);
+    const text = Number.isFinite(n) && n > 99 ? '99+' : p.Count;
+    return `<span class="tds-badge-count" data-tone="${TDS.slug(p.Tone)}">${TDS.esc(text)}</span>`;
+  },
+});
+
+// button
+// Button. Badge Count'u (Show Count) kendisi çizmez, badge-count komponentini kullanır.
+// İç kullanım için ek props: iconLeft / iconRight (ikon adı), before (ikonun yerine HTML, ör. bayrak),
+// menu (TDS.defineMenu adı, tıklayınca açılır), align (menünün hizası), attrs (ek nitelikler).
+TDS.register('button', {
+  defaults: { Variant: 'Primary', Size: 'Medium', State: 'Live', Label: 'Button', 'Icon Left': false, 'Icon Right': false, 'Show Count': false, Count: '5', corners: '', iconLeft: 'Plus', iconRight: 'CaretDown', before: '', menu: '', align: '', attrs: '' },
+  render(p) {
+    // İkon boyutu spec'teki Sizes tablosundan (Icon sütunu): XSmall 14, Small 16, Medium 16, Large 20.
+    const size = TDS.num(TDS.spec('button', 'Sizes', 'size', p.Size).icon);
+    const icon = (n) => TDS.icon(n, size);
+    const state = p.State && p.State !== 'Live' ? ` data-state="${TDS.slug(p.State)}"` : '';
+    const dis = p.State === 'Disabled' ? ' disabled' : '';
+    const corners = p.corners ? ` data-corners="${p.corners}"` : '';
+    const menu = p.menu ? ` data-tds-menu="${p.menu}" aria-haspopup="menu" aria-expanded="false"${p.align ? ` data-tds-align="${p.align}"` : ''}` : '';
+    return `<button type="button" class="tds-button" data-variant="${TDS.slug(p.Variant)}" data-size="${TDS.slug(p.Size)}"${state}${corners}${menu}${p.attrs ? ' ' + p.attrs : ''}${dis}>`
+      + (p.before || (p['Icon Left'] ? icon(p.iconLeft) : ''))
+      + `<span class="tds-button-label">${TDS.esc(p.Label)}</span>`
+      + (p['Show Count'] ? TDS.render('badge-count', { Tone: 'Neutral', Count: p.Count }) : '')
+      + (p['Icon Right'] ? icon(p.iconRight) : '')
+      + `</button>`;
+  },
+});
+
+// menu
+// Menu. Items slot'u menu-item, menu-group-label ve menu-separator komponentleriyle çizilir.
+// Items: [{ Label, Icon, Destructive, ... } | { group: 'Başlık' } | { separator: true }]
+TDS.register('menu', {
+  defaults: {
+    State: 'Default',
+    Width: 240,
+    Items: [{ Label: 'Menu item' }, { Label: 'Menu item' }, { Label: 'Menu item' }, { Label: 'Menu item' }],
+    Title: 'No results for "xyzq"',
+    Description: 'Check the spelling or search by Content ID.',
+    ErrorTitle: "Couldn't load results",
+    ErrorDescription: 'Check your connection and try again.',
+    Hint: 'Type at least 2 characters',
+    label: 'Options',
+  },
+  render(p) {
+    const st = TDS.slug(p.State);
+    let body = '';
+    if (st === 'default') {
+      body = p.Items.map((it) => it.separator ? TDS.render('menu-separator', {})
+        : it.group ? TDS.render('menu-group-label', { Label: it.group })
+          : TDS.render('menu-item', { ...it, 'Leading Icon': !!it.Icon, Destructive: it.Destructive ? 'True' : 'False' })).join('');
+    } else if (st === 'loading') {
+      body = `<div class="tds-menu-status" aria-busy="true" aria-label="Loading">${[208, 166, 125].map((w) => `<span class="tds-menu-skeleton" style="width:${w}px"></span>`).join('')}</div>`;
+    } else if (st === 'no-results') {
+      body = `<div class="tds-menu-status"><span class="tds-menu-status-title">${TDS.esc(p.Title)}</span><span class="tds-menu-status-desc">${TDS.esc(p.Description)}</span></div>`;
+    } else if (st === 'error') {
+      const errSize = TDS.num(TDS.spec('menu', 'States', 'state', 'Error', 1).icon); // 20
+      body = `<div class="tds-menu-status" role="alert">${TDS.icon('WarningCircle', errSize)}<span class="tds-menu-status-title">${TDS.esc(p.ErrorTitle)}</span><span class="tds-menu-status-desc">${TDS.esc(p.ErrorDescription)}</span>${TDS.render('button', { Variant: 'Secondary', Size: 'Small', Label: 'Try again' })}</div>`;
+    } else if (st === 'hint') {
+      body = `<div class="tds-menu-status"><span class="tds-menu-hint">${TDS.esc(p.Hint)}</span></div>`;
+    }
+    return `<div class="tds-menu" role="menu" aria-label="${TDS.esc(p.label)}" data-state="${st}" style="width:${Number(p.Width) || 240}px">${body}</div>`;
+  },
+});
+
+// status
+// Status. Interactive=True bir buton olur, sağında chevron vardır ve gerçek Menu komponentini açar.
+// Nokta badge-dot komponentinden gelir.
+TDS.defineMenu('status', (trigger) => ({
+  label: 'Change status',
+  Width: 200,
+  Items: ['Draft', 'In review', 'Published', 'Archived'].map((l) => ({ Label: l, Check: l === trigger.dataset.label })),
+}));
+TDS.register('status', {
+  defaults: { Tone: 'Neutral', Size: 'Small', Interactive: 'False', State: 'Live', Label: 'Draft', 'Show dot': true, 'Show icon': false, Leading: 'Plus' },
+  render(p) {
+    const interactive = p.Interactive === 'True';
+    const tag = interactive ? 'button' : 'span';
+    const state = interactive && p.State && p.State !== 'Live' ? ` data-state="${TDS.slug(p.State)}"` : '';
+    const menu = interactive ? ` type="button" data-tds-menu="status" data-label="${TDS.esc(p.Label)}" aria-haspopup="menu" aria-expanded="false"` : '';
+    const dot = p['Show dot'] ? TDS.render('badge-dot', { Size: 'Small', Tone: p.Tone }).replace(' role="img"', ' aria-hidden="true"').replace(/ aria-label="[^"]*"/, '') : '';
+    const size = TDS.num(TDS.spec('status', 'Sizes', 'size', p.Size).icon); // Small 12, Medium 14
+    const lead = p['Show icon'] ? TDS.icon(p.Leading || 'Plus', size) : dot; // Leading: Figma'daki instance swap (ör. Stack, TabiiIcon)
+    return `<${tag}${menu} class="tds-status" data-tone="${TDS.slug(p.Tone)}" data-size="${TDS.slug(p.Size)}"${state}>`
+      + lead + `<span>${TDS.esc(p.Label)}</span>` + (interactive ? TDS.icon('CaretDown', size) : '') + `</${tag}>`;
+  },
+});
+
+// table-cell
+// Table Cell. Type: Text, Two Line, Slot (Status), Checkbox. Interactive: False, True (hover), Link (değer bağlantı).
+// Live: gerçek hover. Satır sadece Checkbox hücresiyle seçilir (spec); True sadece hover verir. İç kullanım: selected, slot (Slot içeriği HTML'i), width.
+TDS.register('table-cell', {
+  defaults: { Type: 'Text', Interactive: 'False', State: 'Live', Value: 'Cell value', Overline: 'MOVIE', 'Show Image': false, selected: false, slot: '', width: '', image: '' },
+  render(p) {
+    const type = TDS.slug(p.Type);
+    const inter = type === 'checkbox' ? 'false' : TDS.slug(p.Interactive);
+    const st = p.State && p.State !== 'Live' ? TDS.slug(p.State) : '';
+    const selected = p.selected || st === 'selected' || st === 'selected-hover';
+    // Hover ve Selected Hover sadece Interactive True / Link'te var (spec → Variants).
+    const state = st === 'hover' || st === 'selected-hover' ? (inter === 'false' ? '' : st) : '';
+    const value = inter === 'link'
+      ? `<a class="tds-table-cell-value" href="#" onclick="return false">${TDS.esc(p.Value)}</a>`
+      : `<span class="tds-table-cell-value">${TDS.esc(p.Value)}</span>`;
+    let body;
+    if (type === 'checkbox') body = TDS.render('checkbox', { Checked: selected ? 'True' : 'False', label: 'Select row', static: true });
+    else if (type === 'slot') body = p.slot || TDS.render('status', { Tone: 'Success', Label: 'Published' });
+    else if (type === 'two-line') body = `<span class="tds-table-cell-lines"><span class="tds-table-cell-overline">${TDS.esc(p.Overline)}</span>${value}</span>`;
+    else body = value;
+    // image: görselin adresi. Verilmezse örnek (dummy) bir görsel gelir; Figma'daki yer tutucu PNG'nin renk token'ı yok.
+    const src = p.image || `https://picsum.photos/seed/${encodeURIComponent(p.Value)}/170/96`;
+    const image = p['Show Image'] && type !== 'checkbox' ? `<img class="tds-table-cell-image" src="${TDS.esc(src)}" alt="" loading="lazy">` : '';
+    const attrs = `${inter !== 'false' ? ` data-interactive="${inter}"` : ''}${state ? ` data-state="${state}"` : ''}${selected ? ' aria-selected="true"' : ''}`
+      + `${type === 'checkbox' ? ' data-toggle tabindex="0"' : ''}${p.width ? ` style="width:${TDS.esc(p.width)}"` : ''}`;
+    return `<div class="tds-table-cell" role="gridcell" data-type="${type}"${attrs}>${image}${body}</div>`;
+  },
+});
+// Tıklayınca veya Space / Enter ile seçim değişir. Tablo içindeyse aynı satırdaki bütün hücreler birlikte değişir.
+(function () {
+  const toggle = (cell) => {
+    const row = cell.closest('[role="row"]');
+    const on = cell.getAttribute('aria-selected') !== 'true';
+    const cells = row ? row.querySelectorAll('.tds-table-cell') : [cell];
+    cells.forEach((c) => {
+      if (on) c.setAttribute('aria-selected', 'true'); else c.removeAttribute('aria-selected');
+      const box = c.querySelector('.tds-checkbox');
+      if (box) box.setAttribute('aria-checked', String(on)), box.innerHTML = on ? TDS.icon('Check', TDS.num(TDS.spec('checkbox', 'Sizes', 'part', 'Mark').size)) : '';
+    });
+    cell.dispatchEvent(new CustomEvent('tds-row-select', { bubbles: true }));
+  };
+  document.addEventListener('click', (e) => {
+    const cell = e.target.closest('.tds-table-cell[data-toggle]');
+    if (cell) toggle(cell);
+  });
+  document.addEventListener('keydown', (e) => {
+    const cell = e.target.closest && e.target.closest('.tds-table-cell[data-toggle]');
+    if (cell && (e.key === ' ' || e.key === 'Enter') && e.target === cell) { e.preventDefault(); toggle(cell); }
+  });
+})();
+
+// table-header-cell
+// Table Header Cell. Sortable açıkken bir düğmedir: tıklayınca None → Ascending → Descending → None.
+// Type Checkbox bütün satırları seçer (tablo içindeyse). İkonlar spec'teki "Sort icon" satırından.
+(function () {
+  const draw = { CaretUpDown: (s) => TDS.icon('CaretUpDown', s), ArrowUp: (s) => TDS.icon('ArrowUp', s), ArrowDown: (s) => TDS.icon('ArrowDown', s) };
+  // "CaretUpDown (None), ArrowUp (Ascending), ArrowDown (Descending)" → { none: 'CaretUpDown', … }
+  const sortIcons = () => Object.fromEntries([...String(TDS.spec('table-header-cell', 'States', 'part', 'Sort icon', 1).value).matchAll(/(\w+) \((\w+)\)/g)].map((m) => [m[2].toLowerCase(), m[1]]));
+  TDS.register('table-header-cell', {
+    defaults: { Type: 'Label', Sort: 'None', State: 'Live', Label: 'COLUMN', Sortable: true, Divider: false, checked: 'False', width: '' },
+    render(p) {
+      const st = p.State === 'Hover' ? ' data-state="hover"' : '';
+      const width = p.width ? ` style="width:${TDS.esc(p.width)}"` : '';
+      const divider = p.Divider ? ' data-divider' : '';
+      if (TDS.slug(p.Type) === 'checkbox') {
+        return `<div class="tds-table-header-cell" role="columnheader" data-type="checkbox"${divider}${width}>${TDS.render('checkbox', { Checked: p.checked, label: 'Select all rows', static: true })}</div>`;
+      }
+      const sort = TDS.slug(p.Sort);
+      const aria = sort === 'none' ? '' : ` aria-sort="${sort}"`;
+      if (!p.Sortable) return `<div class="tds-table-header-cell" role="columnheader"${aria}${st}${divider}${width}><span>${TDS.esc(p.Label)}</span></div>`;
+      const size = TDS.num(TDS.spec('table-header-cell', 'Sizes', 'part', 'Sort Icon').size); // 12
+      const icon = draw[sortIcons()[sort]];
+      return `<button type="button" class="tds-table-header-cell" role="columnheader" data-tds-comp="table-header-cell"${TDS.props(p)}${aria}${st}${divider}${width}><span>${TDS.esc(p.Label)}</span>${icon ? icon(size) : ''}</button>`;
+    },
+  });
+  const next = { None: 'Ascending', Ascending: 'Descending', Descending: 'None' };
+  document.addEventListener('click', (e) => {
+    const cell = e.target.closest('button.tds-table-header-cell');
+    if (!cell) return;
+    const p = TDS.read(cell);
+    // Tablo içindeyse diğer sütunların sıralaması kalkar.
+    const row = cell.closest('[role="row"]');
+    if (row) row.querySelectorAll('button.tds-table-header-cell[aria-sort]').forEach((o) => { if (o !== cell) TDS.update(o, { Sort: 'None' }); });
+    TDS.update(cell, { Sort: next[p.Sort] || 'Ascending' }, null).focus();
+  });
+})();
+
+// icon-button
+// Icon Button. Button'un renk sınıfını (tds-button) paylaşır.
+TDS.register('icon-button', {
+  defaults: { Variant: 'Primary', Shape: 'Square', Size: 'Medium', State: 'Live', Icon: 'MagnifyingGlass', label: 'Search', corners: '', menu: '', align: '' },
+  render(p) {
+    const state = p.State && p.State !== 'Live' ? ` data-state="${TDS.slug(p.State)}"` : '';
+    const dis = p.State === 'Disabled' ? ' disabled' : '';
+    const corners = p.corners ? ` data-corners="${p.corners}"` : '';
+    // menu: TDS.defineMenu ile tanımlanmış bir menünün adı; verilirse tıklayınca o menü açılır.
+    const menu = p.menu ? ` data-tds-menu="${p.menu}" aria-haspopup="menu" aria-expanded="false"${p.align ? ` data-tds-align="${p.align}"` : ''}` : '';
+    const size = TDS.num(TDS.spec('icon-button', 'Sizes', 'size', p.Size).icon); // 16 / 16 / 20 / 20
+    return `<button type="button" class="tds-button tds-icon-button" aria-label="${TDS.esc(p.label)}" data-variant="${TDS.slug(p.Variant)}" data-shape="${TDS.slug(p.Shape)}" data-size="${TDS.slug(p.Size)}"${state}${corners}${menu}${dis}>${TDS.icon(p.Icon, size)}</button>`;
+  },
+});
+
+// input
+// Input. Gerçek bir <input>: yazılabilir, Trailing Icon (X) alanı temizler, Counter yazdıkça sayar.
+// State=Live: boş alan, Value placeholder olarak görünür; yazınca Filled, odakta Focused olur.
+// Sabit state'lerde Default placeholder'ı, diğerleri Value'yu değer olarak gösterir.
+// İç kullanım (diğer komponentler): id, width, align ('center'), leading / trailing (slot HTML'i),
+// placeholder, value, inputmode, describedby, invalid, attrs.
+TDS.register('input', {
+  defaults: { Size: 'Medium', State: 'Live', Value: 'Placeholder text', 'Show Value': true, 'Leading Icon': false, 'Leading Icon Swap': 'MagnifyingGlass', 'Trailing Icon': false, 'Trailing Icon Swap': 'X', Counter: false, 'Counter Text': '0/80', id: '', width: '', align: '', leading: '', trailing: '', placeholder: '', value: null, inputmode: '', describedby: '', label: '', attrs: '' },
+  render(p) {
+    const st = p.State && p.State !== 'Live' ? TDS.slug(p.State) : '';
+    const size = (part) => TDS.num(TDS.spec('input', 'Parts', 'part', part).size); // 16
+    const empty = st === 'default';
+    const value = p.value != null ? p.value : (st && !empty ? p.Value : '');
+    const placeholder = p.placeholder || (empty || !st ? p.Value : '');
+    const dis = st === 'disabled' ? ' disabled' : '';
+    const ro = st === 'read-only' ? ' readonly' : '';
+    const max = TDS.num(String(p['Counter Text']).split('/')[1]);
+    const count = p.Counter ? `<span class="tds-input-counter" aria-live="polite">${TDS.esc(st ? p['Counter Text'] : `${value.length}/${max || ''}`)}</span>` : '';
+    const trailingIcon = !p['Trailing Icon'] ? ''
+      : p['Trailing Icon Swap'] === 'X'
+        ? `<button type="button" class="tds-input-clear" data-tds-clear aria-label="Clear"${dis || ro ? ' disabled' : ''}>${TDS.icon('X', size('Trailing Icon'), 'Regular', 'data-part="trailing-icon"')}</button>`
+        : TDS.icon(p['Trailing Icon Swap'], size('Trailing Icon'), 'Regular', 'data-part="trailing-icon"');
+    const aria = [p.label ? ` aria-label="${TDS.esc(p.label)}"` : '', p.describedby ? ` aria-describedby="${TDS.esc(p.describedby)}"` : '', st === 'error' || p.invalid ? ' aria-invalid="true"' : ''].join('');
+    const field = p['Show Value'] ? `<input class="tds-input-field" type="text"${p.id ? ` id="${TDS.esc(p.id)}"` : ''} value="${TDS.esc(value)}" placeholder="${TDS.esc(placeholder)}"${p.inputmode ? ` inputmode="${p.inputmode}"` : ''}${max && p.Counter ? ` data-max="${max}"` : ''}${aria}${dis}${ro}${p.attrs ? ' ' + p.attrs : ''}>` : '';
+    const width = p.width ? ` style="width:${TDS.esc(p.width)}${/^\d+$/.test(p.width) ? 'px' : ''}"` : '';
+    return `<label class="tds-input" data-size="${TDS.slug(p.Size)}"${st ? ` data-state="${st}"` : ''}${p.align ? ` data-align="${p.align}"` : ''}${width}>`
+      + (p['Leading Icon'] ? TDS.icon(p['Leading Icon Swap'], size('Leading Icon'), 'Regular', 'data-part="leading-icon"') : '')
+      + (p.leading ? `<span class="tds-input-leading">${p.leading}</span>` : '')
+      + field
+      + count
+      + (st === 'success' ? TDS.icon('CheckCircle', size('Status Icon'), 'Regular', 'data-part="status-icon"') : '')
+      + trailingIcon
+      + (p.trailing ? `<span class="tds-input-trailing">${p.trailing}</span>` : '')
+      + `</label>`;
+  },
+});
+
+// Temizle düğmesi ve canlı sayaç.
+document.addEventListener('click', (e) => {
+  const clear = e.target.closest('[data-tds-clear]');
+  if (!clear) return;
+  e.preventDefault();
+  const field = clear.closest('.tds-input').querySelector('.tds-input-field');
+  if (!field) return;
+  field.value = '';
+  field.dispatchEvent(new Event('input', { bubbles: true }));
+  field.focus();
+});
+document.addEventListener('input', (e) => {
+  const field = e.target.closest && e.target.closest('.tds-input-field[data-max]');
+  if (!field) return;
+  const c = field.closest('.tds-input').querySelector('.tds-input-counter');
+  if (c) c.textContent = `${field.value.length}/${field.dataset.max}`;
+});
+
+// card-header
+// Card Header. Başlık + alt başlık; Trailing: None, Badge (Status Success Small), Action (Button Secondary XSmall),
+// Slot - H (sağda serbest içerik; örnek: Interactive Status), Slot - V (başlığın altında; Figma'daki gibi arama + Filters, Sort, Bulk Actions).
+TDS.defineMenu('card-header-bulk', { label: 'Bulk actions', Width: 200, Items: [{ Label: 'Publish', Icon: 'CheckCircle' }, { Label: 'Archive', Icon: 'FolderSimple' }, { separator: true }, { Label: 'Delete', Icon: 'Trash', Destructive: true }] });
+TDS.register('card-header', {
+  defaults: { Trailing: 'None', Title: 'Card title', 'Show Subtitle': true, Subtitle: 'Supporting text', 'Badge Label': 'Complete', 'Action Label': 'See All' },
+  render(p) {
+    const t = TDS.slug(p.Trailing);
+    const text = `<div class="tds-card-header-text"><span class="tds-card-header-title">${TDS.esc(p.Title)}</span>`
+      + (p['Show Subtitle'] ? `<span class="tds-card-header-subtitle">${TDS.esc(p.Subtitle)}</span>` : '') + `</div>`;
+    let trailing = '';
+    if (t === 'badge') trailing = TDS.render('status', { Tone: 'Success', Size: 'Small', Label: p['Badge Label'] });
+    else if (t === 'action') trailing = TDS.render('button', { Variant: 'Secondary', Size: 'XSmall', Label: p['Action Label'] });
+    // Slot - H örneği: değiştirilebilir bir Status (Interactive, gerçek menü açar).
+    else if (t === 'slot-h') trailing = `<div class="tds-card-header-slot">${TDS.render('status', { Tone: 'Neutral', Size: 'Small', Interactive: 'True', Label: 'Draft' })}</div>`;
+    else if (t === 'slot-v') {
+      trailing = `<div class="tds-card-header-slot">`
+        + TDS.render('input', { Size: 'Small', 'Leading Icon': true, 'Leading Icon Swap': 'MagnifyingGlass', placeholder: 'Search title, content ID or person...', value: '', label: 'Search', width: '100%' })
+        + TDS.render('button', { Variant: 'Secondary', Size: 'Small', Label: 'Filters', 'Icon Left': true, iconLeft: 'Funnel', 'Show Count': true, Count: '5' })
+        + TDS.render('button', { Variant: 'Secondary', Size: 'Small', Label: 'Sort', 'Icon Left': true, iconLeft: 'SortAscending' })
+        + TDS.render('button', { Variant: 'Secondary', Size: 'Small', Label: 'Bulk Actions', 'Icon Right': true, iconRight: 'CaretDown', menu: 'card-header-bulk', align: 'end' })
+        + `</div>`;
+    }
+    return `<div class="tds-card-header" data-trailing="${t}">${text}${trailing}</div>`;
+  },
+});
+
+// avatar
+// Avatar. Baş harfler; renk Color'dan. Ekran okuyucu için ad: label (verilmezse baş harfler).
+TDS.register('avatar', {
+  defaults: { Size: 'Small', Color: 'Neutral', Initials: 'AC', label: '' },
+  render(p) {
+    return `<span class="tds-avatar" role="img" aria-label="${TDS.esc(p.label || p.Initials)}" data-size="${TDS.slug(p.Size)}" data-color="${TDS.slug(p.Color)}"><span aria-hidden="true">${TDS.esc(p.Initials)}</span></span>`;
+  },
+});
+
+// list-item
+// List Item. Bir bağlantı satırı; hover'da başlık altı çizilir.
+// Issue: ikon (iki halkalı); Activity: Avatar (Medium); Note: başlık + Status etiketi (Danger, Small) ve açıklama;
+// Slot: başlıktan önce serbest içerik. Trailing Slot Figma'da boş. İç kullanım: leading, trailing (slot HTML'i).
+TDS.register('list-item', {
+  defaults: { Type: 'Issue', State: 'Live', Title: 'List item title', Description: 'Supporting text', 'Show Description': true, Icon: 'TrendUp', 'Note Tag': 'Lisans Yenileme', Initials: 'AC', leading: '', trailing: '' },
+  render(p) {
+    const type = TDS.slug(p.Type);
+    const st = p.State === 'Hover' ? ' data-state="hover"' : '';
+    const title = `<span class="tds-list-item-title">${TDS.esc(p.Title)}</span>`;
+    const desc = p['Show Description'] ? `<span class="tds-list-item-desc">${TDS.esc(p.Description)}</span>` : '';
+    const trailing = p.trailing ? `<span class="tds-list-item-slot">${p.trailing}</span>` : '';
+    let body;
+    if (type === 'note') {
+      body = title + `<span class="tds-list-item-meta">${TDS.render('status', { Tone: 'Danger', Size: 'Small', Label: p['Note Tag'], 'Show dot': false })}${desc}</span>`;
+    } else {
+      const size = TDS.num(TDS.spec('list-item', 'Sizes', 'part', 'Icon').height); // 18
+      const lead = type === 'issue' ? `<span class="tds-list-item-wrap" aria-hidden="true"><span class="tds-list-item-inner">${TDS.icon(p.Icon, size)}</span></span>`
+        : type === 'activity' ? TDS.render('avatar', { Size: 'Medium', Color: 'Blue', Initials: p.Initials })
+          : p.leading ? `<span class="tds-list-item-slot">${p.leading}</span>` : '';
+      body = `${lead}<span class="tds-list-item-text">${title}${desc}</span>${trailing}`;
+    }
+    return `<a class="tds-list-item" href="#" onclick="return false" data-type="${type}"${st}>${body}</a>`;
+  },
+});
+
+// trend
+// Trend. İkon spec'teki States tablosundan (Positive: TrendUp, Negative: TrendDown, Neutral: Minus).
+(function () {
+  const draw = { TrendUp: (s) => TDS.icon('TrendUp', s), TrendDown: (s) => TDS.icon('TrendDown', s), Minus: (s) => TDS.icon('Minus', s) };
+  TDS.register('trend', {
+    defaults: { Direction: 'Positive', Value: '12', Context: 'vs last month', 'Show Context': true },
+    render(p) {
+      const row = TDS.spec('trend', 'States', 'direction', p.Direction);
+      const size = TDS.num(TDS.spec('trend', 'Sizes', 'part', 'Icon').size); // 14
+      const fn = draw[String(row.icon).trim()];
+      if (!fn) throw new Error(`trend: spec'teki "${row.icon}" ikonu component.js'te yok`);
+      return `<span class="tds-trend" data-direction="${TDS.slug(p.Direction)}">${fn(size)}<span class="tds-trend-value">${TDS.esc(p.Value)}</span>`
+        + (p['Show Context'] ? `<span class="tds-trend-context">${TDS.esc(p.Context)}</span>` : '') + `</span>`;
+    },
+  });
+})();
+
+// stat-card
+// Stat Card. Etiket, büyük sayı ve isteğe bağlı Trend (trend komponenti; Direction, Value, Context ona geçer).
+TDS.register('stat-card', {
+  defaults: { Label: 'Metric label', Value: '847', 'Show Trend': true, Direction: 'Positive', 'Trend Value': '12', Context: 'vs last month', 'Show Context': true },
+  render(p) {
+    const trend = p['Show Trend'] ? TDS.render('trend', { Direction: p.Direction, Value: p['Trend Value'], Context: p.Context, 'Show Context': p['Show Context'] }) : '';
+    return `<div class="tds-stat-card"><span class="tds-stat-card-label">${TDS.esc(p.Label)}</span><span class="tds-stat-card-value">${TDS.esc(p.Value)}</span>${trend}</div>`;
+  },
+});
+
+// card
+// Card. Üstte Card Header (card-header, açık property'leri buradan geçer), Body slot ve isteğe bağlı Footer slot.
+// Body Content: Placeholder (Figma'daki yer tutucu yazı), List Items (3 List Item) veya Stat Cards (2 Stat Card).
+// Footer açıkken örnek olarak Secondary ve Primary butonlar durur. İç kullanım: body / footer (slot HTML'i).
+TDS.register('card', {
+  defaults: { Style: 'Default', Header: true, Footer: false, Trailing: 'Action', Title: 'Card title', 'Show Subtitle': true, Subtitle: 'Supporting text', 'Body Content': 'Placeholder', body: '', footer: '', flush: false, width: '' },
+  render(p) {
+    const header = p.Header ? TDS.render('card-header', { Trailing: p.Trailing, Title: p.Title, 'Show Subtitle': p['Show Subtitle'], Subtitle: p.Subtitle }) : '';
+    const content = TDS.slug(p['Body Content']);
+    const body = p.body
+      || (content === 'list-items' ? ['TrendUp', 'WarningCircle', 'Clock'].map((Icon) => TDS.render('list-item', { Icon })).join('')
+        : content === 'stat-cards' ? `<div class="tds-card-row">${TDS.render('stat-card', {})}${TDS.render('stat-card', { Direction: 'Negative', 'Trend Value': '4' })}</div>`
+          : '<span class="tds-card-placeholder">Body slot — place content here</span>');
+    const footer = p.Footer ? `<div class="tds-card-footer">${p.footer || TDS.render('button', { Variant: 'Secondary', Size: 'Small', Label: 'Cancel' }) + TDS.render('button', { Variant: 'Primary', Size: 'Small', Label: 'Save' })}</div>` : '';
+    // flush: tablo gibi kenara kadar uzanan içerikte Body ve Footer padding'i kalkar (Figma'daki Show library örneği).
+    return `<section class="tds-card" data-style="${TDS.slug(p.Style)}"${p.flush ? ' data-flush' : ''}${p.width ? ` style="width:${TDS.esc(p.width)}px"` : ''}>${header}<div class="tds-card-body">${body}</div>${footer}</section>`;
+  },
+});
+
+// icon-stat
+// Icon Stat. İkon + sayı; Vertical'da alt alta, Horizontal'da yan yana.
+TDS.register('icon-stat', {
+  defaults: { Layout: 'Vertical', Icon: 'Globe', Value: '3' },
+  render(p) {
+    const size = TDS.num(TDS.spec('icon-stat', 'Sizes', 'part', 'Icon').size); // 16
+    return `<span class="tds-icon-stat" data-layout="${TDS.slug(p.Layout)}">${TDS.icon(p.Icon, size)}<span>${TDS.esc(p.Value)}</span></span>`;
+  },
+});
+
+// pagination-item
+// Pagination Item. Gerçek bir düğme: sayfa numarası, Previous / Next (caret ile) veya "…" (tıklanmaz).
+// Live: gerçek hover; Selected (aria-current) ve Disabled dışarıdan verilir.
+// İç kullanım: page (tıklanınca gidilecek sayfa), current (seçili sayfa).
+TDS.register('pagination-item', {
+  defaults: { State: 'Live', Label: '1', 'Leading Icon': false, 'Trailing Icon': false, page: '', current: false },
+  render(p) {
+    const st = p.State && p.State !== 'Live' ? TDS.slug(p.State) : '';
+    const size = (n) => TDS.num(TDS.spec('pagination-item', 'Parts', 'part', n).size); // 14
+    const ellipsis = p.Label === '…';
+    const current = p.current || st === 'selected';
+    const dis = st === 'disabled' ? ' disabled' : '';
+    const attrs = `${st && st !== 'selected' ? ` data-state="${st}"` : ''}${current ? ' aria-current="page"' : ''}${ellipsis ? ' data-ellipsis aria-hidden="true" tabindex="-1"' : ''}${p.page ? ` data-page="${p.page}"` : ''}${dis}`;
+    return `<button type="button" class="tds-pagination-item"${attrs}>`
+      + (p['Leading Icon'] ? TDS.icon('CaretLeft', size('Leading Icon')) : '')
+      + `<span>${TDS.esc(p.Label)}</span>`
+      + (p['Trailing Icon'] ? TDS.icon('CaretRight', size('Trailing Icon')) : '')
+      + `</button>`;
+  },
+});
+
+// select
+// Select. Tıklayınca gerçek Menu komponentini açar; seçilen satır değere yazılır (Live).
+// Seçenekler: Options (virgülle). İç kullanım: id, width, leading (slot HTML'i), menuWidth, label, describedby.
+TDS.defineMenu('select', (trigger) => {
+  const current = trigger.dataset.value || '';
+  return {
+    label: trigger.getAttribute('aria-label') || 'Options',
+    Width: Number(trigger.dataset.menuWidth) || trigger.offsetWidth,
+    Items: (trigger.dataset.options || '').split(',').map((s) => s.trim()).filter(Boolean)
+      .map((l) => ({ Label: l, value: l, Check: l === current })),
+  };
+});
+TDS.register('select', {
+  defaults: { Size: 'Medium', State: 'Live', Value: 'Select an option', Options: 'Drama, Comedy, Documentary, Kids', 'Leading Icon': false, 'Leading Icon Swap': 'SquaresFour', 'Leading Content': false, id: '', width: '', leading: '', menuWidth: '', label: '', describedby: '', chosen: '' },
+  render(p) {
+    const st = p.State && p.State !== 'Live' ? TDS.slug(p.State) : '';
+    const size = TDS.num(TDS.spec('select', 'Parts', 'part', 'Leading Icon').size); // 16
+    const chev = TDS.num(TDS.spec('select', 'Parts', 'part', 'Chevron').size); // 16
+    const locked = st === 'disabled' || st === 'read-only';
+    const menu = locked ? '' : ` data-tds-menu="select" aria-haspopup="menu" aria-expanded="false"`;
+    const chosen = p.chosen || '';
+    const shown = st ? p.Value : (chosen || p.Value);
+    const width = p.width ? ` style="width:${TDS.esc(p.width)}${/^\d+$/.test(p.width) ? 'px' : ''}"` : '';
+    return `<button type="button" class="tds-select" data-size="${TDS.slug(p.Size)}"${st ? ` data-state="${st}"` : ''}${chosen && !st ? ' data-filled' : ''}`
+      + `${p.id ? ` id="${TDS.esc(p.id)}"` : ''}${menu} data-options="${TDS.esc(p.Options)}" data-value="${TDS.esc(chosen)}"${p.menuWidth ? ` data-menu-width="${p.menuWidth}"` : ''}`
+      + `${p.label ? ` aria-label="${TDS.esc(p.label)}"` : ''}${p.describedby ? ` aria-describedby="${TDS.esc(p.describedby)}"` : ''}${st === 'error' ? ' aria-invalid="true"' : ''}${st === 'disabled' ? ' disabled' : ''}${width}>`
+      + (p['Leading Icon'] ? TDS.icon(p['Leading Icon Swap'], size, 'Regular', 'data-part="leading-icon"') : '')
+      + (p.leading ? `<span class="tds-select-leading">${p.leading}</span>` : '')
+      + `<span class="tds-select-value">${TDS.esc(shown)}</span>`
+      + TDS.icon('CaretDown', chev, 'Regular', 'data-part="chevron"')
+      + `</button>`;
+  },
+});
+// Menüden seçilen değer Select'e yazılır ve Filled görünümüne geçer.
+document.addEventListener('tds-menu-select', (e) => {
+  const sel = e.target.closest && e.target.closest('.tds-select');
+  if (!sel) return;
+  sel.dataset.value = e.detail.value;
+  sel.querySelector('.tds-select-value').textContent = e.detail.value;
+  if (!sel.dataset.state || sel.dataset.state === 'default') { sel.removeAttribute('data-state'); sel.setAttribute('data-filled', ''); }
+  sel.dispatchEvent(new CustomEvent('tds-change', { bubbles: true, detail: { value: e.detail.value } }));
+});
+
+// pagination
+// Pagination. Durumlu: sayfaya tıklayınca, Previous / Next ile, "Go to" alanına yazıp Enter'a basınca
+// veya Mobile'da Select'ten seçince sayfa değişir. İlk sayfada Previous, son sayfada Next Disabled olur.
+// Per page düğmesi gerçek Menu açar (10, 20, 50, 100). Sayfa sayısı Total Items ÷ Per Page (yukarı yuvarlanır).
+// Show Total kapalıysa "Total: …" yazısı gizlenir.
+TDS.defineMenu('pagination-per-page', (trigger) => ({
+  label: 'Rows per page',
+  Width: 120,
+  Items: ['10', '20', '50', '100'].map((l) => ({ Label: l, value: l, Check: l === trigger.dataset.perPage })),
+}));
+TDS.register('pagination', {
+  defaults: { Size: 'Desktop', 'Total Items': '958', 'Show Total': true, 'Show Per Page': true, 'Show Go To': true, Page: 3, 'Per Page': '10' },
+  render(p) {
+    const count = Math.max(0, Math.round(Number(p['Total Items'])) || 0);
+    const last = Math.max(1, Math.ceil(count / (Number(p['Per Page']) || 10)));
+    const page = Math.min(last, Math.max(1, Number(p.Page) || 1));
+    const item = (props) => TDS.render('pagination-item', props);
+    const total = p['Show Total'] ? `<span class="tds-pagination-total">Total: ${count}</span>` : '';
+    const props = TDS.props({ ...p, Page: page, Pages: last });
+    if (TDS.slug(p.Size) === 'mobile') {
+      const pages = Array.from({ length: last }, (_, i) => String(i + 1)).join(', ');
+      return `<nav class="tds-pagination" data-size="mobile" aria-label="Pagination" data-tds-comp="pagination"${props}>${total}`
+        + `<div class="tds-pagination-group tds-pagination-mobile">`
+        + TDS.render('icon-button', { Variant: 'Secondary', Size: 'Small', Icon: 'CaretLeft', label: 'Previous page', State: page <= 1 ? 'Disabled' : 'Live' }).replace('<button', `<button data-page="${page - 1}"`)
+        + TDS.render('select', { Size: 'Small', Value: String(page), chosen: String(page), Options: pages, label: 'Page', menuWidth: '96' })
+        + TDS.render('icon-button', { Variant: 'Secondary', Size: 'Small', Icon: 'CaretRight', label: 'Next page', State: page >= last ? 'Disabled' : 'Live' }).replace('<button', `<button data-page="${page + 1}"`)
+        + `</div></nav>`;
+    }
+    // Görünen sayfalar: Figma'daki gibi 11 hücre (Previous, sayfalar, …, Next).
+    let nums;
+    if (last <= 10) nums = Array.from({ length: last }, (_, i) => i + 1);
+    else if (page <= 6) nums = [1, 2, 3, 4, 5, 6, 7, 8, '…', last];
+    else if (page >= last - 5) nums = [1, '…', ...Array.from({ length: 8 }, (_, i) => last - 7 + i)];
+    else nums = [1, '…', page - 2, page - 1, page, page + 1, page + 2, '…', last];
+    const cells = [
+      item({ Label: 'Previous', 'Leading Icon': true, State: page <= 1 ? 'Disabled' : 'Live', page: page - 1 }),
+      ...nums.map((n) => (n === '…' ? item({ Label: '…' }) : item({ Label: String(n), page: n, current: n === page }))),
+      item({ Label: 'Next', 'Trailing Icon': true, State: page >= last ? 'Disabled' : 'Live', page: page + 1 }),
+    ];
+    const per = p['Show Per Page'] ? `<div class="tds-pagination-group">${TDS.render('button', { Variant: 'Secondary', Size: 'Small', Label: p['Per Page'], 'Icon Right': true, iconRight: 'CaretDown', menu: 'pagination-per-page', attrs: `data-per-page="${TDS.esc(p['Per Page'])}" aria-label="Rows per page: ${TDS.esc(p['Per Page'])}"` })}<span>per page</span></div>` : '';
+    const go = p['Show Go To'] ? `<label class="tds-pagination-group tds-pagination-goto"><span>Go to</span>${TDS.render('input', { Size: 'Small', align: 'center', placeholder: '123', value: '', inputmode: 'numeric', label: 'Go to page', attrs: 'data-goto' })}<span>Page</span></label>` : '';
+    return `<nav class="tds-pagination" data-size="desktop" aria-label="Pagination" data-tds-comp="pagination"${props}>${total}${per}`
+      + `<div class="tds-pagination-items">${cells.join('')}</div>${go}</nav>`;
+  },
+});
+(function () {
+  const go = (root, n, focus) => { const p = TDS.read(root); TDS.update(root, { Page: Math.min(p.Pages, Math.max(1, n)) }, focus); };
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('.tds-pagination [data-page]');
+    if (!b || b.disabled || b.hasAttribute('data-ellipsis')) return;
+    go(b.closest('.tds-pagination'), Number(b.dataset.page), '[aria-current="page"]');
+  });
+  document.addEventListener('keydown', (e) => {
+    const f = e.target.closest && e.target.closest('.tds-pagination [data-goto]');
+    if (!f || e.key !== 'Enter') return;
+    const n = Math.round(Number(f.value));
+    if (Number.isFinite(n) && n > 0) go(f.closest('.tds-pagination'), n, '[data-goto]');
+  });
+  document.addEventListener('tds-menu-select', (e) => {
+    const root = e.target.closest && e.target.closest('.tds-pagination');
+    if (!root) return;
+    if (e.target.closest('[data-per-page]')) TDS.update(root, { 'Per Page': e.detail.value, Page: 1 }, '[data-per-page]');
+    else if (e.target.closest('.tds-select')) go(root, Number(e.detail.value), '.tds-select');
+  });
+})();
+
+// tooltip
+// Tooltip. Tek başına çizilebilir (playground) ya da bir tetikleyicinin data-tds-tooltip niteliğiyle açılır (core.js).
+// Yapı Figma ile aynı: Container (auto layout) → Bubble + Arrow.
+TDS.register('tooltip', {
+  defaults: { Placement: 'Top', Text: 'Bold', 'Show Shortcut': true, Shortcut: '⌘B' },
+  render(p) {
+    const sc = p['Show Shortcut'] ? `<span class="tds-tooltip-shortcut">${TDS.esc(p.Shortcut)}</span>` : '';
+    return `<div class="tds-tooltip" role="tooltip" data-placement="${TDS.slug(p.Placement)}"><span class="tds-tooltip-bubble"><span>${TDS.esc(p.Text)}</span>${sc}</span><span class="tds-tooltip-arrow" aria-hidden="true"></span></div>`;
+  },
+});
+
+// page
+// Table sayfasının playground'u: Table Cell, Table Header Cell ve Figma'daki "Show library" tablosu (Card içinde).
+// Show library: Show sütunu Interactive Link, Published In sütunu Interactive True; Published In'deki her
+// Icon Stat'ın üzerine gelince Tooltip açılır. Satır checkbox'ı veya True hücreye tıklamak satırı seçer,
+// başlıktaki checkbox hepsini seçer. Actions gerçek menü açar. İçerik Figma'daki tablodan alındı.
+const SHOWS = [
+  ['MOVIE', "Temel: Sümela'nın Şifresi Yeniden", 'PGLCFL535796', [3, 2, 3, 1], 'Draft', false, '23 June 2026', 'Ayşe Çavdar'],
+  ['SERIES', 'Dünya Kupasında Efsaneler', 'PGLCKD537887', [5, 5, 3, 1], 'Published', true, '23 June 2026', 'Merve Ceylan'],
+  ['MOVIES', 'Çöl Kütüphaneleri', 'PGLCFL540108', [5, 5, 3, 1], 'Unpublished', false, '22 June 2026', 'Mücahit Püren'],
+  ['MOVIES', 'Sertaç Abi Gezen Bilir', 'PGLCFL540358', [5, 5, 3, 1], 'Error', false, '22 June 2026', 'Ali Burak Yılmaz', true],
+  ['SERIES', "Tunus'ta Bir Divan", 'PGLCFL589810', [5, 5, 3, 1], 'Published', true, '21 June 2026', 'Muzaffer Yüceli'],
+  ['MOVIE', 'Sight Extended', 'PGLCFL535796', [5, 5, 3, 1], 'Published', true, '21 June 2026', 'Selin Dizgin'],
+  ['LIVE EVENT', 'Maria', 'PGLCFL511412', [5, 5, 3, 1], 'Published', true, '21 June 2026', 'Saadet Şerefli'],
+  ['LIVE EVENT', 'Dünya Kupasında Efsaneler', 'PGLCFL589810', [5, 5, 3, 1], 'Unpublished', false, '20 June 2026', 'Mustafa Budak'],
+  ['MOVIE', "Temel: Sümela'nın Şifresi Yeniden", 'PGLCFL535796', [5, 5, 3, 1], 'Draft', false, '23 June 2026', 'Ayşe Çavdar'],
+  ['MOVIES', 'Çöl Kütüphaneleri', 'PGLCFL540108', [5, 5, 3, 1], 'Error', false, '22 June 2026', 'Ali Burak Yılmaz'],
+];
+// Sütunlar: en küçük genişlik Figma'daki tablodan (yan padding 16 → 20 olduğu için +8; Checkbox 36, hug).
+// Tablo responsive: kart en fazla 1144 px; dar ekranda sütunlar en küçük genişliğe kadar daralır, sonra tablo
+// yatayda kayar. Geniş ekranda 1144'ten büyümez; aradaki boşluk sütunlara oranla dağılır.
+const COLS = [['', 36], ['SHOW', 198], ['CONTENT ID', 181], ['PUBLISHED IN', 122], ['CMS', 143], ['TABII', 137], ['LAST UPDATED', 144], ['ACTIONS', 121]];
+const MAX_WIDTH = 1144;
+const TEMPLATE = COLS.map(([, m], i) => (i === 0 ? `${m}px` : `minmax(${m}px, ${m}fr)`)).join(' ');
+const MIN_WIDTH = COLS.reduce((n, [, m]) => n + m, 0);
+// Published In ikonları (Figma: Rows, ListBullets, Globe, Translate). Tooltip metni Figma'da sadece ilki için var ("Queue").
+const PUBLISHED = [{ Icon: 'Rows', tip: 'Queue' }, { Icon: 'ListBullets', tip: 'Lists' }, { Icon: 'Globe', tip: 'Countries' }, { Icon: 'Translate', tip: 'Languages' }];
+const CMS_TONE = { Draft: 'Neutral', Published: 'Success', Unpublished: 'Warning', Error: 'Danger' };
+TDS.defineMenu('table-row-actions', { label: 'Row actions', Width: 200, Items: [{ Label: 'Edit', Icon: 'PencilSimple' }, { Label: 'Duplicate', Icon: 'Copy' }, { separator: true }, { Label: 'Delete', Icon: 'Trash', Destructive: true }] });
+TDS.register('table-demo', {
+  defaults: { 'Show Image': true },
+  render(p) {
+    const w = () => '';
+    const head = `<div role="row" class="pg-table-row">`
+      + COLS.map(([Label], i) => (i === 0
+        ? TDS.render('table-header-cell', { Type: 'Checkbox', checked: 'Indeterminate', width: w(i) })
+        : TDS.render('table-header-cell', { Label, Sortable: false, Divider: i < COLS.length - 1, width: w(i) }))).join('')
+      + `</div>`;
+    const rows = SHOWS.map(([over, title, id, counts, cms, onTabii, date, person, selected]) => {
+      const published = PUBLISHED.map((x, k) => `<span data-tds-tooltip="${x.tip}" style="display:inline-flex">${TDS.render('icon-stat', { Icon: x.Icon, Value: String(counts[k]) })}</span>`).join('');
+      const cells = [
+        TDS.render('table-cell', { Type: 'Checkbox', width: w(0), selected }),
+        TDS.render('table-cell', { Type: 'Two Line', Interactive: 'Link', Overline: over, Value: title, 'Show Image': p['Show Image'], width: w(1), selected }),
+        TDS.render('table-cell', { Type: 'Slot', width: w(2), selected, slot: `<span class="tds-table-cell-value">${id}</span><span data-tds-tooltip="Copy" style="display:inline-flex">${TDS.render('icon-button', { Variant: 'Ghost', Size: 'XSmall', Icon: 'Copy', label: `Copy ${id}` })}</span>` }),
+        TDS.render('table-cell', { Type: 'Slot', Interactive: 'True', width: w(3), selected, slot: published }),
+        TDS.render('table-cell', { Type: 'Slot', width: w(4), selected, slot: TDS.render('status', { Tone: CMS_TONE[cms], Label: cms, 'Show dot': false, 'Show icon': true, Leading: 'Stack' }) }),
+        TDS.render('table-cell', { Type: 'Slot', width: w(5), selected, slot: TDS.render('status', { Tone: onTabii ? 'Success' : 'Neutral', Label: onTabii ? 'On tabii' : 'Not on tabii', 'Show dot': false, 'Show icon': true, Leading: 'TabiiIcon' }) }),
+        TDS.render('table-cell', { Type: 'Two Line', Overline: date, Value: person, width: w(6), selected }),
+        TDS.render('table-cell', { Type: 'Slot', width: w(7), selected, slot: TDS.render('button', { Variant: 'Secondary', Size: 'XSmall', Label: 'Actions', 'Icon Right': true, iconRight: 'CaretDown', menu: 'table-row-actions', align: 'end' }) }),
+      ];
+      return `<div role="row" class="pg-table-row">${cells.join('')}</div>`;
+    }).join('');
+    // Yerleşim: her satır aynı grid şablonunu kullanır; hücreler kendi sütununu doldurur.
+    const css = `<style>
+.pg-table-fluid { display: flex; justify-content: center; width: 100%; }
+.pg-table-fluid > .tds-card { width: 100%; max-width: ${MAX_WIDTH}px; }
+.pg-table-scroll { overflow-x: auto; }
+.pg-table { min-width: ${MIN_WIDTH}px; }
+.pg-table-row { display: grid; grid-template-columns: ${TEMPLATE}; }
+.pg-table-row > .tds-table-cell, .pg-table-row > .tds-table-header-cell { width: auto; min-width: 0; min-height: 0; }
+.pg-table-fluid .tds-card-footer { overflow-x: auto; }
+</style>`;
+    const table = `${css}<div class="pg-table-scroll"><div role="grid" aria-label="Show library" class="pg-table">${head}${rows}</div></div>`;
+    return `<div class="pg-table-fluid" data-pg-fluid="${MAX_WIDTH}">` + TDS.render('card', {
+      Trailing: 'Slot - V', Title: 'Show library', Subtitle: 'in order of criticality, published first',
+      body: table, Footer: true, footer: TDS.render('pagination', {}), flush: true,
+    }) + `</div>`;
+  },
+});
+// Başlıktaki checkbox: bütün satırlar seçilir / kaldırılır. Satır seçimi değişince başlık True / Indeterminate / False olur.
+document.addEventListener('click', (e) => {
+  const box = e.target.closest('.pg-table .tds-table-header-cell[data-type="checkbox"]');
+  if (!box) return;
+  const table = box.closest('.pg-table');
+  const rows = [...table.querySelectorAll('[role="row"]')].slice(1);
+  const on = !rows.every((r) => r.querySelector('.tds-table-cell').getAttribute('aria-selected') === 'true');
+  rows.forEach((r) => { const c = r.querySelector('.tds-table-cell'); if ((c.getAttribute('aria-selected') === 'true') !== on) c.click(); });
+});
+document.addEventListener('tds-row-select', (e) => {
+  const table = e.target.closest && e.target.closest('.pg-table');
+  if (!table) return;
+  const rows = [...table.querySelectorAll('[role="row"]')].slice(1);
+  const n = rows.filter((r) => r.querySelector('.tds-table-cell').getAttribute('aria-selected') === 'true').length;
+  const head = table.querySelector('.tds-table-header-cell[data-type="checkbox"]');
+  const checked = n === 0 ? 'False' : n === rows.length ? 'True' : 'Indeterminate';
+  const tmp = document.createElement('div');
+  tmp.innerHTML = TDS.render('table-header-cell', { Type: 'Checkbox', checked, width: head.style.width });
+  head.replaceWith(tmp.firstElementChild);
+});
+TDS.playground('#app', {
+  title: 'Table',
+  components: [
+    {
+      name: 'table-demo', label: 'Show library',
+      controls: [{ key: 'Show Image', type: 'bool', default: true, label: 'Show column · Show Image' }],
+    },
+    {
+      name: 'table-cell', label: 'Table Cell',
+      controls: [
+        { key: 'Type', type: 'select', options: ['Text', 'Two Line', 'Slot', 'Checkbox'], default: 'Text' },
+        { key: 'Interactive', type: 'select', options: ['False', 'True', 'Link'], default: 'False', when: (s) => s.Type !== 'Checkbox' },
+        { key: 'State', type: 'select', options: ['Live', 'Default', 'Hover', 'Selected', 'Selected Hover'], default: 'Live', label: 'State (Hover: Interactive True, Link)' },
+        { key: 'Value', type: 'text', default: 'Cell value', when: (s) => s.Type === 'Text' || s.Type === 'Two Line' },
+        { key: 'Overline', type: 'text', default: 'MOVIE', when: (s) => s.Type === 'Two Line' },
+        { key: 'Show Image', type: 'bool', default: false, when: (s) => s.Type !== 'Checkbox' },
+      ],
+    },
+    {
+      name: 'table-header-cell', label: 'Table Header Cell',
+      controls: [
+        { key: 'Type', type: 'select', options: ['Label', 'Checkbox'], default: 'Label' },
+        { key: 'Sort', type: 'select', options: ['None', 'Ascending', 'Descending'], default: 'None', when: (s) => s.Type === 'Label' },
+        { key: 'State', type: 'select', options: ['Live', 'Default', 'Hover'], default: 'Live', when: (s) => s.Type === 'Label' },
+        { key: 'Label', type: 'text', default: 'COLUMN', when: (s) => s.Type === 'Label' },
+        { key: 'Sortable', type: 'bool', default: true, when: (s) => s.Type === 'Label' },
+        { key: 'Divider', type: 'bool', default: false },
+      ],
+    },
+  ],
+});
+
+</script>
+</body>
+</html>

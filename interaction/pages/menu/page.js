@@ -6,10 +6,16 @@ TDS.defineMenu('menu-demo', {
     { group: 'Show' },
     { Label: 'Edit', Icon: 'PencilSimple', 'Show Trailing Text': true, 'Trailing Text': '⌘E' },
     { Label: 'Duplicate', Icon: 'Copy', 'Show Trailing Text': true, 'Trailing Text': '⌘D' },
-    { Label: 'Move to', Icon: 'FolderSimple', Submenu: true },
+    { Label: 'Move to', Icon: 'FolderSimple', Submenu: true, submenu: 'menu-demo-move' },
     { separator: true },
     { Label: 'Delete', Icon: 'Trash', Destructive: true },
   ],
+});
+// "Move to" satırının alt menüsü: üzerine gelince, tıklayınca veya → ile açılır.
+TDS.defineMenu('menu-demo-move', {
+  label: 'Move to',
+  Width: 200,
+  Items: [{ Label: 'Drama', Icon: 'FolderSimple' }, { Label: 'Comedy', Icon: 'FolderSimple' }, { Label: 'Documentary', Icon: 'FolderSimple' }],
 });
 TDS.register('menu-trigger-demo', {
   defaults: { Size: 'Medium' },
@@ -40,6 +46,7 @@ TDS.playground('#app', {
         { key: 'Show Trailing Text', type: 'bool', default: false },
         { key: 'Trailing Text', type: 'text', default: '⌘D', when: (s) => s['Show Trailing Text'] },
         { key: 'Submenu', type: 'bool', default: false },
+        { key: 'Show Check', type: 'bool', default: true, label: 'Show Check (Selected)', when: (s) => s.State === 'Selected' },
       ],
     },
     {

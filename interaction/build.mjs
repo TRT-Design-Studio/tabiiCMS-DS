@@ -29,8 +29,29 @@ const motionCss = `:root { --tds-motion-duration: ${v.num(motion.duration)}ms; -
 const tokensCss = buildTokensCss(root) + motionCss;
 let stale = [];
 
+// İSTİSNA (Mücahit, 2026-11-18): page.json'da "raw" olan sayfa spec'ten üretilmez.
+// O klasördeki elle yazılmış index.html + style.css + app.js olduğu gibi tek dosyada birleştirilir.
+// Şu an sadece Sidebar (farklı animasyon setlerini gösterir). Mücahit aksini söyleyene kadar böyle kalır.
+const buildRaw = (cfg) => {
+  const src = (f) => rd(cfg.raw, f);
+  return src('index.html')
+    .replace('<link rel="stylesheet" href="style.css">', () => `<style>\n${src('style.css')}</style>`)
+    .replace('<script src="app.js"></script>', () => `<script>\n${src('app.js')}</script>`)
+    .replace('<!doctype html>', `<!doctype html>\n<!-- Bu dosya \`node interaction/build.mjs\` ile üretilir. Elle düzenleme. Kaynak: interaction/${cfg.raw}/ (istisna: spec'ten üretilmez) -->`);
+};
+
 for (const page of pages) {
   const cfg = JSON.parse(rd('pages', page, 'page.json'));
+  if (cfg.raw) {
+    const html = buildRaw(cfg);
+    const out = join(here, 'layers', page, 'index.html');
+    if (check) { if (!existsSync(out) || readFileSync(out, 'utf8') !== html) stale.push(page); continue; }
+    mkdirSync(dirname(out), { recursive: true });
+    writeFileSync(out, html);
+    writeFileSync(join(dirname(out), 'README.md'), `# ${cfg.title} code layer\n\n**Bu klasör ne?** Figma'daki "${cfg.figmaPage}" sayfasının Interaction frame'ine konan dosya. \`node interaction/build.mjs\` ile üretilir, elle düzenlenmez.\n\n**İstisna:** Bu sayfa spec'ten üretilmez. \`interaction/${cfg.raw}/\` klasöründeki elle yazılmış kod (index.html, style.css, app.js) tek dosyada birleştirilir. İçinde farklı animasyon setleri (Ease out, Cascade, Scrub) gösterilir.\n\n**Nasıl kullanılır?** \`index.html\` dosyasının içeriğini Figma'daki code layer'a yapıştır. Adımlar: [interaction/README.md](../../README.md).\n`);
+    console.log(`✓ interaction/layers/${page}/index.html (istisna: ${cfg.raw})`);
+    continue;
+  }
   let css = tokensCss + rd('shared', 'base.css');
   let js = rd('shared', 'icons.js') + rd('shared', 'core.js') + rd('shared', 'playground.js');
   // İç içe komponentler meta.json → uses ile otomatik eklenir; önce kullanılanlar gelir.
@@ -57,7 +78,7 @@ for (const page of pages) {
   js += `\n// page\n` + rd('pages', page, 'page.js');
   // İkonlar SVG olarak gömülür (Phosphor, Figma Icons sayfasıyla aynı geometri). Sadece bu sayfada geçenler.
   const iconFiles = [...order.map((n) => join(here, 'components', n, 'component.js')), join(here, 'shared', 'playground.js'), join(here, 'pages', page, 'page.js')];
-  js = (await buildIconsJs(here, iconFiles)) + js;
+  js = (await buildIconsJs(here, iconFiles, { fillAll: !!cfg.fillIcons })) + js;
   const html = `<!doctype html>
 <!-- Bu dosya \`node interaction/build.mjs\` ile üretilir. Elle düzenleme. Kaynak: interaction/ ve components/*/spec.md -->
 <html lang="en" data-theme="light">

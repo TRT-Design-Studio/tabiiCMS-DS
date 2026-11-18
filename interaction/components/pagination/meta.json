@@ -1,0 +1,1 @@
+{ "uses": ["pagination-item", "button", "input", "icon-button", "select", "menu"] }

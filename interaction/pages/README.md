@@ -9,4 +9,6 @@
 
 **Ne zaman dokunurum?** Bir komponente yeni bir property eklendiğinde kontrolü buraya eklemek için.
 
-Sayfalar: [buttons](buttons/README.md) · [badges](badges/README.md) · [menu](menu/README.md)
+**İstisna:** `page.json` içinde `raw` alanı olan sayfa spec'ten üretilmez; o klasördeki elle yazılmış kod tek dosyada birleştirilir. Şu an sadece [sidebar](sidebar/README.md).
+
+Sayfalar: [buttons](buttons/README.md) · [badges](badges/README.md) · [menu](menu/README.md) · [tooltip](tooltip/README.md) · [breadcrumb](breadcrumb/README.md) · [pagination](pagination/README.md) · [stepper](stepper/README.md) · [tabs](tabs/README.md) · [cards](cards/README.md) · [table](table/README.md) · [list-item](list-item/README.md) · [sidebar](sidebar/README.md) (istisna)

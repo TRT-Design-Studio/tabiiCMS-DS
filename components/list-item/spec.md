@@ -3,19 +3,17 @@ component: List Item
 figma_page: "↪︎ List Item"
 figma_node: "284:1205"
 version: 1.0.0
-status: draft
-updated: 2026-11-11
+status: stable
+updated: 2026-11-17
 ---
 
 # List Item
 
-Type: Issue / Activity (nested Avatar) / Note (nested Badge) / Slot · State: Default / Hover · Boolean: Show Description · Instance swap: Icon · Slot: Leading Slot · Text: Title, Description
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+One row in a short list inside a card: an issue to fix, a recent activity or a note. Type sets what leads the row. Hover underlines the title.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
 | Type | Issue, Activity, Note, Slot | Issue |
 | State | Default, Hover | Default |
@@ -24,6 +22,8 @@ Type: Issue / Activity (nested Avatar) / Note (nested Badge) / Slot · State: De
 
 | Property | Type | Default |
 |---|---|---|
+| Type | Variant | Issue |
+| State | Variant | Default |
 | Title | Text | List item title |
 | Description | Text | Supporting text |
 | Show Description | Boolean | true |
@@ -33,33 +33,45 @@ Type: Issue / Activity (nested Avatar) / Note (nested Badge) / Slot · State: De
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 68 | `Spacing/2` (8) | `Spacing/3` (12) | `Spacing/3` (12) | `rounded-lg` (8) | `text-sm/medium` |
+| Part | Height | Padding | Gap | Radius | Text |
+|---|---|---|---|---|---|
+| Issue | 68 | `Spacing/3` (12) top/bottom, `Spacing/2` (8) sides | `Spacing/3` (12) | `rounded-lg` | `text-sm/medium` + `text-sm/regular` |
+| Activity | 62 | same | `Spacing/3` (12) | `rounded-lg` | `text-sm/medium` + `text-xs/regular` |
+| Note | 74 | same | `Spacing/2․5` (10), vertical | `rounded-lg` | `text-sm/regular` + `text-xs/regular` |
+| Slot | hugs the slot | same | `Spacing/3` (12) | `rounded-lg` | `text-sm/medium` + `text-sm/regular` |
+| Icon Wrap | 44 | `Spacing/1․5` (6) | — | `rounded-full` | — |
+| Inner circle | 32 | `Spacing/1․5` (6) | — | `rounded-full` | — |
+| Icon | 18 | — | — | — | — |
+| Title + description | hug | — | `Spacing/0․5` (2) | — | — |
+
+The set is 320 px wide; on screens the item fills the card body (340).
 
 ## States
 
-| Type | State | Background | Border | Text | Opacity |
-|---|---|---|---|---|---|
-| Issue | Default | `bg/subtle` (Icon Wrap) | none | `text/primary` |  |
-| Issue | Hover | `bg/subtle` (Icon Wrap) | none | `text/primary` |  |
-| Activity | Default | none | none | `text/primary` |  |
-| Activity | Hover | none | none | `text/primary` |  |
-| Note | Default | none | none | `text/primary` |  |
-| Note | Hover | none | none | `text/primary` |  |
-| Slot | Default | none | none | `text/primary` |  |
-| Slot | Hover | none | none | `text/primary` |  |
+| State | Fill | Title |
+|---|---|---|
+| Default | — | `text/primary` |
+| Hover | — | `text/primary`, underlined |
 
-## Parts
+| Part | Fill | Border | Text |
+|---|---|---|---|
+| Icon Wrap | `bg/subtle` | `border/subtle` | — |
+| Inner circle | `bg/surface` | `border/default` | — |
+| Icon | `text/primary` | — | — |
+| Description | — | — | `text/tertiary` |
+| Note tag | [Status](../status/spec.md) Danger, Small | — | — |
 
-From the default variant. Hidden parts are turned on by a property.
+## Slots
 
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
-| Icon Wrap | Frame | 44 × 44 | `bg/subtle` | yes |
-| Text | Frame | 235 × 42 | none | yes |
-| Trailing Slot | Slot | 1 × 1 | none | yes |
+| Slot | Used for |
+|---|---|
+| Leading Slot | Type Slot: any component before the title |
+| Trailing Slot | Issue, Activity, Slot: any component at the end of the row |
+
+Nested: Activity has an [Avatar](../avatar/spec.md) (Medium); Note has a [Status](../status/spec.md) tag.
 
 ## Used in
 
-Not nested in other components.
+Not nested in other components. On screens, List Items sit in the Body slot of a [Card](../card/spec.md).
+
+Playground uses: SEO & Discoverability and Recent Activity (Issue), Notes & Handoff (Note) on Overview.

@@ -3,49 +3,51 @@ component: Progress Bar
 figma_page: "↪︎ Progress Bar"
 figma_node: "281:973"
 version: 1.0.0
-status: draft
-updated: 2026-11-11
+status: stable
+updated: 2026-11-17
 ---
 
 # Progress Bar
 
-Value: 0 / 25 / 50 / 75 / 100
-
-> Auto-generated from Figma on 2026-11-11. Not yet documented with `dokuman: <sayfa>`; values are read from the default variant of each row.
+How much of a task is done: a 6 px track with a fill. Value has five steps; the bar can take any width. Write the numbers next to it in text; the bar has no label of its own.
 
 ## Variants
 
-| Axis | Values | Default (Figma) |
+| Axis | Values | Default |
 |---|---|---|
-| Value | 50, 0, 25, 75, 100 | 0 |
+| Value | 0, 25, 50, 75, 100 | 0 |
 
 ## Properties
 
-None.
+| Property | Type | Default |
+|---|---|---|
+| Value | Variant | 0 |
 
 ## Sizes
 
-| Size | Height | Padding H | Padding V | Gap | Radius | Text |
-|---|---|---|---|---|---|---|
-| Default | 6 | 0 | 0 | 0 | `rounded-full` (9999) | — |
+| Part | Width | Height | Radius |
+|---|---|---|---|
+| Track | `Spacing/64` (256) | `Spacing/1․5` (6) | `rounded-full` |
+| Fill · 25 | 25% of track | `Spacing/1․5` (6) | `rounded-full` |
+| Fill · 50 | 50% of track | `Spacing/1․5` (6) | `rounded-full` |
+| Fill · 75 | 75% of track | `Spacing/1․5` (6) | `rounded-full` |
+| Fill · 100 | 100% of track | `Spacing/1․5` (6) | `rounded-full` |
+
+The fill scales with the bar (absolute, Scale constraint): resize the bar and the fill keeps its percentage.
 
 ## States
 
-| Value | Background | Border | Text | Opacity |
-|---|---|---|---|---|
-| 0 | `bg/subtle` | none | — |  |
-| 25 | `bg/subtle` | none | — |  |
-| 50 | `bg/subtle` | none | — |  |
-| 75 | `bg/subtle` | none | — |  |
-| 100 | `bg/subtle` | none | — |  |
+No states.
 
-## Parts
-
-From the default variant. Hidden parts are turned on by a property.
-
-| Part | Kind | Size | Fill | Shown |
-|---|---|---|---|---|
+| Part | Fill |
+|---|---|
+| Track | `bg/subtle` |
+| Fill | `bg/inverse` |
 
 ## Used in
 
-Upload
+| Component | Where |
+|---|---|
+| Upload | Value 50 under the file name while a file uploads |
+
+Playground uses: Overall Progress at the bottom of the Create Show section navigation (Value 75, 222 px wide).

@@ -1,0 +1,2726 @@
+---
+kaynak: Mevcut CMS bilgi mimarisi (xmind dışa aktarımı, PDF)
+alindi: 2026-11-23
+guvenilirlik: orta
+---
+
+# Mevcut bilgi mimarisi (ham)
+
+Ekip tarafından elle hazırlanmış bilgi mimarisinin metne çevrilmiş hali. **Elle yapıldığı için hatalı veya eksik olabilir.** Staging ve Figma ile çeliştiğinde staging kazanır ([README](README.md)).
+
+- Ağaç, PDF'teki girintilerden yeniden kuruldu; içerik değiştirilmedi (yazım hataları dahil: "Advenced", "Contunie").
+- PDF'in sonundaki **Lejant** (Alt Menü, Action Menü, Tab, Dropdown, Image, Action, Text input, Integer) xmind'da renk veya işaretle gösteriliyordu; PDF'e bu işaretler geçmedi. Hangi düğümün hangi türde olduğu bu dosyadan okunamaz.
+- Üst seviyeler: lookup, Asset HQ, Admin Dashboard, Dashboard (liste sayfaları), Create (oluşturma formları), Lejant, Exclusive Badges Dashboard.
+
+- CMS
+- lookup
+- Asset HQ
+  - Search
+  - Upload from Computer
+    - Select
+      - Title
+      - Description
+      - Caption
+      - Tags
+      - Source
+        - List
+      - Location
+        - List
+      - Author
+        - List
+      - Right Manager
+        - List
+      - Category
+        - List
+      - Event
+        - List
+      - Date
+        - HH:mm
+  - Advenced Filters
+    - Date Range
+      - Last 24 Hours
+      - Last 48 Hours
+      - Last Week
+      - Last Month
+      - Custom Dates
+    - Asset Types
+      - Image (#)
+      - Video (#)
+      - json (#)
+    - Orientation
+      - Horizontal (#)
+      - Vertical (#)
+      - Panoramic (#)
+      - Square (#)
+- Admin Dashboard
+  - Roles
+    - Search
+    - Create Role
+      - Display Name
+      - Name
+      - Context
+        - int
+      - Module
+        - Asset
+        - Content
+        - Common
+        - Lookup
+        - User
+        - Workflow
+        - Site
+        - Admin
+        - Transcode
+        - *
+      - Action
+        - Module specific changes
+      - AddAction
+        - Button
+      - Actions
+        - List
+    - Display Name
+    - Slug
+    - Role Actions
+    - Actions
+  - Users
+- Dashboard
+  - Show
+    - Search
+    - Filters
+      - Producer
+      - Category
+      - Type
+      - Status
+        - Draft
+        - Published
+        - Unpublished
+    - Index
+      - Checkbox
+      - Main image
+      - Title
+      - PG code
+      - Type
+      - Publish info
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+        - tabii Preview
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Show
+  - Livestream
+    - Search
+    - Filters
+      - Status
+        - Published
+        - Unpublished
+      - Type
+        - TV
+        - Radyo
+    - Index
+      - Checkbox
+      - Title
+      - Order
+      - Seekable
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+        - tabii Preview
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Livestream
+  - Video
+    - Search
+    - Filters
+      - Producer
+      - Show
+      - Episode
+      - Season
+      - Type
+        - Episode
+        - Single Video
+        - Trailer
+    - Index
+      - Checkbox
+      - Video
+        - Title
+        - Main Image
+      - PGcode
+      - Publish Info
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Video
+  - Person
+    - Search
+    - Filters
+      - Producer
+    - Index
+      - Checkbox
+      - Title
+      - Created
+      - Modified
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Person
+  - Row
+    - Search
+    - Filters
+      - Producer
+      - Status
+      - Type
+    - Index
+      - Checkbox
+      - Title
+      - Type
+      - Language
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Row
+  - Queue
+    - Search
+    - Filters
+      - Group
+    - Index
+      - Checkbox
+      - Title
+      - Group
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+        - Clone
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Queue
+  - Category
+    - Search
+    - Filters
+      - Producer
+      - Status
+    - Index
+      - Checkbox
+      - Title
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Category
+  - Genre
+    - Search
+    - Filters
+      - Producer
+      - Status
+    - Index
+      - Checkbox
+      - Title
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Genre
+  - Menu
+    - Search
+    - Filters
+      - Producer
+    - Index
+      - Checkbox
+      - ID
+      - Title
+      - Items
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+        - Clone
+    - tabii menu preview
+      - Country
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Menu
+  - Menu Item
+    - Search
+    - Filters
+      - Producer
+      - Parent
+      - Status
+    - Index
+      - Checkbox
+      - Title
+      - Parent
+      - Language
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+        - Clone
+        - tabii preview
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Menu Item
+  - Page
+    - Search
+    - Filters
+      - Status
+    - Index
+      - Checkbox
+      - Title
+      - Number of items
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+        - Clone
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Page
+  - Page Item
+    - Search
+    - Filters
+      - Producer
+      - Status
+      - Type
+    - Index
+      - Checkbox
+      - Title
+      - Languages
+      - Type
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+        - Clone
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Page Item
+  - Badge
+    - Search
+    - Filters
+      - Producer
+      - Status
+    - Index
+      - Checkbox
+      - Title
+      - Status
+      - Actions
+        - Edit
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Badge
+  - Badges
+    - Search
+    - Filters
+      - Producer
+      - Status
+    - Index
+      - Checkbox
+      - Title
+      - Badge Type
+      - Status
+      - Actions
+        - Edit
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Badges
+  - Exclusive Badge
+    - Search
+    - Filters
+      - Producer
+    - Index
+      - Checkbox
+      - Title
+      - Status
+      - Actions
+        - Edit
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Exclusive Badge
+  - Parental Guide
+    - Filters
+      - Producer
+    - Index
+      - Checkbox
+      - Title
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Parental Guide
+  - Age Restriction
+    - Search
+    - Filters
+      - Producer
+    - Index
+      - Checkbox
+      - Title
+      - Actions
+        - Edit
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Age Restriction
+  - Avatar
+    - Search
+    - Filters
+      - Producer
+      - Status
+      - Avatar Category
+    - Index
+      - Checkbox
+      - Title
+      - Categories
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+        - Invalidate_cache
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Avatar
+  - Avatar Category
+    - Search
+    - Filters
+      - Producer
+      - Status
+    - Index
+      - Checkbox
+      - Title
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+        - Invalidate_cache
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Avatar Category
+  - Subscription Package
+    - Search
+    - Filters
+      - Producer
+      - Status
+    - Index
+      - Checkbox
+      - Title
+      - Created
+      - Modified
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Subscription Package
+  - Error Message
+    - Search
+    - Filters
+      - Producer
+    - Index
+      - Checkbox
+      - Title
+      - Created
+      - Modified
+      - Status
+      - Actions
+        - Edit
+        - Publish
+        - Unpublish
+        - Invalidate_cache
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Error Message
+  - Agreement
+    - Search
+    - Index
+      - Checkbox
+      - Title
+      - ID
+      - Agreement Type
+      - Version
+      - Status
+      - Actions
+        - Edit
+        - Publish
+        - Unpublish
+        - Clone
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Agreement
+  - License
+    - Search
+    - Filters
+      - License-area
+      - Content_main_type
+      - Languages
+    - Index
+      - Checkbox
+      - Title
+      - Rights
+      - Offline Watching
+      - Local/international
+      - Content Type
+      - Seasons/Episodes
+      - Status
+      - Actions
+        - Edit
+        - Delete
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create License
+  - Segment
+    - Search
+    - Filters
+      - Producer
+    - Index
+      - Checkbox
+      - Title
+      - Modified
+      - Status
+      - Actions
+        - Edit
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Segment
+  - Sponsor
+    - Search
+    - Filters
+      - Producer
+      - Status
+    - Index
+      - Checkbox
+      - ID
+      - Title
+      - Status
+      - Actions
+        - Edit
+        - Publish
+        - Unpublish
+    - Bulk Actions
+      - Export
+      - Import
+      - Edit
+    - Create Sponsor
+- Create
+  - Show
+    - Create Show
+      - Live Event
+        - Master
+          - Main image with Logo
+            - Insert from Media
+            - Upload
+          - Cover Image
+            - Insert from Media
+            - Upload
+          - Vertical Image with Logo
+            - Insert from Media
+            - Upload
+          - Mobile Cover Image
+            - Insert from Media
+            - Upload
+          - Show Logo
+            - Insert from Media
+            - Upload
+          - Title
+          - Display Title
+          - Original Title
+          - Long Description
+          - Priority Score
+          - Spot
+          - Announcement
+          - Tags
+          - Category
+          - Channel
+          - Genre
+          - Parental Guidance
+          - Badges
+          - SEO Title
+          - SEO Description
+          - Eligible for kids profile
+        - Publish Management
+          - Search
+          - Sort
+          - Clear Date
+          - Countries
+            - Date Selection
+              - Start Date
+              - End Date
+              - Air Date
+        - Country Based Changes
+          - Search
+          - Countries
+            - Edit
+              - Master
+                - Main image with Logo
+                  - Insert from Media
+                  - Upload
+                - Cover Image
+                  - Insert from Media
+                  - Upload
+                - Vertical Image with Logo
+                  - Insert from Media
+                  - Upload
+                - Mobile Cover Image
+                  - Insert from Media
+                  - Upload
+                - Show Logo
+                  - Insert from Media
+                  - Upload
+                - Title
+                - Display Title
+                - Long Description
+                - Announcement
+                - Spot
+                - Badges
+              - Language
+                - Edit
+                - Publish
+                - Unpublish
+        - Language
+          - Edit
+          - Publish
+          - Unpublish
+      - Series
+        - Master
+          - Main image with Logo
+            - Insert from Media
+            - Upload
+          - Cover Image
+            - Insert from Media
+            - Upload
+          - Vertical Image with Logo
+            - Insert from Media
+            - Upload
+          - Mobile Cover Image
+            - Insert from Media
+            - Upload
+          - Show Logo
+            - Insert from Media
+            - Upload
+          - Title
+          - License
+          - Display Title
+          - Original Title
+          - Long Description
+          - Priority Score
+          - Spot
+          - Announcement
+          - Tags
+          - Category
+          - Age Restriction
+          - Channel
+          - Main Trailer
+          - Genre
+          - Parental Guidance
+          - Made Year
+          - Badges
+          - Badge
+          - Exclusive Badge
+          - Cast
+          - Directors
+          - Writers
+          - Subscription Categories
+          - SEO Title
+          - SEO Description
+          - Similar
+          - Can Watch Offline
+          - Offline Watch Validity Period
+          - Eligible for kids profile
+          - Audio
+          - Subtitles
+        - Language
+          - Main image with Logo
+            - Insert from Media
+            - Upload
+          - Cover Image
+            - Insert from Media
+            - Upload
+          - Vertical Image with Logo
+            - Insert from Media
+            - Upload
+          - Mobile Cover Image
+            - Insert from Media
+            - Upload
+          - Show Logo
+            - Insert from Media
+            - Upload
+          - Display Title
+          - Long Description
+          - Spot
+          - Announcement
+          - Tags
+          - SEO Title
+          - SEO Description
+        - Country Based Changes
+          - Search
+          - Edited Countries
+            - Edit
+              - Master
+                - Main image with Logo
+                  - Insert from Media
+                  - Upload
+                - Cover Image
+                  - Insert from Media
+                  - Upload
+                - Vertical Image with Logo
+                  - Insert from Media
+                  - Upload
+                - Mobile Cover Image
+                  - Insert from Media
+                  - Upload
+                - Show Logo
+                  - Insert from Media
+                  - Upload
+                - Title
+                - Display Title
+                - Long Description
+                - Announcement
+                - Spot
+                - Badges
+              - Languages
+                - Main image with Logo
+                  - Insert from Media
+                  - Upload
+                - Cover Image
+                  - Insert from Media
+                  - Upload
+                - Vertical Image with Logo
+                  - Insert from Media
+                  - Upload
+                - Mobile Cover Image
+                  - Insert from Media
+                  - Upload
+                - Show Logo
+                  - Insert from Media
+                  - Upload
+                - Display Title
+                - Long Description
+                - Spot
+                - Announcement
+                - Tags
+                - SEO Title
+                - SEO Description
+          - Countries
+        - Episodes
+          - Create Video
+            - Master
+              - Show
+              - Season
+              - Episode
+              - Title
+              - Description
+              - Display Title
+              - Tags
+              - SEO Title
+              - SEO Description
+              - Skip Intro Start Time
+              - Skip Intro End Time
+              - Credits Start Time
+              - Media
+                - Insert from MAM
+                - Clear
+              - Main Image
+                - Insert from Media
+                - Upload
+            - Countries
+              - Date Selection
+            - Publish Management
+              - Search
+              - Sort
+              - Clear Date
+              - Countries
+                - Date Selection
+                  - Start Date
+                  - End Date
+                  - Air Date
+            - Country Based Changes
+              - Search
+              - Edited Countries
+                - Master
+                  - Main image
+                    - Insert from Media
+                    - Upload
+                  - Title
+                  - Display Title
+                  - Description
+                - Languages
+              - Countries
+                - Master
+                  - Main image
+                    - Insert from Media
+                    - Upload
+                  - Title
+                  - Display Title
+                  - Description
+                - Languages
+            - Languages
+              - Main image with Logo
+                - Insert from Media
+                - Upload
+              - Cover Image
+                - Insert from Media
+                - Upload
+              - Vertical Image with Logo
+                - Insert from Media
+                - Upload
+              - Mobile Cover Image
+                - Insert from Media
+                - Upload
+              - Show Logo
+                - Insert from Media
+                - Upload
+              - Display Title
+              - Long Description
+              - Spot
+              - Announcement
+              - Tags
+              - SEO Title
+              - SEO Description
+          - Import Bulk
+          - Search Filters
+          - Episodes
+            - Edit
+            - Delete
+            - Publish
+            - Unpublish
+        - Traliers
+          - Create Video
+            - Master
+              - Media
+                - Insert from MAM
+                - Clear
+              - Main Image
+                - Insert from Media
+                - Upload
+              - Show
+              - Content Type
+              - Season
+              - Episode
+              - Title
+              - Description
+              - Display Title
+              - Tags
+              - SEO Title
+              - SEO Description
+              - DRM option
+              - Skip Intro Start Time
+              - Skip Intro End Time
+              - Credits Start Time
+            - Publish Management
+              - Search
+              - Sort
+              - Clear Date
+              - Countries
+                - Date Selection
+                  - Start Date
+                  - End Date
+                  - Air Date
+            - Country Based Changes
+              - Search
+              - Edited Countries
+                - Edit
+                  - Master
+                    - Main image
+                      - Insert from Media
+                      - Upload
+                    - Title
+                    - Display Title
+                    - Description
+                  - Languages
+              - Countries
+                - Edit
+                  - Master
+                    - Main image
+                      - Insert from Media
+                      - Upload
+                    - Title
+                    - Display Title
+                    - Description
+                  - Languages
+            - Languages
+          - Import Bulk
+          - Search Filters
+          - Video
+            - Publish
+            - Unpublish
+            - Delete
+        - Publish Management
+          - Search
+          - Sort
+          - Clear Date
+          - Countries
+            - Date Selection
+              - Start Date
+              - End Date
+              - Air Date
+      - Movie
+        - Master
+          - Main image with Logo
+            - Insert from Media
+            - Upload
+          - Cover Image
+            - Insert from Media
+            - Upload
+          - Vertical Image with Logo
+            - Insert from Media
+            - Upload
+          - Mobile Cover Image
+            - Insert from Media
+            - Upload
+          - Show Logo
+            - Insert from Media
+            - Upload
+          - Title
+          - License
+          - Display Title
+          - Original Title
+          - Long Description
+          - Priority Score
+          - Spot
+          - Announcement
+          - Tags
+          - Category
+          - Age Restriction
+          - Channel
+          - Main Trailer
+          - Genre
+          - Parental Guidance
+          - Made Year
+          - Badges
+          - Badge
+          - Exclusive Badge
+          - Cast
+          - Directors
+          - Writers
+          - Subscription Categories
+          - SEO Title
+          - SEO Description
+          - Similar
+          - Can Watch Offline
+          - Offline Watch Validity Period
+          - Eligible for kids profile
+          - Audio
+          - Subtitles
+        - Language
+          - Edit
+            - Main image with Logo
+              - Insert from Media
+              - Upload
+            - Cover Image
+              - Insert from Media
+              - Upload
+            - Vertical Image with Logo
+              - Insert from Media
+              - Upload
+            - Mobile Cover Image
+              - Insert from Media
+              - Upload
+            - Show Logo
+              - Insert from Media
+              - Upload
+            - Display Title
+            - Long Description
+            - Spot
+            - Announcement
+            - Tags
+            - SEO Title
+            - SEO Description
+        - Country Based Changes
+          - Search
+          - Edited Countries
+            - Master
+              - Main image with Logo
+                - Insert from Media
+                - Upload
+              - Cover Image
+                - Insert from Media
+                - Upload
+              - Vertical Image with Logo
+                - Insert from Media
+                - Upload
+              - Mobile Cover Image
+                - Insert from Media
+                - Upload
+              - Show Logo
+                - Insert from Media
+                - Upload
+              - Title
+              - Display Title
+              - Long Description
+              - Announcement
+              - Spot
+              - Badges
+            - Languages
+              - Main image with Logo
+                - Insert from Media
+                - Upload
+              - Cover Image
+                - Insert from Media
+                - Upload
+              - Vertical Image with Logo
+                - Insert from Media
+                - Upload
+              - Mobile Cover Image
+                - Insert from Media
+                - Upload
+              - Show Logo
+                - Insert from Media
+                - Upload
+              - Display Title
+              - Long Description
+              - Spot
+              - Announcement
+              - Tags
+              - SEO Title
+              - SEO Description
+          - Countries
+            - Master
+              - Main image with Logo
+                - Insert from Media
+                - Upload
+              - Cover Image
+                - Insert from Media
+                - Upload
+              - Vertical Image with Logo
+                - Insert from Media
+                - Upload
+              - Mobile Cover Image
+                - Insert from Media
+                - Upload
+              - Show Logo
+                - Insert from Media
+                - Upload
+              - Title
+              - Display Title
+              - Long Description
+              - Announcement
+              - Spot
+              - Badges
+            - Languages
+              - Main image with Logo
+                - Insert from Media
+                - Upload
+              - Cover Image
+                - Insert from Media
+                - Upload
+              - Vertical Image with Logo
+                - Insert from Media
+                - Upload
+              - Mobile Cover Image
+                - Insert from Media
+                - Upload
+              - Show Logo
+                - Insert from Media
+                - Upload
+              - Display Title
+              - Long Description
+              - Spot
+              - Announcement
+              - Tags
+              - SEO Title
+              - SEO Description
+        - Videos
+          - Create Video
+            - Master
+              - Show
+              - PG Code
+              - Description
+              - Display Title
+              - Tags
+              - SEO Title
+              - SEO Description
+              - Skip Intro Start Time
+              - Skip Intro End Time
+              - Credits Start Time
+              - Media
+                - Insert from MAM
+                - Clear
+              - Insert from media
+              - Upload
+              - Clear
+            - Publish Management
+              - Search
+              - Sort
+              - Clear Date
+              - Countries
+                - Date Selection
+                  - Start Date
+                  - End Date
+                  - Air Date
+            - Country Based Changes
+              - Search
+              - Edited Countries
+                - Publish
+                - Unpublish
+                - Delete
+              - Countries
+                - Publish
+                - Unpublish
+                - Delete
+            - Language
+              - Edit
+              - Publish
+              - Unpublish
+          - Bulk import
+          - Search Filters
+          - Videos
+            - Edit
+            - Publish
+            - Unpublish
+            - Master
+              - Show
+              - PG Code
+              - Description
+              - Display Title
+              - Tags
+              - SEO Title
+              - SEO Description
+              - Skip Intro Start Time
+              - Skip Intro End Time
+              - Credits Start Time
+              - Media
+                - Insert from MAM
+                - Clear
+              - Insert from media
+              - Upload
+              - Clear
+            - Publish Management
+              - Search
+              - Sort
+              - Clear Date
+              - Countries
+                - Date Selection
+                  - Start Date
+                  - End Date
+                  - Air Date
+            - Country Based Changes
+              - Search
+              - Edited Countries
+                - Publish
+                - Unpublish
+                - Delete
+              - Countries
+                - Publish
+                - Unpublish
+                - Delete
+                - Edit
+                  - Master
+                    - Main image with Logo
+                      - Insert from Media
+                      - Upload
+                    - Title
+                    - Display Title
+                    - Description
+                  - Language
+            - Languages
+              - Main image with Logo
+                - Insert from Media
+                - Upload
+              - Description
+              - Display Title
+              - Tags
+              - SEO Title
+              - SEO Description
+        - Trailers
+          - Create Video
+            - Master
+              - Media
+                - Insert from MAM
+                - Clear
+              - Insert from media
+              - Upload
+              - Clear
+              - Show
+              - Content type
+              - Season
+              - Episodes
+              - Title
+              - Description
+              - Display Title
+              - Tags
+              - SEO Description
+              - DRM option
+              - Skip Intro Start Time
+              - Skip Intro End Time
+              - Credits Start Time
+            - Language
+              - Edit
+                - Upload
+                - Insert from media
+                - Display Title
+                - Tags
+                - SEO Title
+                - SEO Description
+              - Publish
+              - Unpublish
+            - Country Based Changes
+              - Search
+              - Edited Countries
+                - Publish
+                - Unpublish
+                - Delete
+                - Edit
+                  - Master
+                    - Main image
+                      - Insert from media
+                      - Upload
+                    - Title
+                    - Display Title
+                    - Description
+                  - Language
+              - Countries
+            - Publish Management
+              - Search
+              - Sort
+              - Clear Date
+              - Countries
+                - Date Selection
+                  - Start Date
+                  - End Date
+                  - Air Date
+          - Bulk import
+          - Search Filters
+          - Videos
+        - Publish Management
+          - Search
+          - Sort
+          - Clear Date
+          - Countries
+            - Date Selection
+              - Start Date
+              - End Date
+              - Air Date
+  - Livestream
+    - Master
+      - Logo
+        - Insert from Media
+        - Upload
+      - Show logo
+        - Insert from Media
+        - Upload
+      - Main image with logo
+        - Insert from Media
+        - Upload
+      - Cover image
+        - Insert from Media
+        - Upload
+      - Mobil cover image
+        - Insert from Media
+        - Upload
+      - Title
+      - Display title
+      - Order
+      - Slug
+      - Type
+      - SEO title
+      - SEO Description
+      - Seekable
+        - True
+        - False
+      - Subscription Categories
+      - Login Status
+      - Badges
+      - URL
+        - Format
+        - DRM Schema
+        - Codec
+        - Ad server type
+        - Manifest URL
+        - Priority
+      - Kantar ID
+    - Language
+      - Edit
+        - Display title
+        - SEO title
+        - SEO Description
+      - Publish
+      - Unpublish
+  - Video
+    - Create Video
+      - Episode
+        - Master
+          - Media
+            - Insert from MAM
+            - Clear
+          - Main media
+            - Insert from media
+            - Upload
+          - Show
+          - Season
+          - Episode
+          - Title
+          - Description
+          - Display Title
+          - Tags
+          - SEO Title
+          - SEO Description
+          - Skip Intro Start Time
+          - Skip Intro End Time
+          - Credits Start Time
+        - Language
+          - Edit
+            - Main Image
+              - Insert from Media
+              - Upload
+            - Description
+            - Display Title
+            - Tags
+            - SEO Title
+            - SEO Description
+          - Publish
+          - Unpublish
+        - Country Based Changes
+          - Search
+          - Edited Countries
+            - Publish
+            - Unpublish
+            - Delete
+            - Edit
+              - Master
+                - Main Image
+                  - Insert from Media
+                  - Upload
+                - Title
+                - Display Title
+                - Description
+              - Language
+          - Countries
+          - Edit
+            - Master
+              - Main Image
+                - Insert from Media
+                - Upload
+              - Title
+              - Display Title
+              - Description
+            - Language
+        - Publish Management
+      - Single Video
+        - Master
+          - Media
+            - Insert from MAM
+            - Clear
+          - Main media
+            - Insert from media
+            - Upload
+          - Show
+          - Title
+          - PG code
+          - Description
+          - Display Title
+          - Tags
+          - SEO Title
+          - SEO Description
+          - Skip Intro Start Time
+          - Skip Intro End Time
+          - Credits Start Time
+        - Language
+          - Edit
+            - Main media
+              - Insert from media
+              - Upload
+            - Description
+            - Display Title
+            - Tags
+            - SEO Title
+            - SEO Description
+          - Publish
+          - Unpublish
+        - Country Based Changes
+          - Search
+          - Edited Countries
+          - Countries
+            - Publish
+            - Unpublish
+            - Delete
+            - Edit
+              - Master
+                - Main Image
+                  - Insert from Media
+                  - Upload
+                - Title
+                - Display Title
+                - Description
+              - Language
+        - Publish Management
+          - Search
+          - Sort
+          - Clear Date
+          - Countries
+            - Date Selection
+              - Start Date
+              - End Date
+              - Air Date
+      - Trailer & Clip Up
+        - Title
+  - Person
+    - Master
+      - Main Image
+        - Insert from Media
+        - Upload
+      - Title
+      - Description
+      - Full Name
+      - Birth Date
+      - SEO Title
+      - SEO Description
+    - Languages
+      - Arabic
+        - Edit
+          - Main Image
+            - Insert from Media
+            - Upload
+          - Description
+          - Full Name
+          - Job Title
+          - Birth Date
+          - SEO Title
+          - SEO Description
+      - Spanish
+        - Edit
+          - Main Image
+            - Insert from Media
+            - Upload
+          - Description
+          - Full Name
+          - Job Title
+          - Birth Date
+          - SEO Title
+          - SEO Description
+      - Urdu
+        - Edit
+          - Main Image
+            - Insert from Media
+            - Upload
+          - Description
+          - Full Name
+          - Job Title
+          - Birth Date
+          - SEO Title
+          - SEO Description
+      - Turkish
+        - Edit
+          - Main Image
+            - Insert from Media
+            - Upload
+          - Description
+          - Full Name
+          - Job Title
+          - Birth Date
+          - SEO Title
+          - SEO Description
+  - Row
+    - Create Row
+      - Banner Row
+        - Title
+        - Contents Order
+        - Contents
+        - Shuffle
+          - True
+          - False
+        - SEO Title
+        - SEO Description
+      - Cast Row
+        - Master
+          - Title
+          - Display Title
+          - Contents
+          - Shuffle
+            - True
+            - False
+          - SEO Title
+          - SEO Description
+        - Languages
+          - Urdu
+          - Arabic
+          - Spanish
+          - Turkish
+      - Continue Where You Left Row
+        - Master
+          - Title
+          - Display Title
+          - Shuffe
+            - True
+            - False
+          - Layout
+            - Landscape Large
+            - Landscape Medium
+            - Portrait Large
+            - Portrait Medium
+          - SEO Title
+          - SEO Description
+        - Language
+          - Urdu
+          - Arabic
+          - Spanish
+          - Turkish
+      - EPG Row
+        - Master
+          - Title
+          - Display Title
+          - Channel
+          - Time Filter
+            - Live & Next Hours
+            - Next Hours
+            - Only Live
+          - Next Hours
+          - SEO Title
+          - SEO Description
+          - Filters
+            - Filter Type
+              - Category
+              - Genre
+            - Category
+              - Subtopic 1
+        - Language
+          - Arabic
+          - Urdu
+          - Spanish
+          - Turkish
+      - Genre Row
+        - Master
+          - Title
+          - Display Title
+          - Contents
+            - {genres}
+          - Shuffle
+            - True
+            - False
+          - Smart Fill
+            - Sort By
+              - Publish Date
+              - Create Date
+              - Last Episode Date
+              - Update Date
+            - Date Order
+              - New to Old
+              - Old to New
+            - Add Filter
+              - Type
+                - Value
+          - SEO Title
+          - SEO Description
+        - Languages
+          - Display Title
+          - SEO Title
+          - SEO Description
+      - Livestream Row
+        - Master
+          - Title
+          - Description
+          - Display Title
+          - Target
+            - {queue}
+          - Contents
+            - {livestreams}, {live events}
+          - Shuflle
+            - True
+            - False
+          - SEO Title
+          - SEO Description
+        - Languages
+          - Arabic
+            - Description
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Urdu
+            - Description
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Spanish
+            - Description
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Turkish
+            - Description
+            - Display Title
+            - SEO Title
+            - SEO Description
+      - Promoter Row
+        - Title
+        - Content Order
+          - Sorts items by edit date
+          - Sort items by edit date of show videos
+          - Sort items by show creation date
+          - Sort items in the queue in the specified order
+        - Content
+          - Add New
+            - Content Select
+            - Content Image
+              - Insert from Media
+              - Upload
+        - Shuffle
+          - True
+          - False
+        - SEO Title
+        - SEO Description
+      - Show Row
+        - Master
+          - Title
+          - Display Title
+          - Contents Order
+            - Sorts items by edit date
+            - Sort items by edit date of show videos
+            - Sort items by show creation date
+            - Sort items in the queue in the specified order
+          - Contents
+            - {show_types}
+          - Shuffle
+            - True
+            - False
+          - Layout
+            - Landscape Large
+            - Landscape Medium
+            - Portrait Large
+            - Portrait Medium
+          - Smart Fill
+            - Sort By
+              - Publish Date
+              - Create Date
+              - Last Episode Date
+              - Update Date
+            - Date Order
+              - New to Old
+              - Old to New
+            - Add Filter
+              - Type
+                - Value
+          - SEO Title
+          - SEO Description
+        - Languages
+          - Arabic
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Urdu
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Spanish
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Turkish
+            - Display Title
+            - SEO Title
+            - SEO Description
+      - Specials Row
+        - Master
+          - Background
+            - Instert from Media
+            - Upload
+          - Mobile Background
+            - Instert from Media
+            - Upload
+          - Title
+          - Description
+          - Display Title
+          - Target
+            - {content_type} - Queue
+          - Contents Order
+            - Sorts items by edit date
+            - Sort items by edit date of show videos
+            - Sort items by show creation date
+            - Sort items in the queue in the specified order
+          - Contents
+            - {content_type}
+          - Shuffle
+            - True
+            - False
+          - SEO Title
+          - SEO Description
+        - Languages
+          - Arabic
+            - Background
+              - Instert from Media
+              - Upload
+            - Mobile Background
+              - Instert from Media
+              - Upload
+            - Description
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Urdu
+            - Background
+              - Instert from Media
+              - Upload
+            - Mobile Background
+              - Instert from Media
+              - Upload
+            - Description
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Spanish
+            - Background
+              - Instert from Media
+              - Upload
+            - Mobile Background
+              - Instert from Media
+              - Upload
+            - Description
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Turkish
+            - Background
+              - Instert from Media
+              - Upload
+            - Mobile Background
+              - Instert from Media
+              - Upload
+            - Description
+            - Display Title
+            - SEO Title
+            - SEO Description
+      - Sponsored Row
+        - Master
+          - Logo (SVG)
+            - Insert from Media
+            - Upload
+          - Logo (PNG)
+            - Insert from Media
+            - Upload
+          - Background Image
+            - Insert from Media
+            - Upload
+          - Mobile Background Image
+            - Insert from Media
+            - Upload
+          - Title
+          - Display Title
+          - Description
+          - Long Description
+          - Contents
+            - {content_type: Movie/Serie}
+          - CTA Text
+          - Link
+          - Sponsor
+            - {sponsor}
+          - Sponsor's Text
+          - CTA Text Color
+          - CTA Text Background Color
+          - Gradient Colors
+            - First Color
+            - Second Color
+          - Shuffle
+            - True
+            - False
+          - SEO Title
+          - SEO Description
+        - Languages
+          - Arabic
+            - Logo (SVG)
+              - Insert from Media
+              - Upload
+            - Logo (PNG)
+              - Insert from Media
+              - Upload
+            - Background Image
+              - Insert from Media
+              - Upload
+            - Mobile Background Image
+              - Insert from Media
+              - Upload
+            - Display Title
+            - Description
+            - Long Description
+            - CTA Text
+            - Sponsor's Text
+            - SEO Title
+            - SEO Description
+          - Urdu
+            - Logo (SVG)
+              - Insert from Media
+              - Upload
+            - Logo (PNG)
+              - Insert from Media
+              - Upload
+            - Background Image
+              - Insert from Media
+              - Upload
+            - Mobile Background Image
+              - Insert from Media
+              - Upload
+            - Display Title
+            - Description
+            - Long Description
+            - CTA Text
+            - Sponsor's Text
+            - SEO Title
+            - SEO Description
+          - Spanish
+            - Logo (SVG)
+              - Insert from Media
+              - Upload
+            - Logo (PNG)
+              - Insert from Media
+              - Upload
+            - Background Image
+              - Insert from Media
+              - Upload
+            - Mobile Background Image
+              - Insert from Media
+              - Upload
+            - Display Title
+            - Description
+            - Long Description
+            - CTA Text
+            - Sponsor's Text
+            - SEO Title
+            - SEO Description
+          - Turkish
+            - Logo (SVG)
+              - Insert from Media
+              - Upload
+            - Logo (PNG)
+              - Insert from Media
+              - Upload
+            - Background Image
+              - Insert from Media
+              - Upload
+            - Mobile Background Image
+              - Insert from Media
+              - Upload
+            - Display Title
+            - Description
+            - Long Description
+            - CTA Text
+            - Sponsor's Text
+            - SEO Title
+            - SEO Description
+      - TV Guide Row
+        - Master
+          - Title
+          - SEO Title
+          - SEO Description
+          - Display Title
+          - Livestream
+            - {livestreams}
+        - Languages
+          - Arabic
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Urdu
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Spanish
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Turkish
+            - Display Title
+            - SEO Title
+            - SEO Description
+      - Top 10 Row
+        - Master
+          - Background Image
+            - Insert from Media
+            - Upload
+          - Mobile Background Image
+            - Insert from Media
+            - Upload
+          - Title
+          - Display Title
+          - Contents
+            - {content_type: Movie/Serie}
+          - Shuffle
+            - True
+            - False
+          - SEO Title
+          - SEO Description
+        - Languages
+          - Arabic
+            - Background Image
+              - Insert from Media
+              - Upload
+            - Mobile Background Image
+              - Insert from Media
+              - Upload
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Urdu
+            - Background Image
+              - Insert from Media
+              - Upload
+            - Mobile Background Image
+              - Insert from Media
+              - Upload
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Spanish
+            - Background Image
+              - Insert from Media
+              - Upload
+            - Mobile Background Image
+              - Insert from Media
+              - Upload
+            - Display Title
+            - SEO Title
+            - SEO Description
+          - Turkish
+            - Background Image
+              - Insert from Media
+              - Upload
+            - Mobile Background Image
+              - Insert from Media
+              - Upload
+            - Display Title
+            - SEO Title
+            - SEO Description
+  - Queue
+    - Master
+      - Queue 1
+        - Title
+        - Display Title
+        - SEO Title
+        - SEO Description
+        - Group
+          - Livestream
+          - Row
+          - Show
+        - Contents Order
+          - Sort the items in the queue in the specified order
+          - Sort items by edit date
+          - Sort items by edit date of show videos
+          - Sort items by show creation date
+        - View Type
+          - Queue
+          - TV Guide
+        - Is the content avaible to the public?
+          - True
+          - False
+      - Next Queue
+      - Add New Queue
+      - Queue Pieces added
+        - {content}
+        - Add Another Piece
+    - Languages
+      - Arabic
+        - Display Title
+        - SEO Title
+        - SEO Description
+      - Urdu
+        - Display Title
+        - SEO Title
+        - SEO Description
+      - Spanish
+        - Display Title
+        - SEO Title
+        - SEO Description
+      - Turkish
+        - Display Title
+        - SEO Title
+        - SEO Description
+  - Category
+    - Master
+      - Title
+      - Display Title
+      - PG CODE
+    - Languages
+      - Arabic
+        - Display Title
+      - Urdu
+        - Display Title
+      - Spanish
+        - Display Title
+      - Turkish
+        - Display Title
+  - Genre
+    - Master
+      - Background Image
+        - Insert From Media
+        - Upload
+      - Title
+      - Display Title
+      - SEO Title
+      - SEO Description
+    - Languages
+      - Arabic
+        - Display Title
+        - SEO Title
+        - SEO Description
+      - Urdu
+        - Display Title
+        - SEO Title
+        - SEO Description
+      - Spanish
+        - Display Title
+        - SEO Title
+        - SEO Description
+      - Turkish
+        - Display Title
+        - SEO Title
+        - SEO Description
+  - Menu
+    - Title
+    - Menu Item
+      - {Menu items}
+  - Menu Item
+    - Master
+      - Selected Logo
+        - Insert from Media
+        - Upload
+      - Unselected Logo
+        - Insert from Media
+        - Upload
+      - Selected Icon
+        - Insert from Media
+        - Upload
+      - Unselected Icon
+        - Insert from Media
+        - Upload
+      - Title
+      - Display Title
+      - Type
+        - Queue
+        - Search
+      - Content Type
+        - Live Event
+        - Serie
+        - Movie
+      - Universal url
+      - Category
+        - {categories}
+      - Target
+        - {Queue}{page}
+      - Segment
+        - {segments}
+      - SEO Title
+      - SEO Description
+    - Languages
+      - Arabic
+        - Selected Logo
+          - Insert from Media
+          - Upload
+        - Unselected Logo
+          - Insert from Media
+          - Upload
+        - Display Title
+        - SEO Title
+        - SEO Description
+      - Urdu
+        - Selected Logo
+          - Insert from Media
+          - Upload
+        - Unselected Logo
+          - Insert from Media
+          - Upload
+        - Display Title
+        - SEO Title
+        - SEO Description
+      - Spanish
+        - Selected Logo
+          - Insert from Media
+          - Upload
+        - Unselected Logo
+          - Insert from Media
+          - Upload
+        - Display Title
+        - SEO Title
+        - SEO Description
+      - Turkish
+        - Selected Logo
+          - Insert from Media
+          - Upload
+        - Unselected Logo
+          - Insert from Media
+          - Upload
+        - Display Title
+        - SEO Title
+        - SEO Description
+  - Page
+    - Title
+    - Contents
+      - Drag icon
+      - Delete icon
+      - Add Another Piece (Button)
+  - Page Item
+    - Create Page Item
+      - Carousel
+        - Master
+          - Title
+          - Add New
+            - Add Image
+              - Horizontal
+                - Asset HQ
+                - Upload from Computer
+                - Clear
+                - Description
+                - Sub-Description
+              - Vertical
+                - Asset HQ
+                - Upload from Computer
+                - Clear
+                - Description
+                - Sub-Description
+            - Add Video
+              - Horizontal
+                - Asset HQ
+                - Upload from Computer
+                - Clear
+                - Description
+                - Sub-Description
+              - Vertical
+                - Asset HQ
+                - Upload from Computer
+                - Clear
+                - Description
+                - Sub-Description
+            - Add Other
+              - Lootie
+                - Asset HQ
+                - Upload from Computer
+                - Clear
+                - Description
+                - Sub-Description
+        - Languages
+          - Arabic
+            - Title
+            - Horizontal
+              - Asset HQ
+              - Upload from Computer
+              - Clear
+              - Description
+              - Sub-Description
+            - Vertical
+              - Asset HQ
+              - Upload from Computer
+              - Clear
+              - Description
+              - Sub-Description
+          - Urdu
+            - Title
+            - Horizontal
+              - Asset HQ
+              - Upload from Computer
+              - Clear
+              - Description
+              - Sub-Description
+            - Vertical
+              - Asset HQ
+              - Upload from Computer
+              - Clear
+              - Description
+              - Sub-Description
+          - Spanish
+            - Title
+            - Horizontal
+              - Asset HQ
+              - Upload from Computer
+              - Clear
+              - Description
+              - Sub-Description
+            - Vertical
+              - Asset HQ
+              - Upload from Computer
+              - Clear
+              - Description
+              - Sub-Description
+          - Turkish
+            - Title
+            - Horizontal
+              - Asset HQ
+              - Upload from Computer
+              - Clear
+              - Description
+              - Sub-Description
+            - Vertical
+              - Asset HQ
+              - Upload from Computer
+              - Clear
+              - Description
+              - Sub-Description
+      - Content Promoter
+        - Master
+          - Title
+          - Display Title
+          - Content Promoter
+            - Title
+            - Description
+            - Content Promoter
+              - Icon
+                - Asset HQ
+                - Upload from Computer
+              - Display Title
+              - Description
+              - Contents
+              - Add
+        - Languages
+          - Arabic
+            - Display Title
+            - Content Promoter
+              - Display Title
+              - Description
+              - Contents
+              - Add
+          - Urdu
+            - Display Title
+            - Content Promoter
+              - Display Title
+              - Description
+              - Contents
+              - Add
+          - Spanish
+            - Display Title
+            - Content Promoter
+              - Display Title
+              - Description
+              - Contents
+              - Add
+          - Turkish
+            - Display Title
+            - Content Promoter
+              - Display Title
+              - Description
+              - Contents
+              - Add
+      - Frequently Asked Questions
+        - Master
+          - Title
+          - Display Title
+          - Questions & Answers
+            - Question
+            - Answer
+            - Add New
+          - Selected Icon
+            - Insert from Media
+            - Upload
+          - Unselected Icon
+            - Insert from Media
+            - Upload
+        - Languages
+          - Arabic
+            - Display Title
+            - Question
+            - Answer
+            - Add new
+          - Urdu
+            - Display Title
+            - Question
+            - Answer
+            - Add new
+          - Spanish
+            - Display Title
+            - Question
+            - Answer
+            - Add new
+          - Turkish
+            - Display Title
+            - Question
+            - Answer
+            - Add new
+      - Image Component
+        - Master
+          - Image
+            - Insert from Media
+            - Upload
+          - Background Image
+            - Insert from Media
+            - Upload
+          - Logos
+            - AssetHQ
+            - Upload from Computer
+          - Title
+          - Display Title
+          - Description
+          - Image Location
+            - On The Top Of The Logo
+            - Under The Logo
+        - Languages
+          - Arabic
+            - Image
+              - Insert from Mam
+              - Upload
+            - Display Title
+            - Description
+          - Urdu
+            - Image
+              - Insert from Mam
+              - Upload
+            - Display Title
+            - Description
+          - Spanish
+            - Image
+              - Insert from Mam
+              - Upload
+            - Display Title
+            - Description
+          - Turkish
+            - Image
+              - Insert from Mam
+              - Upload
+            - Display Title
+            - Description
+      - Info Component
+        - Master
+          - Background image
+            - Insert from Mam
+            - Upload
+          - Title
+          - Display Title
+          - Description
+        - Languages
+          - Arabic
+            - Background image
+              - Insert from Mam
+              - Upload
+            - Display Title
+            - Description
+          - Urdu
+            - Background image
+              - Insert from Mam
+              - Upload
+            - Display Title
+            - Description
+          - Spanish
+            - Background image
+              - Insert from Mam
+              - Upload
+            - Display Title
+            - Description
+          - Turkish
+            - Background image
+              - Insert from Mam
+              - Upload
+            - Display Title
+            - Description
+      - Intro Media
+        - Media
+          - Insert from MAM
+          - Clear
+        - Horizontal Image
+          - Insert from Media
+          - Upload
+        - Vertical Image
+          - Insert from Media
+          - Upload
+        - Title
+        - Text Areas
+          - Info Text
+      - Livestream Promoter
+        - Master
+          - Background image
+            - Insert from Media
+            - Upload
+          - Title
+          - Display Title
+          - Description
+          - Livestream Type
+            - Grid
+            - Row
+          - Target
+            - Content type: Page
+          - Livestream
+            - {channel}
+        - Language
+          - Arabic
+            - Display Title
+            - Description
+          - Urdu
+            - Display Title
+            - Description
+          - Spanish
+            - Display Title
+            - Description
+          - Turkish
+            - Display Title
+            - Description
+      - Show Promoter
+        - Master
+          - Title
+          - Display Title
+          - Description
+          - Series/Movie/Livestream
+            - {content}
+            - content_id
+            - content_type
+        - Languages
+          - Arabic
+            - Display Title
+            - Description
+          - Urdu
+            - Display Title
+            - Description
+          - Spanish
+            - Display Title
+            - Description
+          - Turkish
+            - Display Title
+            - Description
+      - Subscription Category Info
+        - Master
+          - Title
+          - Display Title
+          - Description
+          - Info Text
+          - Subscription Category types
+            - AVOD
+            - SVOD1
+            - SVOD2
+            - CORP1
+            - CORP2
+            - CORP3
+            - CORP4
+          - Period
+            - Months
+            - Years
+        - Languages
+          - Arabic
+            - Display Title
+            - Description
+            - Info Text
+          - Urdu
+            - Display Title
+            - Description
+            - Info Text
+          - Spanish
+            - Display Title
+            - Description
+            - Info Text
+          - Turkish
+            - Display Title
+            - Description
+            - Info Text
+  - Badge
+    - Master
+      - Title
+      - Display Title
+      - Badge Type
+        - Coming Month
+        - New Documentary
+        - New Episode
+        - New Episodes Weekly
+        - New Movie
+        - New Series
+    - Language
+      - Arabic
+        - Edit
+          - Display Title
+            - Save
+              - Publish
+      - Urdu
+        - Edit
+          - Display Title
+            - Save
+              - Publish
+      - Spanish
+        - Edit
+          - Display Title
+            - Save
+              - Publish
+      - Turkish
+        - Edit
+          - Display Title
+            - Save
+              - Publish
+  - Badges
+    - Master
+      - Badge Image
+        - Insert from Media
+        - Upload
+      - Title
+      - Display Title
+      - Badge Type
+        - Icon
+        - Text
+      - Show Card Location
+        - Do Not Show
+        - Lower Left Corner
+        - Upper Left Corner
+        - Upper Right Corner
+        - Subtopic 5
+      - Banner Location
+        - Do Not Show
+        - On The Top Of The Logo
+        - Under The Logo
+    - Languages
+      - Arabic
+      - Urdu
+      - Spanish
+      - Turkish
+  - Exclusive Badges
+    - Master
+      - Title
+      - Type
+        - Orginals
+        - Premium
+        - Top
+    - Language
+      - Edit
+      - Publish
+  - Parental Guide
+    - Master
+      - Title
+      - Display Title
+      - Key
+    - Language
+      - Arabic
+        - Edit
+          - Display Title
+      - Urdu
+        - Edit
+      - Spanish
+        - Edit
+      - Turkish
+        - Edit
+  - Age Restriction
+    - Master
+      - Title
+      - key
+      - Display Title
+    - Language
+      - Arabic
+      - Urdu
+      - Spanish
+      - Turkish
+          - Display Title
+          - Display Title
+          - Display Title
+  - Avatar
+    - Image
+      - Insert from Media
+      - Upload
+    - Title
+    - Category
+      - <Avatar Category Selected>
+    - Index Number
+  - Avatar Category
+    - Master
+      - Title
+      - Display Title
+      - Index Number
+    - Language
+      - Urdu
+      - Arabic
+      - Spanish
+      - Turkish
+  - Subscription Package
+    - Master
+      - Title
+      - Display Title
+      - Category
+        - AVOD
+        - SVOD1
+        - SVOD2
+        - CORP1
+        - CORP2
+        - CORP3
+        - CORP4
+    - Language
+      - Urdu
+      - Arabic
+      - Spanish
+      - Turkish
+  - Error Message
+    - Master
+      - Title
+      - Message
+    - Language
+      - Urdu
+      - Arabic
+      - Spanish
+      - Turkish
+  - Agreement
+    - Master
+      - Title
+      - Display Title
+      - Is It Required
+      - Agreement Type
+        - Communication Permissions Agreement
+        - Cookie Preferences
+        - Distance Selling Contract
+        - Essential Cookies
+        - Performance Cookies
+        - Preliminary Information Form
+        - Privacy Policy
+        - Targeting & Advertising Cookies
+        - User Agreement
+      - Agreement Text
+    - Language
+      - Urdu
+      - Arabic
+      - Spanish
+      - Turkish
+  - License
+    - Master
+      - Title
+      - PG Code
+      - Provider
+      - Contract Year
+      - Rights
+      - License Fee
+      - License Currency
+      - Area
+      - Content Main Type
+      - Primary Genre
+      - Production Year
+      - Original Language
+      - Country Of Production
+      - Title Window
+      - Box Office
+      - Eligible To Insert Advertisement
+      - Can Watch Offline
+      - Offline Watch Validity Period
+      - Total Seasons
+      - Total Episodes
+      - Season 1
+      - Season 2
+      - Season 3
+      - Notes
+    - Date Management
+      - Countries
+      - Sort
+      - Clear Date
+      - Date Selection
+      - Save
+      - Back to Dashboard
+  - Segment
+    - Title
+    - Data Segment ID
+  - Sponsor
+    - Title
+    - Display Title
+- Lejant
+  - Alt Menü
+  - Action Menü
+  - Tab
+  - Dropdown
+  - Image
+  - Action
+  - Text input
+  - Integer
+- Exclusive Badges Dashboard
+  - Search
+  - Filter
+    - Producer
+  - Bulk Actions
+  - Create
+    - Title
+    - Type
+      - Orginals
+      - Premium
+      - Top
+  - Title
+  - Status
+    - Draft
+    - Published
+    - Unpublished
+  - Actions
+    - Edit
+    - More
+      - Unpublish

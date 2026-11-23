@@ -15,6 +15,7 @@ Kullanıcıların göreceği tam komut listesi [KOMUTLAR.md](../KOMUTLAR.md) dos
 | `oturumu bitir` | [oturum-bitir.md](oturum-bitir.md) | Bugünün kaydını yazar |
 | `gonder` | [gonder.md](gonder.md) | Kontrol eder, yükler, PR açar |
 | `figma senkron` | [figma-senkron.md](figma-senkron.md) | Figma'daki değişkenleri okur, `tokens/` klasörünü günceller |
+| `cms: <soru>`, `cms incele: <modül>`, `cms karar: <konu>` | [cms.md](cms.md) | CMS yeniden tasarımı: soru cevaplar, modül inceler, karar yazar |
 
 ## Gelecekte eklenecekler
 

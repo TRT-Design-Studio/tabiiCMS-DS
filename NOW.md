@@ -8,6 +8,8 @@ updated: 2026-11-17
 
 **Aşama:** Faz 2, komponent dokümantasyonu. Şablon hazır; Input, Select, Textarea, Form Field, Number Stepper, Phone Field, Buttons, Badges, Status & Tag, Menu, Sidebar, Tooltip, Labels & Helper, Datepicker, Tag Input, Checkbox & Radio, Filter Group, Divider, Breadcrumb, Pagination, Stepper, Page Header, Avatar, Media, Cards, Tabs, Table, List Item, Progress Bar, Trend dokümante edildi ([ROADMAP.md](ROADMAP.md))
 
+**Yeni iş kolu (2026-11-23): CMS yeniden tasarımı.** tabii CMS'i UI ve UX olarak baştan tasarlanacak. Çalışma alanı [cms/](cms/README.md): mevcut durumun kaynakları, modül analizleri, kararlar ve açık sorular. Komutlar: `cms: <soru>`, `cms incele: <modül>`, `cms karar: <konu>`.
+
 ## Bilinmesi gerekenler (geçici durum, kural değil)
 
 - **Komponentler kendi sayfalarında.** Düzen Flowbite Pro'daki gibi: Components bölümünde amaca göre gruplar var. Büyük gruplar (Form, Navigation, Data Display) boş bir başlık sayfası ve altındaki `--- <Aile>` alt sayfalarından oluşur (Form → Input, Select, Datepicker…; Navigation → Sidebar, Top Bar, Divider…). Diğer gruplar (Buttons, Badges, Status & Tag, Menu, Tooltip, Page Header, Avatar, Media, Cards) tek sayfadır. Action Bar ve Toolbar komponent değil, elle kurulur. Boy ölçeği: Button 28/32/36/40 (hug), Input 32/36/40 (sabit, varsayılan 36), Avatar 28/32/40.
@@ -30,6 +32,7 @@ updated: 2026-11-17
 4. İlk kuralların yazılması (Mücahit'ten gelecek)
 5. Ekip arkadaşlarının (`@aysemioki`, `@merveeceylaan`) [README](README.md)'deki "ilk kez" adımlarıyla kurulum yapması
 6. Ayşe ve Merve kendi 2FA'larını açınca organizasyonda 2FA zorunluluğunu açmak: [github-kurulumu.md](rehber/yonetici/github-kurulumu.md), Adım 1
+7. **CMS yeniden tasarımı:** Modülleri tek tek incelemek (`cms incele: <modül>`; Show bitti, sırada Video, Row, Page Item), [açık soruları](cms/sorular.md) ekiple cevaplamak, sonra kararlar.
 
 ## Açık kararlar
 

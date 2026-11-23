@@ -26,6 +26,14 @@ Ayrıntı: [rehber/04-gunluk-calisma.md](rehber/04-gunluk-calisma.md)
 | `interaction: <sayfa>` | Sayfanın Interaction frame'i için çalışan bir playground (code layer) üretir: bütün varyantlar ve state'ler denenebilir. Değerler `spec.md`'den gelir; spec değişince yeniden üretilir | [workflows/interaction.md](workflows/interaction.md) |
 | `figma senkron` | Figma'daki değişkenleri, yazı stillerini ve gölgeleri okur. `tokens/` klasörünü günceller ve neyin değiştiğini anlatır. Figma'da hiçbir şeyi değiştirmez | [workflows/figma-senkron.md](workflows/figma-senkron.md) |
 
+## CMS yeniden tasarımı
+
+| Yaz | Ne olur? | Akış |
+|---|---|---|
+| `cms: <soru>` | CMS'in mevcut hali, kararlar ve açık sorular üzerinden soruyu cevaplar; cevabın hangi kaynaktan geldiğini söyler | [workflows/cms.md](workflows/cms.md) |
+| `cms incele: <modül>` | Bir CMS modülünü (Show, Video, Row…) staging, Figma ekranları ve eski bilgi mimarisinden inceler, `cms/moduller/` altına yazar | [workflows/cms.md](workflows/cms.md) |
+| `cms karar: <konu>` | Yeni tasarım için bir karar yazar veya var olan bir kararı değiştirir (eskisi silinmez) | [workflows/cms.md](workflows/cms.md) |
+
 ## Kurallar
 
 | Yaz | Ne olur? | Akış |

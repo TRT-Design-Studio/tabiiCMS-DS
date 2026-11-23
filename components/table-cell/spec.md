@@ -2,9 +2,9 @@
 component: Table Cell
 figma_page: "↪︎ Table"
 figma_node: "284:1246"
-version: 1.0.0
+version: 1.1.0
 status: stable
-updated: 2026-11-17
+updated: 2026-11-23
 ---
 
 # Table Cell

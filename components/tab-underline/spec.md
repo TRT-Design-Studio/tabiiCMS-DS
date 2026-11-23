@@ -2,9 +2,9 @@
 component: Tab Underline
 figma_page: "↪︎ Tabs"
 figma_node: "282:744"
-version: 1.0.0
+version: 1.1.0
 status: stable
-updated: 2026-11-11
+updated: 2026-11-23
 ---
 
 # Tab Underline

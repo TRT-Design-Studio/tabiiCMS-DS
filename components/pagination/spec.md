@@ -2,9 +2,9 @@
 component: Pagination
 figma_page: "↪︎ Pagination"
 figma_node: "301:4472"
-version: 1.0.0
+version: 1.1.0
 status: stable
-updated: 2026-11-11
+updated: 2026-11-23
 ---
 
 # Pagination

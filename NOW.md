@@ -1,5 +1,5 @@
 ---
-updated: 2026-11-17
+updated: 2026-11-23
 ---
 
 # Şu an neredeyiz?
@@ -16,7 +16,7 @@ updated: 2026-11-17
 - **Playground'daki ekranlar** (Overview, Shows, Create Show bölümleri) referans tasarımların DS komponentleriyle kurulmuş halleri. Web 1440, tablet 768, mobil 375.
 - **Foundations sayfaları:** Colors, Typography, Spacing, Layout Grid (boş, karar bekliyor: muhtemel kırılımlar 1440 / 768 / 375), Icons, Borders, Shadows, Ratios. Eski "Shadows & Borders" ikiye ayrıldı. Sistemden bağımsız referans frame'ler sayfaların solunda "Parked · Reference" bölümlerinde duruyor, silinmedi.
 - **Dokümantasyon başladı (2026-11-10).** Her komponent kendi sayfasında dokümante edilir, ana set dokümanın Component Sets frame'inde durur. Komut: `dokuman: <sayfa>`, şablon: [rules/core/dokumantasyon/sablon.md](rules/core/dokumantasyon/sablon.md). İlk dokümante edilen: Input.
-- **Storybook ve video rafta (2026-11-10).** `spec.md` kayıtları yine yazılır. Çalışan komponent, Figma Make ile dokümandaki Interaction frame'ine gömülecek (sonraki aşama).
+- **Storybook ve video rafta (2026-11-10).** `spec.md` kayıtları yine yazılır. Çalışan komponentler `interaction/` ile code layer olarak üretilir ve dokümandaki Interaction frame'ine elle yapıştırılır ([interaction/README.md](interaction/README.md)).
 - **Dokümanların Overview frame'indeki Introduction (video) frame'i bilinçli olarak gizli.** Video sonra açılacak bir özellik. Açma, silme.
 - **Komponent adlarında eğik çizgi yok (2026-11-10).** "Nav Item", "Table Cell", "Badge Count" gibi; alt komponentler de ana adla boşlukla yazılır.
 - Token'lar Figma'dan `figma senkron` ile alınır, elle düzenlenmez. Figma adı → class tablosu: [tokens/esleme.md](tokens/esleme.md)
@@ -26,7 +26,7 @@ updated: 2026-11-17
 
 1. **Komponent revizesi:** Playground → "Reference vs DS" frame'i üzerinden referanslarla karşılaştırma ve küçük revizeler. Açık konular: [revize planı](wiki/raporlar/2026-10-20-komponent-revize-plani.md) → "Karşılaştırmada çıkan revize konuları".
 2. Faz 2: kalan komponent sayfalarını `dokuman: <sayfa>` ile tek tek dokümante etmek. Bitenler: Input, Select, Textarea, Form Field, Number Stepper, Phone Field, Buttons, Badges, Status & Tag, Menu, Sidebar, Tooltip, Labels & Helper, Datepicker, Tag Input, Checkbox & Radio, Filter Group, Divider, Breadcrumb, Pagination, Stepper, Page Header, Avatar, Media, Cards, Tabs, Table, List Item, Progress Bar, Trend. Top Bar, File Upload ve Rich Text Editor eksikleri tamamlanınca dokümante edilecek.
-3. Dokümanlardaki Interaction frame'lerine Figma Make ile çalışan komponentleri gömmek (sonraki aşama)
+3. Yeni dokümante edilen sayfalara `interaction: <sayfa>` ile code layer üretip Interaction frame'ine yapıştırmak. Etkileşimi olan bütün dokümante sayfaların code layer'ı hazır ve Figma'ya yapıştırıldı (2026-11-23).
 4. İlk kuralların yazılması (Mücahit'ten gelecek)
 5. Ekip arkadaşlarının (`@aysemioki`, `@merveeceylaan`) [README](README.md)'deki "ilk kez" adımlarıyla kurulum yapması
 6. Ayşe ve Merve kendi 2FA'larını açınca organizasyonda 2FA zorunluluğunu açmak: [github-kurulumu.md](rehber/yonetici/github-kurulumu.md), Adım 1

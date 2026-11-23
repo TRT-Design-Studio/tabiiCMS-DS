@@ -2,9 +2,9 @@
 component: Menu Item
 figma_page: "📋 Menu"
 figma_node: "720:10572"
-version: 1.0.0
+version: 1.1.0
 status: stable
-updated: 2026-11-11
+updated: 2026-11-23
 ---
 
 # Menu Item

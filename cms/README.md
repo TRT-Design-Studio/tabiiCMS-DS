@@ -37,5 +37,6 @@ Ayrıntılı tarif: [workflows/cms.md](../workflows/cms.md).
 
 - **Kaynaklar çelişirse staging kazanır**, sonra Figma ekranları, en son eski bilgi mimarisi.
 - **Mevcut durum ile karar karışmaz.** `moduller/` bugünü, `kararlar/` geleceği anlatır.
+- **Tasarlamadan önce orijinal ekrana bak.** Yeni bir ekran çizmeden önce mevcut CMS'teki karşılığını Figma ekran envanterinden incele; orijinalde olmayan bir kavram (ör. dil bazında onay) ekleme. Ekleyeceksen karar önerisinde ayrıca yaz.
 - **Uydurma.** Kaynaklarda olmayan bir şey tahmin edilmez; [sorular.md](sorular.md)'ye soru olarak yazılır.
 - **Repo herkese açıktır.** Staging adresi, kullanıcı adları, gerçek içerik verisi ve ekran görüntüleri buraya konmaz. Sadece yapı yazılır.

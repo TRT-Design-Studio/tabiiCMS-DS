@@ -29,4 +29,9 @@
 
 ## Kararlar
 
-Henüz karar yok. Açık sorular: [sorular.md](../sorular.md).
+| No | Başlık | Durum |
+|---|---|---|
+| [001](001-show-languages-ve-country-based.md) | Show formunda Languages ve Country Based sekmeleri | oneri |
+| [002](002-show-episodes-trailers-publish-management.md) | Show formunda Episodes, Trailers ve Publish Management | oneri |
+
+Açık sorular: [sorular.md](../sorular.md).

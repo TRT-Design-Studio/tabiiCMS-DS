@@ -25,6 +25,7 @@ _Henüz yok._
 ## İş akışları
 
 - [basla: yeni bir işe başlamak](../workflows/basla.md)
+- [cms: CMS yeniden tasarımı üzerinde çalışmak](../workflows/cms.md)
 - [dokuman: bir komponent sayfasını dokümante etmek](../workflows/dokuman.md)
 - [figma-senkron: Figma'daki değişkenleri repoya almak](../workflows/figma-senkron.md)
 - [gonder: işi GitHub'a yükleyip pull request açmak](../workflows/gonder.md)
